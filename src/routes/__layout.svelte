@@ -9,6 +9,7 @@
 
   const setup = async () => {
     gsap.registerPlugin((await import('gsap/ScrollToPlugin')).default)
+    gsap.registerPlugin((await import('gsap/ScrollTrigger')).default)
 
     window.simplebar = new Simplebar(root)
   }

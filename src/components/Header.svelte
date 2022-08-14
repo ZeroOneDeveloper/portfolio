@@ -23,7 +23,7 @@
 
   <div class="relative w-full">
     <div class="w-full px-6">
-      <div class="max-w-[800px] w-full mx-auto py-6 flex">
+      <div class="max-w-[1000px] w-full mx-auto py-6 flex">
         <div
           class="text-transparent bg-clip-text cursor-pointer select-none bg-gradient-to-r from-blue-400 to-pink-200 text-2xl font-thin"
           on:click={scrollToTop}
