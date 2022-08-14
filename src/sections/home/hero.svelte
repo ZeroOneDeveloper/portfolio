@@ -1,6 +1,6 @@
 <script lang="ts">
   import FaInstagram from 'svelte-icons/fa/FaInstagram.svelte'
-  import FaGitHub from 'svelte-icons/fa/FaGitHub.svelte'
+  import FaGitHub from 'svelte-icons/fa/FaGithub.svelte'
   import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte'
   import { scrollToAnchor } from '~/utils/scroll'
   import { onMount } from 'svelte'
