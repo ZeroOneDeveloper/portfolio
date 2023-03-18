@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AiOutlineInstagram } from "react-icons/ai";
+import { AiOutlineInstagram, AiFillGithub } from "react-icons/ai";
 import { FiMail } from "react-icons/fi";
 import FadeIn from "react-fade-in";
 
@@ -34,6 +34,15 @@ const Index = () => {
             <FadeIn delay={2500} transitionDuration={500}>
               <a href="mailto:me@zero0ne.dev" target="_blank" rel="noreferrer">
                 <FiMail size={32} />
+              </a>
+            </FadeIn>
+            <FadeIn delay={3000} transitionDuration={500}>
+              <a
+                href="https://github.com/ZeroOneDeveloper"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <AiFillGithub size={32} />
               </a>
             </FadeIn>
           </div>
