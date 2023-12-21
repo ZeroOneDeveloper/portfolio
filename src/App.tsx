@@ -30,9 +30,11 @@ const App: React.FC = () => {
                 fill="black"
               />
             </svg>
-            <button className="bg-[#D9D9D9] rounded-lg font-semibold text-xl px-8 py-2">
-              Follow
-            </button>
+            <a href="https://github.com/ZeroOneDeveloper">
+              <div className="bg-[#D9D9D9] rounded-lg font-semibold text-xl px-8 py-2">
+                Follow
+              </div>
+            </a>
           </div>
           <div className="flex gap-10">
             <h1 className="text-xl font-medium">
