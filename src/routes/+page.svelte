@@ -6,7 +6,7 @@
 	import Card from '../components/Card.svelte';
 </script>
 
-<div class="w-4/5 md:w-3/5 mx-auto">
+<div class="w-4/5 md:w-2/5 mx-auto">
 	<div class="flex items-center justify-evenly border-b py-8">
 		<img
 			src={whiteLogo}
@@ -47,7 +47,7 @@
 			</span>
 		</div>
 	</div>
-	<div class="grid grid-cols-3 py-8">
+	<div class="grid grid-cols-2 md:grid-cols-3 py-8">
 		<Card title="FreeAI"></Card>
 		<Card title="UniqueBots"></Card>
 		<Card title="UniqueCode"></Card>
