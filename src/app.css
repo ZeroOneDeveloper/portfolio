@@ -10,25 +10,34 @@
 	}
 
 	body {
-		@apply bg-paper font-serif text-body text-ink antialiased;
+		@apply bg-canvas font-sans text-body text-ink antialiased;
 		/* Keep Korean words intact when lines wrap. */
 		word-break: keep-all;
 		overflow-wrap: break-word;
-		font-optical-sizing: auto;
+	}
+
+	h1,
+	h2,
+	h3 {
+		text-wrap: balance;
+	}
+
+	p,
+	li,
+	blockquote {
+		text-wrap: pretty;
 	}
 
 	::selection {
-		@apply bg-accent text-paper;
+		@apply bg-accent text-surface;
 	}
 
 	:focus-visible {
-		@apply outline outline-2 outline-offset-[3px] outline-accent;
+		@apply rounded-[4px] outline outline-2 outline-offset-[3px] outline-accent;
 	}
 
-	sup {
-		@apply font-mono text-[0.62em] font-medium not-italic text-accent;
-		line-height: 0;
-		vertical-align: super;
+	[id] {
+		scroll-margin-top: 5rem;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -40,33 +49,30 @@
 		*::before,
 		*::after {
 			transition-duration: 0.01ms !important;
+			animation-duration: 0.01ms !important;
 		}
 	}
 }
 
 @layer components {
-	/* The page measure: one grid for every section. */
+	/* One measure for every section. */
 	.page {
-		@apply mx-auto w-full max-w-page px-5 sm:px-8 xl:px-12;
+		@apply mx-auto w-full max-w-page px-4 sm:px-8 lg:px-10;
 	}
 
-	/* Quiet ink link: hairline underline that warms to the accent on hover. */
-	.ink-link {
-		@apply underline decoration-rule decoration-1 underline-offset-[0.22em] transition-colors duration-200 hover:text-accent hover:decoration-accent;
+	/* Plain text link: hairline underline that turns green on hover. */
+	.text-link {
+		@apply underline decoration-line-strong decoration-1 underline-offset-[0.25em] transition-colors duration-150 hover:text-accent hover:decoration-accent;
 	}
 
-	/* Two hairlines, the way a printed masthead closes. */
-	.rule-double {
-		@apply border-t-3 border-double border-ink;
+	/* On the dark case card the focus ring takes the lighter green to stay visible. */
+	.on-night :focus-visible {
+		@apply outline-accent-glow;
 	}
 
-	/* Dotted leader between a contents entry and its folio. */
-	.leader {
-		@apply min-w-6 flex-1 translate-y-[-0.3em] self-end border-b border-dotted border-ink-muted;
-	}
-
-	/* A first-syllable initial, three lines deep. */
-	.dropcap::first-letter {
-		@apply float-left mr-2.5 mt-[0.2em] font-serif text-[4.6em] font-semibold leading-[0.84] text-accent;
+	/* Years, dates and stacks. */
+	.mono {
+		@apply font-mono tracking-[-0.01em];
+		font-variant-numeric: tabular-nums;
 	}
 }

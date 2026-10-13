@@ -1,10 +1,11 @@
 <script lang="ts">
-	import FrontMatter from '$lib/components/FrontMatter.svelte';
-	import LeadArticle from '$lib/components/LeadArticle.svelte';
-	import Clippings from '$lib/components/Clippings.svelte';
-	import Bibliography from '$lib/components/Bibliography.svelte';
-	import Figures from '$lib/components/Figures.svelte';
-	import ProjectIndex from '$lib/components/ProjectIndex.svelte';
+	import Intro from '$lib/components/Intro.svelte';
+	import LeadCase from '$lib/components/LeadCase.svelte';
+	import FocusAreas from '$lib/components/FocusAreas.svelte';
+	import Work from '$lib/components/Work.svelte';
+	import Timeline from '$lib/components/Timeline.svelte';
+	import Research from '$lib/components/Research.svelte';
+	import Press from '$lib/components/Press.svelte';
 
 	import { profile } from '$lib/content';
 
@@ -57,20 +58,22 @@
 	{@html '<script type="application/ld+json">' + JSON.stringify(jsonLd) + '</' + 'script>'}
 </svelte:head>
 
-<!-- Front matter: author, contents, §0 abstract -->
-<FrontMatter />
+<!-- 지금: name, role, photo and focus -->
+<Intro />
 
-<!-- §1 Lead article -->
-<LeadArticle />
+<!-- The lead work item: 8년 → 3일 -->
+<LeadCase />
 
-<!-- §2 Clippings -->
-<Clippings />
+<!-- 하는 일: three focus areas -->
+<FocusAreas />
+<!-- Selected work -->
+<Work />
 
-<!-- §3 Bibliography -->
-<Bibliography />
+<!-- Career timeline -->
+<Timeline />
 
-<!-- §4 Figures -->
-<Figures />
+<!-- Papers and high-school explorations -->
+<Research />
 
-<!-- §5 Index -->
-<ProjectIndex />
+<!-- Press -->
+<Press />

@@ -14,6 +14,13 @@ export const profile = {
 	motto: '세상을 바꾸는 데 0과 1만으로도 충분하다.',
 	url: 'https://www.zero0ne.dev/',
 	github: 'https://github.com/ZeroOneDeveloper',
+	/** Studio portrait. Replace this one file to swap the photo; keep the 7:9 portrait shape. */
+	photo: {
+		src: '/profile.webp',
+		width: 900,
+		height: 1157,
+		alt: '송찬우 프로필 사진'
+	},
 	company: {
 		name: '유니크굿컴퍼니',
 		nameEn: 'Uniquegood Company',
@@ -40,84 +47,17 @@ export const profileLinks: Link[] = [
 	{ label: profile.company.name, href: profile.company.url }
 ];
 
-// The site is set as one issue of a journal: "Vol. 0 · No. 1" — zero and one.
-export const issue = {
-	volume: 0,
-	number: 1,
-	title: '연구 노트',
-	titleEn: 'A Research Journal'
-} as const;
+export const scholarLinks: Link[] = profileLinks.filter((link) =>
+	['ORCID', 'Google Scholar', 'DBpia'].includes(link.label)
+);
 
-export interface IssueSection {
-	id: string;
-	/** Section number, printed as §n. 0 is the front matter. */
-	no: number;
-	label: string;
-	en: string;
-	title?: string;
-	lead?: string;
-}
-
-// Table of contents, in reading order.
-export const sections: IssueSection[] = [
-	{
-		id: 'now',
-		no: 0,
-		label: '지금',
-		en: 'Abstract',
-		title: '리얼월드를 만드는 개발팀을 이끕니다.',
-		lead: '유니크굿컴퍼니는 피지털 AI 기반의 플레이어블 콘텐츠 플랫폼 ‘리얼월드’를 운영합니다. 그 개발팀에서 AI 에이전트와 함께 일하는 방식을 만들어 갑니다.'
-	},
-	{ id: 'case', no: 1, label: '특집', en: 'Lead Article' },
-	{
-		id: 'news',
-		no: 2,
-		label: '기사',
-		en: 'Clippings',
-		title: '지면에 실린 장면들.',
-		lead: '에이전트와 함께 일하는 작은 팀, 그리고 리얼월드가 최근 언론에 소개된 장면들입니다.'
-	},
-	{
-		id: 'research',
-		no: 3,
-		label: '논문',
-		en: 'Bibliography',
-		title: '데이터에서 위험을 읽어냅니다.',
-		lead: '국민건강보험 코호트 연구부터 직접 만든 온라인 저지까지, 발표한 논문입니다.'
-	},
-	{
-		id: 'explorations',
-		no: 4,
-		label: '탐구',
-		en: 'Figures',
-		title: '고등학생 때부터, 수학으로 문제를 풀었습니다.',
-		lead: '감염병, 화학 공정, 수학 교육, 자원 관리. 질문 하나를 모델과 코드로 끝까지 따라간 기록입니다.'
-	},
-	{
-		id: 'projects',
-		no: 5,
-		label: '프로젝트',
-		en: 'Index',
-		title: '만들고, 운영하며 배웠습니다.',
-		lead: '2020년에 창업한 팀부터 대학 수업을 위한 온라인 저지까지, 직접 만든 서비스들입니다.'
-	}
-];
-
-export function sectionById(id: string): IssueSection {
-	const found = sections.find((section) => section.id === id);
-	if (!found) throw new Error(`Unknown section: ${id}`);
-	return found;
-}
-
-/** Page numbers of this issue are printed in binary: 0과 1만으로. */
-export function folio(no: number): string {
-	return no.toString(2).padStart(3, '0');
-}
-
-/** Bare host of a URL, for citation-style link labels. */
-export function hostOf(href: string): string {
-	return new URL(href).hostname.replace(/^www\./, '');
-}
+// Header navigation, in page order.
+export const nav = [
+	{ id: 'projects', label: '작업' },
+	{ id: 'career', label: '경력' },
+	{ id: 'research', label: '연구' },
+	{ id: 'news', label: '기사' }
+] as const;
 
 export const focusAreas = [
 	{
@@ -134,6 +74,347 @@ export const focusAreas = [
 	}
 ] as const;
 
+// The opening: what he does now, in one line built from the three focus areas.
+export const intro = {
+	positioning: 'AI 에이전트와 함께 풀스택으로 제품을 만들고, 의료 데이터를 분석합니다.',
+	links: [
+		{ label: profile.company.name, href: profile.company.url },
+		{ label: '리얼월드', href: profile.realworld },
+		{ label: 'GitHub', href: profile.github }
+	] satisfies Link[]
+};
+
+export interface Citation {
+	outlet: string;
+	date: string;
+	href: string;
+}
+
+const apnews: Citation = {
+	outlet: 'AP신문',
+	date: '2026.10.08',
+	href: 'https://www.apnews.kr/news/articleView.html?idxno=3051891'
+};
+
+// The press story that names him directly: the lead work item.
+export const featuredCase = {
+	context: '유니크굿컴퍼니 합류 직후',
+	shifts: [
+		{ from: '8년', fromNote: '앱으로 운영된 기간', to: '3일', toNote: '웹 버전을 만든 기간' },
+		{ from: '앱', fromNote: '설치해서 즐기던 게임', to: '웹', toNote: '설치 없이 즐기는 버전' }
+	],
+	title: 'AI 에이전트로, 8년 된 앱 게임을 사흘 만에 웹으로.',
+	body: '유니크굿컴퍼니 합류 직후, 에이전트를 활용해 8년 동안 앱으로 운영된 게임 서비스를 설치 없이 즐길 수 있는 웹 버전으로 사흘 만에 개발했습니다. 2026년 10월 『나노벤처』 북토크에서 회사의 AI 에이전트 조직 시스템 ‘AXIT’ 도입 경험과 함께 이 사례를 발표했습니다.',
+	quote:
+		'처음엔 ‘어떡하지’보다 ‘해볼 만하다’는 생각이 먼저 들었다. 제가 잘해서라기보다 회사가 쌓아온 기술과 인프라가 있었기에 가능했다.',
+	speaker: profile.name,
+	quoteSource: apnews,
+	sources: [
+		apnews,
+		{
+			outlet: '경제타임스',
+			date: '2026.09.30',
+			href: 'https://www.ket.kr/news/article.html?no=41104'
+		}
+	] satisfies Citation[]
+};
+
+export interface WorkMedia {
+	/** What the picture is, said plainly on the card. */
+	label: '사이트 화면' | '출력 예시' | '로고' | '도식';
+	alt: string;
+	src?: string;
+	width?: number;
+	height?: number;
+	/** Ground the image was made on, so the frame can match it. */
+	tone: 'light' | 'dark';
+}
+
+export interface Project {
+	id: string;
+	name: string;
+	year: string;
+	role: string;
+	summary: string;
+	stack: string;
+	links: Link[];
+	media: WorkMedia;
+}
+
+export const projects: Project[] = [
+	{
+		id: 'code01',
+		name: 'Code01',
+		year: '2025–2026',
+		role: '풀스택',
+		summary:
+			'대학 프로그래밍 수업을 위한 온라인 저지. 조직·문제·퀴즈를 관리하고, Docker 안의 Piston 엔진으로 코드를 자동 채점합니다.',
+		stack: 'Next.js · FastAPI · PostgreSQL · Docker',
+		links: [
+			{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/Code01' },
+			{
+				label: 'KIIT 2025 논문',
+				href: 'https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE12545663'
+			}
+		],
+		media: {
+			label: '도식',
+			alt: 'Code01 채점 흐름 도식: 학생이 코드를 제출하면 Docker 안의 Piston 엔진이 자동 채점하고, 결과를 실시간으로 보여 줍니다.',
+			tone: 'light'
+		}
+	},
+	{
+		id: 'neulbom',
+		name: '늘봄 NeulBom',
+		year: '2023–2024',
+		role: '팀 리더',
+		summary:
+			'“당신 손 안의 작은 학교.” 게시판, 급식 달력, 바코드 학생증, 일정과 알림을 담은 학교 커뮤니티 PWA입니다.',
+		stack: 'Next.js · FastAPI · MongoDB',
+		links: [{ label: 'GitHub', href: 'https://github.com/KH-Programmers/NeulBom_Frontend' }],
+		media: {
+			label: '로고',
+			src: '/projects/web/neulbom-dark.webp',
+			width: 960,
+			height: 960,
+			alt: '늘봄 로고: 검은 바탕 위 분홍색 꽃잎 모양',
+			tone: 'dark'
+		}
+	},
+	{
+		id: 'zerocut',
+		name: 'ZeroCut',
+		year: '2025',
+		role: '오픈소스',
+		summary: '인생네컷 스타일의 네 컷 사진을 만들어 주는 Python 라이브러리. PyPI에 배포했습니다.',
+		stack: 'Python · Pillow',
+		links: [{ label: 'PyPI', href: 'https://pypi.org/project/zerocut/' }],
+		media: {
+			label: '출력 예시',
+			src: '/work/zerocut-photo-strip.webp',
+			width: 1000,
+			height: 2800,
+			alt: 'ZeroCut으로 만든 세로 네 컷 사진. 흰 프레임에 그림 네 컷이 이어지고, 아래에 ‘[ ZEROCUT ] 나의 0을 1로 만드는 순간들’ 문구와 2025.06.14 날짜가 있습니다.',
+			tone: 'light'
+		}
+	},
+	{
+		id: 'ods',
+		name: 'ODS',
+		year: '2023',
+		role: '공동 개발',
+		summary:
+			'“당신의 목소리가 세상을 바꿀 수 있습니다.” 자원봉사자가 TED 영상을 더빙하는 플랫폼으로, 녹음과 편집을 브라우저에서 처리합니다.',
+		stack: 'Next.js · Supabase · wavesurfer.js',
+		links: [{ label: '사이트', href: 'https://ods.zero0ne.dev' }],
+		media: {
+			label: '사이트 화면',
+			src: '/work/ods-home-desktop.webp',
+			width: 1440,
+			height: 900,
+			alt: 'ODS 첫 화면. 필기체 ODS 로고 아래 ‘당신의 목소리가 세상을 바꿀 수 있습니다.’ 문구와 파란 시작하기 버튼이 있고, 그 아래 기능 소개 카드가 이어집니다.',
+			tone: 'light'
+		}
+	},
+	{
+		id: 'uniquecode',
+		name: 'UniqueCode',
+		year: '2020–2022',
+		role: '대표',
+		summary:
+			'“당신의 디스코드에 유니크한 재미를 더.” 디스코드 봇과 서비스를 만드는 팀을 창업해 이끌었습니다.',
+		stack: '팀 운영 · 백엔드',
+		links: [],
+		media: {
+			label: '로고',
+			src: '/projects/web/uniquecode.webp',
+			width: 640,
+			height: 640,
+			alt: 'UniqueCode 로고: 검은 바탕 위 흰 필기체 u',
+			tone: 'dark'
+		}
+	},
+	{
+		id: 'uniquebots',
+		name: 'UniqueBots',
+		year: '2020–2021',
+		role: 'UniqueCode',
+		summary:
+			'한국 디스코드 봇을 소개하고 홍보하는 봇 리스트 사이트. UniqueCode의 서비스로 운영했습니다.',
+		stack: 'Next.js · GraphQL · Prisma',
+		links: [{ label: 'GitHub', href: 'https://github.com/paring-chan/uniquebots' }],
+		media: {
+			label: '로고',
+			src: '/projects/web/uniquebots.webp',
+			width: 640,
+			height: 640,
+			alt: 'UniqueBots 로고: 밝은 회색 바탕 위 검은 UB 글자',
+			tone: 'light'
+		}
+	},
+	{
+		id: 'freeai',
+		name: 'FreeAI',
+		year: '2020',
+		role: '공동 제작',
+		summary: '서버 관리, 음악, 게임, 레벨링, 검색을 한데 담은 다기능 디스코드 봇입니다.',
+		stack: 'Discord Bot',
+		links: [{ label: 'koreanbots', href: 'https://koreanbots.dev/bots/695899835953578025' }],
+		media: {
+			label: '로고',
+			src: '/projects/web/freeai.webp',
+			width: 640,
+			height: 640,
+			alt: 'FreeAI 로고: 검은 바탕 위 흰 삼각형 A',
+			tone: 'dark'
+		}
+	}
+];
+
+export function projectById(id: string): Project {
+	const found = projects.find((project) => project.id === id);
+	if (!found) throw new Error(`Unknown project: ${id}`);
+	return found;
+}
+
+export interface TimelineItem {
+	kind: '회사' | '학교' | '논문' | '프로젝트' | '오픈소스' | '탐구' | '창업' | '서비스';
+	title: string;
+	detail: string;
+	href?: string;
+}
+
+export interface TimelineYear {
+	year: string;
+	current?: boolean;
+	items: TimelineItem[];
+}
+
+// Career, newest first. Only facts stated elsewhere on this page.
+export const timeline: TimelineYear[] = [
+	{
+		year: '현재',
+		current: true,
+		items: [
+			{
+				kind: '회사',
+				title: `${profile.company.name} ${profile.role}`,
+				detail:
+					'리얼월드를 만드는 개발팀. 합류 직후 AI 에이전트로 8년 된 앱 게임의 웹 버전을 사흘 만에 만들었습니다.',
+				href: '#case'
+			}
+		]
+	},
+	{
+		year: '2026',
+		items: [
+			{
+				kind: '논문',
+				title: 'Clinical Rheumatology',
+				detail: '강직성 척추염 이후 부정맥 위험 · 공동 저자 · 2026.08',
+				href: '#research'
+			},
+			{
+				kind: '논문',
+				title: 'Sleep Medicine',
+				detail: '파킨슨병의 신체형·수면 관련 장애 위험 · 공동 저자 · 2026.06',
+				href: '#research'
+			}
+		]
+	},
+	{
+		year: '2025',
+		items: [
+			{
+				kind: '학교',
+				title: `${profile.school.name} ${profile.school.department}`,
+				detail: profile.school.cohort
+			},
+			{
+				kind: '프로젝트',
+				title: 'Code01',
+				detail: '대학 프로그래밍 수업을 위한 온라인 저지 · 2025–2026',
+				href: '#code01'
+			},
+			{
+				kind: '논문',
+				title: '한국정보기술학회 2025 추계종합학술대회',
+				detail: 'Code01 구현 논문 · 2025.11',
+				href: '#research'
+			},
+			{
+				kind: '오픈소스',
+				title: 'ZeroCut',
+				detail: 'PyPI에 배포한 네 컷 사진 라이브러리',
+				href: '#zerocut'
+			}
+		]
+	},
+	{
+		year: '2024',
+		items: [
+			{
+				kind: '논문',
+				title: '한국정보과학회 KCC 2024',
+				detail: `적분 속도식 일반화 · ${profile.highSchool.name} 재학 중 단독 저자 · 2024.06`,
+				href: '#research'
+			},
+			{
+				kind: '탐구',
+				title: 'Graph Visualization · Blockchain',
+				detail: '고3 탐구 · 함수 그래프 분석, 제품 이력 블록체인',
+				href: '#explorations'
+			}
+		]
+	},
+	{
+		year: '2023',
+		items: [
+			{
+				kind: '프로젝트',
+				title: 'ODS',
+				detail: 'TED 영상 더빙 플랫폼 · 공동 개발',
+				href: '#ods'
+			},
+			{
+				kind: '프로젝트',
+				title: '늘봄 NeulBom',
+				detail: '학교 커뮤니티 PWA · 팀 리더 · 2023–2024',
+				href: '#neulbom'
+			},
+			{
+				kind: '탐구',
+				title: 'SIR Model',
+				detail: '감염병 확산 시뮬레이션 · 고2 수학Ⅱ',
+				href: '#explorations'
+			}
+		]
+	},
+	{
+		year: '2020–2022',
+		items: [
+			{
+				kind: '창업',
+				title: 'UniqueCode 대표',
+				detail: '디스코드 봇과 서비스를 만드는 팀을 창업해 이끌었습니다.',
+				href: '#uniquecode'
+			},
+			{
+				kind: '서비스',
+				title: 'UniqueBots',
+				detail: '한국 디스코드 봇 리스트 사이트 · 2020–2021',
+				href: '#uniquebots'
+			},
+			{
+				kind: '프로젝트',
+				title: 'FreeAI',
+				detail: '다기능 디스코드 봇 · 공동 제작 · 2020',
+				href: '#freeai'
+			}
+		]
+	}
+];
+
 export interface Paper {
 	title: string;
 	titleEn?: string;
@@ -147,6 +428,9 @@ export interface Paper {
 	summary: string;
 	href: string;
 }
+
+/** How his name is printed in author lists, so it can be emphasised. */
+export const selfNames = [profile.name, profile.nameEn];
 
 export const papers: Paper[] = [
 	{
@@ -199,6 +483,18 @@ export const papers: Paper[] = [
 	}
 ];
 
+const doiPrefix = 'https://doi.org/';
+
+/** The DOI of a paper link, if it is one. */
+export function doiOf(href: string): string | undefined {
+	return href.startsWith(doiPrefix) ? href.slice(doiPrefix.length) : undefined;
+}
+
+/** Short label for a paper link: DOI, or the index it lives in. */
+export function paperLinkLabel(href: string): string {
+	return doiOf(href) ? 'DOI' : 'DBpia';
+}
+
 export interface Exploration {
 	title: string;
 	purpose: string;
@@ -206,6 +502,7 @@ export interface Exploration {
 	summary: string;
 	stack: string;
 	image: string;
+	imageSize: number;
 	links: Link[];
 }
 
@@ -219,6 +516,7 @@ export const explorations: Exploration[] = [
 			'출생률과 사망률을 더한 SIR 모델로 감염병 확산을 시뮬레이션하고, 매개변수를 넣으면 그래프로 보여 주는 웹 UI를 만들었습니다.',
 		stack: 'Python · Gradio · pandas',
 		image: '/projects/web/sir-model.webp',
+		imageSize: 960,
 		links: [{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/SIR_Model' }]
 	},
 	{
@@ -229,6 +527,7 @@ export const explorations: Exploration[] = [
 			'변수분리로 0차·1차·n차 반응의 적분 속도식을 유도하고, 선형 회귀의 R²로 반응차수를 찾습니다. KCC 2024에서 논문으로 발표했습니다.',
 		stack: 'Python · NumPy · scikit-learn',
 		image: '/projects/web/integral-velocity-equation.webp',
+		imageSize: 900,
 		links: [
 			{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/IntegralVelocityEquation' },
 			{ label: '논문', href: 'https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11862579' }
@@ -242,6 +541,7 @@ export const explorations: Exploration[] = [
 			'LaTeX로 입력한 함수의 정의역, 대칭성, 극값과 변곡점을 1·2계도함수로 분석해 그래프로 그려 줍니다.',
 		stack: 'Python · SymPy · matplotlib',
 		image: '/projects/web/graph-visualization.webp',
+		imageSize: 960,
 		links: [
 			{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/DesignOfGraphVisualization' }
 		]
@@ -254,110 +554,13 @@ export const explorations: Exploration[] = [
 			'제품 이력을 블록체인에 기록하는 ‘제품표시이력제’. RSA로 서명한 거래를 작업증명 블록으로 묶습니다.',
 		stack: 'Next.js · TypeScript · MongoDB',
 		image: '/projects/web/blockchain.webp',
+		imageSize: 960,
 		links: [
 			{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/ProductDisplayHistorySystem' },
 			{ label: '데모', href: 'https://blockchain-omega-eight.vercel.app' }
 		]
 	}
 ];
-
-export interface Project {
-	name: string;
-	meta: string;
-	summary: string;
-	stack: string;
-	image?: string;
-	href?: string;
-}
-
-export const projects: Project[] = [
-	{
-		name: 'Code01',
-		meta: '2025–2026 · 풀스택',
-		summary:
-			'대학 프로그래밍 수업을 위한 온라인 저지. 조직·문제·퀴즈를 관리하고, Docker 안의 Piston 엔진으로 코드를 자동 채점합니다.',
-		stack: 'Next.js · FastAPI · PostgreSQL · Docker',
-		href: 'https://github.com/ZeroOneDeveloper/Code01'
-	},
-	{
-		name: 'ZeroCut',
-		meta: '2025 · 오픈소스',
-		summary: '인생네컷 스타일의 네 컷 사진을 만들어 주는 Python 라이브러리. PyPI에 배포했습니다.',
-		stack: 'Python · Pillow',
-		href: 'https://pypi.org/project/zerocut/'
-	},
-	{
-		name: '늘봄 NeulBom',
-		meta: '2023–2024 · 팀 리더',
-		summary:
-			'“당신 손 안의 작은 학교.” 게시판, 급식 달력, 바코드 학생증, 일정과 알림을 담은 학교 커뮤니티 PWA입니다.',
-		stack: 'Next.js · FastAPI · MongoDB',
-		image: '/projects/web/neulbom-dark.webp',
-		href: 'https://github.com/KH-Programmers/NeulBom_Frontend'
-	},
-	{
-		name: 'ODS',
-		meta: '2023 · 공동 개발',
-		summary:
-			'“당신의 목소리가 세상을 바꿀 수 있습니다.” 자원봉사자가 TED 영상을 더빙하는 플랫폼으로, 녹음과 편집을 브라우저에서 처리합니다.',
-		stack: 'Next.js · Supabase · wavesurfer.js',
-		image: '/projects/web/ods-dark.webp',
-		href: 'https://ods.zero0ne.dev'
-	},
-	{
-		name: 'UniqueCode',
-		meta: '2020–2022 · 대표',
-		summary:
-			'“당신의 디스코드에 유니크한 재미를 더.” 디스코드 봇과 서비스를 만드는 팀을 창업해 이끌었습니다.',
-		stack: '팀 운영 · 백엔드',
-		image: '/projects/web/uniquecode.webp'
-	},
-	{
-		name: 'UniqueBots',
-		meta: '2020–2021 · UniqueCode',
-		summary:
-			'한국 디스코드 봇을 소개하고 홍보하는 봇 리스트 사이트. UniqueCode의 서비스로 운영했습니다.',
-		stack: 'Next.js · GraphQL · Prisma',
-		image: '/projects/web/uniquebots.webp',
-		href: 'https://github.com/paring-chan/uniquebots'
-	},
-	{
-		name: 'FreeAI',
-		meta: '2020 · 공동 제작',
-		summary: '서버 관리, 음악, 게임, 레벨링, 검색을 한데 담은 다기능 디스코드 봇입니다.',
-		stack: 'Discord Bot',
-		image: '/projects/web/freeai.webp',
-		href: 'https://koreanbots.dev/bots/695899835953578025'
-	}
-];
-
-export interface Citation {
-	outlet: string;
-	date: string;
-	href: string;
-}
-
-// The press story that names him directly, told as the lead article.
-export const featuredCase = {
-	stat: '3일',
-	statCaption: '8년 된 앱 게임을 웹으로',
-	title: 'AI 에이전트로, 8년 된 앱 게임을 사흘 만에 웹으로.',
-	body: '유니크굿컴퍼니 합류 직후, 에이전트를 활용해 8년 동안 앱으로 운영된 게임 서비스를 설치 없이 즐길 수 있는 웹 버전으로 사흘 만에 개발했습니다. 2026년 10월 『나노벤처』 북토크에서 회사의 AI 에이전트 조직 시스템 ‘AXIT’ 도입 경험과 함께 이 사례를 발표했습니다.',
-	quote:
-		'처음엔 ‘어떡하지’보다 ‘해볼 만하다’는 생각이 먼저 들었다. 제가 잘해서라기보다 회사가 쌓아온 기술과 인프라가 있었기에 가능했다.',
-	sources: [
-		{
-			outlet: 'AP신문',
-			date: '2026.10.08',
-			href: 'https://www.apnews.kr/news/articleView.html?idxno=3051891'
-		},
-		{
-			outlet: '경제타임스',
-			date: '2026.09.30',
-			href: 'https://www.ket.kr/news/article.html?no=41104'
-		}
-	] satisfies Citation[]
-};
 
 export interface Article {
 	headline: string;
@@ -423,30 +626,5 @@ export const articles: Article[] = [
 			'싱가포르 DAS Universe와 합작법인을 세워, 싱가포르·말레이시아에서 디지털 스토리텔링과 물리 공간을 결합한 몰입형 테마파크를 추진합니다.',
 		tag: '글로벌',
 		href: 'https://www.venturesquare.net/959056/'
-	}
-];
-
-export const footerColumns: { heading: string; links: Link[] }[] = [
-	{
-		heading: '차례',
-		links: sections.map((section) => ({
-			label: `§${section.no} ${section.label}`,
-			href: `#${section.id}`
-		}))
-	},
-	{
-		heading: '연구',
-		links: profileLinks.filter((link) => ['ORCID', 'Google Scholar', 'DBpia'].includes(link.label))
-	},
-	{
-		heading: '코드',
-		links: [{ label: 'GitHub', href: profile.github }]
-	},
-	{
-		heading: '소속',
-		links: [
-			{ label: profile.company.name, href: profile.company.url },
-			{ label: profile.highSchool.name, href: profile.highSchool.url }
-		]
 	}
 ];
