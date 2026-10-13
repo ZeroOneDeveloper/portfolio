@@ -40,13 +40,84 @@ export const profileLinks: Link[] = [
 	{ label: profile.company.name, href: profile.company.url }
 ];
 
-export const sections = [
-	{ id: 'now', label: '지금' },
-	{ id: 'news', label: '뉴스' },
-	{ id: 'research', label: '논문' },
-	{ id: 'explorations', label: '탐구' },
-	{ id: 'projects', label: '프로젝트' }
-] as const;
+// The site is set as one issue of a journal: "Vol. 0 · No. 1" — zero and one.
+export const issue = {
+	volume: 0,
+	number: 1,
+	title: '연구 노트',
+	titleEn: 'A Research Journal'
+} as const;
+
+export interface IssueSection {
+	id: string;
+	/** Section number, printed as §n. 0 is the front matter. */
+	no: number;
+	label: string;
+	en: string;
+	title?: string;
+	lead?: string;
+}
+
+// Table of contents, in reading order.
+export const sections: IssueSection[] = [
+	{
+		id: 'now',
+		no: 0,
+		label: '지금',
+		en: 'Abstract',
+		title: '리얼월드를 만드는 개발팀을 이끕니다.',
+		lead: '유니크굿컴퍼니는 피지털 AI 기반의 플레이어블 콘텐츠 플랫폼 ‘리얼월드’를 운영합니다. 그 개발팀에서 AI 에이전트와 함께 일하는 방식을 만들어 갑니다.'
+	},
+	{ id: 'case', no: 1, label: '특집', en: 'Lead Article' },
+	{
+		id: 'news',
+		no: 2,
+		label: '기사',
+		en: 'Clippings',
+		title: '지면에 실린 장면들.',
+		lead: '에이전트와 함께 일하는 작은 팀, 그리고 리얼월드가 최근 언론에 소개된 장면들입니다.'
+	},
+	{
+		id: 'research',
+		no: 3,
+		label: '논문',
+		en: 'Bibliography',
+		title: '데이터에서 위험을 읽어냅니다.',
+		lead: '국민건강보험 코호트 연구부터 직접 만든 온라인 저지까지, 발표한 논문입니다.'
+	},
+	{
+		id: 'explorations',
+		no: 4,
+		label: '탐구',
+		en: 'Figures',
+		title: '고등학생 때부터, 수학으로 문제를 풀었습니다.',
+		lead: '감염병, 화학 공정, 수학 교육, 자원 관리. 질문 하나를 모델과 코드로 끝까지 따라간 기록입니다.'
+	},
+	{
+		id: 'projects',
+		no: 5,
+		label: '프로젝트',
+		en: 'Index',
+		title: '만들고, 운영하며 배웠습니다.',
+		lead: '2020년에 창업한 팀부터 대학 수업을 위한 온라인 저지까지, 직접 만든 서비스들입니다.'
+	}
+];
+
+export function sectionById(id: string): IssueSection {
+	const found = sections.find((section) => section.id === id);
+	if (!found) throw new Error(`Unknown section: ${id}`);
+	return found;
+}
+
+/** Page numbers of this issue are printed in binary: 0과 1만으로. */
+export function folio(no: number): string {
+	return no.toString(2).padStart(3, '0');
+}
+
+/** Bare host of a URL, for citation-style link labels. */
+export function hostOf(href: string): string {
+	return new URL(href).hostname.replace(/^www\./, '');
+}
 
 export const focusAreas = [
 	{
@@ -67,7 +138,10 @@ export interface Paper {
 	title: string;
 	titleEn?: string;
 	authors: string[];
+	/** Journal or proceedings name. */
 	venue: string;
+	/** Volume, issue and pages within the venue. */
+	locator: string;
 	date: string;
 	kind: '저널' | '학술대회';
 	summary: string;
@@ -79,7 +153,8 @@ export const papers: Paper[] = [
 		title:
 			'Risk of arrhythmia following ankylosing spondylitis, 2012–2023: a nationwide cohort study',
 		authors: ['Seung Won Lee', 'Chanwoo Song', 'Minyoung Kim', 'Hohyun Jung', 'Youngoh Bae'],
-		venue: 'Clinical Rheumatology, 45(8), 4947–4958',
+		venue: 'Clinical Rheumatology',
+		locator: '45(8), 4947–4958',
 		date: '2026.08',
 		kind: '저널',
 		summary:
@@ -90,7 +165,8 @@ export const papers: Paper[] = [
 		title:
 			'Risk of somatoform and sleep-related disorders in Parkinson’s disease: A nationwide matched cohort study',
 		authors: ['Youngoh Bae', 'Chanwoo Song', 'Seoyeon Kim', 'Seung Won Lee', 'Hohyun Jung'],
-		venue: 'Sleep Medicine, vol. 142, 108881',
+		venue: 'Sleep Medicine',
+		locator: 'vol. 142, 108881',
 		date: '2026.06',
 		kind: '저널',
 		summary:
@@ -100,7 +176,8 @@ export const papers: Paper[] = [
 	{
 		title: '도커 기반 온라인 저지 시스템 Code01의 구현',
 		authors: ['송찬우', '최상일'],
-		venue: '한국정보기술학회 2025 추계종합학술대회 및 대학생논문경진대회, pp. 1701–1704',
+		venue: '한국정보기술학회 2025 추계종합학술대회 및 대학생논문경진대회',
+		locator: 'pp. 1701–1704',
 		date: '2025.11',
 		kind: '학술대회',
 		summary:
@@ -112,7 +189,8 @@ export const papers: Paper[] = [
 		titleEn:
 			'Generalization of Integral Rate Laws and Implementation of a Reaction Order Derivation System',
 		authors: ['송찬우'],
-		venue: '한국정보과학회 KCC 2024 논문집, pp. 2484–2486',
+		venue: '한국정보과학회 KCC 2024 논문집',
+		locator: 'pp. 2484–2486',
 		date: '2024.06',
 		kind: '학술대회',
 		summary:
@@ -253,7 +331,13 @@ export const projects: Project[] = [
 	}
 ];
 
-// The press story that names him directly, told as a case.
+export interface Citation {
+	outlet: string;
+	date: string;
+	href: string;
+}
+
+// The press story that names him directly, told as the lead article.
 export const featuredCase = {
 	stat: '3일',
 	statCaption: '8년 된 앱 게임을 웹으로',
@@ -263,14 +347,16 @@ export const featuredCase = {
 		'처음엔 ‘어떡하지’보다 ‘해볼 만하다’는 생각이 먼저 들었다. 제가 잘해서라기보다 회사가 쌓아온 기술과 인프라가 있었기에 가능했다.',
 	sources: [
 		{
-			label: 'AP신문 · 2026.10.08',
+			outlet: 'AP신문',
+			date: '2026.10.08',
 			href: 'https://www.apnews.kr/news/articleView.html?idxno=3051891'
 		},
 		{
-			label: '경제타임스 · 2026.09.30',
+			outlet: '경제타임스',
+			date: '2026.09.30',
 			href: 'https://www.ket.kr/news/article.html?no=41104'
 		}
-	] satisfies Link[]
+	] satisfies Citation[]
 };
 
 export interface Article {
@@ -342,8 +428,11 @@ export const articles: Article[] = [
 
 export const footerColumns: { heading: string; links: Link[] }[] = [
 	{
-		heading: '둘러보기',
-		links: sections.map((section) => ({ label: section.label, href: `#${section.id}` }))
+		heading: '차례',
+		links: sections.map((section) => ({
+			label: `§${section.no} ${section.label}`,
+			href: `#${section.id}`
+		}))
 	},
 	{
 		heading: '연구',

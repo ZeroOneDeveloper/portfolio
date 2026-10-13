@@ -1,18 +1,23 @@
 <script lang="ts">
 	import '../app.css';
 
-	import GlobalNav from '$lib/components/GlobalNav.svelte';
-	import SubNav from '$lib/components/SubNav.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Masthead from '$lib/components/Masthead.svelte';
+	import Colophon from '$lib/components/Colophon.svelte';
 
 	let { children } = $props();
 </script>
 
-<GlobalNav />
-<SubNav />
+<a
+	href="#main"
+	class="sr-only z-50 bg-ink px-4 py-2 text-note text-paper focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+>
+	본문 바로가기
+</a>
 
-<main>
+<Masthead />
+
+<main id="main" tabindex="-1" class="focus:outline-none">
 	{@render children()}
 </main>
 
-<Footer />
+<Colophon />

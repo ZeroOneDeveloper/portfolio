@@ -1,123 +1,76 @@
 import type { Config } from 'tailwindcss';
 
-// Apple-style design tokens. Every color, radius and type size used in markup
-// comes from here — components never inline hex values.
+// "연구 노트" design tokens: warm paper, near-black ink and a single oxblood accent.
+// Components use these names only — no hex values in markup.
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
 		screens: {
 			xs: '420px',
-			sm: '641px',
-			md: '736px',
-			lg: '834px',
-			xl: '1069px',
-			'2xl': '1441px'
+			sm: '640px',
+			md: '768px',
+			lg: '1024px',
+			xl: '1280px'
 		},
 
 		extend: {
 			colors: {
-				primary: '#0066cc',
-				'primary-focus': '#0071e3',
-				'primary-on-dark': '#2997ff',
-
-				canvas: '#ffffff',
-				parchment: '#f5f5f7',
-				pearl: '#fafafc',
-				'tile-1': '#272729',
-				'tile-2': '#2a2a2c',
-				'tile-3': '#252527',
-				void: '#000000',
-				chip: 'rgba(210, 210, 215, 0.64)',
-
-				ink: '#1d1d1f',
-				'body-muted': '#cccccc',
-				'ink-80': '#333333',
-				'ink-48': '#7a7a7a',
-
-				'divider-soft': '#f0f0f0',
-				hairline: '#e0e0e0'
+				paper: '#f3efe6',
+				'paper-deep': '#e9e3d6',
+				ink: '#1c1915',
+				'ink-soft': '#46413a',
+				'ink-muted': '#675f54',
+				rule: '#c9c0af',
+				accent: '#8a2a1e',
+				'accent-deep': '#6c1f15'
 			},
 
 			fontFamily: {
-				display: [
-					'"SF Pro Display"',
-					'-apple-system',
-					'BlinkMacSystemFont',
-					'"Apple SD Gothic Neo"',
-					'"Pretendard Variable"',
-					'Pretendard',
-					'Inter',
-					'system-ui',
-					'sans-serif'
-				],
-				text: [
-					'"SF Pro Text"',
-					'-apple-system',
-					'BlinkMacSystemFont',
-					'"Apple SD Gothic Neo"',
-					'"Pretendard Variable"',
-					'Pretendard',
-					'Inter',
-					'system-ui',
-					'sans-serif'
-				]
+				// Hangul (and body Latin) — a Korean serif.
+				serif: ['Hahmlet', '"Noto Serif KR"', 'serif'],
+				// Latin display, italics, venues and figure labels.
+				latin: ['Newsreader', 'Hahmlet', 'serif'],
+				// Metadata: issue lines, dates, folios, stacks.
+				mono: ['"IBM Plex Mono"', 'Hahmlet', 'ui-monospace', 'monospace']
 			},
 
 			fontSize: {
-				'hero-display': [
-					'56px',
-					{ lineHeight: '1.07', letterSpacing: '-0.28px', fontWeight: '600' }
+				nameplate: [
+					'clamp(4.25rem, 2.4rem + 7.6vw, 9.75rem)',
+					{ lineHeight: '0.86', letterSpacing: '-0.03em' }
 				],
-				'display-lg': ['40px', { lineHeight: '1.1', letterSpacing: '0', fontWeight: '600' }],
-				'display-md': [
-					'34px',
-					{ lineHeight: '1.47', letterSpacing: '-0.374px', fontWeight: '600' }
+				stat: [
+					'clamp(8.5rem, 4.6rem + 15vw, 17.5rem)',
+					{ lineHeight: '0.78', letterSpacing: '-0.045em' }
 				],
-				lead: ['28px', { lineHeight: '1.14', letterSpacing: '0.196px', fontWeight: '400' }],
-				'lead-airy': ['24px', { lineHeight: '1.5', letterSpacing: '0', fontWeight: '300' }],
-				tagline: ['21px', { lineHeight: '1.19', letterSpacing: '0.231px', fontWeight: '600' }],
-				'body-strong': [
-					'17px',
-					{ lineHeight: '1.24', letterSpacing: '-0.374px', fontWeight: '600' }
+				display: ['clamp(3.25rem, 2.2rem + 3.6vw, 5.5rem)', { lineHeight: '1.2' }],
+				headline: [
+					'clamp(1.75rem, 1.25rem + 1.6vw, 2.625rem)',
+					{ lineHeight: '1.32', letterSpacing: '-0.01em' }
 				],
-				body: ['17px', { lineHeight: '1.47', letterSpacing: '-0.374px', fontWeight: '400' }],
-				'dense-link': ['17px', { lineHeight: '2.41', letterSpacing: '0', fontWeight: '400' }],
-				caption: ['14px', { lineHeight: '1.43', letterSpacing: '-0.224px', fontWeight: '400' }],
-				'caption-strong': [
-					'14px',
-					{ lineHeight: '1.29', letterSpacing: '-0.224px', fontWeight: '600' }
+				feature: [
+					'clamp(2rem, 1.3rem + 2.2vw, 3.25rem)',
+					{ lineHeight: '1.28', letterSpacing: '-0.015em' }
 				],
-				'button-large': ['18px', { lineHeight: '1', letterSpacing: '0', fontWeight: '300' }],
-				'button-utility': [
-					'14px',
-					{ lineHeight: '1.29', letterSpacing: '-0.224px', fontWeight: '400' }
-				],
-				'fine-print': ['12px', { lineHeight: '1.33', letterSpacing: '-0.12px', fontWeight: '400' }],
-				'micro-legal': ['10px', { lineHeight: '1.3', letterSpacing: '-0.08px', fontWeight: '400' }],
-				'nav-link': ['12px', { lineHeight: '1', letterSpacing: '-0.12px', fontWeight: '400' }]
-			},
-
-			spacing: {
-				section: '80px'
+				quote: ['clamp(1.5rem, 1.08rem + 1.55vw, 2.375rem)', { lineHeight: '1.55' }],
+				epigraph: ['clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem)', { lineHeight: '1.55' }],
+				title: ['1.3125rem', { lineHeight: '1.5' }],
+				lede: ['1.1875rem', { lineHeight: '1.8' }],
+				body: ['1.0625rem', { lineHeight: '1.8' }],
+				note: ['1rem', { lineHeight: '1.72' }],
+				cite: ['0.9375rem', { lineHeight: '1.65' }],
+				meta: ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.08em' }],
+				'meta-ko': ['0.8125rem', { lineHeight: '1.55' }]
 			},
 
 			maxWidth: {
-				text: '980px',
-				grid: '1440px'
+				page: '1320px',
+				measure: '40rem'
 			},
 
-			borderRadius: {
-				xs: '5px',
-				sm: '8px',
-				md: '11px',
-				lg: '18px',
-				pill: '9999px'
-			},
-
-			boxShadow: {
-				// The only shadow in the system: reserved for imagery resting on a surface.
-				product: 'rgba(0, 0, 0, 0.22) 3px 5px 30px 0'
+			borderWidth: {
+				3: '3px'
 			}
 		}
 	},
