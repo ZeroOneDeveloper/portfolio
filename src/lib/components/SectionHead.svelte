@@ -4,7 +4,8 @@
 	interface Props {
 		id: string;
 		title: string;
-		lead?: string;
+		/** A line under the title: plain text, or a snippet when it holds a link. */
+		lead?: string | Snippet;
 		/** Heading level: sections use h2, sub-sections h3. */
 		level?: 2 | 3;
 		aside?: Snippet;
@@ -27,7 +28,9 @@
 			{title}
 		</svelte:element>
 		{#if lead}
-			<p class="mt-2 text-small text-muted sm:text-body">{lead}</p>
+			<p class="mt-2 text-small text-muted sm:text-body">
+				{#if typeof lead === 'string'}{lead}{:else}{@render lead()}{/if}
+			</p>
 		{/if}
 	</div>
 	{#if aside}

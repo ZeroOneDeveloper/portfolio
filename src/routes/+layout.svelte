@@ -9,7 +9,7 @@
 
 <a
 	href="#main"
-	class="sr-only z-50 rounded-full bg-ink px-4 py-2 text-small text-surface focus:not-sr-only focus:fixed focus:left-4 focus:top-3"
+	class="sr-only z-50 rounded-full bg-ink text-small text-surface focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:px-4 focus:py-2"
 >
 	본문 바로가기
 </a>

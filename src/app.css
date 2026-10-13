@@ -24,6 +24,7 @@
 
 	p,
 	li,
+	dd,
 	blockquote {
 		text-wrap: pretty;
 	}
@@ -65,14 +66,57 @@
 		@apply underline decoration-line-strong decoration-1 underline-offset-[0.25em] transition-colors duration-150 hover:text-accent hover:decoration-accent;
 	}
 
-	/* On the dark case card the focus ring takes the lighter green to stay visible. */
-	.on-night :focus-visible {
-		@apply outline-accent-glow;
-	}
-
 	/* Years, dates and stacks. */
 	.mono {
 		@apply font-mono tracking-[-0.01em];
 		font-variant-numeric: tabular-nums;
 	}
+
+	/*
+	 * The 0/1 mark, the second ZerOne signature after the monogram. At rest it is a small
+	 * ring, a zero; lit, it is a short upright bar in the accent, a one. Used by the header
+	 * nav, the 경력 rail and the intro's 지금 / 최근 labels, nowhere else.
+	 */
+	.bit {
+		@apply inline-block size-[9px] shrink-0 rounded-full border-[1.5px] border-line-strong bg-transparent;
+		transition:
+			width 200ms ease,
+			height 200ms ease,
+			border-radius 200ms ease,
+			background-color 200ms ease,
+			border-color 200ms ease;
+	}
+
+	.bit-on {
+		@apply h-[15px] w-[3px] rounded-[1.5px] border-accent bg-accent;
+	}
+}
+
+/*
+ * Header nav state. With JavaScript, the observer sets aria-current on the item whose
+ * section is in view. Without it, the item of the section you jumped to, or of the
+ * section holding the anchor you jumped to (#code01, #case), lights up through :target.
+ * The :has() fallbacks keep to rules of their own: a browser that cannot parse :has()
+ * drops only those, never the aria-current rules.
+ */
+.nav-link[aria-current='location'] .bit {
+	@apply bit-on;
+}
+
+.nav-link[aria-current='location'] {
+	@apply text-ink;
+}
+
+:root:not(.js):has(#projects:target, #projects :target) .nav-link[data-nav='projects'] .bit,
+:root:not(.js):has(#career:target, #career :target) .nav-link[data-nav='career'] .bit,
+:root:not(.js):has(#research:target, #research :target) .nav-link[data-nav='research'] .bit,
+:root:not(.js):has(#news:target, #news :target) .nav-link[data-nav='news'] .bit {
+	@apply bit-on;
+}
+
+:root:not(.js):has(#projects:target, #projects :target) .nav-link[data-nav='projects'],
+:root:not(.js):has(#career:target, #career :target) .nav-link[data-nav='career'],
+:root:not(.js):has(#research:target, #research :target) .nav-link[data-nav='research'],
+:root:not(.js):has(#news:target, #news :target) .nav-link[data-nav='news'] {
+	@apply text-ink;
 }

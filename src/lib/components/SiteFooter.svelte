@@ -16,7 +16,7 @@
 		<div class="flex items-start gap-4 sm:gap-5">
 			<LogoMark class="h-12 sm:h-14" alt="ZerOne 로고" />
 			<div>
-				<p class="text-case-title font-bold">
+				<p class="text-motto font-bold">
 					{mottoLead}<span class="whitespace-nowrap"
 						>{#each mottoTail as part, index (index)}{#if part === '0' || part === '1'}<span
 									class="mono font-medium text-accent">{part}</span

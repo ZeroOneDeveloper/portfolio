@@ -1,6 +1,6 @@
 <script lang="ts">
 	interface Props {
-		name: 'arrow-up-right' | 'arrow-down' | 'arrow-right' | 'github';
+		name: 'arrow-up-right' | 'arrow-right' | 'github';
 		class?: string;
 	}
 
@@ -26,8 +26,6 @@
 	>
 		{#if name === 'arrow-up-right'}
 			<path d="M7 17 17 7M8 7h9v9" />
-		{:else if name === 'arrow-down'}
-			<path d="M12 5v14M6 13l6 6 6-6" />
 		{:else}
 			<path d="M5 12h14M13 6l6 6-6 6" />
 		{/if}

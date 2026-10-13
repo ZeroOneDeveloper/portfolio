@@ -31,11 +31,12 @@ export default {
 				'accent-deep': '#0e4f37',
 				'accent-tint': '#e2eee7',
 
-				// The lead case card.
+				// Dark media grounds: the Code01 ink panel and dark logos, with their chip.
 				night: '#191a18',
 				'night-raised': '#242522',
 				'night-line': '#3a3b36',
 				'night-muted': '#aeaca4',
+				// The accent on a dark ground: the "01" of the Code01 wordmark.
 				'accent-glow': '#8ed6b2'
 			},
 
@@ -59,30 +60,38 @@ export default {
 					'clamp(2.25rem, 1.55rem + 2.6vw, 3.5rem)',
 					{ lineHeight: '1.1', letterSpacing: '-0.03em' }
 				],
-				stat: ['clamp(3rem, 2rem + 3.6vw, 4.75rem)', { lineHeight: '1', letterSpacing: '-0.04em' }],
-				'stat-sm': [
-					'clamp(1.75rem, 1.3rem + 1.4vw, 2.5rem)',
-					{ lineHeight: '1.1', letterSpacing: '-0.03em' }
+				// The Code01 wordmark on its ink panel.
+				wordmark: [
+					'clamp(2.5rem, 1.9rem + 2.2vw, 3.75rem)',
+					{ lineHeight: '1', letterSpacing: '-0.04em' }
 				],
 				section: [
 					'clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem)',
 					{ lineHeight: '1.3', letterSpacing: '-0.025em' }
 				],
-				'case-title': [
+				// The footer motto.
+				motto: [
 					'clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem)',
 					{ lineHeight: '1.4', letterSpacing: '-0.02em' }
 				],
 				'card-title': ['1.375rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+				// The intro's 지금 statement.
+				opener: [
+					'clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem)',
+					{ lineHeight: '1.45', letterSpacing: '-0.02em' }
+				],
 				'item-title': ['1.0625rem', { lineHeight: '1.55', letterSpacing: '-0.01em' }],
 				lede: ['clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem)', { lineHeight: '1.65' }],
 				body: ['1rem', { lineHeight: '1.75' }],
 				small: ['0.9375rem', { lineHeight: '1.7' }],
-				meta: ['0.8125rem', { lineHeight: '1.55' }],
+				meta: ['0.8125rem', { lineHeight: '1.6' }],
 				micro: ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.01em' }]
 			},
 
 			maxWidth: {
-				page: '1200px'
+				page: '1200px',
+				// One reading measure for paper titles, summaries and timeline details.
+				measure: '44rem'
 			},
 
 			borderRadius: {

@@ -1,9 +1,7 @@
 <script lang="ts">
 	import Intro from '$lib/components/Intro.svelte';
-	import LeadCase from '$lib/components/LeadCase.svelte';
-	import FocusAreas from '$lib/components/FocusAreas.svelte';
 	import Work from '$lib/components/Work.svelte';
-	import Timeline from '$lib/components/Timeline.svelte';
+	import Career from '$lib/components/Career.svelte';
 	import Research from '$lib/components/Research.svelte';
 	import Press from '$lib/components/Press.svelte';
 
@@ -58,22 +56,17 @@
 	{@html '<script type="application/ld+json">' + JSON.stringify(jsonLd) + '</' + 'script>'}
 </svelte:head>
 
-<!-- 지금: name, role, photo and focus -->
+<!-- 지금: name, role, what he does now and what he did recently -->
 <Intro />
 
-<!-- The lead work item: 8년 → 3일 -->
-<LeadCase />
-
-<!-- 하는 일: three focus areas -->
-<FocusAreas />
-<!-- Selected work -->
+<!-- 작업: selected work -->
 <Work />
 
-<!-- Career timeline -->
-<Timeline />
+<!-- 경력: one line from 현재 back to 2020 -->
+<Career />
 
-<!-- Papers and high-school explorations -->
+<!-- 연구: papers and high-school explorations -->
 <Research />
 
-<!-- Press -->
+<!-- 기사: the two articles that name him, then company coverage -->
 <Press />

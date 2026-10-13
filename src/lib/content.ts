@@ -14,13 +14,12 @@ export const profile = {
 	motto: '세상을 바꾸는 데 0과 1만으로도 충분하다.',
 	url: 'https://www.zero0ne.dev/',
 	github: 'https://github.com/ZeroOneDeveloper',
-	/** Studio portrait. Replace this one file to swap the photo; keep the 7:9 portrait shape. */
-	photo: {
-		src: '/profile.webp',
-		width: 900,
-		height: 1157,
-		alt: '송찬우 프로필 사진'
-	},
+	/**
+	 * Path of the studio portrait under static/, or null while there is none. Until it is
+	 * set the intro shows no photo frame at all. When the real photo arrives, add it as
+	 * static/profile.webp (900×1157, white ground) and set this to '/profile.webp'.
+	 */
+	photo: null as string | null,
 	company: {
 		name: '유니크굿컴퍼니',
 		nameEn: 'Uniquegood Company',
@@ -38,6 +37,9 @@ export const profile = {
 		url: 'https://www.kyungheeboy.hs.kr/'
 	}
 } as const;
+
+/** Size and alt text of the portrait, used only when profile.photo is set. */
+export const portrait = { width: 900, height: 1157, alt: `${profile.name} 프로필 사진` };
 
 export const profileLinks: Link[] = [
 	{ label: 'GitHub', href: profile.github },
@@ -74,9 +76,14 @@ export const focusAreas = [
 	}
 ] as const;
 
-// The opening: what he does now, in one line built from the three focus areas.
+// The opening: what he does now, the one line built from the three focus areas, and
+// the most recent thing he did in public. Its sources are the two articles in `namedArticles`.
 export const intro = {
+	now: '리얼월드를 만드는 개발팀을 이끕니다.',
+	realworld: '유니크굿컴퍼니는 피지털 AI 기반의 플레이어블 콘텐츠 플랫폼 ‘리얼월드’를 운영합니다.',
 	positioning: 'AI 에이전트와 함께 풀스택으로 제품을 만들고, 의료 데이터를 분석합니다.',
+	recent:
+		'AI 에이전트를 활용해 8년간 앱으로 운영된 게임 서비스를 사흘 만에 웹 버전으로 개발한 경험을 『나노벤처』 북토크에서 발표했습니다.',
 	links: [
 		{ label: profile.company.name, href: profile.company.url },
 		{ label: '리얼월드', href: profile.realworld },
@@ -84,51 +91,46 @@ export const intro = {
 	] satisfies Link[]
 };
 
-export interface Citation {
-	outlet: string;
-	date: string;
-	href: string;
-}
-
-const apnews: Citation = {
-	outlet: 'AP신문',
-	date: '2026.10.08',
-	href: 'https://www.apnews.kr/news/articleView.html?idxno=3051891'
-};
-
-// The press story that names him directly: the lead work item.
-export const featuredCase = {
-	context: '유니크굿컴퍼니 합류 직후',
-	shifts: [
-		{ from: '8년', fromNote: '앱으로 운영된 기간', to: '3일', toNote: '웹 버전을 만든 기간' },
-		{ from: '앱', fromNote: '설치해서 즐기던 게임', to: '웹', toNote: '설치 없이 즐기는 버전' }
-	],
-	title: 'AI 에이전트로, 8년 된 앱 게임을 사흘 만에 웹으로.',
-	body: '유니크굿컴퍼니 합류 직후, 에이전트를 활용해 8년 동안 앱으로 운영된 게임 서비스를 설치 없이 즐길 수 있는 웹 버전으로 사흘 만에 개발했습니다. 2026년 10월 『나노벤처』 북토크에서 회사의 AI 에이전트 조직 시스템 ‘AXIT’ 도입 경험과 함께 이 사례를 발표했습니다.',
-	quote:
-		'처음엔 ‘어떡하지’보다 ‘해볼 만하다’는 생각이 먼저 들었다. 제가 잘해서라기보다 회사가 쌓아온 기술과 인프라가 있었기에 가능했다.',
-	speaker: profile.name,
-	quoteSource: apnews,
-	sources: [
-		apnews,
-		{
-			outlet: '경제타임스',
-			date: '2026.09.30',
-			href: 'https://www.ket.kr/news/article.html?no=41104'
-		}
-	] satisfies Citation[]
-};
-
-export interface WorkMedia {
-	/** What the picture is, said plainly on the card. */
-	label: '사이트 화면' | '출력 예시' | '로고' | '도식';
+export interface Shot {
+	src: string;
+	width: number;
+	height: number;
 	alt: string;
-	src?: string;
-	width?: number;
-	height?: number;
-	/** Ground the image was made on, so the frame can match it. */
-	tone: 'light' | 'dark';
 }
+
+/** What a work card shows. The label says plainly what the picture is. */
+export type WorkMedia =
+	| {
+			kind: 'diagram';
+			label: '도식';
+			alt: string;
+			/** The name split where the accent starts: Code + 01. */
+			wordmark: [string, string];
+			subtitle: string;
+			steps: string[];
+	  }
+	| {
+			kind: 'screen';
+			label: '사이트 화면';
+			image: Shot;
+			/** A tighter crop for phones, where the full image would be too small to read. */
+			compact?: Shot;
+	  }
+	| {
+			kind: 'print';
+			label: '출력 형식';
+			/** Frame templates shown whole, side by side; tone is the colour of the frame. */
+			frames: (Shot & { tone: 'light' | 'dark' })[];
+			/** Centre of each photo slot from the top, in % of the frame's height, in fill order. */
+			slots: number[];
+	  }
+	| {
+			kind: 'logo';
+			label: '로고';
+			image: Shot;
+			/** Ground the logo was drawn on, so the frame can match it. */
+			tone: 'light' | 'dark';
+	  };
 
 export interface Project {
 	id: string;
@@ -158,9 +160,12 @@ export const projects: Project[] = [
 			}
 		],
 		media: {
+			kind: 'diagram',
 			label: '도식',
-			alt: 'Code01 채점 흐름 도식: 학생이 코드를 제출하면 Docker 안의 Piston 엔진이 자동 채점하고, 결과를 실시간으로 보여 줍니다.',
-			tone: 'light'
+			alt: 'Code01 채점 흐름 도식: 코드를 제출하면 Docker 안의 Piston 엔진이 채점하고, 결과를 실시간으로 표시합니다.',
+			wordmark: ['Code', '01'],
+			subtitle: '도커 기반 온라인 저지',
+			steps: ['제출', 'Docker 안의 Piston 채점', '결과 실시간 표시']
 		}
 	},
 	{
@@ -173,11 +178,14 @@ export const projects: Project[] = [
 		stack: 'Next.js · FastAPI · MongoDB',
 		links: [{ label: 'GitHub', href: 'https://github.com/KH-Programmers/NeulBom_Frontend' }],
 		media: {
+			kind: 'logo',
 			label: '로고',
-			src: '/projects/web/neulbom-dark.webp',
-			width: 960,
-			height: 960,
-			alt: '늘봄 로고: 검은 바탕 위 분홍색 꽃잎 모양',
+			image: {
+				src: '/projects/web/neulbom-dark.webp',
+				width: 960,
+				height: 960,
+				alt: '늘봄 로고: 검은 바탕 위 분홍색 꽃잎 모양'
+			},
 			tone: 'dark'
 		}
 	},
@@ -188,14 +196,32 @@ export const projects: Project[] = [
 		role: '오픈소스',
 		summary: '인생네컷 스타일의 네 컷 사진을 만들어 주는 Python 라이브러리. PyPI에 배포했습니다.',
 		stack: 'Python · Pillow',
-		links: [{ label: 'PyPI', href: 'https://pypi.org/project/zerocut/' }],
+		links: [
+			{ label: 'PyPI', href: 'https://pypi.org/project/zerocut/' },
+			{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/ZeroCut' }
+		],
 		media: {
-			label: '출력 예시',
-			src: '/work/zerocut-photo-strip.webp',
-			width: 1000,
-			height: 2800,
-			alt: 'ZeroCut으로 만든 세로 네 컷 사진. 흰 프레임에 그림 네 컷이 이어지고, 아래에 ‘[ ZEROCUT ] 나의 0을 1로 만드는 순간들’ 문구와 2025.06.14 날짜가 있습니다.',
-			tone: 'light'
+			kind: 'print',
+			label: '출력 형식',
+			// The library's own SimpleWhiteFrame and SimpleBlackFrame (zerocut/frames/samples):
+			// 1000×2800, four 876×500 slots at y = 64, 628, 1192 and 1756.
+			frames: [
+				{
+					src: '/work/zerocut-frame-white.webp',
+					width: 500,
+					height: 1400,
+					tone: 'light',
+					alt: 'ZeroCut의 흰 프레임: 흰 세로 띠에 검은 사진 칸 네 개가 이어지고, 맨 아래에 ‘[ ZEROCUT ] 나의 0을 1로 만드는 순간들’ 문구와 2025.06.14. 날짜가 있습니다.'
+				},
+				{
+					src: '/work/zerocut-frame-black.webp',
+					width: 500,
+					height: 1400,
+					tone: 'dark',
+					alt: 'ZeroCut의 검은 프레임: 같은 배치의 검은 세로 띠에 흰 사진 칸 네 개와 같은 문구, 날짜가 있습니다.'
+				}
+			],
+			slots: [11.21, 31.36, 51.5, 71.64]
 		}
 	},
 	{
@@ -206,14 +232,22 @@ export const projects: Project[] = [
 		summary:
 			'“당신의 목소리가 세상을 바꿀 수 있습니다.” 자원봉사자가 TED 영상을 더빙하는 플랫폼으로, 녹음과 편집을 브라우저에서 처리합니다.',
 		stack: 'Next.js · Supabase · wavesurfer.js',
-		links: [{ label: '사이트', href: 'https://ods.zero0ne.dev' }],
+		links: [{ label: 'ods.zero0ne.dev', href: 'https://ods.zero0ne.dev' }],
 		media: {
+			kind: 'screen',
 			label: '사이트 화면',
-			src: '/work/ods-home-desktop.webp',
-			width: 1440,
-			height: 900,
-			alt: 'ODS 첫 화면. 필기체 ODS 로고 아래 ‘당신의 목소리가 세상을 바꿀 수 있습니다.’ 문구와 파란 시작하기 버튼이 있고, 그 아래 기능 소개 카드가 이어집니다.',
-			tone: 'light'
+			image: {
+				src: '/work/ods-overview.webp',
+				width: 1578,
+				height: 985,
+				alt: 'ODS 사이트 화면 두 부분. 위는 첫 화면으로, 필기체 ODS 로고 아래 “‘당신의 목소리’가 세상을 바꿀 수 있습니다.” 문구와 파란 시작하기 버튼이 있습니다. 아래는 기능 소개 카드 가운데 손쉽게 공유와 자동 저장 두 장입니다.'
+			},
+			compact: {
+				src: '/work/ods-hero.webp',
+				width: 1072,
+				height: 370,
+				alt: 'ODS 사이트 첫 화면. 필기체 ODS 로고 아래 “‘당신의 목소리’가 세상을 바꿀 수 있습니다.” 문구와 파란 시작하기 버튼이 있습니다.'
+			}
 		}
 	},
 	{
@@ -226,11 +260,14 @@ export const projects: Project[] = [
 		stack: '팀 운영 · 백엔드',
 		links: [],
 		media: {
+			kind: 'logo',
 			label: '로고',
-			src: '/projects/web/uniquecode.webp',
-			width: 640,
-			height: 640,
-			alt: 'UniqueCode 로고: 검은 바탕 위 흰 필기체 u',
+			image: {
+				src: '/projects/web/uniquecode.webp',
+				width: 640,
+				height: 640,
+				alt: 'UniqueCode 로고: 검은 바탕 위 흰 필기체 u'
+			},
 			tone: 'dark'
 		}
 	},
@@ -244,11 +281,14 @@ export const projects: Project[] = [
 		stack: 'Next.js · GraphQL · Prisma',
 		links: [{ label: 'GitHub', href: 'https://github.com/paring-chan/uniquebots' }],
 		media: {
+			kind: 'logo',
 			label: '로고',
-			src: '/projects/web/uniquebots.webp',
-			width: 640,
-			height: 640,
-			alt: 'UniqueBots 로고: 밝은 회색 바탕 위 검은 UB 글자',
+			image: {
+				src: '/projects/web/uniquebots.webp',
+				width: 640,
+				height: 640,
+				alt: 'UniqueBots 로고: 밝은 회색 바탕 위 검은 UB 글자'
+			},
 			tone: 'light'
 		}
 	},
@@ -261,11 +301,14 @@ export const projects: Project[] = [
 		stack: 'Discord Bot',
 		links: [{ label: 'koreanbots', href: 'https://koreanbots.dev/bots/695899835953578025' }],
 		media: {
+			kind: 'logo',
 			label: '로고',
-			src: '/projects/web/freeai.webp',
-			width: 640,
-			height: 640,
-			alt: 'FreeAI 로고: 검은 바탕 위 흰 삼각형 A',
+			image: {
+				src: '/projects/web/freeai.webp',
+				width: 640,
+				height: 640,
+				alt: 'FreeAI 로고: 검은 바탕 위 흰 삼각형 A'
+			},
 			tone: 'dark'
 		}
 	}
@@ -277,141 +320,57 @@ export function projectById(id: string): Project {
 	return found;
 }
 
-export interface TimelineItem {
-	kind: '회사' | '학교' | '논문' | '프로젝트' | '오픈소스' | '탐구' | '창업' | '서비스';
-	title: string;
-	detail: string;
-	href?: string;
-}
-
-export interface TimelineYear {
+export interface CareerEntry {
 	year: string;
+	title: string;
+	/** Short facts, shown joined by middle dots. */
+	detail: string[];
 	current?: boolean;
-	items: TimelineItem[];
 }
 
-// Career, newest first. Only facts stated elsewhere on this page.
-export const timeline: TimelineYear[] = [
+// The career line, newest first: roles, school, publications and milestones.
+// Only facts stated elsewhere on this page; the projects themselves live in 작업.
+export const career: CareerEntry[] = [
 	{
 		year: '현재',
 		current: true,
-		items: [
-			{
-				kind: '회사',
-				title: `${profile.company.name} ${profile.role}`,
-				detail:
-					'리얼월드를 만드는 개발팀. 합류 직후 AI 에이전트로 8년 된 앱 게임의 웹 버전을 사흘 만에 만들었습니다.',
-				href: '#case'
-			}
-		]
+		title: `${profile.company.name} ${profile.role}`,
+		detail: ['리얼월드를 만드는 개발팀']
 	},
 	{
 		year: '2026',
-		items: [
-			{
-				kind: '논문',
-				title: 'Clinical Rheumatology',
-				detail: '강직성 척추염 이후 부정맥 위험 · 공동 저자 · 2026.08',
-				href: '#research'
-			},
-			{
-				kind: '논문',
-				title: 'Sleep Medicine',
-				detail: '파킨슨병의 신체형·수면 관련 장애 위험 · 공동 저자 · 2026.06',
-				href: '#research'
-			}
-		]
+		title: '국제 저널 논문 2편',
+		detail: ['Sleep Medicine', 'Clinical Rheumatology', '공동 저자']
 	},
 	{
 		year: '2025',
-		items: [
-			{
-				kind: '학교',
-				title: `${profile.school.name} ${profile.school.department}`,
-				detail: profile.school.cohort
-			},
-			{
-				kind: '프로젝트',
-				title: 'Code01',
-				detail: '대학 프로그래밍 수업을 위한 온라인 저지 · 2025–2026',
-				href: '#code01'
-			},
-			{
-				kind: '논문',
-				title: '한국정보기술학회 2025 추계종합학술대회',
-				detail: 'Code01 구현 논문 · 2025.11',
-				href: '#research'
-			},
-			{
-				kind: '오픈소스',
-				title: 'ZeroCut',
-				detail: 'PyPI에 배포한 네 컷 사진 라이브러리',
-				href: '#zerocut'
-			}
-		]
+		title: 'KIIT 2025 학술대회 논문',
+		detail: ['Code01 구현', '한국정보기술학회 추계종합학술대회']
+	},
+	{
+		year: '2025',
+		title: `${profile.school.name} ${profile.school.department} 입학`,
+		detail: [profile.school.cohort]
 	},
 	{
 		year: '2024',
-		items: [
-			{
-				kind: '논문',
-				title: '한국정보과학회 KCC 2024',
-				detail: `적분 속도식 일반화 · ${profile.highSchool.name} 재학 중 단독 저자 · 2024.06`,
-				href: '#research'
-			},
-			{
-				kind: '탐구',
-				title: 'Graph Visualization · Blockchain',
-				detail: '고3 탐구 · 함수 그래프 분석, 제품 이력 블록체인',
-				href: '#explorations'
-			}
-		]
+		title: 'KCC 2024 논문 단독 저자',
+		detail: [`${profile.highSchool.name} 재학 중`, '한국정보과학회']
+	},
+	{
+		year: '2023–2024',
+		title: `${profile.highSchool.name} 탐구`,
+		detail: ['감염병', '화학 공정', '수학 교육', '자원 관리']
 	},
 	{
 		year: '2023',
-		items: [
-			{
-				kind: '프로젝트',
-				title: 'ODS',
-				detail: 'TED 영상 더빙 플랫폼 · 공동 개발',
-				href: '#ods'
-			},
-			{
-				kind: '프로젝트',
-				title: '늘봄 NeulBom',
-				detail: '학교 커뮤니티 PWA · 팀 리더 · 2023–2024',
-				href: '#neulbom'
-			},
-			{
-				kind: '탐구',
-				title: 'SIR Model',
-				detail: '감염병 확산 시뮬레이션 · 고2 수학Ⅱ',
-				href: '#explorations'
-			}
-		]
+		title: '늘봄 팀 리더 · ODS 공동 개발',
+		detail: ['학교 커뮤니티 PWA', 'TED 영상 더빙 플랫폼']
 	},
 	{
 		year: '2020–2022',
-		items: [
-			{
-				kind: '창업',
-				title: 'UniqueCode 대표',
-				detail: '디스코드 봇과 서비스를 만드는 팀을 창업해 이끌었습니다.',
-				href: '#uniquecode'
-			},
-			{
-				kind: '서비스',
-				title: 'UniqueBots',
-				detail: '한국 디스코드 봇 리스트 사이트 · 2020–2021',
-				href: '#uniquebots'
-			},
-			{
-				kind: '프로젝트',
-				title: 'FreeAI',
-				detail: '다기능 디스코드 봇 · 공동 제작 · 2020',
-				href: '#freeai'
-			}
-		]
+		title: 'UniqueCode 창업 · 대표',
+		detail: ['디스코드 봇 팀', 'UniqueBots 운영', 'FreeAI 공동 제작']
 	}
 ];
 
@@ -567,9 +526,37 @@ export interface Article {
 	outlet: string;
 	date: string;
 	summary: string;
-	tag: 'AI' | '파트너십' | '제품' | '글로벌';
+	tag: '발표' | 'AI' | '파트너십' | '제품' | '글로벌';
 	href: string;
+	/** A line he is quoted saying in the article. */
+	quote?: { text: string; speaker: string };
 }
+
+// The two articles that name him, newest first. They are the sources of intro.recent.
+export const namedArticles: Article[] = [
+	{
+		headline: '유쾌한반란ㆍ유니크굿컴퍼니, 제27회 소셜임팩트포럼 ‘나노벤처’ 북토크 성료',
+		outlet: 'AP신문',
+		date: '2026.10.08',
+		summary:
+			'『나노벤처』 북토크에서 합류 직후 AI 에이전트를 활용해 8년 동안 앱으로 운영된 게임 서비스의 웹 버전을 사흘 만에 개발한 경험을 발표했습니다.',
+		tag: '발표',
+		href: 'https://www.apnews.kr/news/articleView.html?idxno=3051891',
+		quote: {
+			text: '처음엔 ‘어떡하지’보다 ‘해볼 만하다’는 생각이 먼저 들었다. 제가 잘해서라기보다 회사가 쌓아온 기술과 인프라가 있었기에 가능했다.',
+			speaker: profile.name
+		}
+	},
+	{
+		headline: '유쾌한반란·유니크굿, 10월 7일 ‘나노벤처’ 북토크',
+		outlet: '경제타임스',
+		date: '2026.09.30',
+		summary:
+			'AI 에이전트 조직 시스템 ‘AXIT’ 도입 과정에서의 시행착오와 업무 방식의 변화를 전할 발표자로 소개됐습니다.',
+		tag: '발표',
+		href: 'https://www.ket.kr/news/article.html?no=41104'
+	}
+];
 
 // Recent coverage of Uniquegood and Realworld, newest first.
 export const articles: Article[] = [
