@@ -5,7 +5,8 @@
 	import { active, trackActiveSection } from '$lib/active-section.svelte';
 	import { articles, namedArticles, nav, papers, profile, projects } from '$lib/content';
 
-	// Quiet counts beside the labels: what each section holds. 경력 is a line, not a list.
+	// Quiet counts beside the labels, from md up: what each section holds. AXIT is one
+	// thing and 경력 is a line, not a list, so neither has one.
 	const press = namedArticles.length + articles.length;
 	const counts: Record<string, { shown: string; spoken: string }> = {
 		projects: { shown: pad(projects.length), spoken: `${projects.length}개` },
@@ -24,7 +25,8 @@
 	<div class="page flex h-14 items-center justify-between gap-3 sm:h-16">
 		<a href="#now" class="flex shrink-0 items-center gap-2 sm:gap-2.5">
 			<LogoMark class="h-7 sm:h-8" />
-			<span class="text-[0.9375rem] font-semibold tracking-[-0.01em] sm:text-base">
+			<!-- Below sm the five nav items need the room; the name is still the link's name. -->
+			<span class="sr-only text-base font-semibold tracking-[-0.01em] sm:not-sr-only">
 				{profile.name}
 			</span>
 			<span class="sr-only">, 맨 위로</span>
@@ -38,14 +40,14 @@
 							href="#{item.id}"
 							data-nav={item.id}
 							aria-current={active.id === item.id ? 'location' : undefined}
-							class="nav-link group flex items-center gap-1.5 rounded-full px-1.5 py-1.5 text-ink-soft transition-colors hover:text-ink sm:gap-2 sm:px-2.5"
+							class="nav-link group flex items-center gap-1.5 rounded-full px-1.5 py-1.5 text-ink-soft transition-colors hover:text-ink max-[359px]:px-1 sm:gap-2 sm:px-2.5"
 						>
 							<span class="flex w-[9px] justify-center" aria-hidden="true">
 								<span class="bit group-hover:border-muted"></span>
 							</span>
 							{item.label}
 							{#if counts[item.id]}
-								<span class="mono hidden text-micro text-muted sm:inline" aria-hidden="true">
+								<span class="mono hidden text-micro text-muted md:inline" aria-hidden="true">
 									{counts[item.id].shown}
 								</span>
 								<span class="sr-only">({counts[item.id].spoken})</span>

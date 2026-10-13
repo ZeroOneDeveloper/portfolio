@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Intro from '$lib/components/Intro.svelte';
+	import Axit from '$lib/components/Axit.svelte';
+	import AtAGlance from '$lib/components/AtAGlance.svelte';
 	import Work from '$lib/components/Work.svelte';
 	import Career from '$lib/components/Career.svelte';
 	import Research from '$lib/components/Research.svelte';
@@ -56,8 +58,19 @@
 	{@html '<script type="application/ld+json">' + JSON.stringify(jsonLd) + '</' + 'script>'}
 </svelte:head>
 
-<!-- 지금: name, role, what he does now and what he did recently -->
-<Intro />
+<!--
+	The opening, in one grid. In reading order: 지금 (name, role, what he does now and did
+	recently), then AXIT, the work he leads, then the at-a-glance column. From lg up the
+	at-a-glance column rises beside 지금, so AXIT starts in the first view on every width.
+	The source keeps the phone order, where the column follows AXIT: there a screen reader
+	and the eye agree. From lg only the column moves, and it is a labelled complementary
+	landmark with nothing to focus, so tab order never jumps.
+-->
+<div class="page grid gap-y-10 pt-8 sm:gap-y-12 sm:pt-12 lg:grid-cols-12 lg:gap-x-12">
+	<Intro class="lg:col-span-7" />
+	<Axit class="lg:col-span-12" />
+	<AtAGlance class="lg:col-span-5 lg:col-start-8 lg:row-start-1" />
+</div>
 
 <!-- 작업: selected work -->
 <Work />

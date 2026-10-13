@@ -55,6 +55,7 @@ export const scholarLinks: Link[] = profileLinks.filter((link) =>
 
 // Header navigation, in page order.
 export const nav = [
+	{ id: 'axit', label: 'AXIT' },
 	{ id: 'projects', label: '작업' },
 	{ id: 'career', label: '경력' },
 	{ id: 'research', label: '연구' },
@@ -76,12 +77,13 @@ export const focusAreas = [
 	}
 ] as const;
 
-// The opening: what he does now, the one line built from the three focus areas, and
-// the most recent thing he did in public. Its sources are the two articles in `namedArticles`.
+// The opening: what he does now, the company it happens at, and the most recent thing he
+// did in public. The sources of `recent` are the two articles in `namedArticles`. What
+// he works on in general is spelled out by `focusAreas`, beside it. `now` points at AXIT
+// without repeating his role there: the AXIT card states it, in his own words (axit.role).
 export const intro = {
-	now: '리얼월드를 만드는 개발팀을 이끕니다.',
+	now: 'AI 에이전트 협업 공간 AXIT를 만드는 개발팀을 이끕니다.',
 	realworld: '유니크굿컴퍼니는 피지털 AI 기반의 플레이어블 콘텐츠 플랫폼 ‘리얼월드’를 운영합니다.',
-	positioning: 'AI 에이전트와 함께 풀스택으로 제품을 만들고, 의료 데이터를 분석합니다.',
 	recent:
 		'AI 에이전트를 활용해 8년간 앱으로 운영된 게임 서비스를 사흘 만에 웹 버전으로 개발한 경험을 『나노벤처』 북토크에서 발표했습니다.',
 	links: [
@@ -97,6 +99,98 @@ export interface Shot {
 	height: number;
 	alt: string;
 }
+
+/** A screenshot with a short line under it saying what it shows. */
+export interface CaptionedShot extends Shot {
+	caption: string;
+}
+
+// AXIT, the product whose development he leads: the lead of the page. The summary and the
+// features follow its Google Play and App Store listings, and the pictures are the official
+// store screenshots, their own headlines included. The figures are the company's, as
+// 경제타임스 reported them, and appear only with that attribution.
+export const axit = {
+	name: 'AXIT',
+	tagline: '대화가 곧 실행이 되는 AI 협업 공간',
+	summary:
+		'AXIT는 팀 채팅, 워크스페이스, AI 에이전트 실행을 하나로 연결합니다. 채널에서 AXIT를 불러 업무를 요청하면 대화의 맥락을 바탕으로 실행 계획을 세우고 필요한 에이전트와 함께 작업을 진행합니다.',
+	/** His part in it, in the wording he confirmed. */
+	role: '유니크굿컴퍼니 개발팀장으로 AXIT 개발을 총괄합니다.',
+	features: [
+		{
+			title: '대화에서 바로 시작',
+			body: '팀원과 대화하던 채널에서 곧바로 AI에게 업무를 맡길 수 있습니다.'
+		},
+		{
+			title: '계획을 먼저 확인',
+			body: '실행 전에 작업 목표와 단계를 확인할 수 있습니다.'
+		},
+		{
+			title: '실시간 에이전트 작업 로그',
+			body: '참여 중인 AI 에이전트가 맡은 작업과 상태를 실시간으로 확인할 수 있습니다.'
+		},
+		{
+			title: '결과물까지 한곳에서',
+			body: '문서, 코드 초안, 체크리스트, 분석 결과 등 작업 중 생성된 결과물을 해당 세션에서 관리할 수 있습니다.'
+		}
+	],
+	stores: [
+		{
+			label: 'Google Play',
+			href: 'https://play.google.com/store/apps/details?id=biz.uniquegood.axit'
+		},
+		{ label: 'App Store', href: 'https://apps.apple.com/kr/app/axit/id6787834708' }
+	] satisfies Link[],
+	/** First release on the App Store. */
+	released: '2026.07.30',
+	/** Company-reported figures, never shown without their source. */
+	report: {
+		label: '회사 발표',
+		facts: ['조직 재편 6개월 만에 흑자 전환', '월 운영비 기존 대비 약 1/10'],
+		source: {
+			outlet: '경제타임스',
+			date: '2026.09.30',
+			href: 'https://www.ket.kr/news/article.html?no=41104'
+		}
+	},
+	main: {
+		src: '/work/axit-ipad-workspace.webp',
+		width: 1200,
+		height: 1600,
+		alt: 'AXIT 앱 스토어 스크린샷. ‘팀의 일을, AI와 함께’ 제목과 ‘채팅 · 워크스페이스 · 에이전트 실행을 하나로’ 부제 아래 iPad 화면이 있습니다. product-roadmap 채널에서 민준이 다음 제품 출시를 위한 체크리스트 요약을 부탁하자 AXIT가 ‘제품 출시 체크리스트’로 답했고, 그 아래 에이전트 실행 로그에는 AXIT의 작업 오케스트레이션, Claude의 요약 및 분석, Codex의 작업 초안 작성이 모두 완료로 표시됩니다. 화면 왼쪽에는 채널별 협업, AI에게 바로 지시, 진행 과정 한눈에 확인이라는 문구가 있습니다.',
+		caption:
+			'product-roadmap 채널. 체크리스트 요약 요청에 AXIT가 답했고, 실행 로그에 AXIT\u00a0·\u00a0Claude\u00a0·\u00a0Codex의 작업이 완료로 남았습니다.'
+	} satisfies CaptionedShot,
+	/** Phone screenshots in the order work moves: asked in a chat, planned, then tracked. */
+	flow: [
+		{
+			step: '대화',
+			src: '/work/axit-phone-chat.webp',
+			width: 720,
+			height: 1440,
+			alt: 'AXIT 앱 스토어 스크린샷. ‘회의도, 지시도, 결과물도 한 대화 안에서’ 제목 아래 휴대폰 화면: 마케팅 채널에서 서연이 @AXIT에게 회의록 기준으로 10월 캠페인 공지 초안을 써 달라고 하자, AXIT가 ‘10월 캠페인 공지 초안’ 메시지와 ‘가을 캠페인 공지 (초안)’ 문서로 답합니다.',
+			caption: '마케팅 채널에서 @AXIT에게 공지 초안을 부탁하자, AXIT가 초안 문서로 답합니다.'
+		},
+		{
+			step: '계획',
+			src: '/work/axit-phone-plan.webp',
+			width: 720,
+			height: 1440,
+			alt: 'AXIT 앱 스토어 스크린샷. ‘AI 에이전트 군단을 지휘하세요’ 제목 아래 휴대폰 화면: 제품 기획 채널에서 서연이 @AXIT에게 경쟁사 3곳 요금을 조사해 비교표를 만들고 요금 페이지 개선안까지 정리해 달라고 하자, AXIT가 경쟁사 3곳 요금표 모으기, 기능·가격 비교표 만들기, 요금 페이지 개선안 쓰기, 팀에 요약 공유하기의 네 단계 작업 계획을 올리고 두 단계를 마친 뒤 세 번째 단계를 진행하고 있습니다.',
+			caption:
+				'요금 페이지 개선 요청을 네 단계 작업 계획으로 나누고, 세\u00a0번째\u00a0단계를 진행합니다.'
+		},
+		{
+			step: '진행',
+			src: '/work/axit-phone-progress.webp',
+			width: 720,
+			height: 1440,
+			alt: 'AXIT 앱 스토어 스크린샷. ‘인원은 그대로, 하지만 파워는 무한대’ 제목 아래 휴대폰 화면: 알림의 내 작업 탭에 제품 기획, 디자인 리뷰, 고객 경험, 마케팅 채널의 작업 카드가 이어지고, 카드마다 지시 내용과 진행 단계(진행 중 3/4, 2/3, 1/3, 완료)가 표시됩니다.',
+			caption: '알림의 ‘내 작업’ 탭에 채널별 작업이 진행 단계와 함께 모입니다.'
+		}
+	] satisfies (CaptionedShot & { step: string })[],
+	credit: '이미지: AXIT 앱 스토어 스크린샷'
+};
 
 /** What a work card shows. The label says plainly what the picture is. */
 export type WorkMedia =
@@ -334,8 +428,8 @@ export const career: CareerEntry[] = [
 	{
 		year: '현재',
 		current: true,
-		title: `${profile.company.name} ${profile.role}`,
-		detail: ['리얼월드를 만드는 개발팀']
+		title: `${profile.company.name} ${profile.role} · AXIT\u00a0개발\u00a0총괄`,
+		detail: ['리얼월드 운영사']
 	},
 	{
 		year: '2026',

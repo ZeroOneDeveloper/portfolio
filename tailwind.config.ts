@@ -69,6 +69,12 @@ export default {
 					'clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem)',
 					{ lineHeight: '1.3', letterSpacing: '-0.025em' }
 				],
+				// The product name that heads the AXIT feature: above a section title,
+				// below the name in the intro.
+				feature: [
+					'clamp(2.25rem, 1.8rem + 1.6vw, 3.125rem)',
+					{ lineHeight: '1.05', letterSpacing: '-0.035em' }
+				],
 				// The footer motto.
 				motto: [
 					'clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem)',

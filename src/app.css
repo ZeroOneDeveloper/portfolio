@@ -4,9 +4,18 @@
 
 @layer base {
 	html {
-		scroll-behavior: smooth;
 		-webkit-text-size-adjust: 100%;
 		text-size-adjust: 100%;
+	}
+
+	/*
+	 * Smooth in-page jumps, switched on by +layout.svelte once the page has loaded and its
+	 * fonts are in. A deep link opened fresh must jump: a smooth scroll on load runs while
+	 * Pretendard swaps in and shortens the text above, and ends short of the target or
+	 * past it, where an instant jump is kept on target by the browser's scroll anchoring.
+	 */
+	html.smooth-scroll {
+		scroll-behavior: smooth;
 	}
 
 	body {
@@ -25,7 +34,8 @@
 	p,
 	li,
 	dd,
-	blockquote {
+	blockquote,
+	figcaption {
 		text-wrap: pretty;
 	}
 
@@ -42,7 +52,7 @@
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		html {
+		html.smooth-scroll {
 			scroll-behavior: auto;
 		}
 
@@ -107,6 +117,7 @@
 	@apply text-ink;
 }
 
+:root:not(.js):has(#axit:target, #axit :target) .nav-link[data-nav='axit'] .bit,
 :root:not(.js):has(#projects:target, #projects :target) .nav-link[data-nav='projects'] .bit,
 :root:not(.js):has(#career:target, #career :target) .nav-link[data-nav='career'] .bit,
 :root:not(.js):has(#research:target, #research :target) .nav-link[data-nav='research'] .bit,
@@ -114,6 +125,7 @@
 	@apply bit-on;
 }
 
+:root:not(.js):has(#axit:target, #axit :target) .nav-link[data-nav='axit'],
 :root:not(.js):has(#projects:target, #projects :target) .nav-link[data-nav='projects'],
 :root:not(.js):has(#career:target, #career :target) .nav-link[data-nav='career'],
 :root:not(.js):has(#research:target, #research :target) .nav-link[data-nav='research'],
