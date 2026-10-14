@@ -103,14 +103,13 @@
  * Header nav state: the current section's label turns ink and takes a short rule under
  * it. With JavaScript, the observer sets aria-current on the item whose section is in
  * view. Without it, the item of the section you jumped to, or of the section holding the
- * anchor you jumped to (#code01, #case), lights up through :target. The :has() fallbacks
+ * anchor you jumped to (#axit, #case), lights up through :target. The :has() fallbacks
  * keep to rules of their own: a browser that cannot parse :has() drops only those.
  */
 .nav-link[aria-current='location'] {
 	@apply text-ink decoration-current;
 }
 
-:root:not(.js):has(#axit:target, #axit :target) .nav-link[data-nav='axit'],
 :root:not(.js):has(#projects:target, #projects :target) .nav-link[data-nav='projects'],
 :root:not(.js):has(#career:target, #career :target) .nav-link[data-nav='career'],
 :root:not(.js):has(#research:target, #research :target) .nav-link[data-nav='research'],

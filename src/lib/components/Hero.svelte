@@ -1,5 +1,7 @@
 <script lang="ts">
 	import ArrowLink from './ArrowLink.svelte';
+	import Glance from './Glance.svelte';
+	import Glued from './Glued.svelte';
 
 	import { hero, portrait, profile, profileLinks } from '$lib/content';
 
@@ -8,20 +10,21 @@
 </script>
 
 <!--
-	The opening: the statement, very large, then one line of context and the profile links.
-	The portrait has no frame: shot on pure white, it dissolves into the page. From lg it
-	stands to the right of the statement, its foot on the hairline that opens AXIT. Below lg
-	it sits top right, and the statement's first line, the name, comes to rest beside its
-	foot: the padding above the heading is the photo's height (a share of the width) less
-	the name's own line. From lg the opening fills the screen less a band at the bottom, so
-	the first view ends on that hairline and the next section starts on the next scroll; on
-	a tall screen the words sit in the middle of the height they are given.
+	The opening: the statement, very large, then two quiet lines of context and the profile
+	links; under it all, the at-a-glance row. The portrait has no frame: shot on pure white,
+	it dissolves into the page. From lg it stands to the right of the statement, its foot on
+	the hairline that opens the at-a-glance row. Below lg it sits top right, and the
+	statement's first line, the name, comes to rest beside its foot: the padding above the
+	heading is the photo's height (a share of the width) less the name's own line. From lg
+	the statement and the portrait fill the screen less a band at the bottom, so the first
+	view ends on that hairline, the row's labels just showing, and the first scroll brings
+	the row; on a tall screen the words sit in the middle of the height they are given. The
+	padding is what a 1536×864 screen can give and keep the band whole; on a shorter one
+	the words need more height and push the hairline down, toward the bottom edge.
 -->
 <section id="now" aria-labelledby="hero-title" class="page">
 	<div class="relative lg:grid lg:min-h-[calc(100svh-8rem)] lg:grid-cols-12 lg:gap-x-6">
-		<div
-			class="pb-16 short:!pb-24 short:!pt-16 sm:pb-24 lg:col-span-8 lg:row-start-1 lg:self-center lg:pb-32 lg:pt-24"
-		>
+		<div class="pb-16 sm:pb-24 lg:col-span-8 lg:row-start-1 lg:self-center lg:pt-16">
 			<h1
 				id="hero-title"
 				class="text-display font-extrabold {photo
@@ -33,7 +36,12 @@
 					>{/each}
 			</h1>
 
-			<p class="mt-7 max-w-[42rem] text-lede text-soft sm:mt-9 lg:mt-12">{hero.lead}</p>
+			<!-- Where he works, then where he studies: one quiet line each. -->
+			<div class="mt-7 text-lede text-soft sm:mt-9 lg:mt-12">
+				{#each hero.context as line (line)}
+					<p><Glued text={line} /></p>
+				{/each}
+			</div>
 
 			<ul
 				aria-label="프로필"
@@ -56,4 +64,6 @@
 			/>
 		{/if}
 	</div>
+
+	<Glance />
 </section>

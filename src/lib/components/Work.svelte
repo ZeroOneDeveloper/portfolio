@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ArrowLink from './ArrowLink.svelte';
+	import AxitRow from './AxitRow.svelte';
 	import Dots from './Dots.svelte';
 	import ProjectRow from './ProjectRow.svelte';
 	import Section from './Section.svelte';
@@ -11,13 +12,14 @@
 </script>
 
 <!--
-	작업: the four main projects as ruled rows, then the team he founded and what it ran,
-	as a short list of text.
+	작업: AXIT, his lead project, then the four main projects as ruled rows; then the team
+	he founded and what it ran, as a short list of text.
 -->
 <Section id="projects">
 	<ol class="divide-y divide-line">
+		<li class="pb-12 sm:pb-14 lg:pb-16"><AxitRow /></li>
 		{#each main as project (project.id)}
-			<li class="py-12 first:pt-0 sm:py-14 lg:py-16"><ProjectRow {project} /></li>
+			<li class="py-12 sm:py-14 lg:py-16"><ProjectRow {project} /></li>
 		{/each}
 	</ol>
 

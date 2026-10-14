@@ -1,6 +1,7 @@
 <script lang="ts">
 	interface Props {
-		name: 'arrow-up-right' | 'arrow-up';
+		/** Up-right leaves the page; up and down move within it. */
+		name: 'arrow-up-right' | 'arrow-up' | 'arrow-down';
 		class?: string;
 	}
 
@@ -18,7 +19,9 @@
 >
 	{#if name === 'arrow-up-right'}
 		<path d="M7 17 17 7M8.5 7H17v8.5" />
-	{:else}
+	{:else if name === 'arrow-up'}
 		<path d="M12 20V5M5.5 11.5 12 5l6.5 6.5" />
+	{:else}
+		<path d="M12 4v15M5.5 12.5 12 19l6.5-6.5" />
 	{/if}
 </svg>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
-	import Axit from '$lib/components/Axit.svelte';
 	import Work from '$lib/components/Work.svelte';
 	import Career from '$lib/components/Career.svelte';
 	import Research from '$lib/components/Research.svelte';
@@ -57,11 +56,11 @@
 	{@html '<script type="application/ld+json">' + JSON.stringify(jsonLd) + '</' + 'script>'}
 </svelte:head>
 
-<!-- The statement and the portrait; AXIT opens on the hairline the portrait stands on. -->
+<!-- The statement and the portrait, then the at-a-glance row on the hairline the portrait
+     stands on: what he makes, what he researches, where he started. -->
 <Hero />
-<Axit />
 
-<!-- 작업: selected work -->
+<!-- 작업: AXIT, his lead project, then selected work -->
 <Work />
 
 <!-- 경력: what he works on, then one list from 현재 back to 2020 -->

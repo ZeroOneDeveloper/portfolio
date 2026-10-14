@@ -23,7 +23,7 @@
 	<div class="page flex h-14 items-center justify-between gap-4 sm:h-16">
 		<a href="#now" class="group flex shrink-0 items-center gap-2.5">
 			<LogoMark class="h-7" />
-			<span class="underline-target text-small font-semibold max-[379px]:sr-only">
+			<span class="underline-target text-small font-semibold">
 				{profile.name}
 			</span>
 			<span class="sr-only">, 맨 위로</span>
