@@ -5,9 +5,11 @@
 		/** Sizing classes; the mark keeps its own aspect ratio from the height. */
 		class?: string;
 		alt?: string;
+		/** Lazy below the fold, as in the footer. */
+		loading?: 'eager' | 'lazy';
 	}
 
-	let { class: className = 'h-16', alt = '' }: Props = $props();
+	let { class: className = 'h-16', alt = '', loading = 'eager' }: Props = $props();
 </script>
 
 <!--
@@ -18,6 +20,7 @@
 	<img
 		src={blackLogo}
 		{alt}
+		{loading}
 		width="1000"
 		height="1000"
 		class="absolute left-[-42.8%] top-[-29.85%] h-auto w-[207.5%] max-w-none"

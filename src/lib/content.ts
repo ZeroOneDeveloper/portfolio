@@ -8,7 +8,8 @@ export interface Link {
 
 /**
  * The studio portrait: any jpg, png or webp placed in src/lib/profile/ (the first one, by
- * name). With none there the intro shows no photo frame at all.
+ * name). With none there the opening shows the statement alone. A portrait shot on pure
+ * white blends into the page, which is white too.
  */
 const portraitFiles = import.meta.glob<string>(
 	'./profile/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
@@ -49,17 +50,24 @@ export const profile = {
 /** Size and alt text of the portrait, used only when profile.photo is set. */
 export const portrait = { width: 900, height: 1157, alt: `${profile.name} 프로필 사진` };
 
+/** Where his work lives: under the opening statement, and again in the footer. */
 export const profileLinks: Link[] = [
 	{ label: 'GitHub', href: profile.github },
 	{ label: 'ORCID', href: 'https://orcid.org/0009-0008-2680-6367' },
 	{ label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=9rZcbucAAAAJ' },
-	{ label: 'DBpia', href: 'https://www.dbpia.co.kr/author/authorDetail?ancId=5473989' },
-	{ label: profile.company.name, href: profile.company.url }
+	{ label: 'DBpia', href: 'https://www.dbpia.co.kr/author/authorDetail?ancId=5473989' }
 ];
 
 export const scholarLinks: Link[] = profileLinks.filter((link) =>
 	['ORCID', 'Google Scholar', 'DBpia'].includes(link.label)
 );
+
+/** The footer adds the company and the platform it runs. */
+export const footerLinks: Link[] = [
+	...profileLinks,
+	{ label: profile.company.name, href: profile.company.url },
+	{ label: '리얼월드', href: profile.realworld }
+];
 
 // Header navigation, in page order.
 export const nav = [
@@ -70,6 +78,8 @@ export const nav = [
 	{ id: 'news', label: '기사' }
 ] as const;
 
+// What he works on. The page names the three titles in one line, at the head of 경력;
+// the bodies are kept here but not shown.
 export const focusAreas = [
 	{
 		title: 'AI 에이전트',
@@ -85,21 +95,18 @@ export const focusAreas = [
 	}
 ] as const;
 
-// The opening: what he does now, the company it happens at, and the most recent thing he
-// did in public. The sources of `recent` are the two articles in `namedArticles`. What
-// he works on in general is spelled out by `focusAreas`, beside it. `now` points at AXIT
-// without repeating his role there: the AXIT card states it, in his own words (axit.role).
-export const intro = {
-	now: 'AI 에이전트 협업 공간 AXIT를 만드는 개발팀을 이끕니다.',
-	realworld: '유니크굿컴퍼니는 피지털 AI 기반의 플레이어블 콘텐츠 플랫폼 ‘리얼월드’를 운영합니다.',
-	recent:
-		'AI 에이전트를 활용해 8년간 앱으로 운영된 게임 서비스를 사흘 만에 웹 버전으로 개발한 경험을 『나노벤처』 북토크에서 발표했습니다.',
-	links: [
-		{ label: profile.company.name, href: profile.company.url },
-		{ label: '리얼월드', href: profile.realworld },
-		{ label: 'GitHub', href: profile.github }
-	] satisfies Link[]
+// The opening: one statement set very large, one line under it saying where and what,
+// then the profile links. His role in his confirmed wording is stated in AXIT (axit.role).
+export const hero = {
+	/** The statement, one entry per line. */
+	statement: [profile.name, 'AXIT를 만드는', `${profile.role}.`],
+	// Glued so that, wrapped, it breaks only after the company or after 공간.
+	lead: '유니크굿컴퍼니에서 AI 에이전트 협업 공간 AXIT 개발을 총괄합니다.'
 };
+
+/** What the company does: the context of the company articles in 기사. */
+export const companyNote =
+	'유니크굿컴퍼니는 피지털 AI 기반의 플레이어블 콘텐츠 플랫폼 ‘리얼월드’를 운영합니다.';
 
 export interface Shot {
 	src: string;
@@ -108,7 +115,7 @@ export interface Shot {
 	alt: string;
 }
 
-/** A screenshot with a short line under it saying what it shows. */
+/** A screenshot and a short line saying what it shows (kept here; the page relies on alt). */
 export interface CaptionedShot extends Shot {
 	caption: string;
 }
@@ -119,7 +126,7 @@ export interface CaptionedShot extends Shot {
 // 경제타임스 reported them, and appear only with that attribution.
 export const axit = {
 	name: 'AXIT',
-	tagline: '대화가 곧 실행이 되는 AI 협업 공간',
+	tagline: '대화가 곧 실행이 되는 AI 협업 공간',
 	summary:
 		'AXIT는 팀 채팅, 워크스페이스, AI 에이전트 실행을 하나로 연결합니다. 채널에서 AXIT를 불러 업무를 요청하면 대화의 맥락을 바탕으로 실행 계획을 세우고 필요한 에이전트와 함께 작업을 진행합니다.',
 	/** His part in it, in the wording he confirmed. */
@@ -200,38 +207,28 @@ export const axit = {
 	credit: '이미지: AXIT 앱 스토어 스크린샷'
 };
 
-/** What a work card shows. The label says plainly what the picture is. */
+/** The picture beside a main project in 작업. */
 export type WorkMedia =
 	| {
-			kind: 'diagram';
-			label: '도식';
-			alt: string;
-			/** The name split where the accent starts: Code + 01. */
-			wordmark: [string, string];
-			subtitle: string;
+			/** No screenshot of the project is public: how it works, set as text. */
+			kind: 'flow';
+			caption: string;
 			steps: string[];
 	  }
 	| {
 			kind: 'screen';
-			label: '사이트 화면';
 			image: Shot;
 			/** A tighter crop for phones, where the full image would be too small to read. */
 			compact?: Shot;
 	  }
 	| {
 			kind: 'print';
-			label: '출력 형식';
 			/** Frame templates shown whole, side by side; tone is the colour of the frame. */
 			frames: (Shot & { tone: 'light' | 'dark' })[];
-			/** Centre of each photo slot from the top, in % of the frame's height, in fill order. */
-			slots: number[];
 	  }
 	| {
 			kind: 'logo';
-			label: '로고';
 			image: Shot;
-			/** Ground the logo was drawn on, so the frame can match it. */
-			tone: 'light' | 'dark';
 	  };
 
 export interface Project {
@@ -242,7 +239,8 @@ export interface Project {
 	summary: string;
 	stack: string;
 	links: Link[];
-	media: WorkMedia;
+	/** Main projects only; the early ones are a list of text. */
+	media?: WorkMedia;
 }
 
 export const projects: Project[] = [
@@ -262,11 +260,8 @@ export const projects: Project[] = [
 			}
 		],
 		media: {
-			kind: 'diagram',
-			label: '도식',
-			alt: 'Code01 채점 흐름 도식: 코드를 제출하면 Docker 안의 Piston 엔진이 채점하고, 결과를 실시간으로 표시합니다.',
-			wordmark: ['Code', '01'],
-			subtitle: '도커 기반 온라인 저지',
+			kind: 'flow',
+			caption: '채점 흐름',
 			steps: ['제출', 'Docker 안의 Piston 채점', '결과 실시간 표시']
 		}
 	},
@@ -281,14 +276,12 @@ export const projects: Project[] = [
 		links: [{ label: 'GitHub', href: 'https://github.com/KH-Programmers/NeulBom_Frontend' }],
 		media: {
 			kind: 'logo',
-			label: '로고',
 			image: {
-				src: '/projects/web/neulbom-dark.webp',
+				src: '/projects/web/neulbom-light.webp',
 				width: 960,
 				height: 960,
-				alt: '늘봄 로고: 검은 바탕 위 분홍색 꽃잎 모양'
-			},
-			tone: 'dark'
+				alt: '늘봄 로고: 흰 바탕 위 분홍색 꽃잎 모양'
+			}
 		}
 	},
 	{
@@ -304,9 +297,7 @@ export const projects: Project[] = [
 		],
 		media: {
 			kind: 'print',
-			label: '출력 형식',
-			// The library's own SimpleWhiteFrame and SimpleBlackFrame (zerocut/frames/samples):
-			// 1000×2800, four 876×500 slots at y = 64, 628, 1192 and 1756.
+			// The library's own SimpleWhiteFrame and SimpleBlackFrame (zerocut/frames/samples).
 			frames: [
 				{
 					src: '/work/zerocut-frame-white.webp',
@@ -322,8 +313,7 @@ export const projects: Project[] = [
 					tone: 'dark',
 					alt: 'ZeroCut의 검은 프레임: 같은 배치의 검은 세로 띠에 흰 사진 칸 네 개와 같은 문구, 날짜가 있습니다.'
 				}
-			],
-			slots: [11.21, 31.36, 51.5, 71.64]
+			]
 		}
 	},
 	{
@@ -337,7 +327,6 @@ export const projects: Project[] = [
 		links: [{ label: 'ods.zero0ne.dev', href: 'https://ods.zero0ne.dev' }],
 		media: {
 			kind: 'screen',
-			label: '사이트 화면',
 			image: {
 				src: '/work/ods-overview.webp',
 				width: 1578,
@@ -360,18 +349,7 @@ export const projects: Project[] = [
 		summary:
 			'“당신의 디스코드에 유니크한 재미를 더.” 디스코드 봇과 서비스를 만드는 팀을 창업해 이끌었습니다.',
 		stack: '팀 운영 · 백엔드',
-		links: [],
-		media: {
-			kind: 'logo',
-			label: '로고',
-			image: {
-				src: '/projects/web/uniquecode.webp',
-				width: 640,
-				height: 640,
-				alt: 'UniqueCode 로고: 검은 바탕 위 흰 필기체 u'
-			},
-			tone: 'dark'
-		}
+		links: []
 	},
 	{
 		id: 'uniquebots',
@@ -381,18 +359,7 @@ export const projects: Project[] = [
 		summary:
 			'한국 디스코드 봇을 소개하고 홍보하는 봇 리스트 사이트. UniqueCode의 서비스로 운영했습니다.',
 		stack: 'Next.js · GraphQL · Prisma',
-		links: [{ label: 'GitHub', href: 'https://github.com/paring-chan/uniquebots' }],
-		media: {
-			kind: 'logo',
-			label: '로고',
-			image: {
-				src: '/projects/web/uniquebots.webp',
-				width: 640,
-				height: 640,
-				alt: 'UniqueBots 로고: 밝은 회색 바탕 위 검은 UB 글자'
-			},
-			tone: 'light'
-		}
+		links: [{ label: 'GitHub', href: 'https://github.com/paring-chan/uniquebots' }]
 	},
 	{
 		id: 'freeai',
@@ -401,18 +368,7 @@ export const projects: Project[] = [
 		role: '공동 제작',
 		summary: '서버 관리, 음악, 게임, 레벨링, 검색을 한데 담은 다기능 디스코드 봇입니다.',
 		stack: 'Discord Bot',
-		links: [{ label: 'koreanbots', href: 'https://koreanbots.dev/bots/695899835953578025' }],
-		media: {
-			kind: 'logo',
-			label: '로고',
-			image: {
-				src: '/projects/web/freeai.webp',
-				width: 640,
-				height: 640,
-				alt: 'FreeAI 로고: 검은 바탕 위 흰 삼각형 A'
-			},
-			tone: 'dark'
-		}
+		links: [{ label: 'koreanbots', href: 'https://koreanbots.dev/bots/695899835953578025' }]
 	}
 ];
 
@@ -486,6 +442,7 @@ export interface Paper {
 	locator: string;
 	date: string;
 	kind: '저널' | '학술대회';
+	/** Not shown: the rows carry title, authors and venue only. */
 	summary: string;
 	href: string;
 }
@@ -558,8 +515,10 @@ export function paperLinkLabel(href: string): string {
 
 export interface Exploration {
 	title: string;
+	/** Not shown: each poster states its purpose itself. */
 	purpose: string;
 	year: string;
+	/** Not shown, like stack: the posters carry the detail. */
 	summary: string;
 	stack: string;
 	image: string;
@@ -627,14 +586,16 @@ export interface Article {
 	headline: string;
 	outlet: string;
 	date: string;
+	/** Shown for the articles that name him; company articles show the headline only. */
 	summary: string;
+	/** Not shown in the current design. */
 	tag: '발표' | 'AI' | '파트너십' | '제품' | '글로벌';
 	href: string;
 	/** A line he is quoted saying in the article. */
 	quote?: { text: string; speaker: string };
 }
 
-// The two articles that name him, newest first. They are the sources of intro.recent.
+// The two articles that name him, newest first.
 export const namedArticles: Article[] = [
 	{
 		headline: '유쾌한반란ㆍ유니크굿컴퍼니, 제27회 소셜임팩트포럼 ‘나노벤처’ 북토크 성료',

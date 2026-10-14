@@ -19,7 +19,7 @@
 	}
 
 	body {
-		@apply bg-canvas font-sans text-body text-ink antialiased;
+		@apply bg-paper font-sans text-body text-ink antialiased;
 		/* Keep Korean words intact when lines wrap. */
 		word-break: keep-all;
 		overflow-wrap: break-word;
@@ -27,28 +27,33 @@
 
 	h1,
 	h2,
-	h3 {
+	h3,
+	h4 {
 		text-wrap: balance;
 	}
 
 	p,
 	li,
 	dd,
-	blockquote,
 	figcaption {
 		text-wrap: pretty;
 	}
 
 	::selection {
-		@apply bg-accent text-surface;
+		@apply bg-ink text-paper;
 	}
 
 	:focus-visible {
-		@apply rounded-[4px] outline outline-2 outline-offset-[3px] outline-accent;
+		@apply rounded-[2px] outline outline-2 outline-offset-[3px] outline-ink;
 	}
 
 	[id] {
-		scroll-margin-top: 5rem;
+		scroll-margin-top: 6rem;
+	}
+
+	/* A section jumped to from the nav lands with its hairline on the header's own. */
+	section[id] {
+		@apply scroll-mt-14 sm:scroll-mt-16;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -66,63 +71,43 @@
 }
 
 @layer components {
-	/* One measure for every section. */
+	/* One measure for the whole page: the header, every section and the footer. */
 	.page {
-		@apply mx-auto w-full max-w-page px-4 sm:px-8 lg:px-10;
-	}
-
-	/* Plain text link: hairline underline that turns green on hover. */
-	.text-link {
-		@apply underline decoration-line-strong decoration-1 underline-offset-[0.25em] transition-colors duration-150 hover:text-accent hover:decoration-accent;
-	}
-
-	/* Years, dates and stacks. */
-	.mono {
-		@apply font-mono tracking-[-0.01em];
-		font-variant-numeric: tabular-nums;
+		@apply mx-auto w-full max-w-page px-5 sm:px-8 lg:px-12 xl:px-16;
 	}
 
 	/*
-	 * The 0/1 mark, the second ZerOne signature after the monogram. At rest it is a small
-	 * ring, a zero; lit, it is a short upright bar in the accent, a one. Used by the header
-	 * nav, the 경력 rail and the intro's 지금 / 최근 labels, nowhere else.
+	 * Links are ink. Their underline is drawn in from transparent on hover and on keyboard
+	 * focus, so it never shifts the text. On a link that carries an arrow it sits on the
+	 * label only (.underline-target), never under the arrow.
 	 */
-	.bit {
-		@apply inline-block size-[9px] shrink-0 rounded-full border-[1.5px] border-line-strong bg-transparent;
-		transition:
-			width 200ms ease,
-			height 200ms ease,
-			border-radius 200ms ease,
-			background-color 200ms ease,
-			border-color 200ms ease;
+	.link,
+	.underline-target {
+		@apply underline decoration-transparent decoration-1 underline-offset-[0.28em] transition-[text-decoration-color] duration-150;
 	}
 
-	.bit-on {
-		@apply h-[15px] w-[3px] rounded-[1.5px] border-accent bg-accent;
+	.link:hover,
+	.link:focus-visible,
+	.group:hover .underline-target,
+	.group:focus-visible .underline-target {
+		@apply decoration-current;
+	}
+
+	/* A link inside running text keeps a quiet underline at rest, so it never relies on colour. */
+	.link-inline {
+		@apply underline decoration-muted/50 decoration-1 underline-offset-[0.28em] transition-[text-decoration-color] duration-150 hover:decoration-ink focus-visible:decoration-ink;
 	}
 }
 
 /*
- * Header nav state. With JavaScript, the observer sets aria-current on the item whose
- * section is in view. Without it, the item of the section you jumped to, or of the
- * section holding the anchor you jumped to (#code01, #case), lights up through :target.
- * The :has() fallbacks keep to rules of their own: a browser that cannot parse :has()
- * drops only those, never the aria-current rules.
+ * Header nav state: the current section's label turns ink and takes a short rule under
+ * it. With JavaScript, the observer sets aria-current on the item whose section is in
+ * view. Without it, the item of the section you jumped to, or of the section holding the
+ * anchor you jumped to (#code01, #case), lights up through :target. The :has() fallbacks
+ * keep to rules of their own: a browser that cannot parse :has() drops only those.
  */
-.nav-link[aria-current='location'] .bit {
-	@apply bit-on;
-}
-
 .nav-link[aria-current='location'] {
-	@apply text-ink;
-}
-
-:root:not(.js):has(#axit:target, #axit :target) .nav-link[data-nav='axit'] .bit,
-:root:not(.js):has(#projects:target, #projects :target) .nav-link[data-nav='projects'] .bit,
-:root:not(.js):has(#career:target, #career :target) .nav-link[data-nav='career'] .bit,
-:root:not(.js):has(#research:target, #research :target) .nav-link[data-nav='research'] .bit,
-:root:not(.js):has(#news:target, #news :target) .nav-link[data-nav='news'] .bit {
-	@apply bit-on;
+	@apply text-ink decoration-current;
 }
 
 :root:not(.js):has(#axit:target, #axit :target) .nav-link[data-nav='axit'],
@@ -130,5 +115,5 @@
 :root:not(.js):has(#career:target, #career :target) .nav-link[data-nav='career'],
 :root:not(.js):has(#research:target, #research :target) .nav-link[data-nav='research'],
 :root:not(.js):has(#news:target, #news :target) .nav-link[data-nav='news'] {
-	@apply text-ink;
+	@apply text-ink decoration-current;
 }

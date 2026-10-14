@@ -20,7 +20,7 @@
 
 <a
 	href="#main"
-	class="sr-only z-50 rounded-full bg-ink text-small text-surface focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:px-4 focus:py-2"
+	class="sr-only z-50 bg-ink text-small font-semibold text-paper focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:px-4 focus:py-2"
 >
 	본문 바로가기
 </a>

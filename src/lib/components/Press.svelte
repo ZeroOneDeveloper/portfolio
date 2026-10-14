@@ -1,74 +1,72 @@
 <script lang="ts">
 	import Icon from './Icon.svelte';
-	import SectionHead from './SectionHead.svelte';
+	import Section from './Section.svelte';
 
-	import { articles, namedArticles, profile, type Article } from '$lib/content';
+	import { articles, companyNote, namedArticles, profile, type Article } from '$lib/content';
+
+	// The headline's last word carries the arrow, so the arrow never wraps onto a line alone.
+	function split(headline: string): [string, string] {
+		const at = headline.lastIndexOf(' ') + 1;
+		return [headline.slice(0, at), headline.slice(at)];
+	}
 </script>
 
-{#snippet list(items: Article[])}
+{#snippet list(items: Article[], detailed: boolean)}
 	<!--
-		The headline is the one link, so a screen reader's link list reads headlines only;
-		its ::after stretches over the row, which keeps the whole row clickable.
+		One ruled row per article: outlet and date | headline. The headline is the one link,
+		so a screen reader's link list reads headlines only; its ::after stretches over the
+		row, which keeps the whole row clickable.
 	-->
-	<ol class="mt-3 border-t border-ink">
+	<ol class="mt-4 divide-y divide-line border-t border-line">
 		{#each items as article (article.href)}
-			<li
-				class="group relative grid gap-x-8 gap-y-1.5 border-b border-line py-5 sm:grid-cols-[8.5rem_minmax(0,1fr)_auto] sm:py-6 lg:grid-cols-[12rem_minmax(0,1fr)_auto]"
-			>
-				<p class="flex items-center gap-2 text-meta sm:flex-col sm:items-start sm:gap-0.5">
-					<span class="whitespace-nowrap font-semibold text-ink">{article.outlet}</span>
-					<span class="mono whitespace-nowrap text-muted">{article.date}</span>
-					<span class="rounded-full bg-sunken px-2 py-0.5 text-micro text-ink-soft sm:hidden">
-						{article.tag}
-					</span>
+			{@const [head, tail] = split(article.headline)}
+			<li class="group relative grid gap-y-1.5 py-5 lg:grid-cols-9 lg:gap-x-6 lg:py-6">
+				<p class="text-small lg:col-span-2">
+					<span class="font-semibold">{article.outlet}</span><span
+						aria-hidden="true"
+						class="text-muted lg:hidden">&nbsp;·</span
+					>
+					<span class="tabular-nums text-muted lg:block">{article.date}</span>
 				</p>
-				<div class="min-w-0">
-					<h4 class="max-w-measure text-pretty text-item-title font-semibold">
-						<a
-							href={article.href}
-							class="transition-colors after:absolute after:inset-0 hover:text-accent group-hover:text-accent"
-						>
-							{article.headline}
+				<div class="lg:col-span-7">
+					<h4 class="text-title font-medium">
+						<a href={article.href} class="link underline-target after:absolute after:inset-0">
+							{head}<span class="whitespace-nowrap"
+								>{tail}<Icon
+									name="arrow-up-right"
+									class="ml-[0.3em] inline size-[0.72em] align-[-0.02em]"
+								/></span
+							>
 						</a>
 					</h4>
-					<p class="mt-1 max-w-[46rem] text-meta text-muted">{article.summary}</p>
-					{#if article.quote}
-						<p class="mt-2 max-w-[46rem] text-meta text-ink-soft">
-							“{article.quote.text}”
-							<span class="whitespace-nowrap text-muted">— {article.quote.speaker}</span>
-						</p>
+					{#if detailed}
+						<p class="mt-1.5 max-w-measure text-small text-muted">{article.summary}</p>
+						{#if article.quote}
+							<p class="mt-1.5 max-w-measure text-small text-muted">
+								“{article.quote.text}”
+								<span class="whitespace-nowrap">— {article.quote.speaker}</span>
+							</p>
+						{/if}
 					{/if}
 				</div>
-				<p class="hidden items-start gap-3 pt-1 sm:flex">
-					<span class="rounded-full bg-sunken px-2 py-0.5 text-micro text-ink-soft">
-						{article.tag}
-					</span>
-					<Icon
-						name="arrow-up-right"
-						class="size-4 text-muted transition-colors group-hover:text-accent"
-					/>
-				</p>
 			</li>
 		{/each}
 	</ol>
 {/snippet}
 
-<section id="news" aria-labelledby="news-title" class="page mt-24 sm:mt-32">
-	<SectionHead
-		id="news-title"
-		title="기사"
-		lead="{profile.name}가 소개된 기사 {namedArticles.length}건과, {profile.company
-			.name}와 리얼월드의 최근 기사입니다."
-	/>
-
-	<!-- #case: the two articles behind the intro's 최근 line. -->
+<!--
+	기사: the two articles that name him first (#case), with what each says; then the
+	company's recent coverage, headlines only, under one line saying what the company does.
+-->
+<Section id="news">
 	<div id="case">
-		<h3 class="text-small font-semibold text-ink">소개된 기사</h3>
-		{@render list(namedArticles)}
+		<h3 class="text-small font-semibold">소개된 기사</h3>
+		{@render list(namedArticles, true)}
 	</div>
 
-	<div class="mt-12 sm:mt-14">
-		<h3 class="text-small font-semibold text-ink">{profile.company.name} · 리얼월드</h3>
-		{@render list(articles)}
+	<div class="mt-14 sm:mt-16">
+		<h3 class="text-small font-semibold">{profile.company.name} · 리얼월드</h3>
+		<p class="mt-1 text-small text-muted">{companyNote}</p>
+		{@render list(articles, false)}
 	</div>
-</section>
+</Section>

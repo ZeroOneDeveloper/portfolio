@@ -1,7 +1,9 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
-// Work-showcase tokens: a warm-neutral ground, white work cards, near-black ink
-// and one pine-green accent. Components use these names only — no hex values in markup.
+// White minimal: a pure white page, near-black ink and three greys. There is no accent:
+// colour comes only from the pictures (AXIT's screens, project images, posters). The
+// palette replaces Tailwind's own, so markup can use these names and nothing else.
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
@@ -13,33 +15,20 @@ export default {
 			xl: '1280px'
 		},
 
+		colors: {
+			transparent: 'transparent',
+			current: 'currentColor',
+			paper: '#ffffff',
+			ink: '#0b0b0b',
+			// Secondary text: summaries and descriptions (8.9:1 on paper).
+			soft: '#4a4a4a',
+			// Metadata: dates, roles, stacks, captions (5.3:1 on paper).
+			muted: '#6b6b6b',
+			// Hairlines between sections and rows.
+			line: '#e6e6e6'
+		},
+
 		extend: {
-			colors: {
-				// Page ground and the surfaces that sit on it.
-				canvas: '#f3f2ee',
-				surface: '#ffffff',
-				sunken: '#e9e7e1',
-				line: '#dcdad2',
-				'line-strong': '#bfbcb2',
-
-				ink: '#171715',
-				'ink-soft': '#45443f',
-				muted: '#64625b',
-
-				// The one accent: pine green.
-				accent: '#17694b',
-				'accent-deep': '#0e4f37',
-				'accent-tint': '#e2eee7',
-
-				// Dark media grounds: the Code01 ink panel and dark logos, with their chip.
-				night: '#191a18',
-				'night-raised': '#242522',
-				'night-line': '#3a3b36',
-				'night-muted': '#aeaca4',
-				// The accent on a dark ground: the "01" of the Code01 wordmark.
-				'accent-glow': '#8ed6b2'
-			},
-
 			fontFamily: {
 				sans: [
 					'"Pretendard Variable"',
@@ -50,67 +39,69 @@ export default {
 					'"Apple SD Gothic Neo"',
 					'"Noto Sans KR"',
 					'sans-serif'
-				],
-				// Years, dates and stacks only.
-				mono: ['"JetBrains Mono"', '"Pretendard Variable"', 'ui-monospace', 'monospace']
+				]
 			},
 
+			// One steep scale: a huge opening, large titles, small calm metadata. Hangul
+			// sets a little looser than Latin, so even the largest sizes keep 1.05 or more.
 			fontSize: {
-				name: [
-					'clamp(2.25rem, 1.55rem + 2.6vw, 3.5rem)',
-					{ lineHeight: '1.1', letterSpacing: '-0.03em' }
+				// The opening statement. On a wide but short screen the height caps it too.
+				display: [
+					'clamp(3rem, min(1.2rem + 7vw, 14vh), 7.5rem)',
+					{ lineHeight: '1.08', letterSpacing: '-0.045em' }
 				],
-				// The Code01 wordmark on its ink panel.
-				wordmark: [
-					'clamp(2.5rem, 1.9rem + 2.2vw, 3.75rem)',
-					{ lineHeight: '1', letterSpacing: '-0.04em' }
+				// AXIT, the product that heads the first section.
+				product: [
+					'clamp(2.75rem, 1.6rem + 4.6vw, 6rem)',
+					{ lineHeight: '1', letterSpacing: '-0.045em' }
 				],
-				section: [
-					'clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem)',
-					{ lineHeight: '1.3', letterSpacing: '-0.025em' }
-				],
-				// The product name that heads the AXIT feature: above a section title,
-				// below the name in the intro.
-				feature: [
-					'clamp(2.25rem, 1.8rem + 1.6vw, 3.125rem)',
-					{ lineHeight: '1.05', letterSpacing: '-0.035em' }
-				],
-				// The footer motto.
+				// The motto that signs the page off.
 				motto: [
-					'clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem)',
-					{ lineHeight: '1.4', letterSpacing: '-0.02em' }
+					'clamp(2.25rem, 1rem + 4.6vw, 5.5rem)',
+					{ lineHeight: '1.12', letterSpacing: '-0.04em' }
 				],
-				'card-title': ['1.375rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-				// The intro's 지금 statement.
-				opener: [
-					'clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem)',
-					{ lineHeight: '1.45', letterSpacing: '-0.02em' }
+				// Section titles in the label column.
+				section: [
+					'clamp(2rem, 1.3rem + 2vw, 3rem)',
+					{ lineHeight: '1.1', letterSpacing: '-0.04em' }
 				],
-				'item-title': ['1.0625rem', { lineHeight: '1.55', letterSpacing: '-0.01em' }],
-				lede: ['clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem)', { lineHeight: '1.65' }],
-				body: ['1rem', { lineHeight: '1.75' }],
-				small: ['0.9375rem', { lineHeight: '1.7' }],
-				meta: ['0.8125rem', { lineHeight: '1.6' }],
-				micro: ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.01em' }]
+				// The AXIT tagline.
+				headline: [
+					'clamp(1.75rem, 1.05rem + 2.4vw, 3.25rem)',
+					{ lineHeight: '1.22', letterSpacing: '-0.035em' }
+				],
+				// Project names.
+				project: [
+					'clamp(1.625rem, 1.3rem + 0.9vw, 2.125rem)',
+					{ lineHeight: '1.2', letterSpacing: '-0.035em' }
+				],
+				// Paper titles, headlines and other list items.
+				title: [
+					'clamp(1.0625rem, 0.98rem + 0.3vw, 1.25rem)',
+					{ lineHeight: '1.5', letterSpacing: '-0.015em' }
+				],
+				lede: [
+					'clamp(1.0625rem, 0.96rem + 0.4vw, 1.3125rem)',
+					{ lineHeight: '1.65', letterSpacing: '-0.015em' }
+				],
+				body: ['1.0625rem', { lineHeight: '1.72', letterSpacing: '-0.005em' }],
+				small: ['0.9375rem', { lineHeight: '1.6' }],
+				meta: ['0.8125rem', { lineHeight: '1.5', letterSpacing: '0.01em' }]
 			},
 
 			maxWidth: {
-				page: '1200px',
-				// One reading measure for paper titles, summaries and timeline details.
-				measure: '44rem'
-			},
-
-			borderRadius: {
-				card: '20px',
-				media: '14px'
-			},
-
-			boxShadow: {
-				lift: '0 1px 2px rgb(23 23 21 / 0.04), 0 8px 24px -12px rgb(23 23 21 / 0.16)',
-				shot: '0 1px 2px rgb(23 23 21 / 0.06), 0 12px 32px -16px rgb(23 23 21 / 0.28)'
+				page: '90rem',
+				// Reading measure for summaries and descriptions.
+				measure: '40rem'
 			}
 		}
 	},
 
-	plugins: []
+	plugins: [
+		// short: a laptop's short screen, such as 1366×768, where the opening tightens to stay
+		// in view. A variant, not a screen: object screens would switch off max-[…] variants.
+		plugin(({ addVariant }) => {
+			addVariant('short', '@media (min-width: 1024px) and (max-height: 820px)');
+		})
+	]
 } satisfies Config;

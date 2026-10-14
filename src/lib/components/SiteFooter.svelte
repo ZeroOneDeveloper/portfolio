@@ -1,58 +1,53 @@
 <script lang="ts">
-	import LogoMark from './LogoMark.svelte';
+	import ArrowLink from './ArrowLink.svelte';
 	import Icon from './Icon.svelte';
+	import LogoMark from './LogoMark.svelte';
 
-	import { profile, profileLinks } from '$lib/content';
+	import { footerLinks, profile } from '$lib/content';
 
-	// Set the 0 and the 1 of the motto in the mono face: a small nod to the handle.
-	// The clause from "0과" on stays on one line so the motto breaks at its pause.
+	// The motto in two lines, broken at its pause like the opening statement; "0과 1" is
+	// glued, so a narrow phone can only break the second line before 충분하다.
 	const breakAt = profile.motto.indexOf('0');
-	const mottoLead = profile.motto.slice(0, breakAt);
-	const mottoTail = profile.motto.slice(breakAt).split(/([01])/);
+	const motto = [
+		profile.motto.slice(0, breakAt).trim(),
+		profile.motto.slice(breakAt).replace(' ', '\u00a0')
+	];
 </script>
 
-<footer class="mt-24 border-t border-line bg-surface sm:mt-32">
-	<div class="page grid gap-10 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-		<div class="flex items-start gap-4 sm:gap-5">
-			<LogoMark class="h-12 sm:h-14" alt="ZerOne 로고" />
-			<div>
-				<p class="text-motto font-bold">
-					{mottoLead}<span class="whitespace-nowrap"
-						>{#each mottoTail as part, index (index)}{#if part === '0' || part === '1'}<span
-									class="mono font-medium text-accent">{part}</span
-								>{:else}{part}{/if}{/each}</span
-					>
-				</p>
-				<p class="mt-1 text-meta text-muted">
-					{profile.handle} · {profile.name}
-					<span lang="en">{profile.nameEn}</span>
-				</p>
-			</div>
+<!--
+	The sign-off: the motto, large, as the page's last word; then who, where to find him,
+	and the copyright.
+-->
+<footer class="page mt-28 sm:mt-36 lg:mt-48">
+	<div class="border-t border-line pb-10 pt-16 sm:pt-20 lg:pb-12 lg:pt-28">
+		<p class="text-motto font-bold">
+			{#each motto as line, index (index)}{#if index > 0}{' '}{/if}<span class="block">{line}</span
+				>{/each}
+		</p>
+
+		<div class="mt-16 grid gap-y-8 sm:mt-20 lg:mt-28 lg:grid-cols-12 lg:items-center lg:gap-x-6">
+			<p class="flex items-center gap-3 lg:col-span-3">
+				<LogoMark class="h-8" alt="ZerOne 로고" loading="lazy" />
+				<span class="text-small">
+					<span class="font-semibold">{profile.handle}</span>
+					<span class="text-muted">· {profile.name} <span lang="en">{profile.nameEn}</span></span>
+				</span>
+			</p>
+
+			<nav aria-label="프로필 링크" class="lg:col-span-9">
+				<ul class="flex flex-wrap gap-x-6 gap-y-2 text-small font-medium lg:gap-x-8">
+					{#each footerLinks as link (link.href)}
+						<li><ArrowLink href={link.href} label={link.label} /></li>
+					{/each}
+				</ul>
+			</nav>
 		</div>
 
-		<nav aria-label="프로필 링크">
-			<ul class="flex flex-wrap gap-2">
-				{#each profileLinks as link (link.href)}
-					<li>
-						<a
-							href={link.href}
-							class="inline-flex items-center gap-1.5 rounded-full border border-line-strong px-3 py-1.5 text-meta font-medium transition-colors hover:border-accent hover:text-accent"
-						>
-							{link.label}
-							<Icon name="arrow-up-right" class="size-3.5 text-muted" />
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</nav>
-	</div>
-
-	<div class="border-t border-line">
-		<div class="page flex items-center justify-between gap-4 py-5 text-meta text-muted">
+		<div class="mt-12 flex items-center justify-between gap-4 text-meta text-muted lg:mt-16">
 			<p>© 2026 {profile.name}</p>
-			<a href="#now" class="inline-flex items-center gap-1 hover:text-accent">
-				맨 위로
-				<Icon name="arrow-right" class="size-3.5 -rotate-90" />
+			<a href="#now" class="group inline-flex items-center gap-1 hover:text-ink">
+				<span class="underline-target">맨 위로</span>
+				<Icon name="arrow-up" class="size-3.5" />
 			</a>
 		</div>
 	</div>
