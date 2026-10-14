@@ -3,6 +3,16 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
+	:root {
+		/* The colours the field's canvas reads (BinaryField.svelte), from the palette. */
+		--paper: theme('colors.paper');
+		--ink: theme('colors.ink');
+		--field: theme('colors.field.DEFAULT');
+		--field-peak: theme('colors.field.peak');
+		/* One ease for every entrance and reveal: quick to start, long to settle. */
+		--ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+	}
+
 	html {
 		-webkit-text-size-adjust: 100%;
 		text-size-adjust: 100%;
@@ -115,4 +125,153 @@
 :root:not(.js):has(#research:target, #research :target) .nav-link[data-nav='research'],
 :root:not(.js):has(#news:target, #news :target) .nav-link[data-nav='news'] {
 	@apply text-ink decoration-current;
+}
+
+/*
+ * The opening comes in once, as the page loads: the name rises from behind its own
+ * baseline, the rest follows a beat apart (--enter-delay), the portrait fades up and the
+ * hairline it stands on draws in. CSS alone, so it plays with or without JavaScript, and
+ * not at all when motion is unwelcome.
+ */
+@media screen and (prefers-reduced-motion: no-preference) {
+	.enter-mask {
+		clip-path: inset(-0.5em -0.5em -0.08em -0.5em);
+	}
+
+	.enter-mask > * {
+		animation: enter-mask 1.1s var(--ease-out) var(--enter-delay, 0ms) both;
+	}
+
+	.enter-rise {
+		animation: enter-rise 0.9s var(--ease-out) var(--enter-delay, 0ms) both;
+	}
+
+	.enter-fade {
+		animation: enter-fade 1.4s var(--ease-out) var(--enter-delay, 0ms) both;
+	}
+}
+
+/*
+ * Scroll reveals (src/lib/reveal.ts). With JavaScript (app.html sets the js class before
+ * the first paint) and motion welcome, each [data-reveal] waits hidden until it comes into
+ * view: 'rise' fades up, 'mask' slides its child up from behind its own bottom edge, and
+ * 'line' draws its top hairline in from the left (as .line-in does on load). Without
+ * JavaScript, in print and with reduced motion, nothing is ever hidden.
+ */
+@media screen and (prefers-reduced-motion: no-preference) {
+	.js [data-reveal='rise']:not([data-revealed]) {
+		opacity: 0;
+		transform: translate3d(0, 1.25rem, 0);
+	}
+
+	.js [data-reveal='mask'] {
+		clip-path: inset(-0.5em -0.5em -0.08em -0.5em);
+	}
+
+	.js [data-reveal='mask']:not([data-revealed]) > * {
+		transform: translate3d(0, calc(100% + 0.12em), 0);
+	}
+
+	.js [data-reveal='line'],
+	.line-in {
+		border-top-color: transparent;
+	}
+
+	.js [data-reveal='line']::before,
+	.line-in::before {
+		content: '';
+		position: absolute;
+		inset: -1px 0 auto;
+		height: 1px;
+		background: theme('colors.line');
+		transform-origin: left;
+	}
+
+	.js [data-reveal='line']:not([data-revealed])::before {
+		transform: scaleX(0);
+	}
+
+	.line-in::before {
+		animation: draw-line 1.4s var(--ease-out) 0.1s both;
+	}
+
+	/* Once the observer is in charge, a reveal is a transition, a beat after the one before. */
+	.reveal-ready [data-reveal='rise'] {
+		transition:
+			opacity 0.7s var(--ease-out) var(--reveal-delay, 0ms),
+			transform 0.8s var(--ease-out) var(--reveal-delay, 0ms);
+	}
+
+	.reveal-ready [data-reveal='mask'] > * {
+		transition: transform 0.9s var(--ease-out) var(--reveal-delay, 0ms);
+	}
+
+	.reveal-ready [data-reveal='line']::before {
+		transition: transform 1.2s var(--ease-out) var(--reveal-delay, 0ms);
+	}
+
+	/* What was already scrolled past is shown as it is, without a transition. */
+	[data-revealed='now'],
+	[data-revealed='now'] > *,
+	[data-revealed='now']::before {
+		transition: none !important;
+	}
+
+	/*
+	 * The safety net: should the observer never take over (its script failed or came very
+	 * late), everything shows by itself 2.5s after the first paint.
+	 */
+	.js:not(.reveal-ready) [data-reveal='rise'],
+	.js:not(.reveal-ready) [data-reveal='mask'] > *,
+	.js:not(.reveal-ready) [data-reveal='line']::before {
+		animation: reveal-anyway 1ms 2.5s forwards;
+	}
+}
+
+/*
+ * 작업 on a wide screen with a mouse (the fine variant; the query is FINE_POINTER in
+ * src/lib/media.ts): hovering a project, or reaching one of its links from the keyboard,
+ * sets the other rows back.
+ */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+	.work-row {
+		transition: opacity 0.4s var(--ease-out);
+	}
+
+	.work-index:has(.work-row:hover, .work-row :focus-visible)
+		.work-row:not(:hover, :has(:focus-visible)) {
+		opacity: 0.45;
+	}
+}
+
+@keyframes enter-mask {
+	from {
+		transform: translate3d(0, calc(100% + 0.12em), 0);
+	}
+}
+
+@keyframes enter-rise {
+	from {
+		opacity: 0;
+		transform: translate3d(0, 1.25rem, 0);
+	}
+}
+
+@keyframes enter-fade {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes draw-line {
+	from {
+		transform: scaleX(0);
+	}
+}
+
+@keyframes reveal-anyway {
+	to {
+		opacity: 1;
+		transform: none;
+	}
 }

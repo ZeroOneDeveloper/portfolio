@@ -14,7 +14,7 @@
 	year | entry. The year column is as wide as the date column of 연구 and 기사.
 -->
 <Section id="career">
-	<p class="text-lede font-semibold">
+	<p class="text-lede font-semibold" data-reveal="rise">
 		<span class="sr-only">하는 일:</span>
 		<Dots items={focusAreas.map((area) => area.title)} />
 	</p>
@@ -22,6 +22,7 @@
 	<ol class="mt-10 sm:mt-12 lg:mt-14">
 		{#each career as entry, index (entry.title)}
 			<li
+				data-reveal="rise"
 				class="grid grid-cols-[5rem_minmax(0,1fr)] gap-x-4 py-2.5 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-x-6 lg:grid-cols-9"
 			>
 				<p

@@ -12,8 +12,6 @@ export const active = $state({ id: '' });
  * cleanup function.
  */
 export function trackActiveSection(): () => void {
-	document.documentElement.classList.add('js');
-
 	const sections = nav
 		.map((item) => document.getElementById(item.id))
 		.filter((element): element is HTMLElement => element !== null);

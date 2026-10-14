@@ -8,8 +8,9 @@ export interface Link {
 
 /**
  * The studio portrait: any jpg, png or webp placed in src/lib/profile/ (the first one, by
- * name). With none there the opening shows the statement alone. A portrait shot on pure
- * white blends into the page, which is white too.
+ * name). With none there the opening shows his name and introduction alone. A portrait
+ * shot on pure white blends into the page, which is white too, and lets the field of 0s
+ * and 1s behind the opening run through its background up to the person.
  */
 const portraitFiles = import.meta.glob<string>(
 	'./profile/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
@@ -50,7 +51,7 @@ export const profile = {
 /** Size and alt text of the portrait, used only when profile.photo is set. */
 export const portrait = { width: 900, height: 1157, alt: `${profile.name} 프로필 사진` };
 
-/** Where his work lives: under the opening statement, and again in the footer. */
+/** Where his work lives: under the introduction, and again in the footer. */
 export const profileLinks: Link[] = [
 	{ label: 'GitHub', href: profile.github },
 	{ label: 'ORCID', href: 'https://orcid.org/0009-0008-2680-6367' },
@@ -97,49 +98,16 @@ export const focusAreas = [
 	}
 ] as const;
 
-// The opening: one statement set very large, two quiet lines under it saying where he
-// works and where he studies, then the profile links. His role in his confirmed wording
-// is stated in AXIT (axit.role).
+// The opening: his name, very large, then who he is in three sentences and the profile
+// links. The wording is his, approved as it stands: what he leads, what he studies and
+// researches, where he started. The first sentence is set a little stronger than the rest.
 export const hero = {
-	/** The statement, one entry per line. */
-	statement: [profile.name, '만들고, 연구하는', '개발자.'],
-	// Glued where a wrap would strand a word: each line can only break between its phrases.
-	context: [
-		`${profile.company.name} ${profile.role}`,
-		`${profile.school.name} ${profile.school.department}\u00a0${profile.school.cohort}`
+	intro: [
+		'유니크굿컴퍼니에서 AI 에이전트 협업 공간 AXIT를 만드는 개발팀을 이끌고 있습니다.',
+		'강원대학교 원주캠퍼스 컴퓨터공학과에서 공부하며 국민건강보험 코호트 데이터로 질환 사이의 위험을 분석하는 연구에 참여합니다.',
+		'2020년 디스코드 봇 팀 UniqueCode를 창업한 것을 시작으로 서비스와 연구를 만들어 왔습니다.'
 	]
-};
-
-export interface GlanceItem {
-	label: string;
-	title: string;
-	body: string;
-	/** The section that holds the detail; the item links there. */
-	section: SectionId;
-}
-
-// Under the opening, one calm row: what he makes, what he researches, where he started.
-// The counts summarise `papers` and the UniqueCode entries below; update them together.
-export const glance: GlanceItem[] = [
-	{
-		label: '만들기',
-		title: `${profile.company.name} ${profile.role}`,
-		body: 'AI\u00a0에이전트\u00a0협업\u00a0공간 AXIT\u00a0개발을 총괄합니다.',
-		section: 'projects'
-	},
-	{
-		label: '연구',
-		title: '논문 4편',
-		body: '국제 저널\u00a02편(공동\u00a0저자) · 학술대회\u00a02편. 국민건강보험 코호트 데이터로 질환 사이의 위험을 분석합니다.',
-		section: 'research'
-	},
-	{
-		label: '시작',
-		title: '2020년 UniqueCode 창업',
-		body: '디스코드 봇과 서비스를 만드는 팀을 창업해 대표로 이끌었습니다.',
-		section: 'career'
-	}
-];
+} as const;
 
 /** What the company does: the context of the company articles in 기사. */
 export const companyNote =

@@ -20,7 +20,10 @@
 	<ol class="mt-4 divide-y divide-line border-t border-line">
 		{#each items as article (article.href)}
 			{@const [head, tail] = split(article.headline)}
-			<li class="group relative grid gap-y-1.5 py-5 lg:grid-cols-9 lg:gap-x-6 lg:py-6">
+			<li
+				data-reveal="rise"
+				class="group relative grid gap-y-1.5 py-5 lg:grid-cols-9 lg:gap-x-6 lg:py-6"
+			>
 				<p class="text-small lg:col-span-2">
 					<span class="font-semibold">{article.outlet}</span><span
 						aria-hidden="true"
@@ -60,13 +63,15 @@
 -->
 <Section id="news">
 	<div id="case">
-		<h3 class="text-small font-semibold">소개된 기사</h3>
+		<h3 class="text-small font-semibold" data-reveal="rise">소개된 기사</h3>
 		{@render list(namedArticles, true)}
 	</div>
 
 	<div class="mt-14 sm:mt-16">
-		<h3 class="text-small font-semibold">{profile.company.name} · 리얼월드</h3>
-		<p class="mt-1 text-small text-muted">{companyNote}</p>
+		<div data-reveal="rise">
+			<h3 class="text-small font-semibold">{profile.company.name} · 리얼월드</h3>
+			<p class="mt-1 text-small text-muted">{companyNote}</p>
+		</div>
 		{@render list(articles, false)}
 	</div>
 </Section>

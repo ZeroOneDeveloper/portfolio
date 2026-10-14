@@ -12,11 +12,12 @@
 	richer: the tagline under the name, the store description, his part in it, the store
 	links, and the company's own figures in one quiet line, never without their source. One
 	store screenshot stands where the other rows keep their picture, a little taller than
-	theirs and about as tall as the words beside it.
+	theirs and about as tall as the words beside it. With a mouse, where the rows below
+	become an index of large names, its name is set as large as theirs.
 -->
 <article id="axit" aria-labelledby="axit-title" class="grid gap-y-8 lg:grid-cols-9 lg:gap-x-6">
-	<div class="lg:col-span-5">
-		<h3 id="axit-title" class="text-project font-bold">{axit.name}</h3>
+	<div class="lg:col-span-5" data-reveal="rise">
+		<h3 id="axit-title" class="text-project font-bold fine:text-index">{axit.name}</h3>
 		<p class="mt-2 text-title font-semibold">{axit.tagline}</p>
 		<p class="mt-5 max-w-measure text-body text-soft">{axit.summary}</p>
 		<!-- Balanced: a phone breaks it after 개발팀장으로, never between AXIT and 개발을. -->
@@ -45,7 +46,7 @@
 		</p>
 	</div>
 
-	<div class="lg:col-span-4">
+	<div class="lg:col-span-4" data-reveal="rise">
 		<img
 			src={shot.src}
 			width={shot.width}

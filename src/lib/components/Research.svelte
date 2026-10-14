@@ -28,7 +28,10 @@
 
 	<ol class="divide-y divide-line">
 		{#each papers as paper (paper.href)}
-			<li class="grid gap-y-2 py-8 first:pt-0 lg:grid-cols-9 lg:gap-x-6 lg:py-10">
+			<li
+				data-reveal="rise"
+				class="grid gap-y-2 py-8 first:pt-0 lg:grid-cols-9 lg:gap-x-6 lg:py-10"
+			>
 				<p class="text-small tabular-nums text-muted lg:col-span-2">{paper.date}</p>
 
 				<div class="min-w-0 lg:col-span-5">

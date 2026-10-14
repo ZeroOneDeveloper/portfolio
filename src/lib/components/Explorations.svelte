@@ -10,15 +10,15 @@
 	and its links. Two across on phones, four from lg.
 -->
 <div class="mt-16 border-t border-line pt-12 sm:pt-14 lg:mt-20 lg:pt-16">
-	<h3 class="text-title font-semibold">고등학교 탐구</h3>
-	<p class="mt-1.5 text-small text-muted">
+	<h3 class="text-title font-semibold" data-reveal="rise">고등학교 탐구</h3>
+	<p class="mt-1.5 text-small text-muted" data-reveal="rise">
 		<a href={profile.highSchool.url} class="link-inline">{profile.highSchool.name}</a>에서 질문
 		하나를 모델과 코드로 끝까지 따라간 기록입니다.
 	</p>
 
 	<ul class="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:mt-10 lg:grid-cols-4">
 		{#each explorations as item (item.title)}
-			<li>
+			<li data-reveal="rise">
 				<figure>
 					<img
 						src={item.image}

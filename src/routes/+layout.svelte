@@ -3,8 +3,12 @@
 
 	import SiteHeader from '$lib/components/SiteHeader.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import { revealOnScroll } from '$lib/reveal';
 
 	let { children } = $props();
+
+	// Sections, rows and items come into view as the page scrolls (see app.css).
+	$effect(() => revealOnScroll());
 
 	// Smooth in-page jumps only once the page has loaded and its fonts are in (see app.css):
 	// a deep link opened fresh jumps, and the browser keeps it on target as the fonts swap.

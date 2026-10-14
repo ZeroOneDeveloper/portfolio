@@ -56,8 +56,8 @@
 	{@html '<script type="application/ld+json">' + JSON.stringify(jsonLd) + '</' + 'script>'}
 </svelte:head>
 
-<!-- The statement and the portrait, then the at-a-glance row on the hairline the portrait
-     stands on: what he makes, what he researches, where he started. -->
+<!-- His name, who he is in three sentences, and the portrait, over a field of 0s and 1s
+     that parts around him -->
 <Hero />
 
 <!-- 작업: AXIT, his lead project, then selected work -->

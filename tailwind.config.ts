@@ -1,4 +1,7 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
+
+import { FINE_POINTER } from './src/lib/media';
 
 // White minimal: a pure white page, near-black ink and three greys. There is no accent:
 // colour comes only from the pictures (AXIT's screen, project images, posters). The
@@ -24,7 +27,13 @@ export default {
 			// Metadata: dates, roles, stacks, captions (5.3:1 on paper).
 			muted: '#6b6b6b',
 			// Hairlines between sections and rows.
-			line: '#e6e6e6'
+			line: '#e6e6e6',
+			// The 0s and 1s behind the opening: at rest a shade lighter than a hairline, and
+			// at their darkest, under the pointer. Read by BinaryField through app.css.
+			field: {
+				DEFAULT: '#ebebeb',
+				peak: '#9a9a9a'
+			}
 		},
 
 		extend: {
@@ -44,7 +53,7 @@ export default {
 			// One steep scale: a huge opening, large titles, small calm metadata. Hangul
 			// sets a little looser than Latin, so even the largest sizes keep 1.05 or more.
 			fontSize: {
-				// The opening statement. On a wide but short screen the height caps it too.
+				// His name, opening the page. On a wide but short screen the height caps it too.
 				display: [
 					'clamp(3rem, min(1.2rem + 7vw, 14vh), 7.5rem)',
 					{ lineHeight: '1.08', letterSpacing: '-0.045em' }
@@ -63,6 +72,16 @@ export default {
 				project: [
 					'clamp(1.625rem, 1.3rem + 0.9vw, 2.125rem)',
 					{ lineHeight: '1.2', letterSpacing: '-0.035em' }
+				],
+				// Project names in the index a mouse can browse (the fine variant).
+				index: [
+					'clamp(2.625rem, 1.2rem + 2.6vw, 3.75rem)',
+					{ lineHeight: '1.04', letterSpacing: '-0.05em' }
+				],
+				// The introduction under his name.
+				intro: [
+					'clamp(1.125rem, 0.92rem + 0.7vw, 1.4375rem)',
+					{ lineHeight: '1.72', letterSpacing: '-0.02em' }
 				],
 				// Paper titles, headlines and other list items.
 				title: [
@@ -84,5 +103,13 @@ export default {
 				measure: '40rem'
 			}
 		}
-	}
+	},
+
+	plugins: [
+		// fine: a wide screen driven by a mouse or trackpad (src/lib/media.ts), where 작업
+		// becomes an index with a floating preview. A variant rather than a screen, which
+		// would switch off the min-* and max-* variants. Tailwind writes plugin variants
+		// before the screens, so :root raises it above lg and xl, which it refines.
+		plugin(({ addVariant }) => addVariant('fine', `@media ${FINE_POINTER} { :root & }`))
+	]
 } satisfies Config;

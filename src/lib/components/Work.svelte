@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ArrowLink from './ArrowLink.svelte';
 	import AxitRow from './AxitRow.svelte';
 	import Dots from './Dots.svelte';
+	import ProjectPreview from './ProjectPreview.svelte';
 	import ProjectRow from './ProjectRow.svelte';
 	import Section from './Section.svelte';
 
@@ -9,52 +9,45 @@
 
 	const main = ['code01', 'neulbom', 'zerocut', 'ods'].map(projectById);
 	const early = ['uniquecode', 'uniquebots', 'freeai'].map(projectById);
+
+	let index = $state<HTMLElement>();
 </script>
 
 <!--
 	작업: AXIT, his lead project, then the four main projects as ruled rows; then the team
-	he founded and what it ran, as a short list of text.
--->
-<Section id="projects">
-	<ol class="divide-y divide-line">
-		<li class="pb-12 sm:pb-14 lg:pb-16"><AxitRow /></li>
-		{#each main as project (project.id)}
-			<li class="py-12 sm:py-14 lg:py-16"><ProjectRow {project} /></li>
-		{/each}
-	</ol>
+	he founded and what it ran, as a short list of text. 작업 opens right under the opening,
+	on the hairline the portrait stands on.
 
-	<div class="mt-8 border-t border-line pt-12 sm:pt-14 lg:pt-16">
-		<h3 class="text-small font-semibold">
-			<Dots items={['2020–2022', 'UniqueCode와 디스코드 봇']} />
-		</h3>
-		<ul class="mt-6 divide-y divide-line lg:mt-8">
-			{#each early as project (project.id)}
-				<li
-					id={project.id}
-					class="grid gap-y-1.5 py-5 first:pt-0 lg:grid-cols-9 lg:items-baseline lg:gap-x-6"
-				>
-					<div class="lg:col-span-3">
-						<h4 class="text-title font-semibold">{project.name}</h4>
-						<p class="text-small text-muted"><Dots items={[project.year, project.role]} /></p>
-					</div>
-					<div class="lg:col-span-4">
-						<p class="text-small text-soft">{project.summary}</p>
-						<p class="mt-1 text-meta text-muted">
-							<span class="sr-only">기술 스택:</span>
-							<Dots items={project.stack.split(' · ')} />
-						</p>
-					</div>
-					{#if project.links.length}
-						<ul
-							class="mt-1 flex gap-x-6 text-small font-semibold lg:col-span-2 lg:mt-0 lg:justify-end"
-						>
-							{#each project.links as link (link.href)}
-								<li><ArrowLink href={link.href} label={link.label} context={project.name} /></li>
-							{/each}
-						</ul>
-					{/if}
-				</li>
+	On a wide screen with a mouse the seven rows become one index: large names, hairlines
+	between them, the details on the right. Pointing at a row sets the others back (see
+	app.css) and floats its picture beside the pointer; reaching one of its links from the
+	keyboard shows the picture beside the name.
+-->
+<Section id="projects" first>
+	<div class="pb-12 sm:pb-14 lg:pb-16"><AxitRow /></div>
+
+	<div bind:this={index} class="work-index">
+		<ol class="divide-y divide-line border-t border-line fine:border-b">
+			{#each main as project (project.id)}
+				<li data-reveal="rise"><ProjectRow {project} /></li>
 			{/each}
-		</ul>
+		</ol>
+
+		<div
+			class="mt-8 border-t border-line pt-12 fine:mt-16 fine:border-t-0 fine:pt-0 sm:pt-14 lg:pt-16"
+		>
+			<h3 class="text-small font-semibold" data-reveal="rise">
+				<Dots items={['2020–2022', 'UniqueCode와 디스코드 봇']} />
+			</h3>
+			<ul
+				class="mt-6 divide-y divide-line fine:mt-4 fine:border-y fine:border-line lg:mt-8 [&>li:first-child>article]:pt-0 fine:[&>li:first-child>article]:pt-8"
+			>
+				{#each early as project (project.id)}
+					<li data-reveal="rise"><ProjectRow {project} kind="early" level={4} /></li>
+				{/each}
+			</ul>
+		</div>
 	</div>
+
+	<ProjectPreview list={index} projects={[...main, ...early]} />
 </Section>

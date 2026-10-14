@@ -7,33 +7,71 @@
 
 	interface Props {
 		project: Project;
+		/** A main project, with its picture; or one of the early ones, a line of text. */
+		kind?: 'main' | 'early';
+		/** Under 작업's own heading, or under the early projects' group heading too. */
+		level?: 3 | 4;
 	}
 
-	let { project }: Props = $props();
+	let { project, kind = 'main', level = 3 }: Props = $props();
 
+	const main = $derived(kind === 'main');
+	const heading = $derived(`h${level}`);
 	const media = $derived(project.media);
 </script>
 
 <!--
-	One main project: the words on the left, its picture on the right, from lg on the same
-	line as the opening portrait. Pictures are shown as they are, without frames; only a
-	light one, which would melt into the page, keeps a hairline edge.
+	One project, in one of three settings.
+	- On a phone, and wherever there is no mouse: as before, the name, then what and when,
+	  then the picture; from lg a main project keeps its picture on the right.
+	- On a wide screen with a mouse (fine): a row of an index. The name is set large on the
+	  left, what and when sit on the right, and the picture leaves the flow: Work.svelte
+	  floats it beside the pointer, while it stays here for screen readers.
+	data-preview marks a row that has a picture to float; data-preview-edge is where that
+	picture must stop, so it never covers the words.
 -->
 <article
 	id={project.id}
 	aria-labelledby="{project.id}-title"
-	class="grid gap-y-8 lg:grid-cols-9 lg:gap-x-6"
+	data-preview={media ? project.id : undefined}
+	class="work-row grid fine:items-start fine:py-8 lg:grid-cols-9 lg:gap-x-6 {main
+		? 'py-12 sm:py-14 lg:py-16'
+		: 'py-5'}"
 >
-	<div class="lg:col-span-5">
-		<h3 id="{project.id}-title" class="text-project font-bold">{project.name}</h3>
-		<p class="mt-2 text-small text-muted"><Dots items={[project.year, project.role]} /></p>
-		<p class="mt-5 max-w-measure text-body text-soft"><Glued text={project.summary} /></p>
-		<p class="mt-5 text-meta text-muted">
+	<svelte:element
+		this={heading}
+		id="{project.id}-title"
+		class="fine:col-span-5 fine:row-start-1 fine:text-index fine:font-bold {main
+			? 'text-project font-bold lg:col-span-5'
+			: 'text-title font-semibold lg:col-span-3'}"
+	>
+		{project.name}
+	</svelte:element>
+
+	<div
+		data-preview-edge
+		class="fine:col-span-4 fine:col-start-6 fine:row-start-1 fine:mt-[0.45rem] {main
+			? 'mt-2 lg:col-span-5 lg:row-start-2'
+			: 'lg:col-span-6 lg:col-start-4 lg:row-start-1'}"
+	>
+		<p class="text-small text-muted"><Dots items={[project.year, project.role]} /></p>
+		<p
+			class="max-w-measure text-soft fine:mt-3 fine:text-small {main
+				? 'mt-5 text-body'
+				: 'mt-1.5 text-small'}"
+		>
+			<Glued text={project.summary} />
+		</p>
+		<p class="text-meta text-muted fine:mt-2 {main ? 'mt-5' : 'mt-1'}">
 			<span class="sr-only">기술 스택:</span>
 			<Dots items={project.stack.split(' · ')} />
 		</p>
 		{#if project.links.length}
-			<ul class="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-small font-semibold">
+			<ul
+				class="flex flex-wrap gap-x-6 gap-y-1 text-small font-semibold fine:mt-3 {main
+					? 'mt-4'
+					: 'mt-2.5'}"
+			>
 				{#each project.links as link (link.href)}
 					<li><ArrowLink href={link.href} label={link.label} context={project.name} /></li>
 				{/each}
@@ -42,7 +80,9 @@
 	</div>
 
 	{#if media}
-		<div class="lg:col-span-4">
+		<div
+			class="mt-8 fine:sr-only lg:col-span-4 lg:col-start-6 lg:row-span-2 lg:row-start-1 lg:mt-0"
+		>
 			{#if media.kind === 'flow'}
 				<!-- No screenshot of it is public: how it works, as three ruled lines of type. -->
 				<figure class="max-w-[26rem]">
