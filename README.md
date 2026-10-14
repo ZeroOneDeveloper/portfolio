@@ -1,38 +1,25 @@
-# sv
+# ZerOne 포트폴리오
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+송찬우(Chanwoo Song)의 포트폴리오, https://www.zero0ne.dev
 
-## Creating a project
+## 내용 고치기
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 문구, 링크, AXIT, 프로젝트, 논문, 기사는 모두 `src/lib/content.ts`에 있습니다. 화면 코드를 건드리지 않고 이 파일만 고치면 됩니다.
+- 프로필 사진은 `src/lib/profile/`에 jpg, png, webp 중 한 장을 두면 첫 화면 이름 옆에 자동으로 나옵니다.
+- 프로젝트와 AXIT 이미지는 `static/work/`, 고교 탐구 포스터와 로고는 `static/projects/web/`에 있습니다.
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 개발
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
+pnpm dev     # 로컬 서버
+pnpm check   # 타입 검사
+pnpm lint    # Prettier + ESLint
+pnpm build   # 프로덕션 빌드
 ```
 
-## Building
+Node 22가 필요합니다(`package.json`의 `engines`).
 
-To create a production version of your app:
+## 배포
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Vercel에 `@sveltejs/adapter-vercel`로 배포합니다. `master`에 푸시하면 프로덕션, 다른 브랜치에 푸시하면 프리뷰 배포가 만들어집니다.
