@@ -10,7 +10,7 @@
 
 	let { class: className = '' }: Props = $props();
 
-	// No photo frame at all until the real portrait is set in content.ts.
+	// No photo frame at all until a portrait is placed in src/lib/profile/.
 	const photo = profile.photo;
 </script>
 

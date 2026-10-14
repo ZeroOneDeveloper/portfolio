@@ -6,6 +6,19 @@ export interface Link {
 	href: string;
 }
 
+/**
+ * The studio portrait: any jpg, png or webp placed in src/lib/profile/ (the first one, by
+ * name). With none there the intro shows no photo frame at all.
+ */
+const portraitFiles = import.meta.glob<string>(
+	'./profile/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
+	{ eager: true, query: '?url', import: 'default' }
+);
+const portraitUrl: string | null =
+	Object.keys(portraitFiles)
+		.sort()
+		.map((path) => portraitFiles[path])[0] ?? null;
+
 export const profile = {
 	name: '송찬우',
 	nameEn: 'Chanwoo Song',
@@ -14,12 +27,7 @@ export const profile = {
 	motto: '세상을 바꾸는 데 0과 1만으로도 충분하다.',
 	url: 'https://www.zero0ne.dev/',
 	github: 'https://github.com/ZeroOneDeveloper',
-	/**
-	 * Path of the studio portrait under static/, or null while there is none. Until it is
-	 * set the intro shows no photo frame at all. When the real photo arrives, add it as
-	 * static/profile.webp (900×1157, white ground) and set this to '/profile.webp'.
-	 */
-	photo: null as string | null,
+	photo: portraitUrl,
 	company: {
 		name: '유니크굿컴퍼니',
 		nameEn: 'Uniquegood Company',
