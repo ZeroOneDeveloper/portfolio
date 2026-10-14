@@ -4,8 +4,9 @@ import plugin from 'tailwindcss/plugin';
 import { FINE_POINTER } from './src/lib/media';
 
 // White minimal: a pure white page, near-black ink and three greys. There is no accent:
-// colour comes only from the pictures (AXIT's screen, project images, posters). The
-// palette replaces Tailwind's own, so markup can use these names and nothing else.
+// colour comes only from the pictures (AXIT's screen and the project images); the figures
+// of the high-school explorations are drawn in these tokens alone. The palette replaces
+// Tailwind's own, so markup can use these names and nothing else.
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
@@ -57,11 +58,6 @@ export default {
 				display: [
 					'clamp(3rem, min(1.2rem + 7vw, 14vh), 7.5rem)',
 					{ lineHeight: '1.08', letterSpacing: '-0.045em' }
-				],
-				// The motto that signs the page off.
-				motto: [
-					'clamp(2.25rem, 1rem + 4.6vw, 5.5rem)',
-					{ lineHeight: '1.12', letterSpacing: '-0.04em' }
 				],
 				// Section titles in the label column.
 				section: [

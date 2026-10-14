@@ -4,37 +4,18 @@
 	import LogoMark from './LogoMark.svelte';
 
 	import { footerLinks, profile } from '$lib/content';
-
-	// The motto in two lines, broken at its pause; "0과 1" is glued, so a narrow phone can
-	// only break the second line before 충분하다.
-	const breakAt = profile.motto.indexOf('0');
-	const motto = [
-		profile.motto.slice(0, breakAt).trim(),
-		profile.motto.slice(breakAt).replace(' ', '\u00a0')
-	];
 </script>
 
 <!--
-	The sign-off: the motto, large, as the page's last word; then who, where to find him,
-	and the copyright. As it comes into view its hairline draws in and the motto rises, a
-	line at a time, from behind its own baseline.
+	The sign-off, kept quiet: who, where to find him, and the copyright. As it comes into
+	view its hairline draws in and the rows rise.
 -->
 <footer class="page mt-28 sm:mt-36 lg:mt-48">
 	<div
-		class="relative border-t border-line pb-10 pt-16 sm:pt-20 lg:pb-12 lg:pt-28"
+		class="relative border-t border-line pb-10 pt-12 sm:pt-14 lg:pb-12 lg:pt-16"
 		data-reveal="line"
 	>
-		<p class="text-motto font-bold">
-			{#each motto as line, index (index)}{#if index > 0}{' '}{/if}<span
-					class="block"
-					data-reveal="mask"><span class="block">{line}</span></span
-				>{/each}
-		</p>
-
-		<div
-			class="mt-16 grid gap-y-8 sm:mt-20 lg:mt-28 lg:grid-cols-12 lg:items-center lg:gap-x-6"
-			data-reveal="rise"
-		>
+		<div class="grid gap-y-8 lg:grid-cols-12 lg:items-center lg:gap-x-6" data-reveal="rise">
 			<p class="flex items-center gap-3 lg:col-span-3">
 				<LogoMark class="h-8" alt="ZerOne 로고" loading="lazy" />
 				<span class="text-small">

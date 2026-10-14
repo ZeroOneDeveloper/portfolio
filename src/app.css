@@ -107,6 +107,40 @@
 	.link-inline {
 		@apply underline decoration-muted/50 decoration-1 underline-offset-[0.28em] transition-[text-decoration-color] duration-150 hover:decoration-ink focus-visible:decoration-ink;
 	}
+
+	/*
+	 * The figures of 고등학교 탐구 (components/figures/). The drawing scales with its square
+	 * frame while the words keep their size: 11px with four frames across, up to 12.5px in
+	 * the larger frames below xl. Lines are hairlines, the plotted ones a little heavier; they
+	 * are set in units of the drawing for each width of frame, so that they come to about
+	 * 1px and 1.5px.
+	 */
+	.figure {
+		container-type: inline-size;
+		--hair: 0.85px;
+		--bold: 1.1px;
+	}
+
+	@screen xl {
+		.figure {
+			--hair: 1.25px;
+			--bold: 1.6px;
+		}
+	}
+
+	.figure > svg {
+		font-size: 11px;
+		font-size: clamp(11px, 4.6cqw, 12.5px);
+		fill: currentColor;
+	}
+
+	.figure-art {
+		stroke-width: var(--hair);
+	}
+
+	.figure-plot {
+		stroke-width: var(--bold);
+	}
 }
 
 /*
@@ -154,9 +188,11 @@
 /*
  * Scroll reveals (src/lib/reveal.ts). With JavaScript (app.html sets the js class before
  * the first paint) and motion welcome, each [data-reveal] waits hidden until it comes into
- * view: 'rise' fades up, 'mask' slides its child up from behind its own bottom edge, and
- * 'line' draws its top hairline in from the left (as .line-in does on load). Without
- * JavaScript, in print and with reduced motion, nothing is ever hidden.
+ * view: 'rise' fades up, 'mask' slides its child up from behind its own bottom edge,
+ * 'line' draws its top hairline in from the left (as .line-in does on load), and 'draw', a
+ * figure, draws its lines in from their starts ([data-draw], each with a pathLength of 1)
+ * and fades its words and marks in ([data-fade]), each --draw-delay after the figure.
+ * Without JavaScript, in print and with reduced motion, nothing is ever hidden.
  */
 @media screen and (prefers-reduced-motion: no-preference) {
 	.js [data-reveal='rise']:not([data-revealed]) {
@@ -195,6 +231,19 @@
 		animation: draw-line 1.4s var(--ease-out) 0.1s both;
 	}
 
+	/* A dash as long as the line, then a gap longer still: offset by 1, the line is all gap. */
+	.js [data-reveal='draw'] [data-draw] {
+		stroke-dasharray: 1 2;
+	}
+
+	.js [data-reveal='draw']:not([data-revealed]) [data-draw] {
+		stroke-dashoffset: 1.05;
+	}
+
+	.js [data-reveal='draw']:not([data-revealed]) [data-fade] {
+		opacity: 0;
+	}
+
 	/* Once the observer is in charge, a reveal is a transition, a beat after the one before. */
 	.reveal-ready [data-reveal='rise'] {
 		transition:
@@ -210,10 +259,21 @@
 		transition: transform 1.2s var(--ease-out) var(--reveal-delay, 0ms);
 	}
 
+	.reveal-ready [data-reveal='draw'] [data-draw] {
+		transition: stroke-dashoffset 1.3s var(--ease-out)
+			calc(var(--reveal-delay, 0ms) + var(--draw-delay, 0ms));
+	}
+
+	.reveal-ready [data-reveal='draw'] [data-fade] {
+		transition: opacity 0.6s var(--ease-out) calc(var(--reveal-delay, 0ms) + var(--draw-delay, 0ms));
+	}
+
 	/* What was already scrolled past is shown as it is, without a transition. */
 	[data-revealed='now'],
 	[data-revealed='now'] > *,
-	[data-revealed='now']::before {
+	[data-revealed='now']::before,
+	[data-revealed='now'] [data-draw],
+	[data-revealed='now'] [data-fade] {
 		transition: none !important;
 	}
 
@@ -223,7 +283,9 @@
 	 */
 	.js:not(.reveal-ready) [data-reveal='rise'],
 	.js:not(.reveal-ready) [data-reveal='mask'] > *,
-	.js:not(.reveal-ready) [data-reveal='line']::before {
+	.js:not(.reveal-ready) [data-reveal='line']::before,
+	.js:not(.reveal-ready) [data-reveal='draw'] [data-draw],
+	.js:not(.reveal-ready) [data-reveal='draw'] [data-fade] {
 		animation: reveal-anyway 1ms 2.5s forwards;
 	}
 }
@@ -273,5 +335,6 @@
 	to {
 		opacity: 1;
 		transform: none;
+		stroke-dashoffset: 0;
 	}
 }

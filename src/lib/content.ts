@@ -26,7 +26,6 @@ export const profile = {
 	nameEn: 'Chanwoo Song',
 	handle: 'ZerOne',
 	role: '개발팀장',
-	motto: '세상을 바꾸는 데 0과 1만으로도 충분하다.',
 	url: 'https://www.zero0ne.dev/',
 	github: 'https://github.com/ZeroOneDeveloper',
 	photo: portraitUrl,
@@ -465,20 +464,22 @@ export function paperLinkLabel(href: string): string {
 	return doiOf(href) ? 'DOI' : 'DBpia';
 }
 
+/** The figure drawn for an exploration (src/lib/components/figures/). */
+export type ExplorationFigure = 'sir' | 'rate-laws' | 'graph' | 'blockchain';
+
 export interface Exploration {
 	title: string;
-	/** Not shown: each poster states its purpose itself. */
+	/** Not shown: the figure shows the work, not what it was for. */
 	purpose: string;
 	year: string;
-	/** Not shown, like stack: the posters carry the detail. */
+	/** Not shown, like stack: the figure draws what this describes, and nothing more. */
 	summary: string;
 	stack: string;
-	image: string;
-	imageSize: number;
+	figure: ExplorationFigure;
 	links: Link[];
 }
 
-// High-school research, each summarised on its own poster.
+// High-school research, each drawn as a figure of what it worked on.
 export const explorations: Exploration[] = [
 	{
 		title: 'SIR Model',
@@ -487,8 +488,7 @@ export const explorations: Exploration[] = [
 		summary:
 			'출생률과 사망률을 더한 SIR 모델로 감염병 확산을 시뮬레이션하고, 매개변수를 넣으면 그래프로 보여 주는 웹 UI를 만들었습니다.',
 		stack: 'Python · Gradio · pandas',
-		image: '/projects/web/sir-model.webp',
-		imageSize: 960,
+		figure: 'sir',
 		links: [{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/SIR_Model' }]
 	},
 	{
@@ -498,8 +498,7 @@ export const explorations: Exploration[] = [
 		summary:
 			'변수분리로 0차·1차·n차 반응의 적분 속도식을 유도하고, 선형 회귀의 R²로 반응차수를 찾습니다. KCC 2024에서 논문으로 발표했습니다.',
 		stack: 'Python · NumPy · scikit-learn',
-		image: '/projects/web/integral-velocity-equation.webp',
-		imageSize: 900,
+		figure: 'rate-laws',
 		links: [
 			{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/IntegralVelocityEquation' },
 			{ label: '논문', href: 'https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11862579' }
@@ -512,8 +511,7 @@ export const explorations: Exploration[] = [
 		summary:
 			'LaTeX로 입력한 함수의 정의역, 대칭성, 극값과 변곡점을 1·2계도함수로 분석해 그래프로 그려 줍니다.',
 		stack: 'Python · SymPy · matplotlib',
-		image: '/projects/web/graph-visualization.webp',
-		imageSize: 960,
+		figure: 'graph',
 		links: [
 			{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/DesignOfGraphVisualization' }
 		]
@@ -525,8 +523,7 @@ export const explorations: Exploration[] = [
 		summary:
 			'제품 이력을 블록체인에 기록하는 ‘제품표시이력제’. RSA로 서명한 거래를 작업증명 블록으로 묶습니다.',
 		stack: 'Next.js · TypeScript · MongoDB',
-		image: '/projects/web/blockchain.webp',
-		imageSize: 960,
+		figure: 'blockchain',
 		links: [
 			{ label: 'GitHub', href: 'https://github.com/ZeroOneDeveloper/ProductDisplayHistorySystem' },
 			{ label: '데모', href: 'https://blockchain-omega-eight.vercel.app' }

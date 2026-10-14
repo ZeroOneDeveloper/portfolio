@@ -21,7 +21,7 @@
 
 	const position = $derived(nav.findIndex((item) => item.id === id) + 1);
 	// The section's place on the page in binary, 001 to 100: written with nothing but the 0
-	// and the 1 of the motto that closes the page.
+	// and the 1 of his handle, ZerOne.
 	const index = $derived(position.toString(2).padStart(3, '0'));
 	const label = $derived(nav[position - 1].label);
 </script>

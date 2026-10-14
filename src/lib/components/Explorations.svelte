@@ -1,13 +1,28 @@
 <script lang="ts">
+	import type { Component } from 'svelte';
+
 	import ArrowLink from './ArrowLink.svelte';
 	import Dots from './Dots.svelte';
+	import BlockchainFigure from './figures/BlockchainFigure.svelte';
+	import GraphFigure from './figures/GraphFigure.svelte';
+	import RateLawFigure from './figures/RateLawFigure.svelte';
+	import SirFigure from './figures/SirFigure.svelte';
 
-	import { explorations, profile } from '$lib/content';
+	import { explorations, profile, type ExplorationFigure } from '$lib/content';
+
+	const figures: Record<ExplorationFigure, Component> = {
+		sir: SirFigure,
+		'rate-laws': RateLawFigure,
+		graph: GraphFigure,
+		blockchain: BlockchainFigure
+	};
 </script>
 
 <!--
-	High-school explorations: a quiet row of their posters, each with a one-line caption
-	and its links. Two across on phones, four from lg.
+	High-school explorations: a row of figures, one per exploration, each drawn in the page's
+	ink and hairlines, with a one-line caption and its links. One across on phones, where a
+	figure needs the whole width to be read, two from 540px and four from xl; the figures
+	stop at 22rem, so their words never sit lost in a frame too large for them.
 -->
 <div class="mt-16 border-t border-line pt-12 sm:pt-14 lg:mt-20 lg:pt-16">
 	<h3 class="text-title font-semibold" data-reveal="rise">고등학교 탐구</h3>
@@ -16,20 +31,15 @@
 		하나를 모델과 코드로 끝까지 따라간 기록입니다.
 	</p>
 
-	<ul class="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:mt-10 lg:grid-cols-4">
+	<ul
+		class="mt-8 grid max-w-[22rem] gap-y-10 min-[540px]:max-w-[45.5rem] min-[540px]:grid-cols-2 min-[540px]:gap-x-6 lg:mt-10 xl:max-w-none xl:grid-cols-4"
+	>
 		{#each explorations as item (item.title)}
+			{@const Figure = figures[item.figure]}
 			<li data-reveal="rise">
 				<figure>
-					<img
-						src={item.image}
-						width={item.imageSize}
-						height={item.imageSize}
-						alt="{item.title} 탐구 포스터"
-						loading="lazy"
-						decoding="async"
-						class="aspect-square w-full rounded-[4px] object-cover"
-					/>
-					<!-- The poster states its purpose itself; the caption adds when and where. -->
+					<Figure />
+					<!-- The figure shows what it worked on; the caption adds what it is called, and when. -->
 					<figcaption class="mt-4">
 						<span class="block text-small font-semibold">{item.title}</span>
 						<span class="mt-0.5 block text-meta text-muted">
