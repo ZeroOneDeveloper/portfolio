@@ -29,8 +29,9 @@
 	and 1s: it runs through the white backdrop of the frameless portrait, stops at the
 	person, and keeps clear of the text.
 
-	From lg the portrait stands at the right, its foot on the hairline that opens 작업, and
-	the words sit low on the left, leaving the field open above them. The opening fills the
+	From lg the portrait, kept small so the name leads, stands at the right, its foot on the
+	hairline that opens 작업, and the words sit low on the left, leaving the field open
+	above them. It fades in after the words, not before them. The opening fills the
 	screen less a band at the bottom, so the first view ends on that hairline with 작업's
 	number just showing. Below lg the portrait sits top right and the name comes to rest
 	beside its foot: the padding above the heading is the photo's height (a share of the
@@ -43,7 +44,7 @@
 				<h1
 					id="hero-title"
 					class="flex flex-wrap items-baseline gap-x-5 gap-y-2 text-display font-extrabold {photo
-						? 'pt-[calc(1.5rem+70%-0.9em)] sm:pt-[calc(2.5rem+55%-0.9em)] md:pt-[calc(2.5rem+45%-0.9em)] lg:pt-0'
+						? 'pt-[calc(1.5rem+42.5%-0.9em)] sm:pt-[calc(2.5rem+35%-0.9em)] md:pt-[calc(2.5rem+30%-0.9em)] lg:pt-0'
 						: 'pt-12 sm:pt-16 lg:pt-0'}"
 				>
 					<span bind:this={nameElement} class="enter-mask"
@@ -89,8 +90,8 @@
 					height={portrait.height}
 					alt={portrait.alt}
 					fetchpriority="high"
-					class="enter-fade absolute right-0 top-6 z-0 aspect-[4/5] w-[56%] object-cover object-bottom sm:top-10 sm:w-[44%] md:w-[36%] lg:relative lg:inset-auto lg:col-span-4 lg:col-start-9 lg:row-start-1 lg:w-full lg:self-end"
-					style:--enter-delay="120ms"
+					class="enter-fade absolute right-0 top-6 z-0 aspect-[4/5] w-[34%] object-cover object-bottom sm:top-10 sm:w-[28%] md:w-[24%] lg:relative lg:inset-auto lg:col-span-4 lg:col-start-9 lg:row-start-1 lg:w-[15rem] lg:self-end lg:justify-self-end xl:w-[16.5rem]"
+					style:--enter-delay="700ms"
 				/>
 			{/if}
 		</div>
