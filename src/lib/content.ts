@@ -23,11 +23,15 @@ const portraitUrl: string | null =
 
 export const profile = {
 	name: '송찬우',
+	familyName: '송',
+	givenName: '찬우',
 	nameEn: 'Chanwoo Song',
 	handle: 'ZerOne',
 	role: '개발팀장',
 	url: 'https://www.zero0ne.dev/',
 	github: 'https://github.com/ZeroOneDeveloper',
+	/** His ORCID iD: it tells him apart from other researchers of the same name. */
+	orcid: '0009-0008-2680-6367',
 	photo: portraitUrl,
 	company: {
 		name: '유니크굿컴퍼니',
@@ -37,6 +41,13 @@ export const profile = {
 	realworld: 'https://realworld.to',
 	school: {
 		name: '강원대학교 원주캠퍼스',
+		/** Its names in English, and before Gangneung-Wonju National University joined it. */
+		alternateNames: [
+			'Kangwon National University Wonju Campus',
+			'국립강릉원주대학교',
+			'Gangneung-Wonju National University'
+		],
+		url: 'https://www.kangwon.ac.kr',
 		department: '컴퓨터공학과',
 		cohort: '25학번'
 	},
@@ -50,13 +61,35 @@ export const profile = {
 /** Size and alt text of the portrait, used only when profile.photo is set. */
 export const portrait = { width: 900, height: 1157, alt: `${profile.name} 프로필 사진` };
 
+/**
+ * What a search result or a shared link shows: the page's title and description, and the
+ * card image (static/og.png, drawn in the site's style with his name, role and portrait).
+ */
+export const meta = {
+	title: `${profile.name} (${profile.nameEn}) · ${profile.handle}`,
+	description:
+		'유니크굿컴퍼니 개발팀장 송찬우(Chanwoo Song)의 프로젝트와 논문. AI 에이전트 협업 공간 AXIT 개발을 총괄하고, 강원대학교 원주캠퍼스 컴퓨터공학과에서 국민건강보험 코호트 데이터 연구에 참여합니다.',
+	image: {
+		src: '/og.png',
+		width: 1200,
+		height: 630,
+		alt: '송찬우 Chanwoo Song. 유니크굿컴퍼니 개발팀장 · AXIT 개발 총괄. 강원대학교 원주캠퍼스 컴퓨터공학과. 오른쪽에 프로필 사진, 배경에 옅은 0과 1 무늬.'
+	} satisfies Shot
+};
+
 /** Where his work lives: under the introduction, and again in the footer. */
 export const profileLinks: Link[] = [
 	{ label: 'GitHub', href: profile.github },
-	{ label: 'ORCID', href: 'https://orcid.org/0009-0008-2680-6367' },
+	{ label: 'ORCID', href: `https://orcid.org/${profile.orcid}` },
 	{ label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=9rZcbucAAAAJ' },
 	{ label: 'DBpia', href: 'https://www.dbpia.co.kr/author/authorDetail?ancId=5473989' }
 ];
+
+/**
+ * His other pages, not shown as links (a Wikidata item, LinkedIn, ...): search engines read
+ * them, with profileLinks, as pages of the same person (src/lib/seo.ts).
+ */
+export const otherProfiles: string[] = [];
 
 export const scholarLinks: Link[] = profileLinks.filter((link) =>
 	['ORCID', 'Google Scholar', 'DBpia'].includes(link.label)

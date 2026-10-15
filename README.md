@@ -5,8 +5,14 @@
 ## 내용 고치기
 
 - 문구, 링크, AXIT, 프로젝트, 논문, 기사는 모두 `src/lib/content.ts`에 있습니다. 화면 코드를 건드리지 않고 이 파일만 고치면 됩니다.
-- 프로필 사진은 `src/lib/profile/`에 jpg, png, webp 중 한 장을 두면 첫 화면 이름 옆에 자동으로 나옵니다.
+- 프로필 사진은 `src/lib/profile/`에 jpg, png, webp 중 한 장을 두면 첫 화면 이름 옆에 자동으로 나옵니다. 파일 이름은 이미지 검색에 쓰이니 `chanwoo-song.webp`처럼 이름을 넣어 주세요.
 - 프로젝트와 AXIT 이미지는 `static/work/`, 늘봄 로고는 `static/projects/web/`에 있습니다. 고교 탐구 그림은 이미지 파일이 아니라 `src/lib/components/figures/`의 SVG 컴포넌트입니다.
+
+## 검색 노출 (SEO · GEO)
+
+- 검색 결과와 공유 링크에 나오는 제목, 설명, 카드 이미지는 `content.ts`의 `meta`에 있습니다. 카드 이미지는 `static/og.png`(1200×630)입니다.
+- 검색엔진이 읽는 구조화 데이터(schema.org JSON-LD)는 `src/lib/seo.ts`가 `content.ts`로 만듭니다. 화면에 링크로 두지 않을 프로필(위키데이터 항목, LinkedIn 등)은 `content.ts`의 `otherProfiles`에 URL을 넣으면 `sameAs`에 들어갑니다.
+- AI 어시스턴트용 요약 `/llms.txt`도 배포할 때 `content.ts`로 만들어집니다. `robots.txt`와 `sitemap.xml`은 `static/`에 있습니다.
 
 ## 개발
 
@@ -22,4 +28,4 @@ Node 22가 필요합니다(`package.json`의 `engines`).
 
 ## 배포
 
-Vercel에 `@sveltejs/adapter-vercel`로 배포합니다. `master`에 푸시하면 프로덕션, 다른 브랜치에 푸시하면 프리뷰 배포가 만들어집니다.
+Vercel에 `@sveltejs/adapter-vercel`로 배포합니다. 페이지는 배포할 때 미리 만들어(prerender) 정적 파일로 제공합니다. `master`에 푸시하면 프로덕션, 다른 브랜치에 푸시하면 프리뷰 배포가 만들어집니다.

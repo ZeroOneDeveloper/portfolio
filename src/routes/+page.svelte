@@ -5,55 +5,34 @@
 	import Research from '$lib/components/Research.svelte';
 	import Press from '$lib/components/Press.svelte';
 
-	import { profile } from '$lib/content';
+	import { meta, profile } from '$lib/content';
+	import { absolute, jsonLd } from '$lib/seo';
 
-	const jsonLd = {
-		'@context': 'https://schema.org',
-		'@type': 'Person',
-		name: '송찬우',
-		alternateName: ['Chanwoo Song', 'ZerOne'],
-		url: 'https://www.zero0ne.dev/',
-		jobTitle: '개발팀장',
-		worksFor: {
-			'@type': 'Organization',
-			name: '유니크굿컴퍼니',
-			alternateName: 'Uniquegood Company',
-			url: 'https://uniquegood.biz'
-		},
-		affiliation: {
-			'@type': 'CollegeOrUniversity',
-			name: '강원대학교 원주캠퍼스',
-			alternateName: [
-				'Kangwon National University Wonju Campus',
-				'국립강릉원주대학교',
-				'Gangneung-Wonju National University'
-			]
-		},
-		knowsAbout: ['AI 에이전트', '풀스택 개발', '의료 데이터 분석'],
-		sameAs: [
-			'https://github.com/ZeroOneDeveloper',
-			'https://orcid.org/0009-0008-2680-6367',
-			'https://scholar.google.com/citations?user=9rZcbucAAAAJ',
-			'https://www.dbpia.co.kr/author/authorDetail?ancId=5473989'
-		]
-	};
-
-	const title = '송찬우 (Chanwoo Song) · ZerOne';
-	const description = '유니크굿컴퍼니 개발팀장 송찬우(Chanwoo Song)의 프로젝트와 논문';
+	// Inside a script element, "<" is escaped so no string can ever close it early.
+	const structuredData = JSON.stringify(jsonLd).replaceAll('<', '\\u003c');
 </script>
 
 <svelte:head>
-	<title>{title}</title>
-	<meta name="description" content={description} />
+	<title>{meta.title}</title>
+	<meta name="description" content={meta.description} />
+	<meta name="author" content={profile.name} />
 	<link rel="canonical" href={profile.url} />
 	<meta property="og:type" content="profile" />
 	<meta property="og:locale" content="ko_KR" />
-	<meta property="og:title" content={title} />
-	<meta property="og:description" content={description} />
+	<meta property="og:site_name" content={profile.handle} />
+	<meta property="og:title" content={meta.title} />
+	<meta property="og:description" content={meta.description} />
 	<meta property="og:url" content={profile.url} />
-	<meta name="twitter:card" content="summary" />
+	<meta property="og:image" content={absolute(meta.image.src)} />
+	<meta property="og:image:width" content={String(meta.image.width)} />
+	<meta property="og:image:height" content={String(meta.image.height)} />
+	<meta property="og:image:alt" content={meta.image.alt} />
+	<meta property="profile:first_name" content={profile.givenName} />
+	<meta property="profile:last_name" content={profile.familyName} />
+	<meta property="profile:username" content={profile.handle} />
+	<meta name="twitter:card" content="summary_large_image" />
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html '<script type="application/ld+json">' + JSON.stringify(jsonLd) + '</' + 'script>'}
+	{@html '<script type="application/ld+json">' + structuredData + '</' + 'script>'}
 </svelte:head>
 
 <!-- His name, who he is in three sentences, and the portrait, over a field of 0s and 1s
