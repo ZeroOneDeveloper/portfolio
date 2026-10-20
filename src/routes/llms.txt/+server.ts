@@ -1,8 +1,10 @@
 // /llms.txt: the page as plain Markdown for AI assistants (https://llmstxt.org), who he is
-// first, then his links, work, papers and coverage. Built from content.ts at deploy time.
+// first, then his links, work, papers, coverage and the posts of his blog. Built from
+// content.ts and the posts at deploy time.
 import {
 	articles,
 	axit,
+	blog,
 	hero,
 	namedArticles,
 	papers,
@@ -11,6 +13,8 @@ import {
 	projects,
 	type Article
 } from '$lib/content';
+import { absolute, displayDate, postPath } from '$lib/seo';
+import { summaries } from '$lib/server/blog';
 
 export const prerender = true;
 
@@ -71,6 +75,19 @@ const body = [
 	`## ${profile.company.name} · 리얼월드 소식`,
 	'',
 	...articles.map(article),
+	'',
+	// What he writes, newest first: every post is his own, on his own site.
+	`## ${blog.name}`,
+	'',
+	`${blog.description} (${absolute(blog.path)}, RSS: ${absolute(`${blog.path}/rss.xml`)})`,
+	'',
+	...summaries.map((post) =>
+		item(
+			post.title,
+			absolute(postPath(post.slug)),
+			`${displayDate(post.publishedAt)}. ${post.description.replaceAll(/\s+/g, ' ')}`
+		)
+	),
 	''
 ].join('\n');
 

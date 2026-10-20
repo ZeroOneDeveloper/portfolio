@@ -88,6 +88,21 @@ export default {
 					'clamp(1.0625rem, 0.96rem + 0.4vw, 1.3125rem)',
 					{ lineHeight: '1.65', letterSpacing: '-0.015em' }
 				],
+				// A post's title, at the head of its page on the blog.
+				post: [
+					'clamp(2rem, 1.45rem + 2.2vw, 3.25rem)',
+					{ lineHeight: '1.25', letterSpacing: '-0.035em' }
+				],
+				// Post titles in the list on /blog.
+				headline: [
+					'clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem)',
+					{ lineHeight: '1.42', letterSpacing: '-0.025em' }
+				],
+				// The text of a post: 18px on a phone, 19px from a laptop up, set loose for Hangul.
+				article: [
+					'clamp(1.125rem, 1.07rem + 0.2vw, 1.1875rem)',
+					{ lineHeight: '1.85', letterSpacing: '-0.01em' }
+				],
 				body: ['1.0625rem', { lineHeight: '1.72', letterSpacing: '-0.005em' }],
 				small: ['0.9375rem', { lineHeight: '1.6' }],
 				meta: ['0.8125rem', { lineHeight: '1.5', letterSpacing: '0.01em' }]
@@ -96,7 +111,9 @@ export default {
 			maxWidth: {
 				page: '90rem',
 				// Reading measure for summaries and descriptions.
-				measure: '40rem'
+				measure: '40rem',
+				// Reading measure for a post: 35 to 40 Hangul to the line.
+				article: '45rem'
 			}
 		}
 	},

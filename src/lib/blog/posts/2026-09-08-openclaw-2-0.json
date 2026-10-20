@@ -1,0 +1,316 @@
+{
+	"slug": "2026-09-08-openclaw-2-0",
+	"title": "OpenClaw 2.0 출시",
+	"description": "온 세상을 떠들썩하게 했었던 AI 어시스턴트 OpenClaw의 2.0 버전이 8월 30일에 발표되었습니다.",
+	"publishedAt": "2026-09-08T19:23:42+09:00",
+	"updatedAt": "2026-09-08T19:26:54+09:00",
+	"readingMinutes": 5,
+	"tags": [
+		"Openclaw",
+		"AI",
+		"AI Agent",
+		"LLM"
+	],
+	"mediumId": "33078bae078a",
+	"mediumUrl": "https://medium.com/@zeroone-dev/openclaw-2-0-%EC%B6%9C%EC%8B%9C-33078bae078a",
+	"cover": {
+		"src": "/blog/2026-09-08-openclaw-2-0/1-7_nxPphGJfsUrQl3mYYoNg.png",
+		"width": 512,
+		"height": 512,
+		"thumb": {
+			"src": "/blog/2026-09-08-openclaw-2-0/1-7_nxPphGJfsUrQl3mYYoNg.thumb.jpg",
+			"width": 512,
+			"height": 512
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-09-08-openclaw-2-0/1-7_nxPphGJfsUrQl3mYYoNg.png",
+			"width": 512,
+			"height": 512,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "온 세상을 떠들썩하게 했었던 AI 어시스턴트 OpenClaw의 2.0 버전이 8월 30일에 발표되었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "(v2026.8.1; 편의상 2.0 버전이라고 표기)"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "맥 미니 대란을 만들어냈다고 해도 과언이 아닐 정도의 OpenClaw는 어떤 게 바뀌었을까요?"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "1. 보안"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "기존 OpenClaw에서 프롬프트 인젝션 통해 시크릿 값을 탈취하기가 쉬워 말이 많았던 적 기억 나실 텐데요. 악의적으로 만든 스킬가 확산돼 문제가 됐었던 사례입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 출시에서 가장 신경 쓴 부분이라고 꼽히는데요. 핵심은 시크릿 값을 AI 모델이 볼 수 없도록 처리한 점입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이제 에이전트가 자격증명이 필요할 때 마스킹된 프롬프트로 요청합니다 (일종의 암호화). 그러면 그 값이 대화 기록에도, AI 모델 컨텍스트에도 아예 안 들어갑니다. 그동안 평문 API 키가 로그나 대화 기록에 남았다가 간접 프롬프트 인젝션으로 새어나가는 사고가 반복됐는데, 이 문제를 해결하고자 수정된 부분입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "또한, 예를 들어 디스코드(게이트웨이)로 연결했을 경우, 모르는 사람이 DM을 보내면 페어링 코드를 요구합니다. openclaw security audit 명령도 새로 생겨서 네트워크 노출, 도구 권한 범위, 브라우저 제어 노출, 플러그인 허용목록을 한 번에 점검해줍니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다만 한계도 문서에 그대로 적혀 있습니다. 뒤에 나올 공유 세션 제어에서는 이러한 보안이 약하다고 지적합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2. 협업 기능 강화"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 버전에서 또 강조하는 기능인데요. 단순히 1인 개발자들이 쓸 수 있는 도구가 아니라, 팀 단위로, 조직 단위에서 쓸 수 있는 협업 기능이 강화되었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이전엔 진행 중인 작업에 다른 사람을 끌어들일 방법이 아예 없었습니다. 중간에 다른 사람이 끼어들면, 에이전트가 기존에 알던 맥락을 통째로 잃어버렸거든요. 공유 클라우드 세션이 그걸 해결해서, 두 번째 사람이 진행 중인 작업에 들어가거나 맥락을 유지한 채 작업을 이어받을 수 있게 됐습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "재밌는 건 이 협업 기능을 만드는 과정에서 OpenClaw의 협업 기능으로 만들었다는 겁니다. 두 달간 OpenClaw 내부 개발 팀이 각자 로컬 환경을 버리고 공유 에이전트 환경으로 옮겨서, OpenClaw로 OpenClaw를 만들었다고 해요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "3. 브라우저 기능 강화"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "i) 브라우저로 OpenClaw를 쓰는 쪽"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "웹에서 대화를 하거나, 설정할 수 있는 패널이 있었는데요. 이 패널을 통째로 다시 만들어서, 보조 제어판이 아니라 주 인터페이스가 됐습니다. 대화를 가운데 놓고 파일, 승인 요청, 설정, 진행 중인 작업을 그 옆에 배치했어요. 플러그인도 이제 이 화면에서 검색하거나 설치, 비활성화 등 웹 UI의 기능이 대폭 강화되었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "저도 설치하자마자 들었던 생각이 제가 로컬에서 했던 클로드, 코덱스의 세션들이 다 동기화되어 있고, 모델들도 다양하게 선택할 수 있게 바뀌었더라구요. 제가 뭐 따로 설정한 것도 없는데 말이죠. 이런 면에서 엄청나게 편해진 것 같습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-08-openclaw-2-0/0-X28Zwd4wRfpeFKgF.jpeg",
+			"width": 1111,
+			"height": 636,
+			"alt": ""
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-08-openclaw-2-0/0-0u4CvGfjvfODY89z.jpeg",
+			"width": 849,
+			"height": 605,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "ii) OpenClaw가 브라우저를 쓰는 쪽"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "격리된 전용 프로필로 로그인 상태의 브라우저 세션을 굴리거나, 사용자가 공유한 Chrome 탭만 건드리게 할 수 있습니다. 컴퓨터 조작은 페어링된 Mac과 명시적으로 켠 Windows에서만 되고요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "4. 연결 모델 확장"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "원래도 API 키, 구독 OAuth, 로컬 모델을 다 붙일 수 있었습니다. 다만 사용자가 직접 설정해야 했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2.0 버전에서는 설치할 때 컴퓨터를 먼저 훑어서, 이미 로그인된 Codex나 Claude CLI가 있으면 그대로 재사용하고 설치된 Ollama, LM Studio 모델도 찾아냅니다. 그리고 그 조합이 실제로 응답하는지 확인한 뒤에 저장해요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "5. 저장 방식 변경 (속도/안정성 향상)"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "세션과 대화 기록이 로컬에 jsonl 파일을 저장하는 방식에서, SQLite로 옮겨갔습니다. 속도와 안정성이 대폭 강화되었으나, 반대로 2.0 버전에서 과거 버전으로 다운그레이드 할 때 까다로워졌습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "개인적으로 제일 인상적이었던 건 기능이 아니라 개발 과정이었습니다. 이 프로젝트는 230일 동안 106번을 냈습니다. 대부분 하루이틀 간격이었어요. 그러다 7주동안 배포를 멈추고 나온 게 2.0인데, 지금까지 병합된 전체 PR의 절반이 이 한 번에 들어갔습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이유를 공식 블로그가 이렇게 적어놨습니다. 릴리즈 속도는 느려졌는데 개발은 오히려 빨라졌다고요. 팀이 커지면서 작업량이 기반과 프로세스 양쪽을 넘어서버려서 둘을 동시에 뜯어고쳤다는 겁니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "동시에, 이런 AGI 시대가 다가옴에 따라, ‘재귀 개선’. 즉, 에이전트 시스템을 개발할 수록, 기존의 시스템을 사용해 개선된 시스템을 개발하는 시대입니다. 어떤 조직이든, 이런 체계를 구축해나가는 게 중요해진 시기라고 생각합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-08-openclaw-2-0/0-_gs8s5Hjs6unQIGj.jpeg",
+			"width": 1181,
+			"height": 1243,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "#AI",
+					"href": "https://www.facebook.com/hashtag/ai?__cft__[0]=AZh0vdT93pPm9jceRTRqZemwTv-DHpUlpeQv_1A_d9cPCeqlEzmXwLM-8xzyV_ZJC5VzKiPGsgM_gyjFVC29LVOMC8aixT0MgOIJIHuRdc99K0zZ_eR9bx2E2xDICdNxAWXQJNOQXpl69bwjef56hSCvLslqmCrVuStv14zQh8mrGUgXyBoqWBe3AGU&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#Agent",
+					"href": "https://www.facebook.com/hashtag/agent?__cft__[0]=AZh0vdT93pPm9jceRTRqZemwTv-DHpUlpeQv_1A_d9cPCeqlEzmXwLM-8xzyV_ZJC5VzKiPGsgM_gyjFVC29LVOMC8aixT0MgOIJIHuRdc99K0zZ_eR9bx2E2xDICdNxAWXQJNOQXpl69bwjef56hSCvLslqmCrVuStv14zQh8mrGUgXyBoqWBe3AGU&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#LLM",
+					"href": "https://www.facebook.com/hashtag/llm?__cft__[0]=AZh0vdT93pPm9jceRTRqZemwTv-DHpUlpeQv_1A_d9cPCeqlEzmXwLM-8xzyV_ZJC5VzKiPGsgM_gyjFVC29LVOMC8aixT0MgOIJIHuRdc99K0zZ_eR9bx2E2xDICdNxAWXQJNOQXpl69bwjef56hSCvLslqmCrVuStv14zQh8mrGUgXyBoqWBe3AGU&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#OpenClaw",
+					"href": "https://www.facebook.com/hashtag/openclaw?__cft__[0]=AZh0vdT93pPm9jceRTRqZemwTv-DHpUlpeQv_1A_d9cPCeqlEzmXwLM-8xzyV_ZJC5VzKiPGsgM_gyjFVC29LVOMC8aixT0MgOIJIHuRdc99K0zZ_eR9bx2E2xDICdNxAWXQJNOQXpl69bwjef56hSCvLslqmCrVuStv14zQh8mrGUgXyBoqWBe3AGU&__tn__=*NK-R"
+				}
+			]
+		},
+		{
+			"type": "quote",
+			"paragraphs": [
+				[
+					{
+						"text": "공식 홈페이지: "
+					},
+					{
+						"text": "https://openclaw.ai/",
+						"href": "https://openclaw.ai/"
+					}
+				]
+			]
+		}
+	]
+}

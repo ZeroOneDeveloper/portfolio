@@ -1,0 +1,143 @@
+{
+	"slug": "2026-07-20-ai-as-organizational-experience",
+	"title": "AI를 쓰는 조직에서, AI가 경험이 되는 조직으로",
+	"description": "리더들을 위한 AI 에이전트 교육을 준비하며",
+	"publishedAt": "2026-07-20T21:00:32+09:00",
+	"updatedAt": "2026-09-08T12:16:57+09:00",
+	"readingMinutes": 2,
+	"tags": [
+		"Ai Agents",
+		"Ai Transformation",
+		"Leadership",
+		"Axit"
+	],
+	"mediumId": "712f514d113b",
+	"mediumUrl": "https://medium.com/@zeroone-dev/ai%EB%A5%BC-%EC%93%B0%EB%8A%94-%EC%A1%B0%EC%A7%81%EC%97%90%EC%84%9C-ai%EA%B0%80-%EA%B2%BD%ED%97%98%EC%9D%B4-%EB%90%98%EB%8A%94-%EC%A1%B0%EC%A7%81%EC%9C%BC%EB%A1%9C-712f514d113b",
+	"cover": {
+		"src": "/blog/2026-07-20-ai-as-organizational-experience/0--KQtIgAfrU102A2x.jpeg",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-07-20-ai-as-organizational-experience/0--KQtIgAfrU102A2x.thumb.jpg",
+			"width": 720,
+			"height": 406
+		}
+	},
+	"blocks": [
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "리더들을 위한 AI 에이전트 교육을 준비하며"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-07-20-ai-as-organizational-experience/0-eLRnT_7j3_B7l0ya.jpeg",
+			"width": 1274,
+			"height": 1800,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 주 금요일에는 조금 특별한 자리에 갑니다. 🫣"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "유쾌한반란 소셜임팩트포럼 회원사 대상으로 “리더들을 위한 AI 에이전트 교육” 워크샵을 하거든요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "솔직히 요즘 AI 교육을 찾아보면, LLM은 이런 원리고… 프롬프트는 늘 목표를 뚜렷하게 줘야하고… PPT 슬라이드는 이런 식으로 만들어야 AI티를 뺄 수 있습니다… 이런 얘기로 가득한 듯싶습니다. 쉬운 건 다 아는 내용인 것 같고, 어려운 건 무슨 이야기인지 모르겠고…"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "AI가 요즘 겉잡을 수 없는 속도로 발전하니, 조직 차원에서도 요즘 좋다는 Claude/ChatGPT 계정을 개인당 하나씩 지급해주는 추세입니다. 물론 그게 잘못됐다는 이야기는 전혀 아닙니다!"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "하지만 조직의 대표, 심지어는 대표가 아니더라도 조직 구성원 중에서도 무언가 사업 모델을 검증해보고 싶을 때 성능 면에서도, 다같이 실시간으로 공유하면서 만들기에도 아쉽습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그리고 이 고민을 실제로 만든 게 유니크굿에서 쓰고 있는 AXIT 플랫폼이에요. 누구든지 “게임 만들어볼까?” “AI 채팅 기능 붙여볼까?”라는 아이디어가 떠올랐을 때, 채팅으로 말만 하면 클로드와 코덱스가 붙어 완성된 결과를 멋지게 보여줍니다!"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이런 AI 에이전트로 어디까지 할 수 있을지, AXIT 같은 플랫폼은 어떻게 활용하는지 공유해보려고 합니다!"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "#유쾌한반란",
+					"href": "https://www.facebook.com/hashtag/%EC%9C%A0%EC%BE%8C%ED%95%9C%EB%B0%98%EB%9E%80?__cft__[0]=AZihr324lD-d0gHJBQpg8awc7nyBKQEuUPFSt6c5frv_zjlUBGvHAN4sHpwK5e0ucQmTOHqUjWqUTdlmL0nEOlW_JFMsHBQZ8VNSQsrR6b4CvkCYcYWPd7xQbJ290R3BXHNGLvRcKQg&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#소셜임팩트포럼",
+					"href": "https://www.facebook.com/hashtag/%EC%86%8C%EC%85%9C%EC%9E%84%ED%8C%A9%ED%8A%B8%ED%8F%AC%EB%9F%BC?__cft__[0]=AZihr324lD-d0gHJBQpg8awc7nyBKQEuUPFSt6c5frv_zjlUBGvHAN4sHpwK5e0ucQmTOHqUjWqUTdlmL0nEOlW_JFMsHBQZ8VNSQsrR6b4CvkCYcYWPd7xQbJ290R3BXHNGLvRcKQg&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#AX전환",
+					"href": "https://www.facebook.com/hashtag/ax%EC%A0%84%ED%99%98?__cft__[0]=AZihr324lD-d0gHJBQpg8awc7nyBKQEuUPFSt6c5frv_zjlUBGvHAN4sHpwK5e0ucQmTOHqUjWqUTdlmL0nEOlW_JFMsHBQZ8VNSQsrR6b4CvkCYcYWPd7xQbJ290R3BXHNGLvRcKQg&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#AI에이전트",
+					"href": "https://www.facebook.com/hashtag/ai%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8?__cft__[0]=AZihr324lD-d0gHJBQpg8awc7nyBKQEuUPFSt6c5frv_zjlUBGvHAN4sHpwK5e0ucQmTOHqUjWqUTdlmL0nEOlW_JFMsHBQZ8VNSQsrR6b4CvkCYcYWPd7xQbJ290R3BXHNGLvRcKQg&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#AXIT",
+					"href": "https://www.facebook.com/hashtag/axit?__cft__[0]=AZihr324lD-d0gHJBQpg8awc7nyBKQEuUPFSt6c5frv_zjlUBGvHAN4sHpwK5e0ucQmTOHqUjWqUTdlmL0nEOlW_JFMsHBQZ8VNSQsrR6b4CvkCYcYWPd7xQbJ290R3BXHNGLvRcKQg&__tn__=*NK-R"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-07-20-ai-as-organizational-experience/0--KQtIgAfrU102A2x.jpeg",
+			"width": 1600,
+			"height": 900,
+			"alt": ""
+		}
+	]
+}

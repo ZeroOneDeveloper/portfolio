@@ -3,7 +3,11 @@
 	import Icon from './Icon.svelte';
 	import LogoMark from './LogoMark.svelte';
 
+	import { page } from '$app/state';
 	import { footerLinks, profile } from '$lib/content';
+
+	// The opening (#now) is on the home page; elsewhere the top is where the content starts.
+	const top = $derived(page.url.pathname === '/' ? '#now' : '#main');
 </script>
 
 <!--
@@ -38,7 +42,7 @@
 			data-reveal="rise"
 		>
 			<p>© 2026 {profile.name}</p>
-			<a href="#now" class="group inline-flex items-center gap-1 hover:text-ink">
+			<a href={top} class="group inline-flex items-center gap-1 hover:text-ink">
 				<span class="underline-target">맨 위로</span>
 				<Icon name="arrow-up" class="size-3.5" />
 			</a>

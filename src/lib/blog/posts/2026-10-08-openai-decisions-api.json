@@ -1,0 +1,409 @@
+{
+	"slug": "2026-10-08-openai-decisions-api",
+	"title": "말을 안 하는 AI, 이번엔 OpenAI가 냈습니다",
+	"description": "지난달 ‘말을 안 하는 AI 모델’ Jev를 소개했었죠. 문장을 쓰는 대신 선택지 중에서 고르고, 확률을 붙여 돌려주는 모델이었습니다.",
+	"publishedAt": "2026-10-08T13:25:09+09:00",
+	"updatedAt": "2026-10-08T13:25:09+09:00",
+	"readingMinutes": 5,
+	"tags": [
+		"AI",
+		"ChatGPT",
+		"Jevai",
+		"Decisions Api"
+	],
+	"mediumId": "1941fde690da",
+	"mediumUrl": "https://medium.com/@zeroone-dev/%EB%A7%90%EC%9D%84-%EC%95%88-%ED%95%98%EB%8A%94-ai-%EC%9D%B4%EB%B2%88%EC%97%94-openai%EA%B0%80-%EB%83%88%EC%8A%B5%EB%8B%88%EB%8B%A4-1941fde690da",
+	"cover": {
+		"src": "/blog/2026-10-08-openai-decisions-api/1-vPGPyO1hjdktkiBq2XwecA.jpeg",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-10-08-openai-decisions-api/1-vPGPyO1hjdktkiBq2XwecA.thumb.jpg",
+			"width": 720,
+			"height": 406
+		}
+	},
+	"blocks": [
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난달 "
+				},
+				{
+					"text": "‘말을 안 하는 AI 모델’ Jev",
+					"href": "/blog/2026-09-19-jev-model-that-does-not-talk",
+					"bold": true
+				},
+				{
+					"text": "를 소개했었죠. 문장을 쓰는 대신 선택지 중에서 고르고, 확률을 붙여 돌려주는 모델이었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "3주 만에 "
+				},
+				{
+					"text": "OpenAI도 비슷한 걸 내놨습니다.",
+					"bold": true
+				},
+				{
+					"text": " 10월 6일(미국 시간), "
+				},
+				{
+					"text": "Decisions API",
+					"bold": true
+				},
+				{
+					"text": "를 모든 개발자에게 공개 베타로 열었습니다. DevDay 때 일부에게만 먼저 보여줬던 기능이에요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-08-openai-decisions-api/1-vPGPyO1hjdktkiBq2XwecA.jpeg",
+			"width": 1600,
+			"height": 900,
+			"alt": "",
+			"caption": [
+				{
+					"text": "https://openai.com/index/devday-2026-recap/",
+					"href": "https://openai.com/index/devday-2026-recap/"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "하는 일은 Jev와 같습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "질문과 보기를 주면 "
+				},
+				{
+					"text": "문장이 아니라 값을 돌려줍니다.",
+					"bold": true
+				},
+				{
+					"text": " 방식은 세 가지예요."
+				}
+			]
+		},
+		{
+			"type": "ul",
+			"items": [
+				[
+					{
+						"text": "예/아니오: “사진 속 물건에 찌그러진 데가 있나?” → 찌그러졌을 확률"
+					}
+				]
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-10-08-openai-decisions-api/1-U5Witw8DZbCTuCD7XMW9RA.mp4",
+			"poster": "/blog/2026-10-08-openai-decisions-api/1-U5Witw8DZbCTuCD7XMW9RA.jpg",
+			"width": 720,
+			"height": 360,
+			"alt": "OpenAI 문서의 예시 애니메이션입니다. 물건마다 찌그러졌을 확률을 답하는데, 멀쩡한 물병은 0.00, 살짝 눌린 통은 0.86, 푹 들어간 캔은 1.00입니다.",
+			"caption": [
+				{
+					"text": "OpenAI 문서의 예시 애니메이션입니다. 물건마다 찌그러졌을 확률을 답하는데, 멀쩡한 물병은 0.00, 살짝 눌린 통은 0.86, 푹 들어간 캔은 1.00입니다."
+				}
+			]
+		},
+		{
+			"type": "ul",
+			"items": [
+				[
+					{
+						"text": "고르기: “이 문의는 결제, 기술 지원, 계정 중 어느 팀이 맡을까?” → 고른 팀과 보기별 확률"
+					}
+				]
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-08-openai-decisions-api/1-rvQZTAgeYZEBSGHpmP4-0Q.jpeg",
+			"width": 1360,
+			"height": 712,
+			"alt": "“이번 달 요금이 두 번 결제됐으니 환불해 달라”는 문의는 결제 팀(1.00)으로 보냈습니다.",
+			"caption": [
+				{
+					"text": "“이번 달 요금이 두 번 결제됐으니 환불해 달라”는 문의는 결제 팀(1.00)으로 보냈습니다."
+				}
+			]
+		},
+		{
+			"type": "ul",
+			"items": [
+				[
+					{
+						"text": "점수: “이 택배 상자는 얼마나 망가졌나? (멀쩡함 / 조금 망가짐 / 크게 망가짐)” → 몇 단계쯤인지"
+					}
+				]
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-08-openai-decisions-api/1-c7mi7duPRZaqLuISBF7FhA.jpeg",
+			"width": 1360,
+			"height": 771,
+			"alt": "모서리가 눌린 상자는 0~2점 중 1점, ‘조금 망가짐’으로 매겼습니다.",
+			"caption": [
+				{
+					"text": "모서리가 눌린 상자는 0~2점 중 1점, ‘조금 망가짐’으로 매겼습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "점수는 단계별 확률을 섞어서 내기 때문에, ‘조금 망가짐’과 ‘크게 망가짐’ 사이 어디쯤이라는 값도 나옵니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "같은 글이나 사진에 "
+				},
+				{
+					"text": "여러 질문을 한 번에",
+					"bold": true
+				},
+				{
+					"text": " 묶어 물을 수 있는 것도 Jev와 같고요. 첫 번째 예처럼 사진을 넣을 수도 있습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-08-openai-decisions-api/1-rT9zNluiSw6SrfNg3O1IEQ.jpeg",
+			"width": 1600,
+			"height": 841,
+			"alt": "클라우드플레어가 그린 판단 모델 구조입니다. 문의 하나에 ‘어느 팀?’과 ‘급한가?’를 한 번에 묻습니다.",
+			"caption": [
+				{
+					"text": "클라우드플레어가 그린 판단 모델 구조입니다. 문의 하나에 ‘어느 팀?’과 ‘급한가?’를 한 번에 묻습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다른 건 만든 방식입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난 글에서 한 개발자의 평을 전했었죠."
+				}
+			]
+		},
+		{
+			"type": "quote",
+			"paragraphs": [
+				[
+					{
+						"text": "“사실 구조화된 출력을 쓰는 평범한 LLM과 크게 다르지 않다. 다만 인터페이스가 아주 좋다.”",
+						"italic": true
+					}
+				]
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI가 내놓은 게 딱 그 모양입니다. 새 모델을 따로 내놓은 게 아니라, 평소엔 글을 쓰는 보통 모델 GPT-6 Luna에 "
+				},
+				{
+					"text": "‘고르기 전용’ 창구",
+					"bold": true
+				},
+				{
+					"text": "를 하나 더 낸 거거든요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그렇다고 겉만 바꾼 건 아닙니다. 같은 Luna를 평소처럼 부를 때보다 "
+				},
+				{
+					"text": "10배쯤 빠르다",
+					"bold": true
+				},
+				{
+					"text": "고 합니다. 같은 모델이라도 말을 시키지 않고 고르게만 하면 그만큼 빨라진다는 거죠."
+				}
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-10-08-openai-decisions-api/1-lWqdAokFSPIawqHSfGXACw.mp4",
+			"poster": "/blog/2026-10-08-openai-decisions-api/1-lWqdAokFSPIawqHSfGXACw.jpg",
+			"width": 626,
+			"height": 388,
+			"alt": "OpenAI 문서의 예시 애니메이션입니다. 1초마다 앞길을 보고, 막히지 않은 차선을 확률과 함께 고릅니다.",
+			"caption": [
+				{
+					"text": "OpenAI 문서의 예시 애니메이션입니다. 1초마다 앞길을 보고, 막히지 않은 차선을 확률과 함께 고릅니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "값은 아직 Jev가 쌉니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "입력 100만 토큰당 "
+				},
+				{
+					"text": "0.1달러",
+					"bold": true
+				},
+				{
+					"text": "이고, 출력은 무료입니다. Jev가 0.042달러였으니 Jev 쪽이 절반도 안 되죠."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다만 경쟁자는 OpenAI만이 아닙니다. 10월 1일에는 클라우드플레어(Clef)와 아마존(Strands Decider 2B)도 비슷한 모델을 내놨는데, 둘 다 "
+				},
+				{
+					"text": "누구나 내려받아 쓸 수 있게",
+					"bold": true
+				},
+				{
+					"text": " 공개했습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-08-openai-decisions-api/1-ZtmzOMJW9tWgq0krv6ykcg.jpeg",
+			"width": 1600,
+			"height": 659,
+			"alt": "클라우드플레어가 공개한 비교입니다. 위로 갈수록 정확하고, 오른쪽으로 갈수록 느립니다. Clef 점수는 클라우드플레어가 직접 잰 값입니다.",
+			"caption": [
+				{
+					"text": "클라우드플레어가 공개한 비교입니다. 위로 갈수록 정확하고, 오른쪽으로 갈수록 느립니다. Clef 점수는 클라우드플레어가 직접 잰 값입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "조심할 점도 그대로입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Jev의 ‘수학적으로 환각이 불가능하다’는 주장을 두고, ‘형식이 틀릴 수 없다’는 뜻이지 ‘판단이 맞다’는 뜻이 아니라고 짚었었는데요. OpenAI 것도 마찬가지입니다. 보기 안에서만 답하니 없는 말을 지어낼 수는 없지만, "
+				},
+				{
+					"text": "틀린 보기를 자신 있게 고를 수는 있습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난번에 “내 데이터에서 실제로 얼마나 맞는지는 직접 재봐야 한다”고 썼는데, OpenAI 문서에도 같은 얘기가 있습니다. 어디까지 자동으로 처리하고 어디부터 사람이 볼지, "
+				},
+				{
+					"text": "그 판단의 기준은 정답을 아는 내 서비스 예시로 직접 정하라",
+					"bold": true
+				},
+				{
+					"text": "고요. 잘못 통과시키는 것과 잘못 걸러내는 것 중 어느 쪽 손해가 더 큰지 따져서요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결국 남는 건 그 판단 기준입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난번 글은 제번스 역설로 마무리했었죠. 판단 하나가 충분히 싸지면, 사람들이 판단을 훨씬 더 많이 하게 될 거라고요. 3주 만에 OpenAI, 아마존, 클라우드플레어까지 들어왔으니 판단은 앞으로 더 싸지고 흔해질 겁니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "우리가 보낸 문의가 어느 팀으로 갈지, 올린 사진에 흠이 있는지 같은 판단도 점점 이런 모델이 먼저 내리게 되겠죠. 사람에게 넘어오는 건 확신도가 기준선 아래인 것들뿐이고요. "
+				},
+				{
+					"text": "그 선을 어디에 긋느냐가, 사람이 어디까지 들여다볼지를 정하게 될 것 같습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://developers.openai.com/api/docs/guides/decisions",
+					"href": "https://developers.openai.com/api/docs/guides/decisions"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "#AI #OpenAI #DecisionsAPI #Jev #LLM #개발"
+				}
+			]
+		}
+	]
+}

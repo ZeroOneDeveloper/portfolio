@@ -1,0 +1,321 @@
+{
+	"slug": "2026-10-12-ai-found-crispr-like-enzyme",
+	"title": "AI가 먼저 알아챈, CRISPR를 닮은 효소",
+	"description": "유전자 가위로 유명한 CRISPR (크리스퍼) 기술은 처음에 세균 DNA에서 똑같은 글자가 이상하게 되풀이되는 구간을 누군가 눈여겨본 데서 시작했습니다. 지난 9월 23일 Anthropic이 비슷한 장면을 공개했는데요. 이번에 반복을 먼저 알아챈 건…",
+	"publishedAt": "2026-10-12T14:39:38+09:00",
+	"updatedAt": "2026-10-12T14:39:38+09:00",
+	"readingMinutes": 6,
+	"tags": [
+		"AI",
+		"Claude",
+		"Anthropic Claude",
+		"CRISPR",
+		"AI Agent"
+	],
+	"mediumId": "51b030398fc2",
+	"mediumUrl": "https://medium.com/@zeroone-dev/ai%EA%B0%80-%EB%A8%BC%EC%A0%80-%EC%95%8C%EC%95%84%EC%B1%88-crispr%EB%A5%BC-%EB%8B%AE%EC%9D%80-%ED%9A%A8%EC%86%8C-51b030398fc2",
+	"cover": {
+		"src": "/blog/2026-10-12-ai-found-crispr-like-enzyme/1-6-9x8cGSYM4g54azeTCzFw.jpg",
+		"width": 1360,
+		"height": 1160,
+		"thumb": {
+			"src": "/blog/2026-10-12-ai-found-crispr-like-enzyme/1-6-9x8cGSYM4g54azeTCzFw.thumb.jpg",
+			"width": 720,
+			"height": 614
+		}
+	},
+	"blocks": [
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "유전자 가위로 유명한 CRISPR (크리스퍼) 기술은 처음에 세균 DNA에서 똑같은 글자가 이상하게 되풀이되는 구간을 누군가 눈여겨본 데서 시작했습니다. 지난 9월 23일 Anthropic이 비슷한 장면을 공개했는데요. 이번에 반복을 먼저 알아챈 건 사람이 아니라 "
+				},
+				{
+					"text": "Claude",
+					"bold": true
+				},
+				{
+					"text": "였습니다."
+				}
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-10-12-ai-found-crispr-like-enzyme/1-6-9x8cGSYM4g54azeTCzFw.mp4",
+			"poster": "/blog/2026-10-12-ai-found-crispr-like-enzyme/1-6-9x8cGSYM4g54azeTCzFw.jpg",
+			"width": 1360,
+			"height": 1160,
+			"alt": "Claude가 실제로 읽은 DNA 2,900글자입니다. 파란 상자가 Claude가 알아챈 반복 구간이에요.",
+			"caption": [
+				{
+					"text": "Claude가 실제로 읽은 DNA 2,900글자입니다. 파란 상자가 Claude가 알아챈 반복 구간이에요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "찾은 건 ‘반복 배열’이 달린 효소입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Anthropic은 올봄 생명과학 연구팀을 꾸렸습니다. 직접 실험할 실험실도 갖췄고요. 그리고 Claude에게 거대한 DNA 데이터베이스를 뒤져 새로운 ‘역전사효소’를 찾아오라고 맡겼어요. 역전사효소는 RNA를 거꾸로 DNA로 베껴 쓰는 효소입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Claude가 찾아낸 건 세균을 감염시키는 바이러스(파지)에 들어 있는 새 효소 묶음입니다. 효소 하나, 짝을 이루는 유전자 하나, 그리고 그 앞에 일정한 간격으로 늘어선 반복 서열이 한 세트예요. 이 반복 배열이 "
+				},
+				{
+					"text": "CRISPR와 닮았습니다.",
+					"bold": true
+				},
+				{
+					"text": " 연구팀은 여기에 ART(반복 배열이 딸린 역전사효소)라는 이름을 붙였습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Claude 950개가 21시간 동안 일했습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "일은 역할을 나눠서 했습니다. 작업자 에이전트가 계획을 세워 분석하면, 감독이 검토하고 다음 과제를 엽니다. 기록 담당은 찾은 것을 공용 노트에 적고, 편집자가 보고서를 검토합니다. 이 모델들은 모두 Anthropic의 최상위 등급 모델인 Claude Mythos 5였습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이렇게 Claude 약 950개가 21시간 남짓 토큰을 2억 개 넘게 썼습니다. 그동안 사람은 손대지 않았고요. 19억 개 단백질 묶음을 훑어 역전사효소 약 20만 개를 추렸고, 후보를 좁혀 "
+				},
+				{
+					"text": "보고서 19편",
+					"bold": true
+				},
+				{
+					"text": "을 냈습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-12-ai-found-crispr-like-enzyme/1-gu_n9fFu1rsyLzWUTBJwvg.jpeg",
+			"width": 1300,
+			"height": 365,
+			"alt": "논문 그림 1의 일부입니다. 위는 Claude끼리 나눈 역할(작업자 에이전트, 감독, 기록 담당, 편집자), 아래는 19억 개 단백질 묶음에서 후보를 좁혀 간 과정입니다.",
+			"caption": [
+				{
+					"text": "논문 그림 1의 일부입니다. 위는 Claude끼리 나눈 역할(작업자 에이전트, 감독, 기록 담당, 편집자), 아래는 19억 개 단백질 묶음에서 후보를 좁혀 간 과정입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결정적인 순간은 ‘직접 읽기’였습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그중 한 에이전트가 어떤 역전사효소 유전자 앞쪽의 DNA 2,900글자를 직접 불러와 읽었습니다. 작업 기록에 남긴 말을 옮기면 이렇습니다."
+				}
+			]
+		},
+		{
+			"type": "quote",
+			"paragraphs": [
+				[
+					{
+						"text": "“이 구간 굉장하다. 눈으로 봐도 반복 배열이 보인다. 100~180글자 간격을 두고 여러 번 되풀이된다. CRISPR 비슷한 반복 배열이다!”",
+						"italic": true
+					}
+				]
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "실제로 그 구간에는 16글자짜리 반복이 14번 들어 있었습니다. 연구팀이 특히 강조하는 건 이 대목입니다. 처음 맡긴 과제에는 이런 반복을 찾으라는 말이 없었어요. "
+				},
+				{
+					"text": "이상한 걸 알아보고 파고들 만하다고 판단한 건 Claude였습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-12-ai-found-crispr-like-enzyme/1-oa2qjLEJUb2IEhxAwkcHew.jpeg",
+			"width": 1300,
+			"height": 412,
+			"alt": "논문 그림 1의 다른 부분입니다. 왼쪽은 에이전트의 실제 작업 기록, 오른쪽은 그 DNA 구간에 16글자 반복이 14번 들어 있다는 그림이에요.",
+			"caption": [
+				{
+					"text": "논문 그림 1의 다른 부분입니다. 왼쪽은 에이전트의 실제 작업 기록, 오른쪽은 그 DNA 구간에 16글자 반복이 14번 들어 있다는 그림이에요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "확인은 사람이 했습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "사람은 처음 과제를 쓰고, 작업 틀을 만들고, Claude가 낸 보고서를 검토했습니다. 후보 대부분은 이 단계에서 탈락했고요. 실험실 일도 전부 사람이 했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지금까지 나온 결과는 이렇습니다. 실험해 보니 이런 반복 구간은 실제로 짧은 RNA 조각들로 만들어졌어요. 같은 효소 묶음을 가진 다른 파지의 공개 데이터를 보면, 세균을 감염시킨 지 15분 만에 반복 구간에서 나온 RNA가 파지 RNA의 최대 8%를 차지했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다만 이 효소가 정확히 무슨 일을 하는지는 "
+				},
+				{
+					"text": "아직 모릅니다.",
+					"bold": true
+				},
+				{
+					"text": " 동료 평가를 거치기 전의 논문이기도 하고요. CRISPR 연구를 이끈 MIT의 펑 장(Feng Zhang)은 이 논문을 미리 검토하고 “더 조사해 볼 가치가 있다”고 했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다시 돌리면 못 찾았습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "흥미로운 건 그다음입니다. 연구팀이 같은 탐색을 10번 더 돌렸는데, 대부분 이 효소 근처까지는 갔지만 앞쪽 DNA를 직접 읽은 에이전트가 없었습니다. 그래서 반복 배열은 "
+				},
+				{
+					"text": "한 번도 다시 찾지 못했어요.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그래서 따로 시험을 해 봤습니다. DNA를 직접 많이 읽을수록 반복을 알아채는 비율이 크게 올랐습니다. 반대로 DNA를 파일로 주고 분석 도구를 쓰게 하면 원본을 건너뛰는 경우가 많았어요. 이때 시도의 39%는 DNA를 200글자 이상 이어서 읽지도 않았습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-12-ai-found-crispr-like-enzyme/1-2nNyQ6DlTO1CFybUKH4FZQ.jpeg",
+			"width": 550,
+			"height": 388,
+			"alt": "논문 그림 4의 일부입니다. 가로축은 모델이 직접 읽은 DNA 길이, 세로축은 반복 배열을 알아챈 비율입니다. 많이 읽을수록 잘 알아챘고, Mythos 5는 200글자 이상 읽으면 열에 아홉꼴로 알아챘습니다.",
+			"caption": [
+				{
+					"text": "논문 그림 4의 일부입니다. 가로축은 모델이 직접 읽은 DNA 길이, 세로축은 반복 배열을 알아챈 비율입니다. 많이 읽을수록 잘 알아챘고, Mythos 5는 200글자 이상 읽으면 열에 아홉꼴로 알아챘습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Claude 안에서도 신호가 튀었습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "연구팀은 Claude가 그 DNA를 읽는 동안 모델 안쪽도 들여다봤습니다. 반복이 나올 때마다 튀어 오르는 신호가 두 개 있었어요. 반복 구간의 글자를 뒤섞으면 이 신호가 대부분 사라졌고요. DNA만 배운 전용 AI 모델들도 같은 자리에서 반응했습니다. 다만 연구팀은 이 신호가 DNA에만 반응하는 건 아니라고 덧붙였습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-12-ai-found-crispr-like-enzyme/1-QtTxtv2BVMSoOGLjrp36_w.jpeg",
+			"width": 900,
+			"height": 615,
+			"alt": "논문 그림 5의 일부입니다. 파란 세로선이 반복 14개의 위치예요. 위 두 줄은 DNA 전용 모델(Evo 2, gLM2), 아래 두 줄은 Claude Mythos 5 안쪽 신호인데 반복 자리에서 함께 튑니다.",
+			"caption": [
+				{
+					"text": "논문 그림 5의 일부입니다. 파란 세로선이 반복 14개의 위치예요. 위 두 줄은 DNA 전용 모델(Evo 2, gLM2), 아래 두 줄은 Claude Mythos 5 안쪽 신호인데 반복 자리에서 함께 튑니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "사람은 다 못 읽는 데이터를 AI가 읽습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "DNA 데이터는 사람이 다 읽을 수 없을 만큼 빠르게 쌓이고 있습니다. 이번 일은 AI가 그 더미를 대신 읽다가 “어?” 하는 순간을 만들 수 있다는 걸 보여 줍니다. 그리고 그 “어?”를 진짜 발견으로 만드는 건 아직 사람이 검토하는 단계인 듯싶습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+					"href": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
+				}
+			]
+		}
+	]
+}

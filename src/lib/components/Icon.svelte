@@ -1,7 +1,7 @@
 <script lang="ts">
 	interface Props {
-		/** Up-right leaves the page; up and down move within it. */
-		name: 'arrow-up-right' | 'arrow-up' | 'arrow-down';
+		/** Up-right leaves the page; up and down move within it; left and right go between posts. */
+		name: 'arrow-up-right' | 'arrow-up' | 'arrow-down' | 'arrow-left' | 'arrow-right';
 		class?: string;
 	}
 
@@ -21,6 +21,10 @@
 		<path d="M7 17 17 7M8.5 7H17v8.5" />
 	{:else if name === 'arrow-up'}
 		<path d="M12 20V5M5.5 11.5 12 5l6.5 6.5" />
+	{:else if name === 'arrow-left'}
+		<path d="M20 12H5M11.5 5.5 5 12l6.5 6.5" />
+	{:else if name === 'arrow-right'}
+		<path d="M4 12h15M12.5 5.5 19 12l-6.5 6.5" />
 	{:else}
 		<path d="M12 4v15M5.5 12.5 12 19l6.5-6.5" />
 	{/if}

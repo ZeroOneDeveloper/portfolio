@@ -1,0 +1,301 @@
+{
+	"slug": "2026-10-19-opencode-console-keys",
+	"title": "OpenCode Console 해킹, 코딩 에이전트에 맡긴 API 키는 안전할까?",
+	"description": "10월 17일(미국 시간) 오픈소스 코딩 에이전트 OpenCode가 X에 보안 사고를 알렸습니다. 전날 밤 “대규모 증류(distillation) 공격과 관련된 보안 침해”가 있었고, OpenCode Console 사용자의 1.4%가 피해를 봤다는…",
+	"publishedAt": "2026-10-20T10:34:52+09:00",
+	"updatedAt": "2026-10-20T10:34:52+09:00",
+	"readingMinutes": 8,
+	"tags": [
+		"AI",
+		"Cybersecurity",
+		"API",
+		"Open Source",
+		"Software Development"
+	],
+	"mediumId": "4b809160a2ce",
+	"mediumUrl": "https://medium.com/@zeroone-dev/opencode-console-%ED%95%B4%ED%82%B9-%EC%BD%94%EB%94%A9-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%EC%97%90-%EB%A7%A1%EA%B8%B4-api-%ED%82%A4%EB%8A%94-%EC%95%88%EC%A0%84%ED%95%A0%EA%B9%8C-4b809160a2ce",
+	"cover": {
+		"src": "/blog/2026-10-19-opencode-console-keys/1-tW7SW2sR8FlEtCnMM1zVmw.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-10-19-opencode-console-keys/1-tW7SW2sR8FlEtCnMM1zVmw.thumb.jpg",
+			"width": 720,
+			"height": 406
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-10-19-opencode-console-keys/1-tW7SW2sR8FlEtCnMM1zVmw.png",
+			"width": 1600,
+			"height": 900,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10월 17일(미국 시간) 오픈소스 코딩 에이전트 OpenCode가 X에 보안 사고를 알렸습니다. 전날 밤 “대규모 증류(distillation) 공격과 관련된 보안 침해”가 있었고, OpenCode Console 사용자의 1.4%가 피해를 봤다는 내용이었어요. 외부 AI 제공업체를 연결해 둔 사용자 일부이고, Anthropic, OpenAI, 구글과 함께 수습하고 있다고 했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenCode는 깃허브 별이 21만 7천 개가 넘고, 회사 설명으로는 매달 1,600만 명의 개발자가 쓰는 도구입니다. 이 공지는 이틀 만에 조회 274만, 좋아요 1만 1천을 넘겼어요. 코딩 에이전트에 연결해 둔 API 키는 정말 안전할까요?"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-19-opencode-console-keys/1-pV_79PQXLuosBW4lq_Eh0A.png",
+			"width": 598,
+			"height": 437,
+			"alt": "OpenCode가 10월 17일(미국 시간) X에 올린 보안 사고 공지입니다. 10월 19일 기준 조회 274만이에요(X @opencode).",
+			"caption": [
+				{
+					"text": "OpenCode가 10월 17일(미국 시간) X에 올린 보안 사고 공지입니다. 10월 19일 기준 조회 274만이에요(X "
+				},
+				{
+					"text": "@opencode",
+					"href": "http://twitter.com/opencode"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결론부터 말하면, 문제가 된 건 OpenCode 앱이 아니라 Console에 맡긴 키였습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenCode를 쓰는 길은 두 가지입니다. 하나는 터미널이나 데스크톱에서 돌리는 OpenCode 앱입니다. 여기에 넣은 API 키는 내 컴퓨터의 설정 파일(~/.local/share/opencode/auth.json)에 저장돼요. 다른 하나는 웹에서 쓰는 OpenCode Console입니다. 팀 워크스페이스에 OpenAI, Anthropic, 구글 키를 한 번 넣어 두면, 팀원들은 키를 직접 보지 않고 Console을 거쳐 모델을 씁니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번에 문제가 된 건 Console 쪽입니다. 공동 창업자 댁스 라드(Dax Raad)는 “이건 OpenCode 자체가 아니라 OpenCode Console 이야기이고, 그 키들은 우리에게 오지도 않는다”고 답했습니다. 앱에 넣은 키는 OpenCode 서버를 거치지 않는다는 뜻이에요. OpenCode는 10월 17일 아침 피해 사용자 모두에게 메일을 보냈고, 메일을 받지 않았다면 피해 대상이 아니라고 밝혔습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "API 키는 가진 사람이 곧 주인입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "API 키는 로그인처럼 두 번째 확인을 거치지 않습니다. 키 문자열만 있으면 누구든 키 주인의 계정으로 요금이 나가는 요청을 보낼 수 있어요. 그래서 키가 새면 피해는 바로 청구서로 나타납니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "실제로 그런 일이 벌어졌습니다. 개발자 콜린 파슨스(Colin Parsons)는 10월 17일 OpenCode에만 쓰던 OpenAI 키에서 281달러(약 37만 원), Anthropic 키에서 168달러(약 22만 원)가 미국 동부 시간 새벽 2시부터 빠져나갔다고 X에 올렸습니다. 다른 키들은 멀쩡했다고 해요. 프레스턴 젤러(Preston Zeller)는 잊고 있던 OpenCode용 키에 하룻밤 사이 1,700달러(약 226만 원)가 넘게 청구됐다고 했습니다. 사용 한도를 걸어 둔 줄 알았는데 걸려 있지 않았다고 덧붙였어요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-19-opencode-console-keys/1-N8n1ryKnzx_SqeWE4WfxhQ.png",
+			"width": 598,
+			"height": 483,
+			"alt": "OpenCode에만 쓰던 OpenAI, Anthropic 키에서 하룻밤 사이 요금이 빠져나갔다는 글입니다(X @colinparsonscom).",
+			"caption": [
+				{
+					"text": "OpenCode에만 쓰던 OpenAI, Anthropic 키에서 하룻밤 사이 요금이 빠져나갔다는 글입니다(X "
+				},
+				{
+					"text": "@colinparsonscom",
+					"href": "http://twitter.com/colinparsonscom"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenCode는 피해 사용자에게 환불을 진행하고 있습니다. 댁스 라드는 피해를 본 사람들에게 메일을 보내 달라며 환불이 이미 진행 중이라고 답했어요. OpenAI의 티보 소티오(Thibault Sottiaux)도 10월 19일 OpenCode와 함께 OpenAI API 고객의 계정을 되살리고, 공격으로 빠져나간 크레딧을 환불했다고 밝혔습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "증류 공격은 남의 계정으로 모델의 답을 퍼 가는 일입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "증류는 강한 모델의 답을 대량으로 모아 다른 모델을 학습시키는 방법입니다. AI 회사들이 자기 모델을 작고 싸게 줄일 때 흔히 쓰는 정상적인 기법이지만, 남의 모델에 몰래 쓰면 이야기가 달라집니다. Anthropic은 2026년 2월 23일 DeepSeek, Moonshot, MiniMax가 가짜 계정 약 2만 4천 개로 Claude와 1,600만 번 넘게 대화를 주고받으며 능력을 빼 갔다고 공개했어요. 노린 건 에이전트 추론과 도구 사용, 코딩이었고, 가짜 계정과 프록시 서비스로 요청을 여러 갈래로 나눠 탐지를 피했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "남의 API 키는 이런 공격에 딱 맞는 재료입니다. 요금은 키 주인이 내고, 요청은 정상 사용자의 계정에서 나가기 때문입니다. 다만 OpenCode는 이번 침해가 증류 공격과 어떻게 이어지는지, 누가 공격했는지는 아직 밝히지 않았습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "공격하는 쪽은 에이전트를 24시간 돌립니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "공격은 공지 뒤에도 이어졌습니다. 댁스 라드는 10월 18일 “지난 48시간 동안 쉬지 않고 우리 시스템을 공격하고 있다”며 “우리도 에이전트를 24시간 돌려야 한다. 그들이 그렇게 하고 있으니까”라고 썼습니다. 이 글은 조회 144만을 넘겼어요. 전날에는 자기 개인 계정까지 공격받고 있다며 “AI로 해킹하는 완전히 새로운 세상”이라고 했습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-19-opencode-console-keys/1-qL-rzetGk6uNMz2RM8It3g.png",
+			"width": 598,
+			"height": 365,
+			"alt": "OpenCode 공동 창업자 댁스 라드가 10월 18일 올린 글입니다. 10월 19일 기준 조회 144만이에요(X @thdxr).",
+			"caption": [
+				{
+					"text": "OpenCode 공동 창업자 댁스 라드가 10월 18일 올린 글입니다. 10월 19일 기준 조회 144만이에요(X "
+				},
+				{
+					"text": "@thdxr",
+					"href": "http://twitter.com/thdxr"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "막는 쪽은 오히려 AI의 도움을 받기 어려웠습니다. 최신 모델의 사이버 안전장치에 막히지 않았느냐는 질문에 댁스 라드는 “사고를 조사하는 도중이라 꽤 답답했다. 모델들이 한참 돕다가 거절하기 시작했다”고 답했어요. 실제로 Anthropic은 10월 6일 Claude Opus 5.5 같은 일반 모델에는 대부분의 사이버 작업을 막는 보수적인 안전장치가 걸려 있다고 밝히고, 사고 대응 같은 방어 작업을 하는 보안팀에는 심사를 거쳐 이 제한을 풀어 주는 Cyber Verification Program을 넓혔습니다. OpenCode는 OpenAI가 방어용으로 제한을 풀어 주는 Daybreak Blue 승인을 받은 뒤 나아졌다고 했고, 10월 19일에는 “Daybreak가 결정적이었고 지금도 계속 돌고 있다”고 썼습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "키는 도구마다 따로 줘야 합니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 일은 키 관리의 빈틈도 보여 줍니다. 복사된 키는 Console에서 지워도 살아 있고, 제공업체 대시보드에서 폐기해야 비로소 막힙니다. Console 안의 예산 한도도 Console을 거치지 않는 요청까지 막아 주지는 못해요. 그래서 코딩 에이전트에 키를 줄 때는 몇 가지를 지켜야 합니다."
+				}
+			]
+		},
+		{
+			"type": "ol",
+			"items": [
+				[
+					{
+						"text": "도구와 에이전트마다 키를 따로 만들어야 합니다. 하나가 새도 그 키만 폐기하면 되고, 어디서 샜는지도 바로 보입니다."
+					}
+				],
+				[
+					{
+						"text": "사용 한도와 알림은 제공업체 쪽에 걸어야 합니다. 도구 안의 한도는 키가 복사되면 소용이 없어요."
+					}
+				],
+				[
+					{
+						"text": "쓰지 않는 키는 폐기해야 합니다. 1,700달러가 빠져나간 키도 주인이 잊고 있던 키였습니다."
+					}
+				],
+				[
+					{
+						"text": "가능하면 오래 사는 API 키 대신 로그인 토큰을 써야 합니다. 댁스 라드는 OpenCode에서 로그인으로 연결하면 기본으로 OAuth 토큰을 쓴다고 설명했어요."
+					}
+				]
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "주말 사이 해커뉴스에서 화제가 된 글 “If you don’t run your own LLM proxy, how do you know whats going on?”(167점, 댓글 114개)도 같은 이야기를 합니다. 직접 운영하는 LLM 프록시를 두면 어떤 키가 어떤 모델을 언제 불렀는지 로그로 남고, 주 API 키 대신 가상 키를 에이전트마다 나눠 줄 수 있다는 내용이에요. 오픈소스 LiteLLM 같은 프록시가 가상 키와 키별 예산을 지원합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "아직 밝혀지지 않은 것이 더 많습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10월 19일 기준으로 OpenCode는 어느 시스템이 어떻게 뚫렸는지, 키가 몇 개 노출됐는지, 1.4%가 몇 명인지 밝히지 않았습니다. 키가 노출됐을 수 있다고만 했을 뿐, 실제로 복사돼 쓰였다고 확인하지도 않았어요. 사용자들이 올린 피해 금액도 각자의 주장입니다. 사고가 아직 진행 중이라 세부 내용은 더 바뀔 수 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "코딩 에이전트가 늘수록 API 키는 터미널과 웹 대시보드, CI 설정 곳곳에 흩어집니다. 공격하는 쪽은 이미 에이전트를 쉬지 않고 돌리고 있어서, 키 하나가 새면 피해는 하룻밤 사이에 쌓입니다. 키를 어디에 넣었는지 기억하고 제공업체 쪽에서 바로 막을 수 있게 해 두는 일이, 에이전트를 쓰는 기본기가 될 듯싶습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://x.com/opencode/status/2111519637049319818",
+					"href": "https://x.com/opencode/status/2111519637049319818"
+				}
+			]
+		}
+	]
+}
