@@ -12,7 +12,8 @@
 // A post already in medium-map.json keeps its slug; a new one takes --slug, or else
 // <YYYY-MM-DD>-<mediumId> (the date it was first published, in Korea). The text is kept
 // exactly as published: Medium redirect and Facebook tracking links are unwrapped, and
-// links to his other Medium posts point to their pages on the blog.
+// links to his other Medium posts point to their pages on the blog. A post with no picture on
+// Medium uses static/blog/<slug>/cover.png as its cover, if there is one.
 //
 // Needs Node 22 and ffmpeg (for the GIFs). Medium's JSON endpoints need no login.
 
@@ -489,6 +490,11 @@ async function importPost(mediumId, map) {
 		const saved = images.get(previewId) ?? (await saveImage(slug, previewId));
 		const src = saved.src ?? saved.poster;
 		cover = { src, width: saved.width, height: saved.height, thumb: saveThumb(slug, src) };
+	} else if (fs.existsSync(path.join(STATIC_DIR, slug, 'cover.png'))) {
+		// A post with no picture on Medium keeps the cover made for it here.
+		const src = `/blog/${slug}/cover.png`;
+		const [width, height] = imageSize(path.join(ROOT, 'static', src));
+		cover = { src, width, height, thumb: saveThumb(slug, src) };
 	}
 
 	const data = {
