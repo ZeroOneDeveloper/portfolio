@@ -109,6 +109,172 @@
 	}
 
 	/*
+	 * A post on the blog (src/lib/blog/render.ts writes its HTML): large ink text, set loose
+	 * for Hangul, in a reading column. Headings, pictures and quotes take more air above
+	 * than below, so each stays with what follows it. Pictures keep a hairline, so a white
+	 * screenshot does not dissolve into the white page.
+	 */
+	.article {
+		@apply text-article text-ink;
+	}
+
+	.article > * {
+		@apply mt-[1.35em];
+	}
+
+	.article > :first-child {
+		@apply mt-0;
+	}
+
+	.article h2 {
+		@apply mt-[2.4em] text-[1.5rem] font-bold leading-[1.4] tracking-[-0.025em] sm:text-[1.75rem];
+	}
+
+	.article h3 {
+		@apply mt-[2.2em] text-[1.25rem] font-bold leading-[1.5] tracking-[-0.02em] sm:text-[1.375rem];
+	}
+
+	.article h2 + *,
+	.article h3 + * {
+		@apply mt-[0.75em];
+	}
+
+	.article strong {
+		@apply font-bold;
+	}
+
+	.article a:not(.bookmark) {
+		@apply underline decoration-muted/60 decoration-1 underline-offset-[0.24em] transition-[text-decoration-color] duration-150 hover:decoration-ink;
+		/* An address written out in full wraps anywhere rather than run off a phone's screen. */
+		overflow-wrap: anywhere;
+		word-break: normal;
+	}
+
+	.article figure {
+		@apply mt-[2.2em];
+	}
+
+	.article figure + :not(figure) {
+		@apply mt-[2em];
+	}
+
+	.article figure img,
+	.article figure video {
+		@apply block h-auto w-full border border-line bg-paper;
+	}
+
+	.article figcaption {
+		@apply mt-3 text-small text-muted;
+	}
+
+	.article blockquote {
+		@apply border-l-2 border-ink pl-5 sm:pl-6;
+	}
+
+	.article blockquote p + p {
+		@apply mt-[0.8em];
+	}
+
+	/* Hangul has no italic of its own: a quote set in italics on Medium stands upright here. */
+	.article blockquote em {
+		@apply not-italic;
+	}
+
+	.article .pullquote {
+		@apply border-l-0 pl-0 text-[1.375rem] font-semibold leading-[1.6] sm:text-[1.5rem];
+	}
+
+	.article ul,
+	.article ol {
+		@apply pl-[1.3em];
+	}
+
+	.article ul {
+		@apply list-disc;
+	}
+
+	.article ol {
+		@apply list-decimal;
+	}
+
+	.article li {
+		@apply pl-[0.3em];
+	}
+
+	.article li + li {
+		@apply mt-[0.5em];
+	}
+
+	.article li::marker {
+		@apply text-muted;
+	}
+
+	.article code {
+		@apply bg-line/50 px-[0.3em] py-[0.1em] font-mono text-[0.88em];
+	}
+
+	.article pre {
+		@apply overflow-x-auto border border-line bg-line/30 px-5 py-4 text-[0.9375rem] leading-[1.7];
+	}
+
+	.article pre code {
+		@apply bg-transparent p-0 text-[1em];
+	}
+
+	.article hr {
+		@apply mx-auto my-[3em] w-16 border-line;
+	}
+
+	/* A YouTube video: its thumbnail with a play button, then, once clicked, the player. */
+	.article .embed-frame {
+		@apply relative block aspect-video overflow-hidden border border-line bg-ink;
+	}
+
+	.article .embed-frame img,
+	.article .embed-frame iframe {
+		@apply absolute inset-0 h-full w-full border-0 object-cover;
+	}
+
+	.article .embed-play {
+		@apply absolute left-1/2 top-1/2 size-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink/80 transition-colors duration-150 sm:size-[4.5rem];
+	}
+
+	.article .embed-play::after {
+		content: '';
+		@apply absolute left-[54%] top-1/2 -translate-x-1/2 -translate-y-1/2 border-y-[0.6rem] border-l-[1rem] border-y-transparent border-l-paper;
+	}
+
+	.article .embed-frame:hover .embed-play,
+	.article .embed-frame:focus-visible .embed-play {
+		@apply bg-ink;
+	}
+
+	/* A link card: the page's title, its description and site, and its picture at the right. */
+	.article .bookmark {
+		@apply mt-[2em] flex items-stretch border border-line transition-colors duration-150 hover:border-ink;
+	}
+
+	.article .bookmark-text {
+		@apply flex min-w-0 flex-1 flex-col gap-1 px-5 py-4;
+	}
+
+	.article .bookmark-title {
+		@apply text-small font-bold leading-[1.5];
+	}
+
+	.article .bookmark-description {
+		@apply line-clamp-2 text-meta text-soft;
+	}
+
+	.article .bookmark-site {
+		@apply mt-auto text-meta text-muted;
+	}
+
+	.article .bookmark img {
+		@apply hidden w-40 shrink-0 border-l border-line object-cover sm:block;
+	}
+
+	/*
 	 * The figures of 고등학교 탐구 (components/figures/). The drawing scales with its square
 	 * frame while the words keep their size: 11px with four frames across, up to 12.5px in
 	 * the larger frames below xl. Lines are hairlines, the plotted ones a little heavier; they
@@ -150,7 +316,8 @@
  * anchor you jumped to (#axit, #case), lights up through :target. The :has() fallbacks
  * keep to rules of their own: a browser that cannot parse :has() drops only those.
  */
-.nav-link[aria-current='location'] {
+.nav-link[aria-current='location'],
+.nav-link[aria-current='page'] {
 	@apply text-ink decoration-current;
 }
 

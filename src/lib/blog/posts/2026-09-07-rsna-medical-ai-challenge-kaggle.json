@@ -1,0 +1,357 @@
+{
+	"slug": "2026-09-07-rsna-medical-ai-challenge-kaggle",
+	"title": "미국 영상의학회가 매년 여는 의료 AI 대회 — With Kaggle",
+	"description": "저는 작년에 성균관대 의대에서 척추에서 일어난 출혈을 잡아내는 연구를 한 적이 있었습니다. 당시에는 연구 진행에 앞서, 선행연구들도 찾아보고 사용 가능한 공개 데이터셋을 찾던 와중, 2024년에 RSNA (북미영상의학회)에서 개최했던 척추에서 일어난…",
+	"publishedAt": "2026-09-07T21:00:00+09:00",
+	"updatedAt": "2026-09-08T19:22:24+09:00",
+	"readingMinutes": 6,
+	"tags": [
+		"Rsna",
+		"AI",
+		"Kaggle",
+		"Kaggle Competition"
+	],
+	"mediumId": "9ac41539b9ec",
+	"mediumUrl": "https://medium.com/@zeroone-dev/%EB%AF%B8%EA%B5%AD-%EC%98%81%EC%83%81%EC%9D%98%ED%95%99%ED%9A%8C%EA%B0%80-%EB%A7%A4%EB%85%84-%EC%97%AC%EB%8A%94-%EC%9D%98%EB%A3%8C-ai-%EB%8C%80%ED%9A%8C-with-kaggle-9ac41539b9ec",
+	"cover": {
+		"src": "/blog/2026-09-07-rsna-medical-ai-challenge-kaggle/0-HEjZxPUoPBFGOkwE.jpeg",
+		"width": 1260,
+		"height": 1152,
+		"thumb": {
+			"src": "/blog/2026-09-07-rsna-medical-ai-challenge-kaggle/0-HEjZxPUoPBFGOkwE.thumb.jpg",
+			"width": 720,
+			"height": 658
+		}
+	},
+	"blocks": [
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "저는 작년에 성균관대 의대에서 척추에서 일어난 출혈을 잡아내는 연구를 한 적이 있었습니다. 당시에는 연구 진행에 앞서, 선행연구들도 찾아보고 사용 가능한 공개 데이터셋을 찾던 와중, 2024년에 RSNA (북미영상의학회)에서 개최했던 척추에서 일어난 ‘협착’을 AI로 분류하라는 대회를 마주쳤습니다. 그때도 꽤 흥미로웠던 건, 대회 리더보드 페이지에 사람들의 순위가 나열되어 있던 거였습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "올해도 진행하는지 오랜만에 들어가보니, 올해의 주제는 무릎의 소견(12개)을 분류하라는 내용으로 진행하더라구요. 굉장히 흥미로운 건, 저조차도 이런 대회를 준비하려고 한다면, 아무래도 훈련시키고 검증 작업할 때 GPU 자원이 좀 부담이 될 텐데요. 심지어는 이걸 개인이 했을 때 주최 측에서 학습 결과를 어떻게 검증할 것이며, 과연 정당한 방법이 맞을지 등등. 생각나는 문제가 많습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-07-rsna-medical-ai-challenge-kaggle/0-HEjZxPUoPBFGOkwE.jpeg",
+			"width": 1260,
+			"height": 1152,
+			"alt": "",
+			"caption": [
+				{
+					"text": "https://www.rsna.org/artificial-intelligence/ai-image-challenge",
+					"href": "https://www.rsna.org/artificial-intelligence/ai-image-challenge"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-07-rsna-medical-ai-challenge-kaggle/0-ipCCNNLG5_1vOkXi.jpeg",
+			"width": 1233,
+			"height": 1123,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "RSNA 같은 기관(학회 등)에서는 이런 문제를 구글의 Kaggle 플랫폼과 해결했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지금은 문을 닫았지만 한때는 국내 코딩 대회, 부트캠프, 코딩테스트 등으로 굉장히 유명했던 ‘백준’ 서비스와 매우 유사한데요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Kaggle은 2017년에 구글에 인수된 플랫폼입니다. 전세계 데이터 과학을 위해 공개 데이터셋을 서로 공유하고, 서로의 코드 (노트북)를 공유하며, AI 대회 지원, 그리고 일전에 공유드린 최신 AI들의 벤치마크를 사용자들이 직접 만들어서 공유하는 환경까지 지원됩니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "주최 측에서 Kaggle에 일정 부분 호스팅 수수료를 지불하고, 마음껏 지원자들이 본인들의 코드를 업로드해서 제출하면, Kaggle의 GPU 자원을 활용해서 채점을 하는 방식입니다. (주 30시간, Tesla T4 GPU 지원)"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "RSNA는 2017년부터 12번에 걸쳐 대회를 개최하였는데요. (같은 해에도 여러 주제로) 매년 스폰서와 전세계 병원에서 데이터(주로 이미지. CT MRI 등)를 제공 받습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이런 대회가 Kaggle과 붙었을 때 두 가지 매력이 돋보이는데요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "1. 데이터 액세스"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "훈련용 4,407건은 규칙 동의 후 다운로드할 수 있습니다. 개인이 절대 평생 모으지 못할 데이터 규모입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "나머지 약 1,300건은 채점용이라 감춰두는데, 이걸 또 30 대 70으로 나눕니다. 30%로는 대회 기간 중 순위를 실시간으로 보여주고, 70%는 끝까지 감춰뒀다가 최종 순위를 낼 때 씁니다. 공개된 점수에만 맞춰 모델을 일부러 조작하는 것을 방지할 수 있는 거죠."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2. 장비에 대한 부담 완화"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "유튜브가 구글 클라우드 자원을 활용하는 것처럼, Kaggle 또한 동일하게 GPU 자원을 활용할 수 있는데요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "학습 데이터만 해도 569기가인데, 연구실, 기업이 아니더라도 개인조차도 제출하는데 무리없이 낼 수 있다는 점에서 매우 매력적으로 다가옵니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "상금마저도 대단합니다. 올해는 총 $77,000 (한화 1억 원 상당)인데요. (1등 $9,000, 2등 $7,000 …)"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-07-rsna-medical-ai-challenge-kaggle/0-HkW9IEAQST40LtyR.jpeg",
+			"width": 1600,
+			"height": 933,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "참가자들에게 이렇게 베네핏을 제공하는 대회 주최(RSNA)와 Kaggle에게는 어떤 이득이 있을까요?"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "하버드에서 나온 논평을 인용하자면, “정규직 데이터사이언티스트 한 사람의 인건비보다 적은 돈으로, 몇 천 명의 사람이 달라붙어 굉장히 강력하고 좋은 모델들이 대량으로 나온다.”"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "좋은 모델, 좋은 성능을 원하는 것이 목적이라면, 이런 식으로 competition 시키는 것이 더 비용 측면에서나, 효율 측면에서 이점을 가져갈 수 있다는 이야기입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "또한, Kaggle도 이런 식으로 대회 호스팅 비용을 직접적으로 얻을 수 있을 뿐만 아니라,"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "1. ‘인재 파이프라인’을 구성해 본인들이 원하는 인재를 리크루팅 할 수 있고"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2. 구글 클라우드 환경에 유입시키며,"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "3. 인수할 때 당시 50만 명이었으나, 현재 2,700만 명이 플랫폼을 이용합니다. ML 분야에서 빠져놓을 수 없는 플랫폼 강자를 만든 셈이죠."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "우리나라에서도 이런 개인 차원에서 지원할 수 있는 대회가 많아졌으면 좋겠다는 취지에서 알아봤는데요!"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "국내 의료 학회에서도 진행하는 듯 싶었지만,"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "1. 연구용 GPU는 개인이 알아서."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2. 상금은 100만원 선."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "3. 실제 환자 데이터를 보려면 IRB 승인서와 보안서약서를 갖춰 안심존이라는 격리된 환경에 들어가야 하고, 그마저도 다운로드는 안 됩니다. 그래서 국내에서는 합성데이터를 씁니다 (합성 데이터의 경우, 오리지널 데이터의 각종 특성을 반영한 임의로 생성한 데이터입니다). 정부 GPU 지원은 또 별개 창구인데, 사업계획서를 내고 심사를 받는 기업·기관 대상이라 대회 참가자와는 무관합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "국내 대회를 알아보려고 해도 뉴스 기사가 먼저 떴었지, 공식 홈페이지에 홍보가 잘 안된다는 점이 매우 아쉬웠습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 세 가지 문제를 모두 Kaggle에서 담당하고 있다는 것이 매우 놀랍다는 점이었구요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그럼에도 우리나라에는 자원이 없는 게 아니었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "데이터는 병원마다 쌓여 있고, GPU도 정부가 사고 있습니다. 대회를 열 학회도 있고 플랫폼도 있어요. 다만 이 셋이 각각 다른 창구에 있습니다. 데이터는 안심존, GPU는 심사 배분, 대회는 또 다른 기관 소관이거든요. 미국은 학회 하나가 데이터를 만들고 캐글이 나머지를 다 대주니까 두 주체로 끝나는데, 우리는 넷을 조율해야 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그리고 또 흥미로운 사실은, RSNA가 매년 이걸 하는 진짜 이유가 홍보는 아닐 겁니다. 무릎 대회 정답을 만들 때 근골격 전문의 두 명이 판독하고 조정자 한 명이 중재했다고 하는데, 중증도 기준을 미리 정하고 애매한 건 음성으로 매기기로 한 그 결정 과정이 곧 “이 소견은 어디부터 이상으로 볼 것인가”를 학회가 문서로 남기는 일입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그렇게 만든 데이터셋이 그 분야의 기준선이 됩니다. 2024년 척추 대회 데이터가 지금도 AWS에 공개돼 논문에 쓰이고 있거든요. 기업이 새 모델을 내면서 “RSNA 챌린지 데이터로 검증했다”고 쓰게 되면, 학회가 심판 자리에 앉는 셈이고요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "우리나라에서도 개인이 의료가 됐던, 난제가 됐던, AI를 손쉽게 활용해 어려운 문제를 푸는 것이 한 자리에 모였으면 좋겠습니다. 현재까지는 잘 보이진 않는 것 같네요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "#RSNA",
+					"href": "https://www.facebook.com/hashtag/rsna?__cft__[0]=AZgWmCOvHqbPbPVN4k1LaFYP8JAe0u_amTA40N_tG7MCbr5mXo7Ybep1dlmyr1h52g_pE4L3OlfAAWYJDrgzDXsjxaH64pK-_1MM7Oud7d6di333BWaluTBgxQbLfxdCJOHV7hedLKZnvk62xHUGzJtR6V-FMabW5FDxSBrPo0dxGiAzL1cfFjNZWfc&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#AI",
+					"href": "https://www.facebook.com/hashtag/ai?__cft__[0]=AZgWmCOvHqbPbPVN4k1LaFYP8JAe0u_amTA40N_tG7MCbr5mXo7Ybep1dlmyr1h52g_pE4L3OlfAAWYJDrgzDXsjxaH64pK-_1MM7Oud7d6di333BWaluTBgxQbLfxdCJOHV7hedLKZnvk62xHUGzJtR6V-FMabW5FDxSBrPo0dxGiAzL1cfFjNZWfc&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#Challenges",
+					"href": "https://www.facebook.com/hashtag/challenges?__cft__[0]=AZgWmCOvHqbPbPVN4k1LaFYP8JAe0u_amTA40N_tG7MCbr5mXo7Ybep1dlmyr1h52g_pE4L3OlfAAWYJDrgzDXsjxaH64pK-_1MM7Oud7d6di333BWaluTBgxQbLfxdCJOHV7hedLKZnvk62xHUGzJtR6V-FMabW5FDxSBrPo0dxGiAzL1cfFjNZWfc&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#Kaggle",
+					"href": "https://www.facebook.com/hashtag/kaggle?__cft__[0]=AZgWmCOvHqbPbPVN4k1LaFYP8JAe0u_amTA40N_tG7MCbr5mXo7Ybep1dlmyr1h52g_pE4L3OlfAAWYJDrgzDXsjxaH64pK-_1MM7Oud7d6di333BWaluTBgxQbLfxdCJOHV7hedLKZnvk62xHUGzJtR6V-FMabW5FDxSBrPo0dxGiAzL1cfFjNZWfc&__tn__=*NK-R"
+				}
+			]
+		}
+	]
+}

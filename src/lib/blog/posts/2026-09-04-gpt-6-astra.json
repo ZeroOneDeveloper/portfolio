@@ -1,0 +1,201 @@
+{
+	"slug": "2026-09-04-gpt-6-astra",
+	"title": "GPT-6 Astra의 출시",
+	"description": "오늘 새벽, GPT-6 Astra라는 새로운 모델이 등장했습니다. OpenAI가 유튜브에 공개한 광고 영상을 보는데, 웅장하고 멋진듯한 느낌을 주는 영상을 잘 만들었더라구요!",
+	"publishedAt": "2026-09-04T21:00:53+09:00",
+	"updatedAt": "2026-09-08T19:12:45+09:00",
+	"readingMinutes": 4,
+	"tags": [
+		"ChatGPT",
+		"Gpt 6",
+		"Astra",
+		"Ax",
+		"AI"
+	],
+	"mediumId": "cf0e1c13b679",
+	"mediumUrl": "https://medium.com/@zeroone-dev/gpt-6-astra%EC%9D%98-%EC%B6%9C%EC%8B%9C-cf0e1c13b679",
+	"cover": {
+		"src": "/blog/2026-09-04-gpt-6-astra/1-Z5sT0am5l_FHwEIMlztDMw.jpeg",
+		"width": 800,
+		"height": 629,
+		"thumb": {
+			"src": "/blog/2026-09-04-gpt-6-astra/1-Z5sT0am5l_FHwEIMlztDMw.thumb.jpg",
+			"width": 720,
+			"height": 566
+		}
+	},
+	"blocks": [
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "오늘 새벽, GPT-6 Astra라는 새로운 모델이 등장했습니다. OpenAI가 유튜브에 공개한 광고 영상을 보는데, 웅장하고 멋진듯한 느낌을 주는 영상을 잘 만들었더라구요!"
+				}
+			]
+		},
+		{
+			"type": "youtube",
+			"id": "1QNsdr-Qx_I",
+			"title": "YouTube 동영상",
+			"thumbnail": {
+				"src": "/blog/2026-09-04-gpt-6-astra/youtube-1QNsdr-Qx_I.jpg",
+				"width": 1280,
+				"height": 720
+			}
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 모델의 포인트는 “인간이 컴퓨터로 할 수 있는 작업은 ChatGPT가 다 하겠다”인 것 같습니다. 사람과 대화하며 병렬적으로, 빠르게, 엄청난 퍼포먼스로 작업을 완수해냅니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "저도 찾아보면서 워낙 벤치마크 자료가 많다보니, “그래서 Fable 5.1보다 좋다는 건지 안 좋다는 건지, 비용이 저렴하다는 거야?” 이런 질문을 던졌던 것 같은데요. 몇 가지 정리를 해봤습니다!"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "첫째, 코딩 에이전트 평가에서 Astra는 67점으로 Claude Fable 5와 동급입니다. 전작 GPT‑5.6 Sol의 65점보다 높고, 작업당 비용은 Fable 5의 절반 이하입니다. Sol과 비교하면 코딩에 사용한 토큰도 약 1/3 수준입니다. (최신 Fable 5.1은 70점)"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "둘째, 종합 지능 평가는 의외로 전작과 동률입니다. Artificial Analysis Intelligence Index에서 Astra와 Sol 모두 61점을 받았습니다. 모든 영역에서 갑자기 월등해졌다기보다, 실제 도구를 사용해 일을 수행하는 능력이 집중적으로 발전한 모델에 가깝습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-04-gpt-6-astra/1-Z5sT0am5l_FHwEIMlztDMw.jpeg",
+			"width": 800,
+			"height": 629,
+			"alt": ""
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-04-gpt-6-astra/0-tZ_xF8DbsDvbrWZG.jpeg",
+			"width": 1600,
+			"height": 1200,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "셋째, 실제 업무에서는 효율 차이가 두드러집니다. OpenAI의 Agents’ Last Exam에서 Astra는 Claude Opus 5보다 높은 결과를 내면서 출력 토큰을 약 65% 적게 사용했습니다. OSWorld 컴퓨터 작업도 Sol보다 약 47% 짧은 시간에 처리했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "넷째, 성능이 강해진 만큼 안전장치도 훨씬 무거워졌습니다. Astra는 OpenAI 모델 최초로 사이버 역량이 ‘Critical’ 단계에 도달했습니다. 출시 초기에는 Trusted Access Program 참여 기업부터 제공하고, 이후 며칠에 걸쳐 일반 유료 플랜과 API로 확대하는 방식을 계획하고 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결국 Astra의 핵심은 ‘종합지능 1위’가 아니라, AI가 실제 업무를 맡아 끝내는 경제성과 실행 능력이 크게 좋아졌다는 데 있는 것 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이제 모델 경쟁의 기준도 구현 능력을 넘어, 작업 비용과 실행 능력, 그리고 감독 가능성으로 이동하고 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이러한 성능과 안정성으로 인해, 현재는 제한된 기관에게만 순차적으로 배포 중이며, 안정성을 평가하며 안전장치를 조정하고 있는 단계입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "유저들이 정말로 기대하고 있는 모델일 텐데요. 이에 ChatGPT와 Codex를 이끄는 엔지니어인 Tibo는 본인의 X에서 오늘부터 Astra 모델이 공개되기 전날까지, 매일매일 코덱스 한도를 초기화 해주겠다고 했습니다! (Thank you tibo)"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-04-gpt-6-astra/0-vvISwVgJJqm7Oyqc.jpeg",
+			"width": 597,
+			"height": 252,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Claude, Codex 중 어떤 걸 사용하시나요? Astra 공개로 인해 이용 비중이 또 많이 달라질까요?"
+				}
+			]
+		},
+		{
+			"type": "quote",
+			"paragraphs": [
+				[
+					{
+						"text": "ps. 광고 영상 맨 처음 나온 79년 영상은, 단순한 그때 당시의 광고 영상처럼 보였으나, MIT 대학이 진행한 HCI 연구, ‘Put That There’ 의 역사적인 기록 영상이라는 비하인드가 있네요!"
+					}
+				],
+				[
+					{
+						"text": "그런 역사적인 영상을 오마주한 점도 매력 포인트인 것 같습니다"
+					}
+				]
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "#ChatGPT",
+					"href": "https://www.facebook.com/hashtag/chatgpt?__cft__[0]=AZjPbZdilt4tfRTW7wKEmjlR9Dv98Uxr7MyWGwmymPn-mrJD5lkJuo-YujbmCsjvBF85UQLDMZGpkMLW6ea0v6yb9NIXhipudVW-_oq-nzyQ6W3vGgtUrhaxWZR6TBcLrQQ_dTDHWwrZkz7Tich23NlynA0XXiB-iwmzZsjv5TERLzXOelrTDGOuBLw&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#Codex",
+					"href": "https://www.facebook.com/hashtag/codex?__cft__[0]=AZjPbZdilt4tfRTW7wKEmjlR9Dv98Uxr7MyWGwmymPn-mrJD5lkJuo-YujbmCsjvBF85UQLDMZGpkMLW6ea0v6yb9NIXhipudVW-_oq-nzyQ6W3vGgtUrhaxWZR6TBcLrQQ_dTDHWwrZkz7Tich23NlynA0XXiB-iwmzZsjv5TERLzXOelrTDGOuBLw&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#Astra",
+					"href": "https://www.facebook.com/hashtag/astra?__cft__[0]=AZjPbZdilt4tfRTW7wKEmjlR9Dv98Uxr7MyWGwmymPn-mrJD5lkJuo-YujbmCsjvBF85UQLDMZGpkMLW6ea0v6yb9NIXhipudVW-_oq-nzyQ6W3vGgtUrhaxWZR6TBcLrQQ_dTDHWwrZkz7Tich23NlynA0XXiB-iwmzZsjv5TERLzXOelrTDGOuBLw&__tn__=*NK-R"
+				},
+				{
+					"text": " "
+				},
+				{
+					"text": "#GPT6",
+					"href": "https://www.facebook.com/hashtag/gpt6?__cft__[0]=AZjPbZdilt4tfRTW7wKEmjlR9Dv98Uxr7MyWGwmymPn-mrJD5lkJuo-YujbmCsjvBF85UQLDMZGpkMLW6ea0v6yb9NIXhipudVW-_oq-nzyQ6W3vGgtUrhaxWZR6TBcLrQQ_dTDHWwrZkz7Tich23NlynA0XXiB-iwmzZsjv5TERLzXOelrTDGOuBLw&__tn__=*NK-R"
+				}
+			]
+		}
+	]
+}

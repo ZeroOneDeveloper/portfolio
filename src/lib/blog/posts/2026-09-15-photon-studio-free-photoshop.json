@@ -1,0 +1,373 @@
+{
+	"slug": "2026-09-15-photon-studio-free-photoshop",
+	"title": "100% 무료 포토샵 출시",
+	"description": "이틀 전 (9/13), Reddit에 r/vibecoding 채널에 한 글이 올라왔습니다.",
+	"publishedAt": "2026-09-15T15:20:04+09:00",
+	"updatedAt": "2026-09-15T15:20:04+09:00",
+	"readingMinutes": 5,
+	"tags": [
+		"Photoshop",
+		"AI",
+		"Gpt 6 Astra"
+	],
+	"mediumId": "3f8f606c08f4",
+	"mediumUrl": "https://medium.com/@zeroone-dev/100-%EB%AC%B4%EB%A3%8C-%ED%8F%AC%ED%86%A0%EC%83%B5-%EC%B6%9C%EC%8B%9C-3f8f606c08f4",
+	"cover": {
+		"src": "/blog/2026-09-15-photon-studio-free-photoshop/1-zfEgBv4IIPpalTKwZrb1Jg.jpg",
+		"width": 1684,
+		"height": 1052,
+		"thumb": {
+			"src": "/blog/2026-09-15-photon-studio-free-photoshop/1-zfEgBv4IIPpalTKwZrb1Jg.thumb.jpg",
+			"width": 720,
+			"height": 450
+		}
+	},
+	"blocks": [
+		{
+			"type": "bookmark",
+			"href": "https://tenzen.studio/photon/",
+			"title": "Photon Studio - Edit photos. Create designs.",
+			"description": "A desktop image editor with layers, retouching, design tools and native PSD support. Everything runs on your computer…",
+			"site": "tenzen.studio",
+			"image": "/blog/2026-09-15-photon-studio-free-photoshop/0-8ezDql89m8XkAgdg.png"
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이틀 전 (9/13), Reddit에 r/vibecoding 채널에 한 글이 올라왔습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "GPT-6 Astra로 포토샵을 대체할 수 있는 프로그램을 만들었다구요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이름은 Proton Studio로 출시했습니다. 반응을 보니 거의 미쳤습니다."
+				}
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-09-15-photon-studio-free-photoshop/1-zfEgBv4IIPpalTKwZrb1Jg.mp4",
+			"poster": "/blog/2026-09-15-photon-studio-free-photoshop/1-zfEgBv4IIPpalTKwZrb1Jg.jpg",
+			"width": 1684,
+			"height": 1052,
+			"alt": "",
+			"caption": [
+				{
+					"text": "https://tenzen.studio/photon/",
+					"href": "https://tenzen.studio/photon/"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "먼저 뭐가 되는지부터 보면, 생각보다 갖출 건 갖췄습니다. 레이어와 그룹, 마스크, 조정 레이어, 스마트 오브젝트, 레이어 효과가 다 있고요. "
+				},
+				{
+					"text": "PSD 파일을 레이어를 유지한 채로 열고 다시 저장",
+					"bold": true
+				},
+				{
+					"text": "할 수 있습니다. Liquify로 이미지를 변형하고, Curves로 밝기와 대비를 조정하고, 포토샵 단축키도 상당수 그대로 씁니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그리고 "
+				},
+				{
+					"text": "전부 내 컴퓨터에서 돌아갑니다.",
+					"bold": true
+				},
+				{
+					"text": " 업로드 단계도, 대기열도, 계정도 없습니다. 피사체 선택이나 배경 제거 같은 기능까지 로컬에서 처리하고요. macOS, Windows 11, Linux 전부 지원하고 완전 무료입니다. 유료 등급도, 잠긴 기능도 없다고 밝히고 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그런데 제가 흥미로웠던 건 결과물보다 "
+				},
+				{
+					"text": "만든 과정",
+					"bold": true
+				},
+				{
+					"text": "이었습니다.\n"
+				},
+				{
+					"text": "(주목할 만합니다!)",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "개발자가 다섯 단계로 정리해뒀는데요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "먼저 포토샵의 모든 기능에 대해 딥 리서치를 돌렸습니다. 코딩부터 시작한 게 아니라 조사부터 시작한 거죠. 그 보고서를 gpt6-astra에 최대 연산 수준으로 넣어서 개발 계획을 짜게 했고요. 그 계획을 읽고 피드백을 주면서 고쳤습니다. 그러면 돌아가긴 하지만 불안정한 첫 버전이 나오고, 그 다음부터는 버그를 찾아 고치는 사이클을 반복했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "여기서 "
+				},
+				{
+					"text": "사람의 역할이 에디터를 직접 써보고 문제를 설명하는 것",
+					"bold": true
+				},
+				{
+					"text": "으로 줄어들었다는 게 핵심입니다. 손으로 쓴 코드가 한 줄도 없다고 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "토큰 비용은 "
+				},
+				{
+					"text": "약 2,000달러",
+					"bold": true
+				},
+				{
+					"text": "가 나왔습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "계산이 안 맞죠. 포토샵 구독료 몇 년치입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그런데 출시 첫 24시간 만에 "
+				},
+				{
+					"text": "활성 사용자 170명",
+					"bold": true
+				},
+				{
+					"text": "이 붙었습니다. 개발자는 이걸 “170개의 아낀 라이선스”로 환산하더군요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "애초에 돈이 목적도 아니었습니다. 이전 회사를 7자리 금액에 매각했고 지금은 인수한 회사에서 월급을 받고 있다고 합니다. 앞으로도 무료로 유지하고 프리미엄 요금제는 없을 거라고 했고요. 다만 나중에 After Effects 같은 더 큰 프로그램까지 손대게 되면 그때는 일회성 요금을 받을 수도 있다고 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "목표는 "
+				},
+				{
+					"text": "“AI의 속도로 발전하는 에디터”",
+					"bold": true
+				},
+				{
+					"text": "를 만드는 거라고 하네요. 요즘 Adobe가 자고 있다는 말도 덧붙였고요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 주장을 상징적으로 보여준 사건이 출시 당일에 있었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "사용자들이 다운로드 링크를 못 받는다는 불만이 터졌는데, 원인이 재밌었습니다. 모든 방문자가 서버의 "
+				},
+				{
+					"text": "같은 프록시 주소 하나로 집계",
+					"bold": true
+				},
+				{
+					"text": "되는 바람에, 시간당 20통이라는 제한이 전체에 한꺼번에 걸린 거였습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "문제 파악부터 배포까지 "
+				},
+				{
+					"text": "약 5분",
+					"bold": true
+				},
+				{
+					"text": "이 걸렸고, 이것도 AI 에이전트가 처리했습니다. 제한이 방문자마다 따로 적용되도록 다시 쓴 거죠."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "만드는 것도 AI, 터진 걸 고치는 것도 AI. 실시간으로 “AI 속도”를 증명한 셈입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다만 회의적인 시각도 만만치 않습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "데모 영상에 나오는 건 기본 편집과 이미지 위에 텍스트 얹기 정도",
+					"bold": true
+				},
+				{
+					"text": "입니다. 파일 가져오기와 내보내기는 보여주지 않았고요. 개발자 본인도 원본보다 안정성이 떨어진다고 인정했는데, 뒤집어 보면 "
+				},
+				{
+					"text": "지금 테스트를 하고 있는 건 실사용자들",
+					"bold": true
+				},
+				{
+					"text": "이라는 뜻입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "시장 상황도 녹록지 않습니다. 무료 편집기 시장은 이미 포화 상태예요. Affinity는 하나로 통합되면서 완전 무료가 됐고, Photopea는 한 사람이 만들어 광고로 운영되고 있고, GIMP와 Krita, Paint.NET도 건재합니다. Pixelmator Pro는 Apple이 사갔고요. "
+				},
+				{
+					"text": "2주 만에 만든 클론이 수십 년간 발전한 도구들과 겨뤄야 합니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그리고 회의론자들이 짚는 지점이 하나 더 있는데, 이게 제일 날카로웠습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "포토샵은 닫혀 있고, GIMP는 열려 있습니다.",
+					"bold": true
+				},
+				{
+					"text": " 이런 편집기를 만들어내는 모델들이 학습한 건 결국 GIMP의 코드라는 거죠. “포토샵을 대체했다”기보다 “"
+				},
+				{
+					"text": "GIMP를 다시 조립했다",
+					"bold": true
+				},
+				{
+					"text": "”에 가깝다는 지적입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그래도 저는 이 사례가 계속 남습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2주와 2,000달러로 만든 물건이 수십 년짜리 제품과 같은 링에 올라섰다는 것. 그게 이겼다는 뜻은 아니지만, "
+				},
+				{
+					"text": "링에 올라가는 비용이 이 정도로 떨어졌다",
+					"bold": true
+				},
+				{
+					"text": "는 건 분명하니까요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "혹시 써보실 분들을 위해 두 가지만 말씀드리면, 다운로드는 운영체제를 고르고 "
+				},
+				{
+					"text": "이메일로 링크를 받는 방식",
+					"bold": true
+				},
+				{
+					"text": "입니다. 그리고 본인이 안정성을 인정한 만큼, 중요한 원본 파일로 바로 작업하시는 건 권하지 않습니다. 사본으로 먼저 열어보세요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://tenzen.studio/photon/",
+					"href": "https://tenzen.studio/photon/"
+				}
+			]
+		}
+	]
+}

@@ -77,6 +77,20 @@ export const meta = {
 	} satisfies Shot
 };
 
+/**
+ * The blog (/blog): his posts, first published on Medium and kept here on his own site,
+ * where search engines and AI assistants read them as his. The posts themselves are data
+ * in src/lib/blog/posts/, brought in by scripts/import-medium.mjs.
+ */
+export const blog = {
+	path: '/blog',
+	/** In the header, beside the sections of the home page, and as the list's title. */
+	label: '블로그',
+	name: `${profile.name} 블로그`,
+	title: `블로그 · ${profile.name} (${profile.nameEn})`,
+	description: `${profile.name}(${profile.nameEn})의 블로그. AI 모델과 AI 에이전트, 개발과 AX에 관한 글을 씁니다.`
+};
+
 /** Where his work lives: under the introduction, and again in the footer. */
 export const profileLinks: Link[] = [
 	{ label: 'GitHub', href: profile.github },

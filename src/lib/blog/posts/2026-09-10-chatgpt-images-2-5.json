@@ -1,0 +1,243 @@
+{
+	"slug": "2026-09-10-chatgpt-images-2-5",
+	"title": "ChatGPT Images 2.5, 9/8 출시",
+	"description": "OpenAI가 9월 8일 ChatGPT Images 2.5를 공개했습니다. 4월 Images 2가 나온 지 5개월 만입니다. 최근, 8월 20일에는 GPT-Image-2 API에 투명 배경 출력이 프리뷰로 추가됐고, 9월 3일 GPT-6 Astra…",
+	"publishedAt": "2026-09-10T09:39:32+09:00",
+	"updatedAt": "2026-09-10T09:48:32+09:00",
+	"readingMinutes": 6,
+	"tags": [
+		"AI",
+		"Image Generation",
+		"ChatGPT"
+	],
+	"mediumId": "53af84c40274",
+	"mediumUrl": "https://medium.com/@zeroone-dev/chatgpt-images-2-5-9-8-%EC%B6%9C%EC%8B%9C-53af84c40274",
+	"cover": {
+		"src": "/blog/2026-09-10-chatgpt-images-2-5/1-1BmAXvWy7oy2vNZfgakjdw.jpg",
+		"width": 688,
+		"height": 914,
+		"thumb": {
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/1-1BmAXvWy7oy2vNZfgakjdw.thumb.jpg",
+			"width": 688,
+			"height": 914
+		}
+	},
+	"blocks": [
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI가 9월 8일 ChatGPT Images 2.5를 공개했습니다. 4월 Images 2가 나온 지 5개월 만입니다. 최근, 8월 20일에는 GPT-Image-2 API에 투명 배경 출력이 프리뷰로 추가됐고, 9월 3일 GPT-6 Astra 발표에는 이미지 모델이 빠져 있었는데, 그로부터 닷새 뒤에 나온 게 ChatGPT Images 2.5 버전입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "업데이트는 2.0에서 제일 많이 나온 피드백 세 가지에 집중했는데요. 생성되는 데 느리다, 편집할 때마다 인물이 바뀐다, 원하지 않는, 즉 지시하지 않은 곳을 슬쩍 바뀐다에 포커스했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "1. "
+				},
+				{
+					"text": "참조 사진 유지력",
+					"href": "https://openai.com/index/introducing-chatgpt-images-2-5/#image-fidelity-as-you-create"
+				},
+				{
+					"text": ". 사진 속 인물을 다른 배경이나 화풍으로 옮겨도 얼굴이 그대로 알아볼 수 있게 남습니다."
+				}
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/1-1BmAXvWy7oy2vNZfgakjdw.mp4",
+			"poster": "/blog/2026-09-10-chatgpt-images-2-5/1-1BmAXvWy7oy2vNZfgakjdw.jpg",
+			"width": 688,
+			"height": 914,
+			"alt": "",
+			"caption": [
+				{
+					"text": "https://openai.com/index/introducing-chatgpt-images-2-5/#image-fidelity-as-you-create",
+					"href": "https://openai.com/index/introducing-chatgpt-images-2-5/#image-fidelity-as-you-create"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/1-mU0wRds8M8sm41QaYXABcQ.png",
+			"width": 961,
+			"height": 637,
+			"alt": "",
+			"caption": [
+				{
+					"text": "https://openai.com/index/introducing-chatgpt-images-2-5/#image-fidelity-as-you-create",
+					"href": "https://openai.com/index/introducing-chatgpt-images-2-5/#image-fidelity-as-you-create"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2. "
+				},
+				{
+					"text": "정밀 편집",
+					"href": "https://openai.com/index/introducing-chatgpt-images-2-5/#precision-editing"
+				},
+				{
+					"text": ". 시킨 부분만 고치고 나머지는 그대로 둡니다. 재킷만 바꾸고 자세는 유지, 배경만 바꾸고 제품은 유지, 문구만 바꾸고 구도는 유지하는 식입니다. 얼리 고객인 Higgsfield의 표현이 재밌었는데, “무엇을 바꾸지 말아야 하는지를 이해한다”고 하더군요."
+				}
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/1-YbcuV4TrbVeHz4rtcjCg4g.mp4",
+			"poster": "/blog/2026-09-10-chatgpt-images-2-5/1-YbcuV4TrbVeHz4rtcjCg4g.jpg",
+			"width": 960,
+			"height": 600,
+			"alt": "",
+			"caption": [
+				{
+					"text": "https://openai.com/index/introducing-chatgpt-images-2-5/#precision-editing",
+					"href": "https://openai.com/index/introducing-chatgpt-images-2-5/#precision-editing"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "3. "
+				},
+				{
+					"text": "멀티턴 편집 일관성",
+					"href": "https://openai.com/index/introducing-chatgpt-images-2-5/#multi-turn-editing-consistency"
+				},
+				{
+					"text": ". 대화를 이어가며 여러 번 고쳐도 앞서 수정한 게 풀리지 않고, 턴이 쌓여도 화질이 안 무너집니다. 큐브 회전, 여행 인포그래픽, 생일 케이크 초 개수 바꾸기 같은 예시 영상이 올라와 있어요."
+				}
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/1-O6GVPnPCMxFpHYE08SYtnA.mp4",
+			"poster": "/blog/2026-09-10-chatgpt-images-2-5/1-O6GVPnPCMxFpHYE08SYtnA.jpg",
+			"width": 720,
+			"height": 1149,
+			"alt": "",
+			"caption": [
+				{
+					"text": "https://openai.com/index/introducing-chatgpt-images-2-5/#multi-turn-editing-consistency",
+					"href": "https://openai.com/index/introducing-chatgpt-images-2-5/#multi-turn-editing-consistency"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "4. 속도. 생성 지연이 2.0 대비 최대 50% 줄었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "5. 투명 배경. 이건 지난달(8/20) GPT-Image-2 API에 background=transparent 옵션이 프리뷰로 먼저 붙었던 건데요. 만들고 나서 배경을 지우는 방식이 아니라 알파 채널을 생성 단계에서 같이 만드는 거라, 유리나 가는 털처럼 누끼가 잘 안 따지는 부분이 깔끔하다는 게 포인트였습니다. 쿡북 예시는 제품 컷, 슬라이드용 다이어그램, 아이콘과 스티커, 굿즈 아트워크였고요. ChatGPT에서 투명 PNG가 잘 안 뽑힌다는 불만은 5월부터 개발자 포럼에 올라와 있었는데, 2.5에서는 투명 배경을 포함한 복잡한 레이아웃 처리가 더 좋아졌다고 하고, Manus도 투명 배경 생성이 개선돼 브랜드 에셋이나 프레젠테이션용으로 잘 맞는다고 평했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그 외에 인포그래픽의 정보 정확도, 지정한 스타일 반영이 좋아졌다고 합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/0-8ppXfTL62ST2I14V.jpeg",
+			"width": 1600,
+			"height": 900,
+			"alt": ""
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/0-eqbRZcubAXbQas06.jpeg",
+			"width": 1600,
+			"height": 900,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "기능도 몇 개 붙었습니다. 채팅창에 @Sketch를 치면 직접 그림을 그려서 참조로 넣을 수 있고(방 배치나 옷 실루엣 같은 것), 포스터나 굿즈 같은 인기 포맷은 템플릿에서 시작할 수 있습니다. 이미지 위에 직접 코멘트를 달아 그 부분만 고치게 할 수 있고, 결과물을 공유할 때 프롬프트를 같이 붙여서 다른 사람이 자기 사진으로 재현하게 할 수도 있어요. 무료를 포함한 모든 ChatGPT 티어와 Work, Codex에 배포 중입니다."
+				}
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/1-rJnxmI8E3ddscasA7yf7Zg.mp4",
+			"poster": "/blog/2026-09-10-chatgpt-images-2-5/1-rJnxmI8E3ddscasA7yf7Zg.jpg",
+			"width": 720,
+			"height": 405,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "개발자용 API는 두 모델로 나왔습니다. GPT-Image-2.5 Flare가 기본형으로, GPT-Image-2보다 품질은 높고 지연은 절반입니다. Sunburst는 생성이 더 오래 걸리는 대신 편집 정밀도를 높인 프리미엄형이고요. 토큰 단가는 둘이 같은데 GPT-Image-2의 정확히 2배입니다(출력 이미지 100만 토큰당 15달러에서 30달러). 빨라졌다고 싸진 건 아니에요. Adobe Firefly에 바로 탑재됐고, Manus는 자체 평가에서 Flare가 GPT-Image-2보다 2~4배 빨랐다고 합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-10-chatgpt-images-2-5/1-x6_U8YxMmdbZxSctN102Iw.png",
+			"width": 809,
+			"height": 298,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "시스템 카드에서 눈에 띈 것 두 가지. 사실감이 올라간 만큼 딥페이크 위험이 커졌다고 명시했고, 자체 적대적 테스트에서 위반 이미지가 사용자에게 노출된 비율은 2.0의 1.64%에서 Sunburst 1.09%, Flare 1.41%로 내려갔습니다(통계적으로 유의한 차이는 아니라고 스스로 적어뒀습니다). 그리고 "
+				},
+				{
+					"text": "워터마크는 C2PA에 더해 구글 딥마인드의 SynthID",
+					"href": "https://deploymentsafety.openai.com/chatgpt-images-2-5"
+				},
+				{
+					"text": "를 가져다 씁니다. OpenAI 제품에 구글 기술이 들어간 셈이죠."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "정리하면 이번 업데이트는 ‘더 잘 그리기’보다 ‘고친 걸 유지하기’에 방점이 찍혀 있는 것 같습니다. 적어도, 만들어낸 결과물이 마음에 안 들 때 정확하게 수정사항들을 반영해줄 수 있는 또 한 걸음이 된 것 같네요!"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "#OpenAI #ChatGPT #GPTImage #이미지생성 #AI"
+				}
+			]
+		}
+	]
+}

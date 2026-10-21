@@ -1,0 +1,154 @@
+{
+	"slug": "2026-09-13-gpt-live-1-api",
+	"title": "GPT-Live-1 API 출시",
+	"description": "지난 10일, OpenAI가 GPT-Live-1을 API로 열었습니다. ChatGPT 음성 모드에 먼저 들어갔던 그 모델인데요, 이제 개발자 누구나 자기 앱에 붙일 수 있게 된 겁니다. 유튜브 발표 영상을 보고 나서 “그래서 지금까지의 음성 AI랑…",
+	"publishedAt": "2026-09-13T19:04:34+09:00",
+	"updatedAt": "2026-09-14T10:05:53+09:00",
+	"readingMinutes": 4,
+	"tags": [
+		"Voice Assistant",
+		"ChatGPT",
+		"Tts",
+		"Stt"
+	],
+	"mediumId": "add9500adaaa",
+	"mediumUrl": "https://medium.com/@zeroone-dev/gpt-live-1-api-%EC%B6%9C%EC%8B%9C-add9500adaaa",
+	"cover": {
+		"src": "/blog/2026-09-13-gpt-live-1-api/1-UEoreN0jB1EljvNbZZyQMA.png",
+		"width": 1080,
+		"height": 1080,
+		"thumb": {
+			"src": "/blog/2026-09-13-gpt-live-1-api/1-UEoreN0jB1EljvNbZZyQMA.thumb.jpg",
+			"width": 720,
+			"height": 720
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-09-13-gpt-live-1-api/1-UEoreN0jB1EljvNbZZyQMA.png",
+			"width": 1080,
+			"height": 1080,
+			"alt": ""
+		},
+		{
+			"type": "youtube",
+			"id": "OSaP6bJoU44",
+			"title": "YouTube 동영상",
+			"thumbnail": {
+				"src": "/blog/2026-09-13-gpt-live-1-api/youtube-OSaP6bJoU44.jpg",
+				"width": 1280,
+				"height": 720
+			}
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난 10일, OpenAI가 GPT-Live-1을 API로 열었습니다. ChatGPT 음성 모드에 먼저 들어갔던 그 모델인데요, 이제 개발자 누구나 자기 앱에 붙일 수 있게 된 겁니다. 유튜브 발표 영상을 보고 나서 “그래서 지금까지의 음성 AI랑 뭐가 다른 거야?” 하는 질문이 남더라구요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 발표의 포인트는 “AI가 말하면서 동시에 듣는다”인 것 같습니다. 지금까지의 음성 AI는 무전기에 가까웠습니다. 한쪽이 말을 끝내야 다른 쪽이 말할 수 있죠. GPT-Live-1은 전화 통화 방식입니다. 말하는 도중에 끼어들어도, “아 네네” 하고 맞장구를 쳐도, 옆사람과 잠깐 딴 얘기를 해도 대화가 끊기지 않습니다. (이걸 ‘풀듀플렉스’라고 부릅니다.)"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-13-gpt-live-1-api/1-5a1QdLypXyTzNU_xF8_JlQ.png",
+			"width": 1080,
+			"height": 1080,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "첫째, 구조가 통째로 바뀌었습니다. 기존 음성 AI는 ‘받아쓰기 → 생각하기 → 읽어주기’ 세 단계를 릴레이로 넘기는 방식이었습니다. 바통을 넘길 때마다 시간이 걸리고, 말의 타이밍이나 맥락이 조금씩 새어 나갔죠. GPT-Live-1은 듣기와 말하기를 한 모델이 처리합니다. 한 고객사는 이 구조로 바꾸면서 코드가 80% 줄고, 2만 3천 줄을 지웠다고 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "둘째, ‘입’과 ‘두뇌’를 분리했습니다. 대화는 GPT-Live-1이 맡고, 복잡한 판단이나 예약 처리, 검색 같은 일은 뒤에 붙인 두뇌 모델(GPT-6 Astra 등, 타사 모델도 가능)에 넘깁니다. 두뇌가 일하는 동안에도 대화는 계속됩니다. 응대 직원이 고객과 얘기를 이어가면서 담당 부서에 처리를 넘기는 것과 비슷합니다. 기존 Realtime API가 한 모델로 듣기/생각/말하기를 다 하던 것과는 반대 방향이죠."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-13-gpt-live-1-api/1-1nsQ_MFydmbIH_m8136_NA.png",
+			"width": 1080,
+			"height": 1080,
+			"alt": ""
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-09-13-gpt-live-1-api/1-LS7JmrVydbU0aLP7_VVXKQ.png",
+			"width": 1080,
+			"height": 1080,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "셋째, 수치로 보면 ‘대화의 리듬’이 좋아졌습니다. 끼어들기, 맞장구, 잠깐의 침묵을 얼마나 자연스럽게 다루는지 재는 평가(Full Duplex Bench)에서 전작 GPT-Realtime-2.1보다 30%p 올랐습니다. 언어 학습 앱 Speak에서는 학습자가 생각하는 동안 튜터가 끼어드는 일이 약 80% 줄었고, Yelp는 전화 예약 처리율이 눈에 띄게 좋아졌다고 합니다. 다만 ‘음성 에이전트 평가 1위’는 Astra와 조합했을 때 얘기라, GPT-Live-1 혼자의 성적은 아닙니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "넷째, 가격은 분당 $0.05입니다. 시간당 3달러 정도인데, 이건 ‘입’ 값이고 ‘두뇌’ 비용은 별도입니다. 어떤 두뇌를 붙이느냐에 따라 총비용이 크게 달라지겠죠. 목소리는 12종이 새로 추가됐고, 일반 전화선에도 바로 연결할 수 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결국 GPT-Live-1의 핵심은 ‘더 똑똑해진 음성 AI’가 아니라, 사람이 대화하는 리듬을 그대로 따라올 수 있게 됐다는 데 있는 것 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이제 음성 AI의 기준도 ‘얼마나 정확히 알아듣나’를 넘어, 얼마나 자연스럽게 주고받나, 그리고 입과 두뇌를 얼마나 자유롭게 조합할 수 있나로 이동하고 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "발표 페이지에 기간 한정 데모가 열려 있는데, 일부러 카페나 길거리 같은 시끄러운 곳에서 써보라고 권하더라구요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "조만간 또 CS 시장의 큰 바람이 불 것 같습니다!"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "#OpenAI #GPTLive1 #음성AI #VoiceAgent"
+				}
+			]
+		}
+	]
+}

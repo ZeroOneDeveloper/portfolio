@@ -1,0 +1,288 @@
+{
+	"slug": "2026-10-20-gpt61-sol-cobol",
+	"title": "GPT-6.1 Sol이면 은행 COBOL도 옮길 수 있을까?",
+	"description": "10월 19일(미국 시간) OpenAI가 COBOL, Fortran, Visual Basic처럼 학습할 자료가 적은 프로그래밍 언어에서 자사 모델이 얼마나 좋아졌는지 공개했습니다. 가장 눈에 띄는 건 COBOL입니다. 오래된 COBOL 프로그램을…",
+	"publishedAt": "2026-10-21T12:32:14+09:00",
+	"updatedAt": "2026-10-21T12:32:14+09:00",
+	"readingMinutes": 7,
+	"tags": [
+		"AI",
+		"OpenAI",
+		"Cobol",
+		"Software Development",
+		"Legacy Modernization"
+	],
+	"mediumId": "fd5bcc129531",
+	"mediumUrl": "https://medium.com/@zeroone-dev/gpt-6-1-sol%EC%9D%B4%EB%A9%B4-%EC%9D%80%ED%96%89-cobol%EB%8F%84-%EC%98%AE%EA%B8%B8-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C-fd5bcc129531",
+	"cover": {
+		"src": "/blog/2026-10-20-gpt61-sol-cobol/1-KqR5zYJKBR-OgLpCIDHIsw.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-10-20-gpt61-sol-cobol/1-KqR5zYJKBR-OgLpCIDHIsw.thumb.jpg",
+			"width": 720,
+			"height": 406
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-gpt61-sol-cobol/1-KqR5zYJKBR-OgLpCIDHIsw.png",
+			"width": 1600,
+			"height": 900,
+			"alt": ""
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10월 19일(미국 시간) OpenAI가 COBOL, Fortran, Visual Basic처럼 학습할 자료가 적은 프로그래밍 언어에서 자사 모델이 얼마나 좋아졌는지 공개했습니다. 가장 눈에 띄는 건 COBOL입니다. 오래된 COBOL 프로그램을 다른 언어로 옮기는 평가에서 GPT-6.1 Sol이 97.9%를 맞혔어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "COBOL은 1959년에 처음 설계된 언어인데, 지금도 은행 전산 깊숙이 남아 있습니다. OpenAI가 인용한 IBM 자료에 따르면 온라인 뱅킹 시스템의 40% 이상, 대면 카드 결제의 80%, ATM 거래의 95%를 COBOL이 받칩니다. OpenAI가 10월 20일 아침(한국 시간) X에 올린 발표 글은 다섯 시간 만에 조회수 46만을 넘겼어요. 이제 은행 COBOL도 AI에게 맡겨 옮기면 되는 걸까요?"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결론부터 말하면, 옮기는 실력은 거의 다 왔습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI의 COBOL 이전 평가는 COBOL 프로그램을 C++, Java, Kotlin, Python, Rust 가운데 하나로 옮기게 한 뒤, 모델이 보지 못한 숨은 테스트로 채점합니다. 밖으로 나오는 결과가 원래 프로그램과 바이트 하나까지 같아야 하고, 테스트를 하나라도 틀리면 실패로 칩니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "기준이 까다로운 데는 이유가 있습니다. COBOL은 소수점 아래 자리가 넘치면, 반올림하라고 따로 적지 않는 한 남는 자리를 그냥 버립니다. 옮기면서 이걸 반올림으로 바꾸면 프로그램은 오류 없이 돌아가는데 금액이 달라져요. OpenAI도 이 예를 들면서, 반올림 규칙이나 빠진 기록을 다루는 방식 같은 세부 동작에 업무 규칙이 담겨 있다고 설명했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 기준에서 GPT-6.1 Sol은 낮은 추론으로 86.6%, 높은 추론으로 97.9%를 냈습니다. 바로 전 세대인 GPT-5.6 Sol은 같은 낮은 추론에서 5.4%였는데, GPT-6.1 Sol은 그 비용의 61%만 썼어요. OpenAI는 이 평가가 거의 포화됐다고 했습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-gpt61-sol-cobol/1-DcZlVOs0WQ79Ft2KdRSSMA.png",
+			"width": 620,
+			"height": 532,
+			"alt": "OpenAI의 COBOL 이전 평가 결과입니다. 왼쪽 위로 갈수록 싸고 정확한데, 노란 점인 GPT-6.1 Sol이 약 1달러로 맨 위에 올라가요(OpenAI).",
+			"caption": [
+				{
+					"text": "OpenAI의 COBOL 이전 평가 결과입니다. 왼쪽 위로 갈수록 싸고 정확한데, 노란 점인 GPT-6.1 Sol이 약 1달러로 맨 위에 올라가요(OpenAI)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "값도 눈여겨볼 만합니다. 그래프를 보면 GPT-6.1 Sol은 97.9%를 내는 데 프로그램 하나에 약 1달러(약 1,300원)를 씁니다. 최상위 모델 GPT-6 Astra는 96~97%를 내는 데 건당 약 2~4.5달러(약 2,700~6,000원)가 들고요. GPT-6.1 Sol은 9월 29일에 나온 모델로, API 값은 100만 토큰당 입력 2달러(약 2,700원), 출력 10달러(약 1만 3천 원)입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "새로 짜는 일에서는 COBOL이 여전히 가장 어렵습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI는 평가를 하나 더 내놨습니다. MultiLangBench는 데이터베이스 SQLite와 똑같이 동작하는 프로그램을 20개 언어로 처음부터 짜게 하는 평가예요. SQLite의 원래 테스트를 이 방식에 맞게 바꿔 채점하고, 평가 도구와 테스트는 깃허브에 공개했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "여기서 GPT-6 Astra는 20개 언어 평균 87.4%를 통과했습니다. GPT-5.6 Sol은 26.8%였어요. 그런데 언어별로 보면 COBOL만 72.1%로 처집니다. 나머지 19개 언어는 모두 83%를 넘었고요. 값싼 GPT-6 Luna는 평균 40.3%에 문제 하나당 0.77달러(약 1,000원)를 써서, GPT-5.6 Sol(3.48달러, 약 4,600원)보다 약 78% 쌉니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-gpt61-sol-cobol/1-e00dMnnt5CAtwaRMW0h5Hw.png",
+			"width": 592,
+			"height": 950,
+			"alt": "SQLite와 똑같이 동작하는 프로그램을 언어별로 짜게 한 결과입니다. 파란 막대가 GPT-6 Astra인데, 노란색으로 표시한 COBOL만 72.1%로 낮아요(OpenAI).",
+			"caption": [
+				{
+					"text": "SQLite와 똑같이 동작하는 프로그램을 언어별로 짜게 한 결과입니다. 파란 막대가 GPT-6 Astra인데, 노란색으로 표시한 COBOL만 72.1%로 낮아요(OpenAI)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "정리하면 이미 있는 COBOL을 다른 언어로 옮기는 일은 거의 풀렸고, COBOL로 큰 프로그램을 새로 짜는 일은 아직 덜 풀렸습니다. 은행에 필요한 건 앞쪽이에요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "은행이 막히는 곳은 언어가 아닙니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI 발표 글에 달린 답글 가운데 공감을 많이 받은 글은 이렇습니다. “COBOL이든 다른 언어든 문제였던 적은 없다. 문제는 문서로 남지 않은 40년 치 업무 규칙이고, 어떤 날은 왜 필드 값이 음수가 되는지 알던 단 한 사람은 2009년에 은퇴했다.” 코드를 한 줄도 바꾸기 전에 AI에게 40년 된 시스템의 회귀 테스트부터 쓰게 하는 게 이전만큼 값질 수 있다는 답글도 있었어요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-gpt61-sol-cobol/1-C8byjRe8_w1DwR-vvN0gNg.png",
+			"width": 598,
+			"height": 263,
+			"alt": "OpenAI 발표 글에 달린 답글입니다. 문제는 COBOL이 아니라 문서로 남지 않은 업무 규칙이라는 내용이에요(X @pggalaviz).",
+			"caption": [
+				{
+					"text": "OpenAI 발표 글에 달린 답글입니다. 문제는 COBOL이 아니라 문서로 남지 않은 업무 규칙이라는 내용이에요(X "
+				},
+				{
+					"text": "@pggalaviz",
+					"href": "http://twitter.com/pggalaviz"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI도 같은 이야기를 합니다. 실제 운영 중인 소프트웨어에 적용하려면 여전히 전문가 검토와, 그 시스템의 업무 규칙과 연결된 시스템을 기준으로 한 테스트가 필요하다고 적었어요. 97.9%는 정답 테스트가 이미 갖춰진 문제에서 나온 숫자입니다. 실제 은행에서는 그 정답 테스트를 만드는 일부터가 큰일입니다. "
+				},
+				{
+					"text": "‘AI가 개발자를 대체하기는커녕, 연봉 5억 주고 모셔갑니다’",
+					"href": "/blog/2026-10-14-forward-deployed-engineers"
+				},
+				{
+					"text": "에서 소개했던, 문서가 아니라 담당자 머릿속에 있는 일하는 방식이 바로 이것입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "국민은행도 COBOL을 Java로 옮기고 있습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "국내 은행도 이미 이 길에 들어섰습니다. KB국민은행은 3월 코어뱅킹 현대화 2단계 사업을 공고하면서 대면 부문에 1,597억 원, 비대면 부문에 1,100억 원을 배정했어요. 대면 부문 개발 범위에 COBOL을 Java로 바꾸는 작업이 들어 있고, AI 기반 코드 변환 도구도 쓰기로 했습니다. 그래도 20개월짜리 사업이 끝난 뒤에도 예금, 대출, 외환 업무 일부는 메인프레임에서 돌아갈 거라고 은행 관계자가 밝혔습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "7월에는 KB AI 개발센터도 열었습니다. Claude Code 같은 AI 코딩 에이전트를 쓰되, 자체 ‘하네스’로 은행의 개발 표준과 보안 정책을 자동으로 반영하게 했어요. 이 시장을 보는 건 OpenAI만이 아닙니다. 2월에는 Anthropic이 Claude Code로 COBOL 시스템을 분석하고 현대화할 수 있다는 글을 올리자, 은행 COBOL이 돌아가는 메인프레임을 파는 IBM 주가가 하루에 13% 빠지기도 했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "자체 평가라는 점은 따져 봐야 합니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "두 평가 모두 OpenAI가 직접 만들었습니다. MultiLangBench는 공개했지만, COBOL 이전 평가는 문항 수도, 어떤 프로그램을 옮겼는지도 밝히지 않았어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "밖에서 잰 숫자는 다릅니다. AI 평가 회사 Vals AI의 Code Migration은 프로그램 저장소 30개를 다른 언어로 통째로 옮기게 하고, COBOL을 Java로 옮기는 과제도 들어 있습니다. 10월 18일 기준 이 평가에서 GPT-6.1 Sol은 65.1%로 5위입니다. 1위 Claude Sonnet 5.5가 69.8%, 3위 GPT-6 Astra가 67.7%로 앞서지만, 테스트 하나에 드는 값은 GPT-6.1 Sol이 6.51달러(약 8,700원)로 Claude Sonnet 5.5의 75.83달러(약 10만 원)에 비해 10분의 1이 안 됩니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-gpt61-sol-cobol/1-VlPTsEtI7oYxz7jly9nDwg.png",
+			"width": 1200,
+			"height": 354,
+			"alt": "Vals AI의 Code Migration 순위입니다. 노란색으로 표시한 GPT-6.1 Sol은 5위지만, 위 8개 모델 가운데 테스트 하나에 드는 값이 가장 적어요(Vals AI).",
+			"caption": [
+				{
+					"text": "Vals AI의 Code Migration 순위입니다. 노란색으로 표시한 GPT-6.1 Sol은 5위지만, 위 8개 모델 가운데 테스트 하나에 드는 값이 가장 적어요(Vals AI)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "과제 크기와 채점 방식이 달라 97.9%와 65.1%를 바로 견줄 수는 없습니다. 다만 프로그램 하나를 옮기는 일과 저장소 하나를 통째로 옮기는 일 사이에는 아직 거리가 있고, 싼다는 장점은 밖에서 재도 그대로라는 뜻입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "AI로 COBOL 프로그램 하나를 옮기는 값은 1천 원대까지 내려왔습니다. 이제 비용은 그 코드가 왜 그렇게 동작하는지 알아내고, 옮긴 뒤에도 똑같이 동작한다는 걸 보여 주는 데서 생길 듯싶습니다. 은행 차세대 사업에서 사람이 맡는 일도 코드를 짜는 쪽에서 그 동작을 테스트로 묶어 두는 쪽으로 옮겨 갈 것 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://openai.com/index/low-resource-programming-languages/",
+					"href": "https://openai.com/index/low-resource-programming-languages/"
+				}
+			]
+		}
+	]
+}

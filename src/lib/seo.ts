@@ -3,7 +3,9 @@
 // uses it to tell him apart from others of the same name and to tie his profiles together,
 // the groundwork of a knowledge panel. Everything comes from content.ts, so it always
 // agrees with the page.
+import type { PostSummary } from './blog/types';
 import {
+	blog,
 	focusAreas,
 	hero,
 	meta,
@@ -107,3 +109,92 @@ export const jsonLd = {
 		person
 	]
 };
+
+// --- The blog ------------------------------------------------------------------------------
+
+/** A post's page: /blog/<slug>. */
+export const postPath = (slug: string): string => `${blog.path}/${slug}`;
+
+/**
+ * He wrote every post and publishes the blog himself: the same node as the home page's
+ * Person, by its @id, with his name and site for readers that do not follow the reference.
+ */
+const author = { '@type': 'Person', ...node('person'), name: profile.name, url: site };
+
+const blogId = `${absolute(blog.path)}#blog`;
+
+/** The post's own picture, or the site's card when it has none. */
+export const postImage = (post: PostSummary) =>
+	post.cover
+		? { src: absolute(post.cover.src), width: post.cover.width, height: post.cover.height }
+		: { src: absolute(meta.image.src), width: meta.image.width, height: meta.image.height };
+
+function posting(post: PostSummary) {
+	const url = absolute(postPath(post.slug));
+	return {
+		'@type': 'BlogPosting',
+		'@id': `${url}#article`,
+		url,
+		headline: post.title,
+		description: post.description,
+		datePublished: post.publishedAt,
+		dateModified: post.updatedAt,
+		image: postImage(post).src,
+		inLanguage: 'ko-KR',
+		author,
+		publisher: author
+	};
+}
+
+/** /blog: a page listing the posts of his blog. */
+export function blogJsonLd(posts: PostSummary[]) {
+	const url = absolute(blog.path);
+	return {
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'CollectionPage',
+				'@id': url,
+				url,
+				name: blog.title,
+				description: blog.description,
+				inLanguage: 'ko-KR',
+				isPartOf: node('website'),
+				mainEntity: { '@id': blogId }
+			},
+			{
+				'@type': 'Blog',
+				'@id': blogId,
+				url,
+				name: blog.name,
+				description: blog.description,
+				inLanguage: 'ko-KR',
+				author,
+				publisher: author,
+				blogPost: posts.map(posting)
+			}
+		]
+	};
+}
+
+/** A post's page: the post, by him, on his blog. */
+export function postJsonLd(post: PostSummary) {
+	const url = absolute(postPath(post.slug));
+	return {
+		'@context': 'https://schema.org',
+		...posting(post),
+		mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+		isPartOf: { '@type': 'Blog', '@id': blogId, name: blog.name, url: absolute(blog.path) },
+		...(post.tags.length ? { keywords: post.tags.join(', ') } : {})
+	};
+}
+
+/** JSON for a <script type="application/ld+json">, with "<" escaped so it never closes early. */
+export const scriptJson = (data: unknown): string =>
+	'<script type="application/ld+json">' +
+	JSON.stringify(data).replaceAll('<', '\\u003c') +
+	'</' +
+	'script>';
+
+/** 2026-10-14T15:52:18+09:00 → 2026.10.14, as dates are written across the site. */
+export const displayDate = (iso: string): string => iso.slice(0, 10).replaceAll('-', '.');

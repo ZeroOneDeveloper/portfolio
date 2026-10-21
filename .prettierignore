@@ -5,3 +5,6 @@ yarn.lock
 
 .idea
 node_modules
+# Posts and their map, written by scripts/import-medium.mjs
+src/lib/blog/posts
+src/lib/blog/medium-map.json
