@@ -103,7 +103,12 @@ export const profileLinks: Link[] = [
  * His other pages, not shown as links (a Wikidata item, LinkedIn, ...): search engines read
  * them, with profileLinks, as pages of the same person (src/lib/seo.ts).
  */
-export const otherProfiles: string[] = [];
+export const otherProfiles: string[] = [
+	'https://zeroone-dev.medium.com',
+	'https://www.linkedin.com/in/chanwoo-song-785727392',
+	'https://www.facebook.com/profile.php?id=100010888537979',
+	'https://www.threads.com/@zerone.ed'
+];
 
 export const scholarLinks: Link[] = profileLinks.filter((link) =>
 	['ORCID', 'Google Scholar', 'DBpia'].includes(link.label)
