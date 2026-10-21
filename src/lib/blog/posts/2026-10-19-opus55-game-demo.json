@@ -3,7 +3,7 @@
 	"title": "AI가 게임을 통째로 다시 만드는 시대, 게임 체험판은 사라질까?",
 	"description": "10월 16일, 일본 게임사 Alliance Arts가 사흘 뒤 공개하려던 ‘Drunken Goddess Reflux’ 체험판을 취소했습니다. 누구나 받아서 해 볼 수 있게 풀 예정이었는데, 정해진 인원만 참여하는 비공개 온라인 플레이로 바꿨어요.",
 	"publishedAt": "2026-10-21T11:02:09+09:00",
-	"updatedAt": "2026-10-21T11:02:09+09:00",
+	"updatedAt": "2026-10-21T14:33:39+09:00",
 	"readingMinutes": 7,
 	"tags": [
 		"AI",
@@ -15,11 +15,11 @@
 	"mediumId": "21106658c156",
 	"mediumUrl": "https://medium.com/@zeroone-dev/ai%EA%B0%80-%EA%B2%8C%EC%9E%84%EC%9D%84-%ED%86%B5%EC%A7%B8%EB%A1%9C-%EB%8B%A4%EC%8B%9C-%EB%A7%8C%EB%93%9C%EB%8A%94-%EC%8B%9C%EB%8C%80-%EA%B2%8C%EC%9E%84-%EC%B2%B4%ED%97%98%ED%8C%90%EC%9D%80-%EC%82%AC%EB%9D%BC%EC%A7%88%EA%B9%8C-21106658c156",
 	"cover": {
-		"src": "/blog/2026-10-19-opus55-game-demo/1-xWmyjDY5l0_KnWxulwS5Qg.png",
+		"src": "/blog/2026-10-19-opus55-game-demo/1-eMwJlfoEOWPIH6rsmk5m1g.png",
 		"width": 1600,
 		"height": 900,
 		"thumb": {
-			"src": "/blog/2026-10-19-opus55-game-demo/1-xWmyjDY5l0_KnWxulwS5Qg.thumb.jpg",
+			"src": "/blog/2026-10-19-opus55-game-demo/1-eMwJlfoEOWPIH6rsmk5m1g.thumb.jpg",
 			"width": 720,
 			"height": 406
 		}
@@ -27,13 +27,13 @@
 	"blocks": [
 		{
 			"type": "image",
-			"src": "/blog/2026-10-19-opus55-game-demo/1-xWmyjDY5l0_KnWxulwS5Qg.png",
+			"src": "/blog/2026-10-19-opus55-game-demo/1-eMwJlfoEOWPIH6rsmk5m1g.png",
 			"width": 1600,
 			"height": 900,
-			"alt": "‘Drunken Goddess Reflux’의 스팀 대표 이미지입니다(스팀).",
+			"alt": "표지: ‘Drunken Goddess Reflux’ 스팀 대표 이미지(스팀)를 넣어 새로 만들었어요.",
 			"caption": [
 				{
-					"text": "‘Drunken Goddess Reflux’의 스팀 대표 이미지입니다(스팀)."
+					"text": "표지: ‘Drunken Goddess Reflux’ 스팀 대표 이미지(스팀)를 넣어 새로 만들었어요."
 				}
 			]
 		},
