@@ -5,6 +5,7 @@
 export interface Span {
 	text: string;
 	bold?: boolean;
+	mark?: boolean;
 	italic?: boolean;
 	code?: boolean;
 	/** An address on another site, or /blog/<slug> for another of his posts. */
@@ -12,6 +13,7 @@ export interface Span {
 }
 
 export type Block =
+	| { type: 'table'; rows: Span[][][]; header: boolean }
 	| { type: 'p' | 'h2' | 'h3' | 'pullquote'; spans: Span[] }
 	| { type: 'quote'; paragraphs: Span[][] }
 	| { type: 'ul' | 'ol'; items: Span[][] }
@@ -70,8 +72,8 @@ export interface Post {
 	updatedAt: string;
 	readingMinutes: number;
 	tags: string[];
-	mediumId: string;
-	mediumUrl: string;
+	mediumId?: string;
+	mediumUrl?: string;
 	/** The post's preview image on Medium, with a smaller copy for the list. */
 	cover?: Picture & { thumb: Picture };
 	blocks: Block[];

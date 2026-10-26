@@ -36,6 +36,7 @@ function inline(spans: Span[], options: Options): string {
 			const html = group.spans
 				.map((span) => {
 					let text = escape(span.text).replaceAll('\n', '<br>');
+					if (span.mark) text = `<mark>${text}</mark>`;
 					if (span.code) text = `<code>${text}</code>`;
 					if (span.italic) text = `<em>${text}</em>`;
 					if (span.bold) text = `<strong>${text}</strong>`;
@@ -74,7 +75,7 @@ function block(entry: Block, options: Options, index: number): string {
 		}
 		case 'video': {
 			const src = escape(address(entry.src, options) ?? '');
-			const poster = escape(address(entry.poster, options) ?? '');
+			const poster = escape(address(entry.poster || '', options) ?? '');
 			if (options.base) {
 				// Feed readers seldom play video: the first frame, linking to the clip.
 				return `<figure><a href="${src}"><img src="${poster}" width="${entry.width}" height="${entry.height}" alt="${escape(entry.alt)}"></a>${caption(entry.caption, options)}</figure>`;
@@ -105,6 +106,8 @@ function block(entry: Block, options: Options, index: number): string {
 			const site = entry.site ? `<span class="bookmark-site">${escape(entry.site)}</span>` : '';
 			return `<a class="bookmark" href="${href}"><span class="bookmark-text"><span class="bookmark-title">${escape(entry.title)}</span>${description}${site}</span>${image}</a>`;
 		}
+		case 'table':
+			return `<div style="overflow-x:auto"><table>${entry.rows.map((row, i) => `<tr>${row.map(cell => { const tag = entry.header && i === 0 ? 'th' : 'td'; return `<${tag}>${inline(cell, options)}</${tag}>`; }).join('')}</tr>`).join('')}</table></div>`;
 		case 'hr':
 			return '<hr>';
 	}
