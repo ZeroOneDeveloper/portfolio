@@ -42,7 +42,7 @@
 			<h1 id="blog-title" class="text-section font-bold">{blog.label}</h1>
 			<p class="mt-3 text-small text-muted lg:mt-5">
 				글 {data.posts.length}편 ·
-				<a href="{blog.path}/rss.xml" class="link-inline">RSS</a>
+				<a href="{blog.path}/rss.xml" data-sveltekit-reload class="link-inline">RSS</a>
 			</p>
 		</div>
 
