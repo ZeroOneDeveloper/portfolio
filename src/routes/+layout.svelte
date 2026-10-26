@@ -1,5 +1,8 @@
 <script lang="ts">
 	import '../app.css';
+	import { browser, dev } from '$app/environment';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { filterBlogEvent } from '$lib/blog/analytics';
 
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import SiteHeader from '$lib/components/SiteHeader.svelte';
@@ -7,7 +10,12 @@
 	import { blog } from '$lib/content';
 	import { revealOnScroll } from '$lib/reveal';
 
-	let { children } = $props();
+	let { children, data } = $props();
+
+	// Official SvelteKit SDK owns SPA pageviews; beforeSend gates every later route too.
+	if (browser && !dev && ['www.zero0ne.dev', 'zero0ne.dev'].includes(location.hostname)) {
+		injectAnalytics({ mode: 'production', beforeSend: event => filterBlogEvent(event, data.analyticsPaths) });
+	}
 
 	// Sections, rows and items come into view as the page scrolls (see app.css): on the
 	// first page, and again on each page reached from it, whose elements are new.

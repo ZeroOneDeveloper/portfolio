@@ -44,3 +44,25 @@ Node 22가 필요합니다(`package.json`의 `engines`).
 ## 배포
 
 Vercel에 `@sveltejs/adapter-vercel`로 배포합니다. 페이지는 배포할 때 미리 만들어(prerender) 정적 파일로 제공합니다. `master`에 푸시하면 프로덕션, 다른 브랜치에 푸시하면 프리뷰 배포가 만들어집니다.
+
+## Blog traffic analytics
+
+Production uses the maintained `@vercel/analytics/sveltekit` SDK (2.0.1). Root layout
+initializes its supported SPA subscription only on zero0ne.dev/www.zero0ne.dev;
+`filterBlogEvent` accepts pageviews only for `/blog` and the exact published paths
+generated from the same server post list as RSS. Every event drops query and hash;
+preview hosts, admin, RSS, unknown articles and custom events are rejected. No
+application visitor identity, cookies, database or analytics credentials are added.
+RSS retains full-navigation `data-sveltekit-reload`.
+
+Vercel Hobby includes 50,000 events/month and one month of reporting; collection
+is capped rather than billed for overages. Official UI metrics are read by the
+existing Mac dashboard collector, not by SSR or an API token. Visitor counts use
+Vercel's privacy-preserving identity discarded after 24h: not people, sessions,
+followers or reads. Never add overlapping reporting-window snapshots together.
+See https://vercel.com/docs/analytics/limits-and-pricing,
+https://vercel.com/docs/analytics/quickstart and
+https://vercel.com/docs/analytics/privacy-policy.
+
+Validate: Node22 `npm run check`, `npm run build`, and
+`node --experimental-strip-types --test tests/blog-analytics.test.mjs`.

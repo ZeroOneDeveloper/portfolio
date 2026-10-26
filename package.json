@@ -37,6 +37,7 @@
 		"vite": "^5.4.11"
 	},
 	"dependencies": {
-		"@tabler/icons-svelte": "^3.29.0"
+		"@tabler/icons-svelte": "^3.29.0",
+		"@vercel/analytics": "2.0.1"
 	}
 }
