@@ -1,0 +1,466 @@
+{
+	"slug": "2026-10-21-karpathy-obsidian-opus55-jev",
+	"title": "카파시가 썼다는 ‘Obsidian + Opus 5.5 + Jev’ 논문, 진짜일까?",
+	"description": "X에 퍼진 ‘카파시의 Obsidian + Opus 5.5 + Jev’ 논문 이미지는 카파시가 쓴 글이 아니고 10배, 80%에도 근거가 없어서, 카파시가 실제로 공개한 LLM 위키 방식을 Claude Code로 따라 하는 법까지 정리했어요.",
+	"publishedAt": "2026-10-23",
+	"updatedAt": "2026-10-21T01:24:57.165+00:00",
+	"readingMinutes": 6,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/bdd53dc00526f0ec25497599.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/bdd53dc00526f0ec25497599.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/bdd53dc00526f0ec25497599.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "\n",
+			"caption": [
+				{
+					"text": "\n"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10월 14일, X 팔로워 2만 7천 명의 Mr. Buzzoni(@Mr_Buzzoni)가 논문처럼 생긴 이미지 한 장을 올렸습니다. 제목은 ‘Andrej Karpathy, Obsidian + Opus 5.5 + Jev: 채팅 속도 10배, 업무 시간 80% 절감을 위한 통합 인지 시스템’입니다. 메모 앱 Obsidian이 기억을, Claude Opus 5.5가 추론을, Jev가 에이전트 지휘를 맡는다는 구조도까지 붙어 있었어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10월 21일 기준 조회 4만 7천, 좋아요 770개, 북마크 957개입니다. 나중에 보려고 저장한 사람이 좋아요를 누른 사람보다 많았어요. 다음 날에는 다른 계정이 같은 문장과 이미지를 그대로 다시 올렸고요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/28e477d11a3dbc8144a4cfa7.png",
+			"width": 979,
+			"height": 1285,
+			"alt": "10월 14일 X에 올라온 한 장짜리 ‘기술 노트’입니다. 오른쪽 아래에 made by @polydao라고 적혀 있어요(X @Mr_Buzzoni).",
+			"caption": [
+				{
+					"text": "10월 14일 X에 올라온 한 장짜리 ‘기술 노트’입니다. 오른쪽 아래에 made by @polydao라고 적혀 있어요(X "
+				},
+				{
+					"text": "@Mr_Buzzoni",
+					"href": "http://twitter.com/Mr_Buzzoni"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "댓글에는 “논문처럼 정리돼 있고 다이어그램이 아름답다”, “지금 바로 내 에이전트에게 보낸다” 같은 반응이 달렸습니다. 정말 카파시가 만든 방법일까요? 이대로 따라 하면 채팅이 10배 빨라질까요? 카파시가 직접 쓴 글과 각 도구의 공식 페이지를 하나씩 맞춰 봤습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결론부터 말하면, 카파시가 쓴 글이 아닙니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "안드레 카파시는 OpenAI 창립 멤버이자 테슬라 AI 총괄을 지낸 연구자입니다. X 팔로워가 438만 명이라, 이름만 붙어도 글이 멀리 갑니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "카파시가 Obsidian 이야기를 한 건 사실입니다. 4월 2일(미국 시간) X에 "
+				},
+				{
+					"text": "‘LLM Knowledge Bases’",
+					"href": "https://x.com/karpathy/status/2039805659525644595"
+				},
+				{
+					"text": "라는 긴 글을 올렸고, 이 글은 10월 21일 기준 조회 2,198만, 북마크 10만 건을 넘겼습니다. 이틀 뒤에는 같은 아이디어를 정리한 문서 "
+				},
+				{
+					"text": "‘llm-wiki’",
+					"href": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+				},
+				{
+					"text": "를 깃허브 Gist에 올렸고요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/171b791cf0b903eb152cc5ec.png",
+			"width": 598,
+			"height": 218,
+			"alt": "카파시가 4월 2일(미국 시간) 올린 ‘LLM Knowledge Bases’입니다. Obsidian을 쓰는 카파시 방식은 이 글에서 시작됐어요(X @karpathy).",
+			"caption": [
+				{
+					"text": "카파시가 4월 2일(미국 시간) 올린 ‘LLM Knowledge Bases’입니다. Obsidian을 쓰는 카파시 방식은 이 글에서 시작됐어요(X "
+				},
+				{
+					"text": "@karpathy",
+					"href": "http://twitter.com/karpathy"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그런데 두 글 어디에도 Opus 5.5와 Jev는 나오지 않습니다. 나올 수도 없어요. Jev는 9월 15일, Opus 5.5는 9월 22일에 나왔으니까요. 카파시의 X 글을 Jev나 Opus 5.5로 검색해도 결과가 없습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이미지에는 저자도, 날짜도, 원문 링크도 없습니다. 맨 위에 적힌 ‘Agentic Software Engineering Practice 2026’이라는 학회나 저널은 찾을 수 없었고, 워터마크에 적힌 @polydao는 X에 없는 계정입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10배와 80%에는 근거가 없습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "두 숫자는 제목, 초록, 구조도, ‘주요 효과’ 목록까지 여러 번 나옵니다. 그런데 무엇을 어떻게 재서 나온 숫자인지는 한 줄도 없어요. 실험도, 비교 대상도, 조건도 없이 “검증된 패턴과 실제 사용에 기반했다”는 문장만 있습니다. 논문의 모양은 갖췄는데, 논문에서 가장 중요한 실험이 빠진 셈입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "카파시의 원래 글에 나오는 숫자는 속도가 아니라 규모입니다. 자기 연구 위키가 글 약 100편, 약 40만 단어라는 것뿐이에요. 오히려 지금은 스크립트를 엉성하게 엮은 수준이고, 여기에 제대로 된 새 제품이 나올 자리가 있다고 썼습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Jev 설명은 틀렸습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이미지는 Jev를 ‘에이전트 오케스트레이션, 도구, 실행 자동화’ 담당으로 그렸습니다. 스타트업 TypeSafe AI가 9월 15일 내놓은 Jev가 자동화에 쓰는 모델인 건 맞습니다. 하지만 하는 일은 선택지를 받아 하나를 고르고, 확률을 붙여 돌려주는 데까지예요. “환불 문의, 확신도 0.91” 같은 식으로요. 글을 쓰지 않으니 계획을 세우거나 여러 도구를 엮는 지휘는 할 수 없습니다. 지난달 "
+				},
+				{
+					"text": "‘말을 안 하는 AI 모델, Jev 출시’",
+					"href": "https://medium.com/@zeroone-dev/%EB%A7%90%EC%9D%84-%EC%95%88-%ED%95%98%EB%8A%94-ai-%EB%AA%A8%EB%8D%B8-%EC%B6%9C%EC%8B%9C-18d4e29350a6"
+				},
+				{
+					"text": "에서 소개했던, 문장 대신 값을 내놓는 바로 그 모델입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이미지가 Jev에게 맡긴 일은 오히려 Opus 5.5의 몫입니다. Anthropic은 Opus 5.5 소개 페이지에 이 모델이 여러 도구를 쓰는 복잡한 작업을 지휘하고 하위 에이전트를 조율한다고 적었어요. 반대로 X 글 본문의 “Jev가 Opus보다 먼저 모든 노트를 읽는다”는 문장은 그나마 Jev답습니다. 노트마다 관련이 있는지 없는지를 싸게 골라 주는 거름망이라면 Jev가 할 수 있는 일이니까요. 다만 이미지 속 구조도는 그렇게 그려져 있지 않습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "같은 틀에 이름만 바뀌었습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Mr. Buzzoni의 10월 글은 자기가 6월 17일에 쓴 X 아티클을 인용하고 있습니다. 제목은 ‘Karpathy-Style Knowledge Stack: Why I Put Hermes, MiniMax M3 and Obsidian at the Core’. 그때는 Obsidian이 기억을, 오픈소스 에이전트 Hermes가 에이전트를, MiniMax M3가 추론을 맡는다고 했어요. 표지 그림에는 “카파시가 오늘 개인용 AGI를 만든다면 아마 수상할 만큼 이렇게 생겼을 것”이라고 적었고요. 이 글은 조회 220만을 넘겼습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/f767231bedd603c13c88746a.png",
+			"width": 597,
+			"height": 737,
+			"alt": "Mr. Buzzoni가 6월 17일 올린 X 아티클입니다. 그때는 Hermes와 MiniMax M3가 들어가 있었어요(X @Mr_Buzzoni).",
+			"caption": [
+				{
+					"text": "Mr. Buzzoni가 6월 17일 올린 X 아티클입니다. 그때는 Hermes와 MiniMax M3가 들어가 있었어요(X "
+				},
+				{
+					"text": "@Mr_Buzzoni",
+					"href": "http://twitter.com/Mr_Buzzoni"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "넉 달 사이 바뀐 건 모델 이름입니다. Obsidian과 카파시의 이름은 그대로 두고, 나머지 자리에 그때그때 화제인 모델을 넣었어요. 10월 19일에는 다른 계정이 “opus 5.5 + REA + Jev + Dots + Grok Bot + Obsidian, 6개 도구, 1개 시스템, 수작업 0”이라는 글을 올려 조회 1만 4천을 넘겼습니다. 이름을 많이 엮을수록 새로워 보이지만, 도구마다 실제로 무슨 일을 하는지는 빠져 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "카파시의 진짜 방법은 훨씬 단순합니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "카파시가 Gist에 올린 방법은 층 세 개로 이뤄집니다."
+				}
+			]
+		},
+		{
+			"type": "ol",
+			"items": [
+				[
+					{
+						"text": "원본 자료: 기사, 논문, 이미지처럼 모아 둔 자료입니다. AI는 읽기만 하고 고치지 않습니다."
+					}
+				],
+				[
+					{
+						"text": "위키: AI가 쓰고 관리하는 마크다운 문서 모음입니다. 요약, 개념 페이지, 페이지 사이 링크를 AI가 만들고 사람은 읽습니다."
+					}
+				],
+				[
+					{
+						"text": "규칙 문서: 위키를 어떻게 정리할지 적은 파일입니다. Claude Code라면 CLAUDE.md, Codex라면 AGENTS.md가 이 자리예요."
+					}
+				]
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/b05066f79f0a580a62c83ad3.png",
+			"width": 914,
+			"height": 388,
+			"alt": "카파시가 Gist에 올린 ‘llm-wiki’의 구조 설명입니다. 규칙 문서의 예로 CLAUDE.md와 AGENTS.md를 들었고, 노란 표시는 덧붙였어요(깃허브 Gist).",
+			"caption": [
+				{
+					"text": "카파시가 Gist에 올린 ‘llm-wiki’의 구조 설명입니다. 규칙 문서의 예로 CLAUDE.md와 AGENTS.md를 들었고, 노란 표시는 덧붙였어요(깃허브 Gist)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "하는 일은 넣기, 묻기, 점검 세 가지입니다. 새 자료를 넣으면 AI가 읽고 요약 페이지를 쓴 뒤 관련 페이지 10~15개를 함께 고칩니다. 질문하면 위키를 찾아 답하고, 쓸 만한 답은 다시 위키의 새 페이지가 됩니다. 가끔은 페이지끼리 어긋나는 내용이나 링크가 끊긴 곳을 찾게 하고요. 위키 목차인 index.md와 작업 기록인 log.md를 두면, 자료 약 100개, 페이지 수백 개까지는 따로 검색 시스템(RAG) 없이도 잘 돌아간다고 했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Obsidian은 이 폴더를 들여다보는 창입니다. 카파시는 한쪽에 AI 에이전트를, 다른 쪽에 Obsidian을 띄워 두고 AI가 고친 페이지를 바로 따라가며 읽는다고 했어요. “Obsidian은 IDE, LLM은 프로그래머, 위키는 코드베이스”라는 표현도 썼습니다. 모델도 정하지 않았습니다. 이 문서를 OpenAI Codex, Claude Code, OpenCode 같은 자기 에이전트에 붙여 넣고 함께 만들어 가라고 적었어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Claude로 따라 하면 이렇게 됩니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "ol",
+			"items": [
+				[
+					{
+						"text": "Obsidian을 설치하고 원본 폴더와 위키 폴더가 든 볼트(노트 폴더)를 만듭니다. Obsidian은 회사에서 써도 라이선스를 살 의무가 없습니다."
+					}
+				],
+				[
+					{
+						"text": "그 폴더에서 Claude Code를 엽니다. Claude Code는 월 20달러(약 2만 7천 원)인 Pro 요금제부터 들어 있고, 모델로 Opus 5.5를 고를 수 있습니다."
+					}
+				],
+				[
+					{
+						"text": "카파시의 llm-wiki 문서를 Claude Code에 붙여 넣고, 내 자료에 맞는 CLAUDE.md를 함께 씁니다."
+					}
+				],
+				[
+					{
+						"text": "Obsidian CEO Steph Ango가 공개한 "
+					},
+					{
+						"text": "obsidian-skills",
+						"href": "https://github.com/kepano/obsidian-skills"
+					},
+					{
+						"text": "를 붙입니다. Claude가 Obsidian식 링크와 속성, Bases, Canvas 파일을 제대로 쓰게 해 주는 스킬 묶음으로, 깃허브 별이 약 5만 개예요. Claude Code에서는 /plugin marketplace add kepano/obsidian-skills 한 줄로 시작합니다."
+					}
+				],
+				[
+					{
+						"text": "웹 기사는 Obsidian 공식 Web Clipper로 마크다운 파일로 저장해 원본 폴더에 넣고, 하나씩 Claude에게 정리를 맡깁니다."
+					}
+				],
+				[
+					{
+						"text": "위키가 커지면 카파시가 추천한 로컬 검색 도구 qmd를 붙입니다. Shopify의 토비 뤼트케(Tobias Lütke)가 만든 도구로, 명령줄과 MCP 서버를 둘 다 지원해요."
+					}
+				]
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Obsidian 1.12.7부터는 공식 명령줄 도구(Obsidian CLI)도 있어서, Claude Code가 터미널에서 노트를 검색하고 새로 만들고 오늘의 노트에 할 일을 붙일 수 있습니다. Claude 데스크톱 앱에서 쓰고 싶다면, 볼트를 MCP 서버로 열어 주는 Local REST API 같은 커뮤니티 플러그인도 있어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Jev를 꼭 넣고 싶다면, 자리는 구조도 한가운데가 아니라 입구입니다. 새로 들어온 자료가 어느 분류에 속하는지, 위키에 넣을 만한지를 고르게 하는 식이에요. 입력 100만 토큰당 0.042달러(약 56원)라서 Opus 5.5 입력값 4달러(약 5천 3백 원)의 약 95분의 1입니다. 다만 이건 TypeSafe AI가 든 용도(분류, 점수 매기기, 다른 AI 결과 검사)에서 끌어낸 제안이지, 누가 재 본 결과는 아닙니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다만 빨라지는 방법은 아닙니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "카파시의 방법은 빨라지는 방법이라기보다 쌓이는 방법입니다. 자료 하나를 넣을 때마다 AI가 페이지 10~15개를 고치니 토큰은 오히려 더 씁니다. Opus 5.5를 API로 쓰면 100만 토큰당 입력 4달러, 출력 20달러(약 2만 7천 원)이고, Pro 요금제에는 사용량 한도가 있어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "AI가 위키를 전부 쓰니까, 한 번 잘못 정리한 내용이 다른 페이지로 번질 수도 있습니다. 카파시가 점검을 따로 둔 이유입니다. 규모에도 한계가 있습니다. 자료 약 100개를 넘으면 검색 도구가 필요하고, 이미지가 든 문서는 글을 먼저 읽힌 뒤 그림을 따로 보여 줘야 해서 번거롭다고 본인이 적었어요. 내 노트가 모델 회사 서버로 간다는 점도 따져 봐야 하고요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "한국에서도 이 방법은 이미 꽤 퍼져 있습니다. 6월 22일 한 X 사용자가 “옵시디언 볼트 파고 Claude Code 연동한 뒤에 카파시 위키 프롬프트 던져두면” 자료를 넣을 때마다 알아서 문서화하고 링크를 이어 준다고 올린 글은 조회 7만 8천을 넘겼어요. 진짜 방법은 처음부터 공개돼 있었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 이미지가 퍼진 건 내용보다 모양 덕분인 것 같습니다. 그림 번호와 초록, 색인어까지 갖춘 논문 모양은 이제 AI로 금방 만들 수 있어요. 앞으로 유명한 이름을 붙인 ‘논문’은 더 많아질 테고, 그럴수록 그 사람이 직접 쓴 원문을 한 번 열어 보는 것이 가장 싼 확인 방법이 될 듯싶습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+					"href": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "Obsidian, Claude, TypeSafe AI 로고로 만든 표지입니다.",
+			"url": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/bdd53dc00526f0ec25497599.png"
+		},
+		{
+			"kind": "image",
+			"caption": "10월 14일 X에 올라온 한 장짜리 ‘기술 노트’입니다. 오른쪽 아래에 made by @polydao라고 적혀 있어요(X @Mr_Buzzoni).",
+			"url": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/28e477d11a3dbc8144a4cfa7.png"
+		},
+		{
+			"kind": "image",
+			"caption": "카파시가 4월 2일(미국 시간) 올린 ‘LLM Knowledge Bases’입니다. Obsidian을 쓰는 카파시 방식은 이 글에서 시작됐어요(X @karpathy).",
+			"url": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/171b791cf0b903eb152cc5ec.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Mr. Buzzoni가 6월 17일 올린 X 아티클입니다. 그때는 Hermes와 MiniMax M3가 들어가 있었어요(X @Mr_Buzzoni).",
+			"url": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/f767231bedd603c13c88746a.png"
+		},
+		{
+			"kind": "image",
+			"caption": "카파시가 Gist에 올린 ‘llm-wiki’의 구조 설명입니다. 규칙 문서의 예로 CLAUDE.md와 AGENTS.md를 들었고, 노란 표시는 덧붙였어요(깃허브 Gist).",
+			"url": "/blog/2026-10-21-karpathy-obsidian-opus55-jev/b05066f79f0a580a62c83ad3.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-10-21-karpathy-obsidian-opus55-jev",
+		"bodySha256": "38e2ca105302c4dfd5d3271945eee6096224b41629633f6d811434cf3a753678",
+		"source": "dashboard",
+		"savedAt": "2026-10-21T01:24:57.165+00:00"
+	}
+}

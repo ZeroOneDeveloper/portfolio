@@ -1,0 +1,300 @@
+{
+	"slug": "2026-10-19-anthropic-public-benefit-fund",
+	"title": "Anthropic은 왜 회사 지분 5%로 공익 기금을 만들까?",
+	"description": "Anthropic이 지분 5%로 만드는 공익 기금을, 일자리 문제와 회사 가치에 묶인 지분 구조, OpenAI Foundation과의 차이로 풀었어요.",
+	"publishedAt": "2026-10-22",
+	"updatedAt": "2026-10-20T02:32:26.639+00:00",
+	"readingMinutes": 4,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-10-19-anthropic-public-benefit-fund/39b5fb7d9c23d793a747e950.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-10-19-anthropic-public-benefit-fund/39b5fb7d9c23d793a747e950.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-10-19-anthropic-public-benefit-fund/39b5fb7d9c23d793a747e950.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "\n",
+			"caption": [
+				{
+					"text": "\n"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10월 18일(미국 시간) Anthropic이 회사 지분으로 ‘Anthropic 공익 기금(Anthropic Public Benefit Fund)’을 만든다고 발표했습니다. 주주 승인을 거쳐 지분 5%를 넣고, 회사 가치가 정해 둔 기준보다 50% 오를 때마다 이사회 판단으로 2%까지 더 넣을 수 있어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "올해 5월 Anthropic이 투자를 받을 때 매겨진 기업가치는 9,650억 달러(약 1,285조 원)였습니다. 이 값으로 계산하면 5%는 약 482억 달러(약 64조 원)예요. 발표 X 글은 하루 만에 조회 483만을 넘겼고, 일론 머스크는 “주식을 대중에게 직접 나눠 주라”는 답글을 달았습니다. AI 회사가 왜 이렇게 큰 지분을 공익 기금에 넣는 걸까요?"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-19-anthropic-public-benefit-fund/b7ffb1d073e867f80596b04d.png",
+			"width": 598,
+			"height": 909,
+			"alt": "Anthropic이 10월 18일(미국 시간) X에 올린 공익 기금 발표입니다. 10월 19일 기준 조회 483만이에요(X @AnthropicAI).",
+			"caption": [
+				{
+					"text": "Anthropic이 10월 18일(미국 시간) X에 올린 공익 기금 발표입니다. 10월 19일 기준 조회 483만이에요(X "
+				},
+				{
+					"text": "@AnthropicAI",
+					"href": "http://twitter.com/AnthropicAI"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결론부터 말하면, AI가 흔들 일자리에 쓸 돈을 회사와 함께 키우려는 겁니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Anthropic은 공익 법인(Public Benefit Corporation)이라 안전 연구, 바이오의학 연구, 비영리 단체를 위한 Claude 할인처럼 공익과 사업이 겹치는 일은 지금도 회사 안에서 합니다. 이번 기금은 그 바깥의 일을 하려고 만든 거예요. 발표문은 전통적인 비영리 단체에 큰돈을 기부하거나, 특정 집단에 돈을 직접 나눠 주는 방법을 예로 들었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "첫 예로 든 문제가 일자리입니다. Anthropic은 “AI가 막대한 경제적 가치를 만들 수 있지만, 많은 노동자를 불안정하게 만들 수도 있다”고 적었어요. 이미 이 문제에 2억 달러(약 2,660억 원)를 약정했지만, AI가 발전하는 속도를 보면 더 과감한 방법이 필요할 수 있다고 했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2억 달러는 올해 7월 꾸린 경제 연구 기금(Anthropic Economic Futures Research Fund)입니다. 이 기금이 꼽은 연구 분야에는 ‘AI로 일자리를 잃은 사람을 위한 소득 지원을 현대화하는 일’과 ‘혼란이 오기 전에 노동자가 AI 성장의 지분을 갖게 하는 일’이 들어 있어요. 연구 기금으로 방법을 찾고, 실제로 큰돈을 쓸 그릇은 지분 기금이 맡는 셈입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10월 14일에 쓴 "
+				},
+				{
+					"text": "‘AI가 개발자를 대체하기는커녕, 연봉 5억 주고 모셔갑니다’",
+					"href": "https://medium.com/@zeroone-dev/a999ffb6738a"
+				},
+				{
+					"text": "에서는 AI 회사들이 FDE를 수억 원에 모셔 가는 이야기를 했습니다. 모든 일자리의 몸값이 그렇게 오르지는 않는다는 걸, AI를 만드는 회사가 직접 인정한 셈이에요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "회사가 클수록 기금도 커지게 묶었습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "현금이 아니라 지분으로 넣은 이유도 여기 있습니다. 현금은 한 번 쓰면 끝이지만, 지분은 회사 가치와 함께 커집니다. 여기에 가치가 50% 오를 때마다 2%씩 더 넣는 장치까지 붙였어요. Anthropic은 5월에 연 환산 매출이 470억 달러(약 63조 원)를 넘었다고 밝힐 만큼 빠르게 크고 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "발표문에는 눈에 띄는 문장이 하나 있습니다. “기술 회사들은 흔히 임원에게 단계적으로 커지는 보상을 준다. 우리는 그 지분을 공익에 돌린다.” 회사 가치가 목표를 넘을 때마다 주식을 더 주는 방식은 원래 경영진 보상에 쓰던 장치입니다. 테슬라 주주들이 2025년 11월 승인한 일론 머스크의 보상안도 시가총액이 단계별 목표를 넘을 때마다 주식을 더 주는 구조예요. Anthropic은 같은 장치를 경영진 대신 공익 기금에 건 겁니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "공동 창업자들이 창업 때 약속한 지분 80% 기부, 직원 약 절반이 참여하는 지분 기부 매칭까지 합치면 Anthropic 지분의 약 20%가 공익에 묶입니다. 5월 기업가치로 따지면 약 1,930억 달러(약 257조 원)예요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "재단이 아니라 회사(LLC)로 만든 이유가 있습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "기금은 미국의 비영리 재단(501(c)(3))이 아니라 Anthropic이 100% 소유하는 유한책임회사(LLC)로 만듭니다. 기부와 직접 분배처럼 서로 다른 방식을 오가며 쓰기 위해서라고 했어요. 마크 저커버그 부부가 2015년 Chan Zuckerberg Initiative를 재단 대신 LLC로 세운 것과 같은 선택입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다만 기금이 가진 Anthropic 지분은 미국에서든 해외에서든 로비와 정치 기부에 쓰지 않는다고 밝혔어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI는 1년 전 비슷한 길을 갔습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI는 2025년 10월 회사 구조를 바꾸면서 비영리 조직의 이름을 OpenAI Foundation으로 바꾸고, 영리 회사 지분 약 1,300억 달러(약 173조 원)어치를 쥐여 줬습니다. 회사 가치가 기준을 넘으면 지분을 더 받는 장치도 붙였고, 첫 약정으로 250억 달러(약 33조 원)를 건강과 AI 회복력에 쓰겠다고 했어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "차이는 누가 누구를 쥐느냐입니다. OpenAI Foundation은 영리 회사를 지배하는 비영리 조직이고, Anthropic 공익 기금은 회사가 100% 소유하는 자회사예요. OpenAI는 재단이 회사를 감독하고, Anthropic은 회사가 기금을 거느립니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "머스크는 “대중에게 직접 나눠 주라”고 했습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "반응은 갈렸습니다. 일론 머스크는 “주식을 대중에게 직접 나눠 주길 권한다”는 답글을 달았고, 이어 “내가 그렇게 할 것”이라고 덧붙였어요. 첫 답글은 좋아요 3만 3천 개를 받아 Anthropic의 원래 글보다 많았습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-19-anthropic-public-benefit-fund/d5419dd375edc13705c1881e.png",
+			"width": 598,
+			"height": 245,
+			"alt": "Anthropic 발표에 일론 머스크가 단 답글입니다. 10월 19일 기준 조회 167만이에요(X @elonmusk).",
+			"caption": [
+				{
+					"text": "Anthropic 발표에 일론 머스크가 단 답글입니다. 10월 19일 기준 조회 167만이에요(X "
+				},
+				{
+					"text": "@elonmusk",
+					"href": "http://twitter.com/elonmusk"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "안두릴 창업자 팔머 러키(Palmer Luckey)는 “그들이 말하는 공익은 미국인이 아니라 다른 모든 사람을 돕는 것”이라며 “USAID 2.0 냄새가 난다”고 비판했습니다. 답글에는 기금이 특정 정치 성향의 단체로 흘러갈 거라는 의심도 많았어요. 어디에 어떻게 쓸지 아직 정해지지 않았으니 나올 수밖에 없는 의심입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "아직 정해지지 않은 것이 많습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "5%는 주주 승인을 거쳐야 확정됩니다. 2%를 더 넣는 기준이 되는 회사 가치도, 기금을 누가 어떻게 운영할지도 아직 공개되지 않았어요. Anthropic은 몇 달 안에 기금의 구조와 운영 방식, 추가 지분의 가치 기준을 밝히고, 공익 활동 보고서도 내겠다고 했습니다. 지분이 언제, 어떤 방식으로 실제 돈이 되는지도 밝히지 않았어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "AI 회사가 일자리 문제를 걱정만 하던 단계는 지나고 있습니다. 2억 달러짜리 연구 기금에서 수십조 원 규모의 지분 기금으로 판이 커진 만큼, 앞으로는 이 돈이 실제로 누구에게 어떻게 가는지가 더 큰 질문이 될 듯싶습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://www.anthropic.com/news/public-benefit-fund",
+					"href": "https://www.anthropic.com/news/public-benefit-fund"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "커버: 아이보리 배경과 클레이색 도형, Anthropic 공식 워드마크 × 공익 기금",
+			"url": "/blog/2026-10-19-anthropic-public-benefit-fund/39b5fb7d9c23d793a747e950.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Anthropic이 10월 18일(미국 시간) X에 올린 공익 기금 발표입니다. 10월 19일 기준 조회 483만이에요(X @AnthropicAI). 페북 두 번째 사진, 쓰레드 1번 글",
+			"url": "/blog/2026-10-19-anthropic-public-benefit-fund/b7ffb1d073e867f80596b04d.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Anthropic 발표에 일론 머스크가 단 답글입니다. 10월 19일 기준 조회 167만이에요(X @elonmusk). 페북 세 번째 사진, 쓰레드 4번 글",
+			"url": "/blog/2026-10-19-anthropic-public-benefit-fund/d5419dd375edc13705c1881e.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-10-19-anthropic-public-benefit-fund",
+		"bodySha256": "26412ac7d22883e099d5beedac72848b17a9b5cbd24b6a3cda7ee78491810d63",
+		"source": "dashboard",
+		"savedAt": "2026-10-20T02:32:26.639+00:00"
+	}
+}

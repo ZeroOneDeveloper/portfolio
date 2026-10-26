@@ -1,0 +1,389 @@
+{
+	"slug": "2026-10-20-smart-tv-ads",
+	"title": "Claude Code로 TV 광고를 지운다는데, 삼성/LG TV도 될까?",
+	"description": "Claude Code로 안드로이드 TV의 광고와 시청 추적 앱을 끄는 방법이 퍼졌지만, 삼성 Tizen과 LG webOS TV는 개발자 모드가 막혀 있어 거의 안 되고 설정 끄기나 구글 TV 기기 연결이 현실적인 답입니다.",
+	"publishedAt": "2026-10-24",
+	"updatedAt": "2026-10-20T04:18:33.336+00:00",
+	"readingMinutes": 5,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-10-20-smart-tv-ads/03a6be76957b208f2d3103f5.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-10-20-smart-tv-ads/03a6be76957b208f2d3103f5.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-smart-tv-ads/03a6be76957b208f2d3103f5.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "사진: Shixart1985, Wikimedia Commons (CC BY 2.0), 사진을 오른쪽에 잘라 넣고 왼쪽을 어둡게 한 뒤 로고와 글자를 얹었어요.",
+			"caption": [
+				{
+					"text": "사진: "
+				},
+				{
+					"text": "Shixart1985, Wikimedia Commons",
+					"href": "https://commons.wikimedia.org/wiki/File:Person_uses_remote_control_to_watch_TV_at_home.jpg"
+				},
+				{
+					"text": " ("
+				},
+				{
+					"text": "CC BY 2.0",
+					"href": "https://creativecommons.org/licenses/by/2.0"
+				},
+				{
+					"text": "), 사진을 오른쪽에 잘라 넣고 왼쪽을 어둡게 한 뒤 로고와 글자를 얹었어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "10월 17일 개발자 Gathin이 X에 짧은 글을 올렸습니다. 부모님 TV를 켜면 넷플릭스에 들어가기도 전에 스폰서 광고부터 떠서, Claude Code에 TV 모델명을 알려 줬다는 내용이에요. Claude Code는 와이파이에서 그 TV를 찾아내 샤오미가 깔아 둔 패키지 25개를 끄고, 애플 TV를 닮은 새 홈 화면을 짜서 올렸습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 글은 10월 20일 기준 조회수 616만, 좋아요 약 3만 개를 넘겼습니다. Gathin은 프롬프트를 깃허브에 올렸고, 이틀 동안 수천 명이 자기 TV에 똑같이 해 봤다고 밝혔어요. 지금은 이름을 cleanyourtv로 바꾼 이 저장소는 별 6,177개를 받았고, 사람들이 보내온 TV 모델별 목록이 66개 쌓였습니다. 10월 19일에는 TechCrunch가 사람들이 AI로 스마트 TV를 다시 멍청하게 만들고 있다는 기사를 냈어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그런데 집에 있는 TV가 삼성이나 LG라면 어떨까요?"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-smart-tv-ads/44a552ba9236aef4d9e36339.png",
+			"width": 598,
+			"height": 745,
+			"alt": "Gathin이 10월 17일 X에 올린 글입니다. 왼쪽이 원래 샤오미 TV 홈 화면, 오른쪽이 Claude Code가 새로 짠 홈 화면이에요(X @gathint).",
+			"caption": [
+				{
+					"text": "Gathin이 10월 17일 X에 올린 글입니다. 왼쪽이 원래 샤오미 TV 홈 화면, 오른쪽이 Claude Code가 새로 짠 홈 화면이에요(X "
+				},
+				{
+					"text": "@gathint",
+					"href": "http://twitter.com/gathint"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "결론부터 말하면, 삼성/LG TV에서는 거의 안 됩니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 방법이 통하는 건 안드로이드 TV와 구글 TV입니다. cleanyourtv의 프롬프트 문서는 첫머리에 삼성 Tizen, LG webOS, 아마존 Fire TV에서는 안 된다고 적어 두었어요. Fire TV는 앱을 끄는 데까지만 되고 홈 화면은 바꾸지 못합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "갈리는 지점은 TV 안으로 들어가는 문이 있느냐입니다. 안드로이드 TV에는 안드로이드 휴대폰과 똑같은 개발자용 연결 통로인 ADB가 있어요. 설정에서 개발자 옵션을 열고 USB 디버깅을 켜면, 같은 와이파이에 있는 컴퓨터가 TV에 명령을 보낼 수 있습니다. Claude Code는 이 통로로 TV에 깔린 앱 목록을 읽고, 필요 없는 앱을 하나씩 끕니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "삼성 TV에도 개발자 모드가 있습니다. 다만 비슷한 TV 정리 프로젝트인 dumbtv가 확인한 바로는, 삼성 개발자 모드로 할 수 있는 건 앱 목록 보기, 스토어에서 받은 앱 지우기, 파일 올리기 정도입니다. 광고와 시청 기록 수집이 들어 있는 삼성 기본 앱은 건드릴 수 없고, 홈 화면을 바꿀 방법도 없어요. LG webOS의 개발자 모드도 직접 만든 앱을 설치하는 데까지만 열려 있습니다. 예전에는 LG TV를 루팅하는 방법이 있었지만, dumbtv 문서에 따르면 2025년 8월 기준 최신 펌웨어에서는 모두 막혔습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-smart-tv-ads/8535adaf2b0b4434fb6f8361.png",
+			"width": 1012,
+			"height": 686,
+			"alt": "dumbtv가 정리한 TV 운영체제별 가능 여부입니다. 되는 칸을 노란색으로 칠했어요. 삼성 Tizen과 LG webOS 줄은 거의 다 no예요(dumbtv 깃허브).",
+			"caption": [
+				{
+					"text": "dumbtv가 정리한 TV 운영체제별 가능 여부입니다. 되는 칸을 노란색으로 칠했어요. 삼성 Tizen과 LG webOS 줄은 거의 다 no예요(dumbtv 깃허브)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "안드로이드 TV는 15분이면 정리됩니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "과정은 단순합니다. TV 설정의 정보 화면에서 빌드 번호를 일곱 번 누르면 개발자 옵션이 열리고, 거기서 USB 디버깅을 켭니다. 그다음 같은 와이파이에 있는 컴퓨터에서 Claude Code 같은 코딩 에이전트에 cleanyourtv 프롬프트를 붙여 넣고 TV 모델명을 적으면 됩니다. Gathin은 이 저장소를 함께 주면 15분쯤 걸린다고 적었어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "프롬프트를 보면 에이전트가 마음대로 지우지 못하게 꼼꼼히 막아 두었습니다."
+				}
+			]
+		},
+		{
+			"type": "ol",
+			"items": [
+				[
+					{
+						"text": "설치된 앱 목록과 설정을 전부 백업하고, 끈 앱을 다시 켜는 복구 스크립트부터 만듭니다."
+					}
+				],
+				[
+					{
+						"text": "앱을 제조사 추적, 광고와 추천 콘텐츠, 불필요한 백그라운드 서비스, 미리 깔린 앱, 스트리밍 앱으로 나눕니다."
+					}
+				],
+				[
+					{
+						"text": "지우지 않고 끄기만 합니다. HDMI 입력, 리모컨, 블루투스 연결, 화면 키보드, 플레이 스토어는 건드리지 않습니다."
+					}
+				],
+				[
+					{
+						"text": "넷플릭스 같은 스트리밍 앱, 음성 비서, 업데이트는 사용자에게 체크리스트로 물어본 뒤에만 끕니다."
+					}
+				],
+				[
+					{
+						"text": "몇 개씩 나눠 끄고, 그때마다 TV 화면을 캡처해 확인합니다."
+					}
+				]
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "마지막으로 새 홈 화면 앱을 깔아 기본 홈으로 바꿉니다. 메모리가 1GB뿐인 TV도 생각해서 설치 크기를 약 300KB로 줄인 앱이에요. 마음이 바뀌면 복구 스크립트 한 줄로 원래 홈 화면이 돌아옵니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난주 "
+				},
+				{
+					"text": "‘비싼 돈 들여 만든 프로그램, 이제 AI가 순식간에 만들어버립니다’",
+					"href": "https://zeroone-dev.medium.com/%EB%B9%84%EC%8B%BC-%EB%8F%88-%EB%93%A4%EC%97%AC-%EB%A7%8C%EB%93%A0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%9D%B4%EC%A0%9C-ai%EA%B0%80-%EC%88%9C%EC%8B%9D%EA%B0%84%EC%97%90-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B2%84%EB%A6%BD%EB%8B%88%EB%8B%A4-872e8be9963e"
+				},
+				{
+					"text": "에서 소개했던 REA가 코딩 에이전트에게 남의 앱을 뜯어보게 했다면, 이번엔 같은 에이전트가 거실 TV 속까지 들어간 셈입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "사람들이 지우고 싶은 건 광고와 시청 추적입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "TechCrunch는 이 유행의 배경으로 자동 콘텐츠 인식(ACR)을 꼽았습니다. 요즘 스마트 TV는 화면 캡처나 소리 조각으로 지금 무엇이 나오는지 알아내고, 이 시청 정보를 광고주에게 팔거나 홈 화면 맞춤 광고에 씁니다. dumbtv가 Fire TV에서 끄는 약 65개 패키지에도 ACR, 광고 ID 서비스, 스폰서 콘텐츠 줄, 시청 시간 분석, A/B 실험 엔진이 들어 있어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "속도도 이유입니다. Ryan Doyle은 10월 17일 자기 TV의 판매 페이지를 Claude Code에 보내고 “이거 해킹할 수 있어?”라고 물었더니, Claude Code가 과정을 하나씩 안내해 줬다고 썼습니다. 광고와 미리 깔린 앱, 감시 앱, 버벅이던 화면이 사라졌다는 이 글은 조회수 436만을 기록했어요. 이어서 올린 영상에서는 앱이 뜨는 속도를 보여 줬습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-10-20-smart-tv-ads/23d80d7081022afbee41eca9.gif",
+			"width": 520,
+			"height": 520,
+			"alt": "Ryan Doyle이 Claude Code로 정리한 TV에서 홈 화면과 앱이 뜨는 속도를 찍은 영상입니다(X @doooyle).",
+			"caption": [
+				{
+					"text": "Ryan Doyle이 Claude Code로 정리한 TV에서 홈 화면과 앱이 뜨는 속도를 찍은 영상입니다(X "
+				},
+				{
+					"text": "@doooyle",
+					"href": "http://twitter.com/doooyle"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Mihir Gupta는 오후 한나절 만에 앱 25개를 끄고, 192MB짜리 기본 홈 화면을 83MB짜리로 바꿨다고 X에 올렸습니다. dumbtv를 만든 Muzzammil Yasin Sabuwala는 TechCrunch에 DeepSeek V4.1 Flash, Claude Opus 5.5, Claude Sonnet 5.5를 섞어 만들었다고 밝혔고요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "국내에서도 되는 TV는 있습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "안드로이드 TV나 구글 TV라면 국내에서 산 TV도 같은 방식이 통합니다. 샤오미는 2023년 11월 구글 TV를 넣은 샤오미 TV A Pro를 국내에 정식 출시했어요. Gathin이 손본 부모님 TV도 샤오미였습니다. 소니 브라비아나 TCL처럼 구글 TV를 쓰는 TV도 cleanyourtv에 모델별 목록이 올라와 있습니다. 목록 66개 가운데 TCL과 샤오미가 14개씩, 소니가 9개예요. 설정의 정보 화면에 빌드 번호 메뉴가 있고 개발자 옵션이 열리면 같은 방식을 쓸 수 있는 TV입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "삼성/LG TV라면 AI 없이 설정에서 줄일 수 있는 만큼 줄이는 게 현실적입니다. 삼성전자서비스 안내에 따르면 2025년형 삼성 TV는 설정, 전체 설정, 유용한 기능, 시작 화면 설정으로 들어가 ‘스마트 허브 홈으로 시작’을 끄면, TV를 켤 때 스마트 허브 대신 마지막에 보던 채널이나 외부 기기 화면이 먼저 뜹니다. LG TV는 홈 화면 설정에서 홍보와 추천 콘텐츠를 끄고, 사용자 약관에서 시청 정보 동의를 풀 수 있어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "LG TV에 애플 TV 같은 홈 화면을 올린 사람도 있습니다. 한 개발자가 cleanyourtv의 홈 화면을 웹 앱으로 옮겨 LG 개발자 모드로 LG OLED C6에 설치했어요. 다만 webOS는 홈 버튼을 누르면 늘 LG 홈부터 띄우기 때문에, 같은 네트워크에 켜 둔 다른 컴퓨터가 이를 지켜보다가 약 0.1초 만에 새 홈 화면으로 되돌리는 방식입니다. 광고 앱을 끄는 단계는 없습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그래서 dumbtv가 어느 TV에나 통한다고 꼽은 방법은 두 가지입니다. 공유기에서 광고와 추적 서버 주소를 막는 것, 그리고 TV는 HDMI 화면으로만 쓰고 내가 손볼 수 있는 기기를 연결하는 것이에요. 삼성/LG TV에 구글 TV가 들어간 크롬캐스트를 꽂으면, 그 크롬캐스트는 cleanyourtv로 정리할 수 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "벽돌이 된 TV도 나왔습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "모두 잘된 건 아닙니다. TechCrunch가 모은 사례를 보면, “내 TV 해킹해 줘”라고만 했다가 Claude가 응하지 않아 더 자세히 설명해야 했던 사람들이 있었어요. Claude로 안드로이드 TV를 벽돌로 만들었다는 사람도, Fire TV 작업이 중간에 멈춘 사람도 나왔습니다. 꼭 필요한 앱을 잘못 끄면 화면이 안 나오고 리모컨도 듣지 않는 TV가 될 수 있어서, dumbtv는 끄면 안 되는 앱 목록을 코드에 아예 넣어 두었어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "보안도 챙겨야 합니다. 네트워크로 여는 ADB 연결은 암호화되지 않은 5555번 포트를 쓰고, 일부 펌웨어에서는 같은 와이파이에 있는 아무 기기나 TV를 조종할 수 있습니다. 그래서 cleanyourtv는 작업이 끝나면 디버깅을 끄고, 허용한 컴퓨터 목록을 지우고, 포트가 닫혔는지 확인하라고 안내합니다. 대부분의 목록이 펌웨어 업데이트 서비스까지 끄기 때문에, 업데이트를 받으려면 그 서비스를 다시 켜야 하고요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "비용도 있습니다. Claude Code는 무료 요금제에 들어 있지 않아서, 가장 싼 Pro 요금제가 월 20달러(약 2만 7천 원)입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "예전에는 TV 광고를 끄려면 해외 포럼을 뒤지며 명령어를 하나하나 따라 쳐야 했습니다. 이제는 모델명 한 줄이면 코딩 에이전트가 그 TV에 맞는 목록을 찾아 끄고, 그 목록이 다시 깃허브에 쌓여 다음 사람의 시간을 줄여 줍니다. 제조사가 광고와 시청 정보로 버는 돈을 소비자가 AI로 걷어내기 시작한 만큼, TV 회사들이 문을 더 닫을지 지켜볼 일인 것 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://github.com/Gathin23/cleanyourtv",
+					"href": "https://github.com/Gathin23/cleanyourtv"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "사진: Shixart1985, Wikimedia Commons (CC BY 2.0), 사진을 오른쪽에 잘라 넣고 왼쪽을 어둡게 한 뒤 로고와 글자를 얹었어요. (표지, 페북 첫 사진, 쓰레드 1번 글)",
+			"url": "/blog/2026-10-20-smart-tv-ads/03a6be76957b208f2d3103f5.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Gathin이 10월 17일 X에 올린 글입니다. 왼쪽이 원래 샤오미 TV 홈 화면, 오른쪽이 Claude Code가 새로 짠 홈 화면이에요(X @gathint). 페북 두 번째 사진, 쓰레드 1번 글",
+			"url": "/blog/2026-10-20-smart-tv-ads/44a552ba9236aef4d9e36339.png"
+		},
+		{
+			"kind": "image",
+			"caption": "dumbtv가 정리한 TV 운영체제별 가능 여부입니다. 되는 칸을 노란색으로 칠했어요. 삼성 Tizen과 LG webOS 줄은 거의 다 no예요(dumbtv 깃허브). 페북 세 번째 사진, 쓰레드 3번 글",
+			"url": "/blog/2026-10-20-smart-tv-ads/8535adaf2b0b4434fb6f8361.png"
+		},
+		{
+			"kind": "gif",
+			"caption": "Ryan Doyle이 Claude Code로 정리한 TV에서 홈 화면과 앱이 뜨는 속도를 찍은 영상입니다(X @doooyle). 페북 네 번째(영상)",
+			"url": "/blog/2026-10-20-smart-tv-ads/23d80d7081022afbee41eca9.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "같은 영상의 mp4, 쓰레드 2번 글",
+			"url": "/blog/2026-10-20-smart-tv-ads/b56a2c224a03b5ae34a0ca50.mp4"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-10-20-smart-tv-ads",
+		"bodySha256": "c05dfa9217e61738a821140799c69a478d0ce60ef2eaf5a1cf1bfbbf54daada9",
+		"source": "dashboard",
+		"savedAt": "2026-10-20T04:18:33.336+00:00"
+	}
+}
