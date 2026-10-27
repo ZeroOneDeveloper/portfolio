@@ -63,7 +63,7 @@ test(
 		if (mode === 'approved-fixture') {
 			assert.match(feed.text, /<guid isPermaLink="true">https:\/\/www.zero0ne.dev\/en\/blog\//);
 			assert.match(feed.text, /<content:encoded><!\[CDATA\[/);
-			assert.match(feed.text, /This Friday evening/);
+			assert.match(feed.text, /I wrapped up the AX for Good session/);
 			assert.match(sitemap.text, /xhtml:link rel="alternate" hreflang="en"/);
 			assert.match(llms.text, new RegExp('/en/blog/' + slug));
 		} else {

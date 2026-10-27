@@ -1,7 +1,7 @@
 {
 	"slug": "2026-07-25-ax-for-good-session",
 	"title": "Wrapping up the AX for Good session",
-	"description": "This Friday evening, I wrapped up the AX for Good session.",
+	"description": "On the evening of Friday, July 24, 2026, I wrapped up the AX for Good session.",
 	"publishedAt": "2026-07-25T21:00:14+09:00",
 	"updatedAt": "2026-09-08T12:22:53+09:00",
 	"readingMinutes": 3,
@@ -23,7 +23,7 @@
 			"type": "h2",
 			"spans": [
 				{
-					"text": "This Friday evening, I wrapped up the AX for Good session."
+					"text": "On the evening of Friday, July 24, 2026, I wrapped up the AX for Good session."
 				}
 			]
 		},
@@ -31,7 +31,7 @@
 			"type": "p",
 			"spans": [
 				{
-					"text": "So many leaders came. It was my first time, so I was very nervous, but everyone stayed focused to the end and took an active part, and I am truly grateful. I also sincerely thank Yukwaehan Banran, MYSC and Uniquegood Company for setting up such a wonderful debut stage for me."
+					"text": "So many leaders came. It was my first time, and I was really nervous, but everyone stayed focused to the end and joined in actively. I am truly grateful. My heartfelt thanks also go to Yukwaehan Banran, MYSC and Uniquegood Company for giving me such a great stage for my debut."
 				}
 			]
 		},
@@ -39,7 +39,7 @@
 			"type": "p",
 			"spans": [
 				{
-					"text": "Earlier in the program, CEO Kim Jung-tae of MYSC and CEO Song In-hyuk of Uniquegood Company told the AI growth stories of their companies in the AX era. After them, I shared how to actually walk that journey, one step at a time: how to get meaningful results from today's most talked-about AI models, and beyond that, how Uniquegood Company uses AXIT in its day-to-day work. We also spent time trying it out together with all the participants!"
+					"text": "Earlier in the program, MYSC CEO Kim Jung-tae and Uniquegood Company CEO Song In-hyuk did a wonderful job of sharing how their companies have grown with AI as the AX era arrives. I followed with how to actually take that path, one step at a time: how to get meaningful results from today's most talked-about AI models, and beyond that, how Uniquegood Company puts AXIT to work every day. Then we all tried it out together!"
 				}
 			]
 		},
@@ -75,7 +75,7 @@
 			"type": "p",
 			"spans": [
 				{
-					"text": "During the session and after it, many people came up to say hello and ask serious questions. “Which AI model should we use?” “For an organization like ours, is it better to develop a platform like AXIT ourselves, or to use one?” The questions took different forms, but they all carried the same concern: what should we choose? To every one of those questions, in an AI era like this one, this is the answer I would like to give."
+					"text": "During the session and afterwards, many people came up to say hello and ask serious questions. “Which AI model should we use?” “For an organization like ours, is it better to build a platform like AXIT ourselves, or to use one?” The questions took different forms, but underneath they shared the same concern: what should we choose? In an AI era like this one, here is the answer I want to give to all of them."
 				}
 			]
 		},
@@ -83,7 +83,7 @@
 			"type": "p",
 			"spans": [
 				{
-					"text": "I think AX is AI Transformation and, at the same time, AI Experience. In an era when AI gets better by the day, you cannot judge what you have not experienced. Rather than rushing to a judgment, I recommend investing in that experience first."
+					"text": "I think AX is AI Transformation, and at the same time, AI Experience. When AI gets better by the day, you cannot judge what you have not experienced. Rather than rushing to judgment, I recommend investing in that experience first."
 				}
 			]
 		},
@@ -91,7 +91,7 @@
 			"type": "p",
 			"spans": [
 				{
-					"text": "I believe the answers to which model is best, and whether to develop your own SaaS or use an existing one, also come, in the end, from having actually used them."
+					"text": "I believe the answers to which model is best, and whether to build your own SaaS or use an existing one, also come from hands-on experience in the end."
 				}
 			]
 		},
@@ -99,7 +99,7 @@
 			"type": "p",
 			"spans": [
 				{
-					"text": "Some people told me it was the most memorable and helpful workshop they had attended recently. Every one of those warm words gave me great strength. Thank you so much. Thank you for sitting through such a long session, and I sincerely hope this event became a meaningful first step toward creating new social impact."
+					"text": "Some people told me it was the most memorable and helpful workshop they had attended in a while. Every one of those kind words meant a lot to me. Thank you so much. Thank you for staying with us through such a long session, and I sincerely hope this event was a meaningful first step toward creating new social impact."
 				}
 			]
 		},
@@ -107,7 +107,7 @@
 			"type": "p",
 			"spans": [
 				{
-					"text": "I will prepare the next part of this AX workshop and come back to you soon. Thank you!"
+					"text": "I will prepare the next part of this AX workshop and be back soon. Thank you!"
 				}
 			]
 		},
@@ -173,7 +173,7 @@
 	"provenance": {
 		"writer": "Claude Opus 5.5",
 		"artifact": "2026-07-25-ax-for-good-session.en.v1.json",
-		"artifactSha256": "246fccc3d7faf2f4ef64c6094c694b98ba03b453aeeff05b7f40f1ba0a296280",
+		"artifactSha256": "7abca9089249f45578a5a171b54ee5da91f8203e780e2ead395162eda276fc22",
 		"translation": {
 			"translationStatus": "review-draft",
 			"version": "en.v1",
@@ -187,7 +187,7 @@
 			"sourceUrl": "https://www.zero0ne.dev/blog/2026-07-25-ax-for-good-session",
 			"eventDate": "2026-07-24",
 			"preparedAt": "2026-10-27",
-			"notes": "Unpublished English companion for a future reviewed bilingual route. slug, dates, mediumId/mediumUrl (Korean original on Medium), cover and image src/dimensions kept from the source. Image alt left empty (photos not viewed). Hashtag text kept in Korean; Facebook __cft__/__tn__ tracking query removed, destinations unchanged."
+			"notes": "Unpublished English companion for a future reviewed bilingual route. slug, dates, mediumId/mediumUrl (Korean original on Medium), cover and image src/dimensions kept from the source. Image alt left empty (photos not viewed). Hashtag text kept in Korean; Facebook __cft__/__tn__ tracking query removed, destinations unchanged. Revised 2026-10-27 for idiomatic English (same facts); opening uses the absolute event date."
 		}
 	}
 }
