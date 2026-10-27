@@ -1,5 +1,11 @@
 <script lang="ts">
 	import '../app.css';
+	import { page } from '$app/state';
+	import { languageForPath, blogPath, labels } from '$lib/blog/locale';
+	const language = $derived(languageForPath(page.url.pathname));
+	$effect(() => {
+		document.documentElement.lang = language;
+	});
 	import { browser, dev } from '$app/environment';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { filterBlogEvent } from '$lib/blog/analytics';
@@ -14,7 +20,10 @@
 
 	// Official SvelteKit SDK owns SPA pageviews; beforeSend gates every later route too.
 	if (browser && !dev && ['www.zero0ne.dev', 'zero0ne.dev'].includes(location.hostname)) {
-		injectAnalytics({ mode: 'production', beforeSend: event => filterBlogEvent(event, data.analyticsPaths) });
+		injectAnalytics({
+			mode: 'production',
+			beforeSend: (event) => filterBlogEvent(event, data.analyticsPaths)
+		});
 	}
 
 	// Sections, rows and items come into view as the page scrolls (see app.css): on the
@@ -57,20 +66,36 @@
 </script>
 
 <svelte:head>
-	<link rel="alternate" type="application/rss+xml" title={blog.name} href="{blog.path}/rss.xml" />
+	{#if data.translationPreview}<meta name="robots" content="noindex, nofollow" />{/if}
+	<link
+		rel="alternate"
+		type="application/rss+xml"
+		title={language === 'en' ? 'ZerOne Blog (English)' : blog.name}
+		href="{blogPath(language)}/rss.xml"
+	/>
 </svelte:head>
 
 <a
 	href="#main"
 	class="sr-only z-50 bg-ink text-small font-semibold text-paper focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:px-4 focus:py-2"
 >
-	본문 바로가기
+	{labels[language].skip}
 </a>
 
-<SiteHeader />
+{#if language === 'en'}
+	<header class="page flex h-16 items-center justify-between">
+		<a href="/">Chanwoo Song · Portfolio (한국어)</a>
+		<nav aria-label="Main navigation">
+			<a href="/en/blog">Blog</a> · <a href="/blog" lang="ko">한국어</a>
+		</nav>
+	</header>
+{:else}<SiteHeader />{/if}
 
 <main id="main" tabindex="-1" class="focus:outline-none">
 	{@render children()}
 </main>
 
-<SiteFooter />
+{#if language === 'en'}<footer class="page mt-28 flex justify-between py-12">
+		<p>© 2026 Chanwoo Song</p>
+		<a href="#main">Back to top</a>
+	</footer>{:else}<SiteFooter />{/if}

@@ -1,3 +1,2 @@
-import { summaries } from '$lib/server/blog';
-
-export const load = () => ({ posts: summaries });
+import { listData } from '$lib/server/blog-pages';
+export const load = () => listData('ko');
