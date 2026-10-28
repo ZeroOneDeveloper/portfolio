@@ -12,6 +12,7 @@
 
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import SiteHeader from '$lib/components/SiteHeader.svelte';
+	import BlogHeader from '$lib/components/BlogHeader.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import { blog } from '$lib/content';
 	import { revealOnScroll } from '$lib/reveal';
@@ -82,13 +83,14 @@
 	{labels[language].skip}
 </a>
 
-{#if language === 'en'}
-	<header class="page flex h-16 items-center justify-between">
-		<a href="/">Chanwoo Song · Portfolio (한국어)</a>
-		<nav aria-label="Main navigation">
-			<a href="/en/blog">Blog</a> · <a href="/blog" lang="ko">한국어</a>
-		</nav>
-	</header>
+{#if /^\/(?:en\/)?blog(?:\/|$)/.test(page.url.pathname)}
+	<BlogHeader
+		{language}
+		pathname={page.url.pathname}
+		sibling={page.data.sibling}
+		previewSibling={page.data.previewSibling}
+		noindex={page.data.noindex}
+	/>
 {:else}<SiteHeader />{/if}
 
 <main id="main" tabindex="-1" class="focus:outline-none">

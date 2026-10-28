@@ -106,15 +106,7 @@
 	to the list in the label column, then the title, the date and his name, and the text in
 	a reading column of its own. At the end, the posts before and after it.
 -->
-<div class="page mt-6 flex gap-4 text-small">
-	{#if data.sibling}<a
-			class="link-inline"
-			href={data.sibling}
-			lang={language === 'en' ? 'ko' : 'en'}
-			>{language === 'en' ? '한국어' : 'English'}{data.previewSibling ? ' (review draft)' : ''}</a
-		>{/if}
-	{#if data.noindex}<p role="note">Review draft · Not approved for publication</p>{/if}
-</div>
+
 <article aria-labelledby="post-title" class="page mt-6 sm:mt-10 lg:mt-14">
 	<div
 		class="line-in relative grid border-t border-line pt-8 sm:pt-12 lg:grid-cols-12 lg:gap-x-6 lg:pt-20"

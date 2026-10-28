@@ -44,15 +44,7 @@
 	per post: the date, the title (the one link, stretched over the row), the first lines,
 	and the post's picture on the right.
 -->
-<div class="page mt-6 flex gap-4 text-small">
-	{#if data.sibling}<a
-			class="link-inline"
-			href={data.sibling}
-			lang={language === 'en' ? 'ko' : 'en'}
-			>{language === 'en' ? '한국어' : 'English'}{data.previewSibling ? ' (review draft)' : ''}</a
-		>{/if}
-	{#if data.noindex}<p role="note">Review draft · Not approved for publication</p>{/if}
-</div>
+
 <section aria-labelledby="blog-title" class="page mt-6 sm:mt-10 lg:mt-14">
 	<div
 		class="line-in relative grid border-t border-line pt-12 sm:pt-16 lg:grid-cols-12 lg:items-baseline lg:gap-x-6 lg:pt-20"
@@ -67,42 +59,55 @@
 			</p>
 		</div>
 
-		<ol class="mt-6 divide-y divide-line sm:mt-8 lg:col-span-9 lg:mt-0">
-			{#each data.posts as post (post.slug)}
-				<li
-					class="group relative grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 py-6 first:pt-0 sm:gap-x-8 sm:py-8 lg:first:pt-1"
+		{#if language === 'en' && data.posts.length === 0}
+			<div class="mt-8 lg:col-span-9 lg:mt-0">
+				<p class="text-title font-semibold">No English articles published yet.</p>
+				<p class="mt-3 text-small text-muted">You can read the original articles in Korean.</p>
+				<a
+					href="/blog"
+					lang="ko"
+					class="mt-4 inline-flex min-h-11 items-center underline underline-offset-4"
+					>한국어 글 보기 →</a
 				>
-					<div class="min-w-0">
-						<p class="text-meta tabular-nums text-muted">
-							<time datetime={post.publishedAt}>{displayDate(post.publishedAt)}</time>
-						</p>
-						<h2 class="mt-1.5 text-headline font-bold">
-							<a
-								href={postPath(post.slug, language)}
-								class="link underline-target after:absolute after:inset-0"
+			</div>
+		{:else}
+			<ol class="mt-6 divide-y divide-line sm:mt-8 lg:col-span-9 lg:mt-0">
+				{#each data.posts as post (post.slug)}
+					<li
+						class="group relative grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 py-6 first:pt-0 sm:gap-x-8 sm:py-8 lg:first:pt-1"
+					>
+						<div class="min-w-0">
+							<p class="text-meta tabular-nums text-muted">
+								<time datetime={post.publishedAt}>{displayDate(post.publishedAt)}</time>
+							</p>
+							<h2 class="mt-1.5 text-headline font-bold">
+								<a
+									href={postPath(post.slug, language)}
+									class="link underline-target after:absolute after:inset-0"
+								>
+									{post.title}
+								</a>
+							</h2>
+							<p
+								class="mt-2 line-clamp-2 max-w-measure text-small text-soft sm:mt-2.5 sm:line-clamp-3"
 							>
-								{post.title}
-							</a>
-						</h2>
-						<p
-							class="mt-2 line-clamp-2 max-w-measure text-small text-soft sm:mt-2.5 sm:line-clamp-3"
-						>
-							{post.description}
-						</p>
-					</div>
-					{#if post.cover}
-						<img
-							src={post.cover.thumb.src}
-							width={post.cover.thumb.width}
-							height={post.cover.thumb.height}
-							alt=""
-							loading="lazy"
-							decoding="async"
-							class="mt-1 aspect-[16/10] w-28 border border-line object-cover sm:w-44 lg:w-52"
-						/>
-					{/if}
-				</li>
-			{/each}
-		</ol>
+								{post.description}
+							</p>
+						</div>
+						{#if post.cover}
+							<img
+								src={post.cover.thumb.src}
+								width={post.cover.thumb.width}
+								height={post.cover.thumb.height}
+								alt=""
+								loading="lazy"
+								decoding="async"
+								class="mt-1 aspect-[16/10] w-28 border border-line object-cover sm:w-44 lg:w-52"
+							/>
+						{/if}
+					</li>
+				{/each}
+			</ol>
+		{/if}
 	</div>
 </section>
