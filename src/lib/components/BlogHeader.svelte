@@ -53,9 +53,11 @@
 						<span
 							lang="en"
 							aria-disabled="true"
-							class="inline-flex min-h-11 min-w-24 items-center justify-center rounded-full px-4 text-muted"
-							>English</span
+							class="inline-flex min-h-11 min-w-24 items-center justify-center gap-2 rounded-full px-3 text-muted"
 						>
+							<span class="language-flag" aria-hidden="true">🇺🇸</span>
+							English
+						</span>
 					{:else}
 						<a
 							href={current ? pathname : sibling}
@@ -63,10 +65,11 @@
 							hreflang={current ? undefined : code}
 							rel={current ? undefined : 'alternate'}
 							aria-current={current ? 'page' : undefined}
-							class="inline-flex min-h-11 min-w-24 items-center justify-center rounded-full px-4 {current
+							class="inline-flex min-h-11 min-w-24 items-center justify-center gap-2 rounded-full px-3 {current
 								? 'bg-ink font-semibold text-paper'
 								: 'text-soft hover:bg-field hover:text-ink'}"
 						>
+							<span class="language-flag" aria-hidden="true">{code === 'ko' ? '🇰🇷' : '🇺🇸'}</span>
 							{code === 'ko' ? '한국어' : 'English'}
 						</a>
 					{/if}
@@ -92,3 +95,12 @@
 		{/if}
 	</div>
 </header>
+
+<style>
+	.language-flag {
+		flex: none;
+		font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+		font-size: 1.125rem;
+		line-height: 1;
+	}
+</style>
