@@ -84,13 +84,7 @@
 </a>
 
 {#if /^\/(?:en\/)?blog(?:\/|$)/.test(page.url.pathname)}
-	<BlogHeader
-		{language}
-		pathname={page.url.pathname}
-		sibling={page.data.sibling}
-		previewSibling={page.data.previewSibling}
-		noindex={page.data.noindex}
-	/>
+	<BlogHeader {language} pathname={page.url.pathname} sibling={page.data.sibling} />
 {:else}<SiteHeader />{/if}
 
 <main id="main" tabindex="-1" class="focus:outline-none">

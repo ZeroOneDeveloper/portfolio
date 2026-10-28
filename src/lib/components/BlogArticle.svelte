@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BlogNotice from './BlogNotice.svelte';
 	import type { articleData } from '$lib/server/blog-pages';
 	import Icon from '$lib/components/Icon.svelte';
 
@@ -107,18 +108,21 @@
 	a reading column of its own. At the end, the posts before and after it.
 -->
 
-<article aria-labelledby="post-title" class="page mt-6 sm:mt-10 lg:mt-14">
+<article aria-labelledby="post-title" class="page mt-2 sm:mt-10 lg:mt-14">
 	<div
-		class="line-in relative grid border-t border-line pt-8 sm:pt-12 lg:grid-cols-12 lg:gap-x-6 lg:pt-20"
+		class="line-in relative grid border-line max-sm:before:hidden sm:border-t sm:pt-12 lg:grid-cols-12 lg:gap-x-6 lg:pt-20"
 	>
 		<p class="text-small font-medium lg:col-span-3 lg:pt-[0.6em]">
-			<a href={path} class="group inline-flex items-center gap-1.5 text-muted hover:text-ink">
+			<a
+				href={path}
+				class="group inline-flex min-h-11 items-center gap-1.5 text-muted hover:text-ink"
+			>
 				<Icon name="arrow-left" class="size-[0.95em]" />
 				<span class="underline-target">{language === 'en' ? ui.blog : blog.label}</span>
 			</a>
 		</p>
 
-		<header class="mt-8 sm:mt-10 lg:col-span-9 lg:mt-0">
+		<header class="mt-2 sm:mt-10 lg:col-span-9 lg:mt-0">
 			<h1 id="post-title" class="max-w-[22em] text-post font-extrabold">{post.title}</h1>
 			<p class="mt-5 text-small text-muted sm:mt-6">
 				<a href="/" rel="author" class="link font-semibold text-ink"
@@ -130,6 +134,11 @@
 				<span aria-hidden="true">·</span>
 				<span>{post.readingMinutes}{language === 'ko' ? '분 분량' : ' min read'}</span>
 			</p>
+			<BlogNotice
+				unavailable={language === 'ko' && !data.sibling}
+				noindex={data.noindex}
+				previewSibling={data.previewSibling}
+			/>
 		</header>
 
 		<div

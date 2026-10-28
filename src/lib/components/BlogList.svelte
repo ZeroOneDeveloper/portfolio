@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BlogNotice from './BlogNotice.svelte';
 	import type { listData } from '$lib/server/blog-pages';
 	import { blogPath, labels, type Language } from '$lib/blog/locale';
 	import { blog, meta, profile } from '$lib/content';
@@ -47,7 +48,7 @@
 
 <section aria-labelledby="blog-title" class="page mt-6 sm:mt-10 lg:mt-14">
 	<div
-		class="line-in relative grid border-t border-line pt-12 sm:pt-16 lg:grid-cols-12 lg:items-baseline lg:gap-x-6 lg:pt-20"
+		class="line-in relative grid border-line max-sm:before:hidden sm:border-t sm:pt-16 lg:grid-cols-12 lg:items-baseline lg:gap-x-6 lg:pt-20"
 	>
 		<div class="lg:col-span-3">
 			<h1 id="blog-title" class="text-section font-bold">
@@ -57,6 +58,7 @@
 				{language === 'ko' ? '글 ' : ''}{data.posts.length}{language === 'ko' ? '편' : ' articles'} ·
 				<a href="{path}/rss.xml" data-sveltekit-reload class="link-inline">RSS</a>
 			</p>
+			<BlogNotice noindex={data.noindex} previewSibling={data.previewSibling} />
 		</div>
 
 		{#if language === 'en' && data.posts.length === 0}
