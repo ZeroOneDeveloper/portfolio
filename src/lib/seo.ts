@@ -3,6 +3,7 @@
 // uses it to tell him apart from others of the same name and to tie his profiles together,
 // the groundwork of a knowledge panel. Everything comes from content.ts, so it always
 // agrees with the page.
+import { blogPath, labels, type Language } from './blog/locale';
 import type { PostSummary } from './blog/types';
 import {
 	blog,
@@ -113,7 +114,8 @@ export const jsonLd = {
 // --- The blog ------------------------------------------------------------------------------
 
 /** A post's page: /blog/<slug>. */
-export const postPath = (slug: string): string => `${blog.path}/${slug}`;
+export const postPath = (slug: string, language: Language = 'ko'): string =>
+	`${blogPath(language)}/${slug}`;
 
 /**
  * He wrote every post and publishes the blog himself: the same node as the home page's
@@ -121,7 +123,7 @@ export const postPath = (slug: string): string => `${blog.path}/${slug}`;
  */
 const author = { '@type': 'Person', ...node('person'), name: profile.name, url: site };
 
-const blogId = `${absolute(blog.path)}#blog`;
+const blogId = (language: Language) => `${absolute(blogPath(language))}#blog`;
 
 /** The post's own picture, or the site's card when it has none. */
 export const postImage = (post: PostSummary) =>
@@ -129,8 +131,8 @@ export const postImage = (post: PostSummary) =>
 		? { src: absolute(post.cover.src), width: post.cover.width, height: post.cover.height }
 		: { src: absolute(meta.image.src), width: meta.image.width, height: meta.image.height };
 
-function posting(post: PostSummary) {
-	const url = absolute(postPath(post.slug));
+function posting(post: PostSummary, language: Language = 'ko') {
+	const url = absolute(postPath(post.slug, language));
 	return {
 		'@type': 'BlogPosting',
 		'@id': `${url}#article`,
@@ -140,15 +142,15 @@ function posting(post: PostSummary) {
 		datePublished: post.publishedAt,
 		dateModified: post.updatedAt,
 		image: postImage(post).src,
-		inLanguage: 'ko-KR',
-		author,
+		inLanguage: language === 'en' ? 'en' : 'ko-KR',
+		author: language === 'en' ? { ...author, name: profile.nameEn } : author,
 		publisher: author
 	};
 }
 
 /** /blog: a page listing the posts of his blog. */
-export function blogJsonLd(posts: PostSummary[]) {
-	const url = absolute(blog.path);
+export function blogJsonLd(posts: PostSummary[], language: Language = 'ko') {
+	const url = absolute(blogPath(language));
 	return {
 		'@context': 'https://schema.org',
 		'@graph': [
@@ -156,35 +158,40 @@ export function blogJsonLd(posts: PostSummary[]) {
 				'@type': 'CollectionPage',
 				'@id': url,
 				url,
-				name: blog.title,
-				description: blog.description,
-				inLanguage: 'ko-KR',
+				name: language === 'en' ? labels.en.title : blog.title,
+				description: language === 'en' ? labels.en.description : blog.description,
+				inLanguage: language === 'en' ? 'en' : 'ko-KR',
 				isPartOf: node('website'),
-				mainEntity: { '@id': blogId }
+				mainEntity: { '@id': blogId(language) }
 			},
 			{
 				'@type': 'Blog',
-				'@id': blogId,
+				'@id': blogId(language),
 				url,
-				name: blog.name,
-				description: blog.description,
-				inLanguage: 'ko-KR',
+				name: language === 'en' ? labels.en.title : blog.name,
+				description: language === 'en' ? labels.en.description : blog.description,
+				inLanguage: language === 'en' ? 'en' : 'ko-KR',
 				author,
 				publisher: author,
-				blogPost: posts.map(posting)
+				blogPost: posts.map((post) => posting(post, language))
 			}
 		]
 	};
 }
 
 /** A post's page: the post, by him, on his blog. */
-export function postJsonLd(post: PostSummary) {
-	const url = absolute(postPath(post.slug));
+export function postJsonLd(post: PostSummary, language: Language = 'ko') {
+	const url = absolute(postPath(post.slug, language));
 	return {
 		'@context': 'https://schema.org',
-		...posting(post),
+		...posting(post, language),
 		mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-		isPartOf: { '@type': 'Blog', '@id': blogId, name: blog.name, url: absolute(blog.path) },
+		isPartOf: {
+			'@type': 'Blog',
+			'@id': blogId(language),
+			name: language === 'en' ? labels.en.title : blog.name,
+			url: absolute(blogPath(language))
+		},
 		...(post.tags.length ? { keywords: post.tags.join(', ') } : {})
 	};
 }

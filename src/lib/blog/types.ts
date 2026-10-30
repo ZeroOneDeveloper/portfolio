@@ -63,6 +63,8 @@ export interface Picture {
 }
 
 export interface Post {
+	language?: 'ko' | 'en';
+	draft?: boolean;
 	slug: string;
 	title: string;
 	/** Medium's subtitle for the post: its first lines, as he wrote them. */

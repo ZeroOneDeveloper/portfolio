@@ -66,3 +66,53 @@ https://vercel.com/docs/analytics/privacy-policy.
 
 Validate: Node22 `npm run check`, `npm run build`, and
 `node --experimental-strip-types --test tests/blog-analytics.test.mjs`.
+
+## English blog review workflow
+
+`/en/blog`, `/en/blog/<slug>` and `/en/blog/rss.xml` reuse the Korean blog components
+and renderer. Korean source JSON, Medium identifiers and media remain authoritative.
+Translations live separately in `src/lib/blog/translations/en/<slug>.json` with
+`language: "en"`, `translationOf`, exact raw-file `sourceSha256`, `sourceUpdatedAt`,
+`review` and writer/artifact provenance. Keep the historical `publishedAt`, cover,
+media paths, dimensions, order and block structure. Only text changes; Facebook
+`__cft__`/`__tn__` tracking removal is allowed without changing destinations.
+Reading time is calculated from English words at 200 words/minute.
+
+A translation is public only with `review.status: "approved"`, nonempty
+`approvedBy`/`approvedAt` and matching source/media validation. These fields record
+an actual separate English approval; Korean publication never implies approval.
+Source drift fails closed and needs renewed review. The included Claude Opus 5.5
+sample remains `draft` and must not be promoted merely for a preview.
+
+Drafts are visible only when build-time `VERCEL_ENV=preview`, or with no
+`VERCEL_ENV` and the explicit local `BLOG_TRANSLATION_PREVIEW=1` flag. A production
+build ignores that local flag. Vite embeds only the preview boolean from these build-time shell values;
+rebuild after changing them. All pages in draft preview mode carry `noindex,
+nofollow` (including Korean pages with preview sibling links). Draft article and
+list pages also carry a review notice. RSS, sitemap, llms and analytics registries
+always use approved translations only, even in preview. Preview hosts retain the
+existing analytics rejection. No telemetry aggregate is verified by these tests.
+
+Default builds currently show an empty English list/feed, and English sample URLs 404. There is no Korean fallback. Untranslated Korean articles have no English
+sibling link or hreflang. Approved pairs receive reciprocal self-canonical locale
+SEO and sitemap xhtml alternates; draft pairs have no public alternates. A Korean
+preview sibling link is explicitly marked as a review draft. The portfolio home
+remains Korean and is labelled that way in English blog navigation.
+
+Node 22 validation:
+
+```bash
+pnpm check
+node --experimental-strip-types --test tests/blog-translation.test.mjs tests/blog-analytics.test.mjs
+pnpm build
+# Deliberate local draft review; never a production publishing command:
+BLOG_TRANSLATION_PREVIEW=1 pnpm build
+pnpm preview --host 127.0.0.1
+```
+
+No publishing helper, dashboard approval, schedule or SNS copy is changed. Review
+and merge/deploy authorization are separate from this draft PR. `@types/node` is a
+pinned development-only type dependency for the built-in SHA256 validation;
+there is no i18n library or paid service.
+
+Approved localized diagrams may use `localizedMedia`: an ordered source/translation mapping with SHA256 for both files and a separate explicit approval. The build verifies every local file hash before structural comparison; missing, reordered, changed or unapproved mappings fail closed. Korean source hash, dates, cover and all other structural/link gates still apply. `translationPublishedAt` records the English release separately from the historical Korean publication date. AXIT part1 is the only newly approved English edition.

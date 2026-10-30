@@ -1,0 +1,410 @@
+{
+  "language": "en",
+  "draft": false,
+  "slug": "2026-10-29-axit-multi-agent-part-1",
+  "translationOf": "2026-10-29-axit-multi-agent-part-1",
+  "sourceSha256": "2bbfaeb137870dfb1facf7f34cc3334dfefb55ee132a6bc2949401847fd6a125",
+  "sourceUpdatedAt": "2026-10-29T06:29:28.01+00:00",
+  "title": "How Is a Multi-Agent System Actually Designed?",
+  "description": "In AXIT, a workspace where teams hand work to AI agents, no more than 9 tasks ran at the same time in the 30 days up to October 20. When we split 14 days of activity into minutes on October 10, nothing was running 49% of the time, and exactly one task was running 34% of the time.",
+  "publishedAt": "2026-10-30T00:02:43.767Z",
+  "updatedAt": "2026-10-29T06:29:28.01+00:00",
+  "readingMinutes": 9,
+  "tags": [],
+  "mediumId": "e148587a17ac",
+  "mediumUrl": "https://medium.com/p/e148587a17ac",
+  "cover": {
+    "src": "/blog/2026-10-29-axit-multi-agent-part-1/0de87f14a7b52ecf9e18c193.png",
+    "width": 1672,
+    "height": 941,
+    "thumb": {
+      "src": "/blog/2026-10-29-axit-multi-agent-part-1/0de87f14a7b52ecf9e18c193.png",
+      "width": 1672,
+      "height": 941
+    }
+  },
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/blog/2026-10-29-axit-multi-agent-part-1/en/ch1-fig1.png",
+      "width": 1672,
+      "height": 941,
+      "alt": "Illustration: a chat panel sends work along an arrow into an open box where a single figure works on a document, while three cards above point dotted arrows into the box. The finished document, marked with a check, connects back to the chat panel along a returning arrow.",
+      "caption": [
+        {
+          "text": "Work handed off in a team conversation goes through planning and execution, then comes back to the same conversation as a result."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "In AXIT, a workspace where teams hand work to AI agents, no more than 9 tasks ran at the same time in the 30 days up to October 20. When we split 14 days of activity into minutes on October 10, nothing was running 49% of the time, and exactly one task was running 34% of the time."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "“Multi-agent” usually brings to mind dozens of agents running at once, and it has become a familiar sight to see Claude Code or Codex spin up several sub-agents to work in parallel. The numbers show far fewer tasks running concurrently than that picture suggests. Open up a single task, though, and you find AI working through it in sequence, changing roles as it goes."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "AXIT, which we build, is a workspace where AI agents plan and carry out work handed to them in a team channel, then post the result back into the same conversation. I'm going to walk through how it is put together over a few posts. This first one covers how many AIs work between one message and its result, and in what order."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Each task gets four AI roles, but only one execution agent works in the task folder at a time.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Counted by role, there are four. Counted by execution processes holding the task folder, there is one. Of the four roles (planning, execution, supervision and review), planning, supervision and review are short calls that run without write access in an empty temporary folder rather than the task folder, so only execution actually changes files. What we added was roles inside a single task, not agents running at the same time. Concurrency follows the same principle: a channel runs one task at a time, and only separate channels run concurrently. My September post "
+        },
+        {
+          "text": "‘Does running more agents actually help?’",
+          "href": "https://www.zero0ne.dev/blog/2026-09-11-do-more-agents-help"
+        },
+        {
+          "text": " (in Korean) concluded that you should keep a single writer, split only the judgment, and reserve parallelism for work that doesn't touch shared state. AXIT has the same shape."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Every message passes through four stops: storage, planning, execution and result.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "When someone hands off work in a channel, the control plane, the server that receives requests and manages tasks, first stores the message. It then calls an AI engine once to make a plan. That call decides what to do and in what order, and returns a list of steps. Once the plan is in place, the actual work moves to a worker. The progress indicator on screen only advances when the executing agent itself reports the start and end of each step."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-10-29-axit-multi-agent-part-1/en/ch1-fig2.png",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Diagram: a request from a channel reaches the control plane, which stores it and makes a plan, then passes it to a worker for execution. The result goes back to the same conversation.",
+      "caption": [
+        {
+          "text": "The path of a single request: it is stored, planned and executed, then returns to the same channel. Planning is one call, and the long-running work goes to a worker."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Execution is a CLI process that runs for tens of minutes in a disposable container.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "A worker is a container started fresh for every run. It connects to the control plane over a single WebSocket, receives the execution plan, runs the CLI of the engine the workspace has chosen, and sends progress events and results back over the same socket. One agent can keep running inside it for tens of minutes."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "We moved execution off the server for isolation and stability. In mid-September, a single agent attempt pushed server memory from 0.56 GB to 13.22 GB. In that setup, one person's task could slow down the screens of everyone else on the same server. Workers became the default on October 16, and 98% of the tasks executed from October 17 to 28 ran on workers. While a run lasts tens of minutes, though, the server can stop or be replaced partway through. That makes deciding who owns a run at any given moment harder than it sounds."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-10-29-axit-multi-agent-part-1/en/ch1-fig3.png",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Diagram: each task gets a new container. Channel A and Channel B each have one task folder with one running task, and the next task in each channel waits.",
+      "caption": [
+        {
+          "text": "Each task starts a new worker, and only one task at a time attaches to a channel's task folder. Channels run independently of each other."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Two AI calls that only judge keep watch on execution.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "When you hand work to an agent, it sometimes stops after investigating, or reports work it never did. So separately from the executing agent, we run short calls that only make judgments. The executing agent's instructions also tell it to confirm the actual success output before saying it pushed or opened a PR."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "If execution has been quiet for more than 60 seconds, the supervisor steps in. It reads the last 8 lines of the work log and leaves a single line beginning with “OK:” or “Caution:”, without stopping the run. A quiet agent may simply be thinking through something long, so the 60-second timer starts over after each check. The supervisor runs at most three times per task and only one at a time per workspace. Time spent waiting for a person to answer a question card, or for a server or worker to become available, doesn't count as silence."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Review runs when execution finished successfully but some steps were never reported as complete, or when the task has completion criteria. It looks at the request, the completion criteria and the end of the report, and answers only “Done” or “Incomplete: <reason>”. If the answer is incomplete, the task continues in the same task folder up to two more times. If the same reason comes back twice in a row, review treats that as no progress, stops, and marks the result as incomplete. We decided that flagging it was better than rerunning without end."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Neither is a new model. Each is just one more call to the workspace's main engine at a low reasoning level, and from October 17 to 28 the supervision and review calls that ran on Claude took a median of 5 seconds each. Answers that don't match the format are discarded, so instructions mixed into the execution log can't pass themselves off as a verdict. If a judgment call itself fails, the task is let through rather than blocked. Review, however, only sees the agent's report. It can't tell whether the numbers in the output match the source, and we haven't yet counted how often review actually returns “Incomplete”."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Once past review, the result goes back to where the instruction came from. In a talk channel, where people chat with each other and call in @AXIT to hand something off, the plan, progress and result appear in turn in the thread of that instruction. The result shows up immediately on any open screen, and phones get a push notification."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-10-29-axit-multi-agent-part-1/en/ch1-fig4.png",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Diagram: planning, execution, supervision and review around one task folder. Only execution writes to the folder. Review runs when needed and sees only the completion report, and the result returns to the same conversation. Planning, supervision and review are short calls without write access.",
+      "caption": [
+        {
+          "text": "Four roles attach to a task, but only execution writes to the task folder. Review judges from the agent's report alone, and the result returns to the conversation where the work was handed off."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The unit of parallelism is the channel, not the agent.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Each channel has one task folder, so a channel executes one task at a time. When a second task arrives in the same channel, it gets as far as planning, then waits with the message “Waiting for the earlier task in this channel to finish.” An execution lease written to the database decides who holds that slot, so even with several control planes, two agents never attach to the same folder. Tasks in different channels don't wait on each other for a folder."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Running several servers did produce a bug. In late September, in production, a session copy restored by a server that wasn't the owner grabbed a channel's slot, and three times the next task in that channel failed because the folder was supposedly in use by another task. We've since fixed it so copies no longer take the slot."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Actual overlap is rare. In the same 14-day distribution, two tasks were running at once 11% of the time, three 3.5% of the time, and four or more 2% of the time, with a peak of 8. Moving the window to the month starting September 28, the busiest moment was 10 tasks, on the afternoon of October 24 during a training event."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "This shape changed how we design for people, too. When the team put together a hands-on course, it had participants alternate between two work channels (channels where each post becomes an instruction for an AI task). Building one web page takes a median of 17 minutes, so while one channel was running, participants wrote the next instruction or reviewed results in the other. Their first hand-off was a reply in a talk channel, which doesn't use a worker and answers in a median of 14 seconds. Putting everything into one channel only makes the queue longer. In the end, how wide parallelism goes depends more on how people divide their channels than on the number of agents."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "At Uniquegood Company, which builds this product, we work with agents too.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Over roughly 25 hours, from 11:00 on October 28 to 12:00 on October 29, counting only the workflows (scripts that launch several agents in stages) run for company work in a single Claude Code session, there were 15 workflows and 104 agents. At peak, that session had 6 workflows and 14 agents working at once. Group the stage names and a few patterns keep repeating: implement→review→fix, sweep→verify→critique, research→recommend→rebut, build→judge. We also settled on a handful of rules. The agent that looks for problems and the agent that tries to break things are different agents, fixes happen only once, and people decide merges, deploys and anything sent outside. Sub-agents can't see our conversations with people, so a secondhand “they said to do it” never counts as approval. As the number of agents grew, so did the number of things people had to decide. I'll cover that, along with the question of who owns a run, in the next posts."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "For teams bringing agents into their work, it may be worth reversing the usual order. Before adding agents, separate the side that writes from the side that judges. Split parallel work along units with no shared state, such as channels or folders, and give judgment calls a narrow answer format and a cap on how many times they run. Cap reruns too, and when there's no progress, it's better to stop and leave a visible mark. Then, however many agents are running, you can still trace who changed what."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The next round of competition in multi-agent systems will probably turn less on how many agents you launch than on where you split the work and who makes the judgment calls."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "https://axit.team",
+          "href": "https://axit.team"
+        }
+      ]
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "approvedBy": "ZerOne",
+    "approvedAt": "2026-10-30T09:16:00+09:00"
+  },
+  "provenance": {
+    "writer": "Claude Opus 5.5",
+    "artifact": "AXIT final-series-v6 chapter1; fresh Medium e148587a17ac exact blocks verified"
+  },
+  "native_eligibility": false,
+  "private_gates": [
+    "KO source is unpublished; publishedAt and sourceUpdatedAt pending, not invented",
+    "Native source must already be published and hash bound",
+    "Current policy requires exact source media URLs; nine localized images differ",
+    "PR5 is open; /en/blog not live",
+    "Separate English publication approval and release timing approval required"
+  ],
+  "counts": {
+    "words_title_body": 1644,
+    "words_body": 1637,
+    "words_title_body_captions": 1755,
+    "linkedin_characters_exact": 1645,
+    "figures": 4
+  },
+  "media_mapping": [
+    {
+      "id": "ch1-fig1",
+      "original_source_medium_id": "1*SX66ditr-lto7g5e3zq71g.png",
+      "original_source_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*SX66ditr-lto7g5e3zq71g.png",
+      "original_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/part1-visual-v2/assets/01-cover.png",
+      "original_sha256": "a0e7f59a57cf0e95d68eee40c0bb19e8ee55665063901e947cd280919a3573cf",
+      "localized_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/figures-en/ch1-fig1.png",
+      "localized_sha256": "a0e7f59a57cf0e95d68eee40c0bb19e8ee55665063901e947cd280919a3573cf",
+      "verified_en_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*SX66ditr-lto7g5e3zq71g.png",
+      "verified_medium_saved_alt": "Illustration: a chat panel sends work along an arrow into an open box where a single figure works on a document, while three cards above point dotted arrows into the box. The finished document, marked with a check, connects back to the chat panel along a returning arrow."
+    },
+    {
+      "id": "ch1-fig2",
+      "original_source_medium_id": "1*9slCZwkgm2LJQzC1dv5OdQ.png",
+      "original_source_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*9slCZwkgm2LJQzC1dv5OdQ.png",
+      "original_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/part1-visual-v2/assets/02-request-lifecycle.png",
+      "original_sha256": "d1c5547d031062a25d14b4e1dd43c937199068f9722a57863759614c5518ec2c",
+      "localized_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/figures-en/ch1-fig2.png",
+      "localized_sha256": "fa363f790c871ea5696a6da32d25249a4ba77689c23809820bf635a3fd85754a",
+      "verified_en_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*AqBGEdWJP7IutIohUAn8Tg.png",
+      "verified_medium_saved_alt": "Diagram: a request from a channel reaches the control plane, which stores it and makes a plan, then passes it to a worker for execution. The result goes back to the same conversation."
+    },
+    {
+      "id": "ch1-fig3",
+      "original_source_medium_id": "1*OZ1bpN8vyvKsdbWNhQSLZA.png",
+      "original_source_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*OZ1bpN8vyvKsdbWNhQSLZA.png",
+      "original_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/part1-visual-v2/assets/03-task-isolation.png",
+      "original_sha256": "fa2c5794f2234656a7aecb5756cfcaa4df3540234efeaeb4293382e04371e8b2",
+      "localized_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/figures-en/ch1-fig3.png",
+      "localized_sha256": "1fac9aed586c34f51df238dccee602db60b3285f518bbeb7f0b217ab5b6495ef",
+      "verified_en_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*6pNyEzwxeWa9hthYmcFXjQ.png",
+      "verified_medium_saved_alt": "Diagram: each task gets a new container. Channel A and Channel B each have one task folder with one running task, and the next task in each channel waits."
+    },
+    {
+      "id": "ch1-fig4",
+      "original_source_medium_id": "1*2Ytr2Rpqqx8ucUeGFV68Jg.png",
+      "original_source_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*2Ytr2Rpqqx8ucUeGFV68Jg.png",
+      "original_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/part1-visual-v2/staged/04-roles-one-writer.png",
+      "original_sha256": "be67f701e38ae460c5b13af397068d4da18955e63d7959581622b4595b39e40c",
+      "localized_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/figures-en/ch1-fig4.png",
+      "localized_sha256": "ed1018f5c3e09343ae260e8e087f703394e016f62c229463a8365df6969f42a5",
+      "verified_en_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*0vYPHzgGKG4TW1gcMpcpaQ.png",
+      "verified_medium_saved_alt": "Diagram: planning, execution, supervision and review around one task folder. Only execution writes to the folder. Review runs when needed and sees only the completion report, and the result returns to the same conversation. Planning, supervision and review are short calls without write access."
+    }
+  ],
+  "current_review": {
+    "version": "final-series-v6",
+    "rich_blocks": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/final-series-v6/chapter1.en.persisted.blocks.json",
+    "ko_source": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/final-series-v6/chapter1.ko.blocks.json",
+    "english_source_sha256": "7872a2af2b0464654808f87e1659e9f9d96a97cde5bb6fc3d08990a5720d9806",
+    "source_hashes_are_current": true,
+    "historical_provenance_retained": true
+  },
+  "translationPublishedAt": "2026-10-30T00:18:44.477292+00:00",
+  "localizedMedia": {
+    "review": {
+      "status": "approved",
+      "approvedBy": "ZerOne",
+      "approvedAt": "2026-10-30T09:16:00+09:00"
+    },
+    "images": [
+      {
+        "source": "/blog/2026-10-29-axit-multi-agent-part-1/0de87f14a7b52ecf9e18c193.png",
+        "translated": "/blog/2026-10-29-axit-multi-agent-part-1/en/ch1-fig1.png",
+        "sourceSha256": "0de87f14a7b52ecf9e18c193694026a25b2174db5b3793c6086cb8ca0970c196",
+        "translatedSha256": "a0e7f59a57cf0e95d68eee40c0bb19e8ee55665063901e947cd280919a3573cf"
+      },
+      {
+        "source": "/blog/2026-10-29-axit-multi-agent-part-1/4f5dcb6f1e632d2bfc963970.png",
+        "translated": "/blog/2026-10-29-axit-multi-agent-part-1/en/ch1-fig2.png",
+        "sourceSha256": "4f5dcb6f1e632d2bfc963970ba06eb90011b45f7a532c064cf76fa2a5905015a",
+        "translatedSha256": "fa363f790c871ea5696a6da32d25249a4ba77689c23809820bf635a3fd85754a"
+      },
+      {
+        "source": "/blog/2026-10-29-axit-multi-agent-part-1/8badc67e27fdc4b2252f032e.png",
+        "translated": "/blog/2026-10-29-axit-multi-agent-part-1/en/ch1-fig3.png",
+        "sourceSha256": "8badc67e27fdc4b2252f032e550c8252afcc0920027dcf7dfa88b204c946401e",
+        "translatedSha256": "1fac9aed586c34f51df238dccee602db60b3285f518bbeb7f0b217ab5b6495ef"
+      },
+      {
+        "source": "/blog/2026-10-29-axit-multi-agent-part-1/44f326ccc526ab084607bace.png",
+        "translated": "/blog/2026-10-29-axit-multi-agent-part-1/en/ch1-fig4.png",
+        "sourceSha256": "44f326ccc526ab084607baced2654a52a87bb6f6f90fd794eea7f53cdb2f31f6",
+        "translatedSha256": "ed1018f5c3e09343ae260e8e087f703394e016f62c229463a8365df6969f42a5"
+      }
+    ]
+  }
+}

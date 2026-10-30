@@ -15,7 +15,7 @@ import {
 	type Article
 } from '$lib/content';
 import { absolute, displayDate, postPath } from '$lib/seo';
-import { summaries } from '$lib/server/blog';
+import { summaries, publicEnglishPosts } from '$lib/server/blog';
 
 export const prerender = true;
 
@@ -26,6 +26,14 @@ const article = (entry: Article) =>
 	item(entry.headline, entry.href, `${entry.outlet}, ${entry.date}. ${entry.summary}`);
 
 const body = [
+	'English blog: ' +
+		absolute('/en/blog') +
+		' (approved translations only; RSS: ' +
+		absolute('/en/blog/rss.xml') +
+		')',
+	...publicEnglishPosts.map((post) =>
+		item(post.title, absolute(postPath(post.slug, 'en')), post.description)
+	),
 	`# ${profile.name} (${profile.nameEn})`,
 	'',
 	`> ${hero.intro.join(' ')}`,

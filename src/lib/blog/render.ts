@@ -11,6 +11,7 @@ const escape = (text: string): string =>
 		.replaceAll("'", '&#39;');
 
 interface Options {
+	language?: 'ko' | 'en';
 	/** The site's address, for HTML read away from it (RSS); left out, paths stay relative. */
 	base?: string;
 }
@@ -93,7 +94,7 @@ function block(entry: Block, options: Options, index: number): string {
 			if (options.base) {
 				return `<figure><a href="${watch}">${image}</a>${caption(entry.caption, options)}</figure>`;
 			}
-			return `<figure class="embed"><a class="embed-frame" href="${watch}" data-youtube="${escape(entry.id)}" aria-label="${escape(entry.title)}, YouTube 동영상 재생">${image}<span class="embed-play" aria-hidden="true"></span></a>${caption(entry.caption, options)}</figure>`;
+			return `<figure class="embed"><a class="embed-frame" href="${watch}" data-youtube="${escape(entry.id)}" aria-label="${escape(entry.title)}, ${options.language === 'en' ? 'Play YouTube video' : 'YouTube 동영상 재생'}">${image}<span class="embed-play" aria-hidden="true"></span></a>${caption(entry.caption, options)}</figure>`;
 		}
 		case 'bookmark': {
 			const href = escape(address(entry.href, options) ?? '#');
@@ -107,7 +108,17 @@ function block(entry: Block, options: Options, index: number): string {
 			return `<a class="bookmark" href="${href}"><span class="bookmark-text"><span class="bookmark-title">${escape(entry.title)}</span>${description}${site}</span>${image}</a>`;
 		}
 		case 'table':
-			return `<div style="overflow-x:auto"><table>${entry.rows.map((row, i) => `<tr>${row.map(cell => { const tag = entry.header && i === 0 ? 'th' : 'td'; return `<${tag}>${inline(cell, options)}</${tag}>`; }).join('')}</tr>`).join('')}</table></div>`;
+			return `<div style="overflow-x:auto"><table>${entry.rows
+				.map(
+					(row, i) =>
+						`<tr>${row
+							.map((cell) => {
+								const tag = entry.header && i === 0 ? 'th' : 'td';
+								return `<${tag}>${inline(cell, options)}</${tag}>`;
+							})
+							.join('')}</tr>`
+				)
+				.join('')}</table></div>`;
 		case 'hr':
 			return '<hr>';
 	}
