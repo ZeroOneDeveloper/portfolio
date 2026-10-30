@@ -67,7 +67,7 @@ test(
 			assert.match(sitemap.text, /xhtml:link rel="alternate" hreflang="en"/);
 			assert.match(llms.text, new RegExp('/en/blog/' + slug));
 		} else {
-			assert.doesNotMatch(feed.text, /<item>/);
+			assert.doesNotMatch(feed.text, new RegExp('/en/blog/' + slug));
 			for (const document of [sitemap, llms])
 				assert.doesNotMatch(document.text, new RegExp('/en/blog/' + slug));
 		}
