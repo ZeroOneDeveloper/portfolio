@@ -64,7 +64,7 @@
       "spans": [
         {
           "text": "The plan is made once, and execution runs long.",
-          "bold": 1
+          "bold": true
         }
       ]
     },
@@ -81,7 +81,7 @@
       "spans": [
         {
           "text": "The supervisor steps in only after 60 seconds of silence, and writes a single line.",
-          "bold": 1
+          "bold": true
         }
       ]
     },
@@ -98,7 +98,7 @@
       "spans": [
         {
           "text": "Review says only done or incomplete.",
-          "bold": 1
+          "bold": true
         }
       ]
     },
@@ -131,7 +131,7 @@
       "spans": [
         {
           "text": "The two engines hand off work through a single last line.",
-          "bold": 1
+          "bold": true
         }
       ]
     },
@@ -175,7 +175,7 @@
       "spans": [
         {
           "text": "Handoffs stop at four, and when a task stops, it records where and why.",
-          "bold": 1
+          "bold": true
         }
       ]
     },
@@ -192,7 +192,7 @@
       "spans": [
         {
           "text": "People are called in only at steps that are hard to undo.",
-          "bold": 1
+          "bold": true
         }
       ]
     },
@@ -237,7 +237,7 @@
       "spans": [
         {
           "text": "When agents can create things, the limits come in two layers.",
-          "bold": 1
+          "bold": true
         }
       ]
     },
@@ -262,7 +262,7 @@
       "spans": [
         {
           "text": "Review, however, only sees the report.",
-          "bold": 1
+          "bold": true
         }
       ]
     },
