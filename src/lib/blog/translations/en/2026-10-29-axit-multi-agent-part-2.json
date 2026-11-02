@@ -1,0 +1,406 @@
+{
+  "language": "en",
+  "draft": false,
+  "slug": "2026-10-29-axit-multi-agent-part-2",
+  "translationOf": "2026-10-29-axit-multi-agent-part-2",
+  "sourceSha256": "e8d044590b58131184370a440177e9b1b5c1cda02c167fd57ceade61184a3576",
+  "sourceUpdatedAt": "2026-10-29T06:49:52.857+00:00",
+  "title": "How Claude and Codex Split a Single Task in AXIT",
+  "description": "We separated the AI that judges from the AI that writes, and we keep only one writer at a time. People are called in only at steps that are hard to undo. Review, however, only sees the report.",
+  "publishedAt": "2026-11-02T02:41:47.232Z",
+  "updatedAt": "2026-10-29T06:49:52.857+00:00",
+  "readingMinutes": 9,
+  "tags": [],
+  "mediumId": "4a3a295d7e58",
+  "mediumUrl": "https://medium.com/p/4a3a295d7e58",
+  "cover": {
+    "src": "/blog/2026-10-29-axit-multi-agent-part-2/b5c4de95c7f292150196fcb2.png",
+    "width": 1920,
+    "height": 1080,
+    "thumb": {
+      "src": "/blog/2026-10-29-axit-multi-agent-part-2/b5c4de95c7f292150196fcb2.png",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/blog/2026-10-29-axit-multi-agent-part-2/en/ch2-fig1.png",
+      "width": 1920,
+      "height": 1080,
+      "alt": "The loop around a run: when execution goes quiet, the supervisor leaves one line, and when execution ends, review answers only done or incomplete. An incomplete task continues in the same folder up to two times (based on AXIT’s internal design).",
+      "caption": [
+        {
+          "text": "The loop around a run: when execution goes quiet, the supervisor leaves one line, and when execution ends, review answers only done or incomplete. An incomplete task continues in the same folder up to two times (based on AXIT's internal design)."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "In my last post, "
+        },
+        {
+          "text": "‘When Claude Code says “Fixed it,” did it really fix it?’",
+          "href": "https://www.zero0ne.dev/blog/2026-10-20-claude-code-done-report"
+        },
+        {
+          "text": " (in Korean), I wrote that an agent's report is not evidence. The same problem shows up inside a product. The first post in this series on how AXIT, a workspace where teams hand work to AI agents, is put together, ‘How Is a Multi-Agent System Actually Designed?’, described the four roles attached to each task: planning, execution, supervision and review. This post is about the judging side. It covers who checks what when two engines split one task, and when a person gets called in."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "We separated the AI that judges from the AI that writes, and we keep only one writer at a time. The same holds when Claude and Codex work together. The two never edit the same folder at once, and the next turn starts only after the previous one ends. People are called in only at steps that are hard to undo. These mechanisms don't verify the facts inside the output, though. I'll lay out that limit at the end."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The plan is made once, and execution runs long.",
+          "bold": 1
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "When someone hands off work in a channel, the control plane, the server that receives requests and manages tasks, calls an AI engine once to make a plan. The actual work is done by a CLI agent running in a disposable worker container. The instructions the executing agent receives tell it to confirm the actual success output before saying it pushed or opened a PR. In other words, confirm with output, not with words. Instructions alone still aren't enough, so outside execution we add two more calls that only make judgments."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The supervisor steps in only after 60 seconds of silence, and writes a single line.",
+          "bold": 1
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "If execution has been quiet for more than 60 seconds, the supervisor reads the last 8 lines of the work log and leaves one line beginning with “OK:” or “Caution:”. The run keeps going. A quiet agent may simply be thinking through something long, so the 60-second timer starts over after each check. The supervisor runs at most three times per task and only one at a time per workspace. Time spent waiting for a person to answer a question card, or for an execution slot to open up, doesn't count as silence. The point is not to record time spent waiting on people as the agent going quiet."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Review says only done or incomplete.",
+          "bold": 1
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Review runs when execution finished successfully but some steps were never reported as complete, or when the task has completion criteria. It reads the request, the completion criteria and the end of the report, and within 45 seconds answers only “Done” or “Incomplete: <reason>”. If incomplete, the task continues in the same task folder up to two more times. If the same reason comes back twice in a row, review treats that as no progress, stops, and marks the result as incomplete. We judged it better to mark where things stopped than to rerun without end."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Answers that don't match the format are discarded, so instructions mixed into the execution log can't pass themselves off as a verdict. In the other direction, if a judgment call itself fails, the task is let through rather than blocked. A finished job isn't held back just because no verdict arrived."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Supervision and review are not new models. Each is one more call to the workspace's main engine at a low reasoning level. From October 17 to 28, the control plane made 1,655 supervision and review calls on Claude, with a median of 5 seconds per call."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The two engines hand off work through a single last line.",
+          "bold": 1
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "In workspaces with credentials for both Claude and Codex, the roles are split. Claude handles design, planning and review, and Codex runs commands. To hand off, an engine writes “Codex, <instruction>” or “Claude, <request>” as the last line of its answer. The server looks for that line only within the last two non-empty lines. When it finds one, it takes it out, feeds it into the next engine's input, and removes it from the result people see."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The next engine receives only the previous step's public summary and that instruction. If the public summary exceeds 6,000 characters, only the first 4,500 and the last 1,500 characters are passed along. At any moment, only one side is editing the folder, and the next engine starts only after the previous engine's turn ends. It is the conclusion of "
+        },
+        {
+          "text": "‘Does running more agents actually help?’",
+          "href": "https://www.zero0ne.dev/blog/2026-09-11-do-more-agents-help"
+        },
+        {
+          "text": " (in Korean), which I wrote in September, built directly into a single task: keep one writer and split only the judgment."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-10-29-axit-multi-agent-part-2/en/ch2-fig2.png",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Diagram: Claude (design, planning, review) and Codex (running commands) take turns on the same task folder, handing off with a last line of “Codex, <instruction>” or “Claude, <request>”. What passes between them is the public summary plus the instruction; above 6,000 characters, only the first 4,500 and the last 1,500 characters are passed.",
+      "caption": [
+        {
+          "text": "In a workspace with credentials for both engines, Claude and Codex take turns on one folder. All that passes between them is a single last line and the public summary (based on AXIT's internal design)."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Handoffs stop at four, and when a task stops, it records where and why.",
+          "bold": 1
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "A task can hand off at most four times. If it reaches that limit, or the receiving engine has no credentials, handoffs are switched off and one engine makes one more pass in the same folder to finish. If that still doesn't finish the job, the task is returned as partially complete. Since a request we received on August 18, every partial completion has to state where it stopped, why it stopped, and whether it is fine to continue. A person needs those three things to write the next instruction."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "People are called in only at steps that are hard to undo.",
+          "bold": 1
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "At first, every task required plan approval. In the month from August 26 to September 25, 183 of 740 pending approvals (25%) expired because nobody pressed the button. Of 483 question cards, 133 (28%) never got an answer. When answers did come, they came fast: a median under 1 minute for questions, with a p90 of 22 minutes. But tasks that went through approval took a median of 1.6 minutes to start, against 0.6 minutes without approval. These figures mix in scripted rehearsals and workshop participants' tasks, so they can't be read as saying that real users don't press approve. Still, the cost of requiring approval on every task was clear."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Since September 25, plan approval has been off by default. Instead, when the planner finds a risky step it will actually execute, it appends a line in the form “CONFIRM [send]: <reason>” to the end of the plan, and only then does the task stop. There are five kinds: send, delete, payment, publish and bulk. The marker is in ASCII because plans are written in five languages. Questions asked during a task wait only 60 seconds, then go ahead with the recommended option. If a person later picks a different answer, a follow-up task is handed off in the same channel."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-10-29-axit-multi-agent-part-2/en/ch2-fig3.png",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Diagram with two separate lanes. In the first, after planning, the task checks whether the plan ends with “CONFIRM [kind]: reason”, where the kinds are send, delete, payment, publish and bulk. If yes, it stops for a person to confirm; if no, which has been the default since September 25, it runs right away. In the second lane, a question during a task waits 60 seconds and then proceeds with the recommended option, and a different answer picked later becomes a follow-up task in the same channel.",
+      "caption": [
+        {
+          "text": "The fork after turning off plan approval for every task: a task stops only when the plan carries a marker. Questions go ahead with the recommended option after 60 seconds (based on AXIT's internal design)."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Some work is still unfinished. From October 5 to 18, in our own company workspace, 64 of the 156 tasks (41%) that stopped on a risk marker already had that verb in the instruction. Someone had asked for a send and was then asked again whether to send. So we tried a rule that doesn't re-ask about work that was explicitly requested, but the first version read even “PR only, no deploy” as a deploy instruction. We caught that in review before turning it on, and the rule is not in use yet. Asking less often, too, came back to reading instructions correctly."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "When agents can create things, the limits come in two layers.",
+          "bold": 1
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "AXIT can run tasks on its own when a set time arrives or a condition is met. These scheduled tasks are available on the Business plan and above. The first real request, on August 1, was “DM me in 5 minutes.” Registering it took 96 seconds, and the single notification took more than 6 minutes. So we split the two cases. “Notify me” is delivered straight from the server as a DM and a push notification, with no agent involved. Only “Do it” runs an agent. Even with several servers, a scheduled task doesn't fire twice in the same minute, because only the server that marks it first fires it, and if the previous run is still going, the next one is skipped."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "With scheduled agents, the bigger worry turned out to be doing too much, not failing to run. At a September 5 workshop, 15 scheduled tasks on 5-minute cycles, created by 28 people, used 43% of that day's credits. Agents can now create channels and scheduled tasks themselves, so one request like “give me a weekly report on four topics” sets up 1 folder, 4 channels and 4 scheduled tasks. So an agent can't do anything the person who asked couldn't do, and an existing name is reused instead of being created again. The caps come in two layers. A single task can create at most 3 folders and 10 channels, and on top of that each workspace has a daily cap of 12 folders and 40 channels."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Review, however, only sees the report.",
+          "bold": 1
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Review reads only the agent’s report, so it can’t tell whether the numbers in the output match the source data. So what we changed was the input, not the judgment. We opened a path for attachments to reach the task folder, and put “don’t make it up” and “here’s how to fetch it” into the instructions as a pair. A prohibition on its own leaves the agent nowhere to go, so we wrote down how to get the data alongside it."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "We also haven't yet counted how often review actually returns “Incomplete.” So it's too early to say these mechanisms catch errors. What we can say for now is that the format of a verdict, how many times it runs, and where it stops have all been decided in advance."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "For teams bringing agents into their work, this order may be worth borrowing. Keep the answer format of judgment calls narrow, and when a verdict fails, flag it rather than block. Give reruns a cap and a no-progress check. Pass work between engines in turns, and cut what's passed along down to a summary and an instruction. Use markers in the plan to decide where to call in a person, and if agents can create things, set the caps first."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "As agents multiply, the quality of checking will probably depend less on one smarter judging model than on having decided in advance where to ask and where to stop."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "https://axit.team",
+          "href": "https://axit.team"
+        }
+      ]
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "approvedBy": "ZerOne",
+    "approvedAt": "2026-11-02T02:41:30.478401+00:00"
+  },
+  "provenance": {
+    "writer": "Claude Opus 5.5",
+    "artifact": "drop-rehearsal-save-20261102/chapter2.en.native-review.json; Discord DM 2026-11-02: 수정 다 하면 2편은 오늘 바로 다 배포 쫙 해줘"
+  },
+  "native_eligibility": false,
+  "private_gates": [
+    "KO source is unpublished; publishedAt and sourceUpdatedAt pending, not invented",
+    "Native source must already be published and hash bound",
+    "Current policy requires exact source media URLs; nine localized images differ",
+    "PR5 is open; /en/blog not live",
+    "Separate English publication approval and release timing approval required"
+  ],
+  "counts": {
+    "words_title_body": 1724,
+    "words_body": 1714,
+    "words_title_body_captions": 1835,
+    "linkedin_characters_exact": 1386,
+    "figures": 3
+  },
+  "media_mapping": [
+    {
+      "id": "ch2-fig1",
+      "original_source_medium_id": "1*a6VGkhl1IW7DL1UiZljwxA.png",
+      "original_source_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*a6VGkhl1IW7DL1UiZljwxA.png",
+      "original_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/figures-v1/ch2-fig1-review-loop.png",
+      "original_sha256": "7eea99d633ca4fbdbd4a56a0bb48bee0b43acb7ae5f33f906f9d8ced17626a3e",
+      "localized_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/figures-en/ch2-fig1.png",
+      "localized_sha256": "a3e72c52caa5887cc0d191061e4fea9dc59a1714dfaf63a76cf0ff8e59d0cf17",
+      "verified_en_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*MnWYWQvZZPdiEngHiV_FfA.png",
+      "verified_medium_saved_alt": "The loop around a run: when execution goes quiet, the supervisor leaves one line, and when execution ends, review answers only done or incomplete. An incomplete task continues in the same folder up to two times (based on AXIT’s internal design)."
+    },
+    {
+      "id": "ch2-fig2",
+      "original_source_medium_id": "1*988rQuy-AUGKIrlZMB-mpw.png",
+      "original_source_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*988rQuy-AUGKIrlZMB-mpw.png",
+      "original_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/figures-v1/ch2-fig2-handoff-ladder.png",
+      "original_sha256": "ccffcda105bb77acafa74bd694ad3fdc44493e1d720b88088e5c7cd445c84533",
+      "localized_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/figures-en/ch2-fig2.png",
+      "localized_sha256": "63c4d62158b4fd3c6a07bb8058f4e66cabffc97620ebb29326261fe06e23e130",
+      "verified_en_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*x-f1IaESdWBHqDwEyas-SQ.png",
+      "verified_medium_saved_alt": "Diagram: Claude (design, planning, review) and Codex (running commands) take turns on the same task folder, handing off with a last line of “Codex, <instruction>” or “Claude, <request>”. What passes between them is the public summary plus the instruction; above 6,000 characters, only the first 4,500 and the last 1,500 characters are passed."
+    },
+    {
+      "id": "ch2-fig3",
+      "original_source_medium_id": "1*h9Xq7aRouwMLTz2JZSZf7Q.png",
+      "original_source_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*h9Xq7aRouwMLTz2JZSZf7Q.png",
+      "original_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/figures-v1/ch2-fig3-approval-fork.png",
+      "original_sha256": "0bfdfd72f030156af006b2365c4b8d1644c16e2545e7cac18db94ca954006706",
+      "localized_local": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/figures-en/ch2-fig3.png",
+      "localized_sha256": "eaffa714f5a0700c19c7292a16e1eeb4748aa573c3f2ba21a44237bf58ae020c",
+      "verified_en_medium_src": "https://miro.medium.com/v2/resize:fit:1400/1*bodVraYjJtj8sRHbQLA3gA.png",
+      "verified_medium_saved_alt": "Diagram with two separate lanes. In the first, after planning, the task checks whether the plan ends with “CONFIRM [kind]: reason”, where the kinds are send, delete, payment, publish and bulk. If yes, it stops for a person to confirm; if no, which has been the default since September 25, it runs right away. In the second lane, a question during a task waits 60 seconds and then proceeds with the recommended option, and a different answer picked later becomes a follow-up task in the same channel."
+    }
+  ],
+  "current_review": {
+    "version": "drop-rehearsal-save-20261102",
+    "rich_blocks": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/drop-rehearsal-save-20261102/chapter2.en.persisted.blocks.json",
+    "ko_source": "/Users/chanwoo/.openclaw-mini/workspace/drafts/axit-blog-series/2026-10-29/global-v2/drop-rehearsal-save-20261102/chapter2.ko.blocks.json",
+    "english_source_sha256": "88a025647fa0277206f077fd32db54c63530ff6649b432c71f9d57847f525113",
+    "source_hashes_are_current": true,
+    "historical_provenance_retained": true
+  },
+  "translationPublishedAt": "2026-11-02T02:44:10.089539+00:00",
+  "localizedMedia": {
+    "review": {
+      "status": "approved",
+      "approvedBy": "ZerOne",
+      "approvedAt": "2026-11-02T02:41:30.478401+00:00"
+    },
+    "images": [
+      {
+        "source": "/blog/2026-10-29-axit-multi-agent-part-2/b5c4de95c7f292150196fcb2.png",
+        "translated": "/blog/2026-10-29-axit-multi-agent-part-2/en/ch2-fig1.png",
+        "sourceSha256": "b5c4de95c7f292150196fcb23a2641ad5637708a27516366fd624c6796bc41c3",
+        "translatedSha256": "a3e72c52caa5887cc0d191061e4fea9dc59a1714dfaf63a76cf0ff8e59d0cf17"
+      },
+      {
+        "source": "/blog/2026-10-29-axit-multi-agent-part-2/30faad4ed8481147e7e2972f.png",
+        "translated": "/blog/2026-10-29-axit-multi-agent-part-2/en/ch2-fig2.png",
+        "sourceSha256": "30faad4ed8481147e7e2972f85937c12f2c6c42507b86a167586d536ee836f83",
+        "translatedSha256": "63c4d62158b4fd3c6a07bb8058f4e66cabffc97620ebb29326261fe06e23e130"
+      },
+      {
+        "source": "/blog/2026-10-29-axit-multi-agent-part-2/d2a3e52437bf11be594372df.png",
+        "translated": "/blog/2026-10-29-axit-multi-agent-part-2/en/ch2-fig3.png",
+        "sourceSha256": "d2a3e52437bf11be594372dfbc2a7e4c6cdbc3cd75db168049af749f752ee259",
+        "translatedSha256": "eaffa714f5a0700c19c7292a16e1eeb4748aa573c3f2ba21a44237bf58ae020c"
+      }
+    ]
+  }
+}
