@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
 	eligibleTranslation,
+	translationDisplayCover,
 	englishReadingMinutes,
 	type Translation
 } from '$lib/blog/translation-policy';
@@ -89,6 +90,14 @@ export const englishPosts = (preview = false): Post[] =>
 		})
 		.map((translation) => ({
 			...translation,
+			cover: translationDisplayCover(
+				translation,
+				findPost(translation.translationOf),
+				createHash('sha256')
+					.update(rawSources[`/src/lib/blog/posts/${translation.translationOf}.json`] ?? '')
+					.digest('hex'),
+				localizedAssetsVerified(translation)
+			),
 			draft: translation.review.status !== 'approved',
 			readingMinutes: englishReadingMinutes(translation)
 		}))

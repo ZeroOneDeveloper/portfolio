@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import {
 	eligibleTranslation,
+	translationDisplayCover,
 	englishReadingMinutes,
 	previewEnabled
 } from '../src/lib/blog/translation-policy.ts';
@@ -72,4 +73,47 @@ test('English reading time uses words, and path language has a segment boundary'
 	);
 	assert.equal(languageForPath('/en/blog'), 'en');
 	for (const path of ['/', '/blog/test', '/english']) assert.equal(languageForPath(path), 'ko');
+});
+
+test('localized cover is opt-in and requires full approval, source binding and verified assets', () => {
+	const slug = '2026-10-29-axit-multi-agent-part-2';
+	const raw = readFileSync(new URL(`../src/lib/blog/posts/${slug}.json`, import.meta.url));
+	const source = JSON.parse(raw);
+	const hash = createHash('sha256').update(raw).digest('hex');
+	const translation = JSON.parse(
+		readFileSync(new URL(`../src/lib/blog/translations/en/${slug}.json`, import.meta.url))
+	);
+	for (const entry of translation.localizedMedia.images) {
+		for (const [path, digest] of [
+			['source', 'sourceSha256'],
+			['translated', 'translatedSha256']
+		]) {
+			assert.equal(
+				createHash('sha256')
+					.update(readFileSync(new URL(`../static${entry[path]}`, import.meta.url)))
+					.digest('hex'),
+				entry[digest]
+			);
+		}
+	}
+	assert.equal(eligibleTranslation(translation, source, hash, false, true), true);
+	assert.equal(
+		translationDisplayCover(translation, source, hash, true).src,
+		translation.blocks[0].src
+	);
+	assert.deepEqual(translation.cover, source.cover);
+	assert.deepEqual(translationDisplayCover(translation, source, hash, false), source.cover);
+	for (const change of [
+		(p) => delete p.useLocalizedCover,
+		(p) => (p.review.status = 'draft'),
+		(p) => (p.localizedMedia.review.status = 'draft'),
+		(p) => (p.localizedMedia.images[0].source = '/wrong.png'),
+		(p) => (p.localizedMedia.images[0].translated = '/wrong.png'),
+		(p) => (p.sourceSha256 = 'stale'),
+		(p) => (p.cover.src = '/unreviewed.png')
+	]) {
+		const invalid = structuredClone(translation);
+		change(invalid);
+		assert.deepEqual(translationDisplayCover(invalid, source, hash, true), invalid.cover);
+	}
 });

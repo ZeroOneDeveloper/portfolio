@@ -1,6 +1,7 @@
 import type { Post } from './types';
 
 export interface Translation extends Post {
+	useLocalizedCover?: boolean;
 	localizedMedia?: {
 		review: { status: string; approvedBy?: string; approvedAt?: string };
 		images: {
@@ -125,4 +126,27 @@ export function englishReadingMinutes(post: Post) {
 	};
 	visit(post.blocks);
 	return Math.max(1, Math.ceil((text.join(' ').match(/\b[\w’'-]+\b/g) ?? []).length / 200));
+}
+
+// Derive presentation only; stored cover remains bound to the source for provenance.
+export function translationDisplayCover(
+	translation: Translation,
+	source: Post | undefined,
+	hash: string,
+	localizedAssetsVerified = false
+): Post['cover'] {
+	if (
+		!translation.useLocalizedCover ||
+		!eligibleTranslation(translation, source, hash, false, localizedAssetsVerified)
+	)
+		return translation.cover;
+	const entry = translation.localizedMedia?.images.find(
+		({ source }) => source === translation.cover?.src
+	);
+	const image = translation.blocks.find(
+		(block) => block.type === 'image' && block.src === entry?.translated
+	);
+	if (!entry || !image || image.type !== 'image') return translation.cover;
+	const picture = { src: image.src, width: image.width, height: image.height };
+	return { ...picture, thumb: { ...picture } };
 }
