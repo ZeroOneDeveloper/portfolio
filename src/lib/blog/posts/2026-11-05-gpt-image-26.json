@@ -1,0 +1,495 @@
+{
+	"slug": "2026-11-05-gpt-image-26",
+	"title": "GPT Image 2.6은 그리기 전에 얼마나 계획할지까지 정하게 합니다",
+	"description": "API를 쓰는 쪽에서 먼저 챙겨야 할 변화는 complexity라는 새 설정입니다.",
+	"publishedAt": "2026-11-05T01:07:20.075Z",
+	"updatedAt": "2026-11-05T00:50:06.045+00:00",
+	"readingMinutes": 7,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-05-gpt-image-26/65dfd60124947cbcb4031f95.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-05-gpt-image-26/65dfd60124947cbcb4031f95.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-05-gpt-image-26/65dfd60124947cbcb4031f95.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "OpenAI 로고와 모델 이름 옆에 OpenAI 가이드의 Sunburst 예시인 종이 공예 축구 장면을 놓았습니다(OpenAI).",
+			"caption": [
+				{
+					"text": "OpenAI 로고와 모델 이름 옆에 OpenAI 가이드의 Sunburst 예시인 종이 공예 축구 장면을 놓았습니다(OpenAI)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "11월 4일(미국 시간) OpenAI가 "
+				},
+				{
+					"text": "Images 2.6",
+					"href": "https://openai.com/index/introducing-images-2-6/"
+				},
+				{
+					"text": "을 공개했습니다. 한국 시간으로는 11월 5일 오전 8시 35분에 "
+				},
+				{
+					"text": "X 발표",
+					"href": "https://x.com/OpenAI/status/2118124944928432327"
+				},
+				{
+					"text": "가 올라왔어요. OpenAI는 ChatGPT와 Codex의 모든 구독 등급에 데스크톱, 모바일, 웹으로 전 세계에 제공한다고 밝혔고, API에는 gpt-image-2.6-flare와 gpt-image-2.6-sunburst 두 모델을 올렸습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "발표에서 먼저 눈에 들어오는 건 GIF와 SVG, 그리고 50% 빨라졌다는 문구입니다. 그런데 API를 쓰는 쪽에서 먼저 챙겨야 할 변화는 complexity라는 새 설정입니다. 모델이 그리기 전에 얼마나 계획할지 정하는 값이에요. 이 값을 생략하면 Flare와 Sunburst 모두 high로 돌아가는데, OpenAI는 발표 글에서 대부분의 편집에 low를 권합니다. 모델 이름만 바꾸면 편집 요청도 high로 나간다는 뜻입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Flare는 빠른 쪽, Sunburst는 정밀한 쪽입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "프롬프팅 가이드",
+					"href": "https://developers.openai.com/api/docs/guides/image-prompting"
+				},
+				{
+					"text": "는 Flare를 응답 속도가 중요한 작업에 쓰는 작은 모델로, Sunburst를 세부 묘사나 정밀한 편집이 필요한 작업에 쓰는 기본 모델로 설명합니다. 구조나 매개변수 수는 밝히지 않았어요. 둘 다 생성, 편집, 투명 배경, complexity, 마크업 편집, SVG, GIF를 지원하니 기능보다 속도와 정밀도로 고르는 구조입니다. 2.5를 쓰고 있다면 2.5 Flare는 2.6 Flare와, 2.5 Sunburst는 2.6 Sunburst와 먼저 비교하라고 안내합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "속도 수치는 OpenAI가 밝힌 값입니다. 발표 글은 Images 2.6이 이전보다 50% 빠르다고 적었는데, 무엇과 비교했는지, 어떤 작업에서 쟀는지는 쓰지 않았어요. quality를 low로 두면 Flare가 짧게는 6초 만에 이미지를 만든다고도 했습니다. 모든 요청이 6초 안에 끝난다는 뜻은 아니고, 낮은 품질 조건을 붙인 문장입니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-05-gpt-image-26/d5a201a6441ae27a6052a14a.gif",
+			"width": 960,
+			"height": 540,
+			"alt": "럭셔리 여행 광고 한 건을 low 품질로 만드는 시간을 비교한, OpenAI가 고른 시연입니다. GPT-Image-2.5 Flare는 7.08초, GPT-Image-2.6 Flare는 4.84초이고, 영상은 8배속으로 재생돼요(OpenAI).",
+			"caption": [
+				{
+					"text": "럭셔리 여행 광고 한 건을 low 품질로 만드는 시간을 비교한, OpenAI가 고른 시연입니다. GPT-Image-2.5 Flare는 7.08초, GPT-Image-2.6 Flare는 4.84초이고, 영상은 8배속으로 재생돼요(OpenAI)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "발표 글에 함께 실린 영상은 럭셔리 여행 광고 한 건을 low 품질로 만드는 시간을 비교합니다. GPT-Image-2.5 Flare는 7.08초, GPT-Image-2.6 Flare는 4.84초예요. 영상에 붙은 46%라는 표시는 7.08을 4.84로 나눈 값과 맞습니다. 걸린 시간으로 따지면 약 32% 줄어든 것이라, 50%나 46%를 시간이 그만큼 줄었다는 말로 읽으면 안 됩니다. 발표 문구의 6초보다 영상의 4.84초가 더 짧은데, 측정 조건이 공개되지 않아 어느 쪽이 대표값인지는 알 수 없어요. 여러 번 잰 분포도 나오지 않았습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "complexity와 quality는 다른 값입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "가이드에 따르면 quality는 질감이나 작은 글자 같은 세부를 얼마나 그릴지 정합니다. complexity는 그리기 전 계획량을 low, medium, high로 정해요. "
+				},
+				{
+					"text": "이미지 생성 가이드",
+					"href": "https://developers.openai.com/api/docs/guides/image-generation"
+				},
+				{
+					"text": "는 low가 배경이나 간판을 바꾸는 작은 편집에 어울리고, high는 글자가 많거나 요소 사이 관계가 복잡한 레이아웃에 도움이 될 수 있다고 설명합니다. 대신 high는 지연을 늘리고 원치 않은 변경을 부를 수 있다고 함께 적었습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-05-gpt-image-26/93a833652534dcd539afd4ff.png",
+			"width": 1000,
+			"height": 4595,
+			"alt": "Sunburst에 같은 프롬프트와 medium 품질을 주고 complexity만 바꾼 OpenAI 예시입니다. 위에서부터 low, medium, high이고, 단계마다 한 장씩 고른 결과예요(OpenAI 프롬프팅 가이드).",
+			"caption": [
+				{
+					"text": "Sunburst에 같은 프롬프트와 medium 품질을 주고 complexity만 바꾼 OpenAI 예시입니다. 위에서부터 low, medium, high이고, 단계마다 한 장씩 고른 결과예요(OpenAI 프롬프팅 가이드)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI가 고른 예시를 보면 이 차이가 드러납니다. Sunburst에 같은 프롬프트를 medium 품질로 넣고 complexity만 달리했어요. low에서는 트로피에 왕관이 얹히고, medium에서는 트로피에 월계관 장식이, 유니폼에 문장이 붙습니다. 둘 다 CHAMPIONS 배너가 선수들 앞에 놓여요. high에서는 유니폼이 파란색으로 바뀌고 CHAMPIONS 간판이 관중석으로 올라갑니다. 세부가 늘어난 정도가 아니라 디자인 결정이 달라진 것입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "프롬프트가 트로피, 유니폼, 글자를 정해 주지 않았기 때문에 나올 수 있는 차이이고, 단계마다 한 장씩 고른 결과라 high가 더 낫다는 증거도 아닙니다. 가이드도 레이아웃, 글자, 스타일을 프롬프트에 이미 정해 두면 차이가 거의 보이지 않을 수 있다고 적었어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그래서 새 시안을 찾을 때와 승인한 시안을 고칠 때는 설정을 따로 봐야 합니다. 가이드의 이전 순서는 먼저 프롬프트, 참조 이미지, 크기, quality, 출력 형식을 그대로 두고 complexity도 기본값으로 비교한 뒤, quality나 complexity 중 하나씩만 바꿔 반복해서 재는 것입니다. 레이아웃은 맞는데 작은 글자가 읽히지 않으면 complexity는 그대로 두고 quality를 비교하라고 안내해요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "고칠 곳은 별도 레이어로 표시합니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "API에는 마크업 편집이 들어왔습니다. 발표 글에 따르면 ChatGPT에 이미 있던 기능이 API로 온 것이고, "
+				},
+				{
+					"text": "API 변경 기록",
+					"href": "https://developers.openai.com/api/docs/changelog"
+				},
+				{
+					"text": "은 2.6뿐 아니라 지원되는 2.5 모델에도 추가했다고 적었어요. 2.6만의 기능은 아닌 셈입니다. POST /v1/images/edits로 원본과 별도의 투명 PNG를 함께 보내는데, 표시를 원본 위에 합쳐서 보내면 안 됩니다. 표시 레이어는 방향을 맞춘 뒤 첫 번째 입력 이미지와 가로세로 크기가 같아야 하고, 첫 번째 입력에만 적용돼요. 나머지 입력은 참조 이미지로 쓰입니다. mask나 prompt_rewriter와는 함께 쓸 수 없습니다. 첫 입력 이미지와 표시 레이어는 각각 16,777,216픽셀까지, 표시 파일은 50MB까지 받습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-05-gpt-image-26/347bd6033b6f76d3df92c19c.png",
+			"width": 1200,
+			"height": 2990,
+			"alt": "OpenAI가 고른 마크업 편집 예시입니다. 맨 위는 부엌 사진에 빨간 원 표시 레이어를 겹친 미리보기, 가운데는 Flare, 맨 아래는 Sunburst 결과예요. 꽃병은 둘 다 파랗게 바뀌었지만, 나머지가 그대로라는 뜻은 아니에요(OpenAI 프롬프팅 가이드).",
+			"caption": [
+				{
+					"text": "OpenAI가 고른 마크업 편집 예시입니다. 맨 위는 부엌 사진에 빨간 원 표시 레이어를 겹친 미리보기, 가운데는 Flare, 맨 아래는 Sunburst 결과예요. 꽃병은 둘 다 파랗게 바뀌었지만, 나머지가 그대로라는 뜻은 아니에요(OpenAI 프롬프팅 가이드)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "예시 프롬프트는 빨간 원 안의 줄무늬 꽃병을 코발트 블루 도자기로 바꾸되, 모양과 말린 줄기, 나머지 부엌은 그대로 두고 빨간 원은 지우라고 요청합니다. 공개된 Flare, Sunburst 결과 모두 꽃병이 파랗게 바뀌었고 원도 사라졌어요. 다만 공개 파일을 확대해 보면 말린 줄기의 모양이 입력과 조금 다르고, 두 결과끼리도 다릅니다. 입력은 1200x900인데 공개된 결과 파일은 1448x1086이라 그대로 겹쳐 비교할 수도 없어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI도 일부 영역이 픽셀까지 같아야 한다면 승인한 편집 결과를 원본에 합성하라고 안내합니다. 9월 10일 "
+				},
+				{
+					"text": "‘ChatGPT Images 2.5, 9/8 출시’",
+					"href": "https://zeroone-dev.medium.com/chatgpt-images-2-5-9-8-%EC%B6%9C%EC%8B%9C-53af84c40274"
+				},
+				{
+					"text": "에서 고친 걸 유지하는 문제로 다뤘던 이야기가 2.6에서도 이어지는 셈입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "SVG는 벡터 파일로 나옵니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "SVG는 POST /v1/images/generations에 output_format을 svg로, n을 1로 두고 요청합니다. 경로, 도형, 색을 고쳐야 하는 아이콘이나 일러스트에 쓰라는 기능이에요. 문서는 API가 먼저 참조 이미지를 만들고 그것으로 SVG를 만든다고 설명합니다. quality도 이 참조 이미지에 적용됩니다. 모델이 처음부터 벡터를 그린다고 읽을 근거는 없어요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-05-gpt-image-26/ed7dde4f9ef6ab9e2a8dd524.png",
+			"width": 1600,
+			"height": 986,
+			"alt": "OpenAI가 고른 예시로, 같은 프롬프트로 만든 Field & Flour 빵집 로고 SVG입니다. 왼쪽이 Flare, 오른쪽이 Sunburst이고, 본문용으로 PNG로 옮긴 미리보기예요(OpenAI 프롬프팅 가이드).",
+			"caption": [
+				{
+					"text": "OpenAI가 고른 예시로, 같은 프롬프트로 만든 Field & Flour 빵집 로고 SVG입니다. 왼쪽이 Flare, 오른쪽이 Sunburst이고, 본문용으로 PNG로 옮긴 미리보기예요(OpenAI 프롬프팅 가이드)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI가 공개한 빵집 로고 파일 두 개를 열어 보면 실제로 벡터 요소로 되어 있고, 래스터 이미지나 외부 링크는 없습니다. 차이도 있어요. Flare 파일에는 text 요소가 없고, Sunburst 파일의 Field & Flour와 BAKERY는 text 요소에 Georgia, Arial 계열 글꼴을 지정한 형태입니다. 글꼴이 다른 환경에서는 글자 모양이 달라질 수 있어서, 로고로 쓰려면 글자를 윤곽선으로 바꾸는 후처리가 필요할 수 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "범위도 좁습니다. 편집 엔드포인트는 SVG를 출력하지 않고, SVG를 편집 입력으로 넣을 수도 없어요. 스트리밍, 부분 이미지, 압축 설정, prompt_rewriter도 지원하지 않습니다. 결과물은 스크립트나 외부 리소스가 없는 정적 파일입니다. 나온 SVG를 고치려면 파일을 직접 고치거나 다시 생성해야 해요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "GIF는 짧게 반복되는 움직임에 맞춰져 있습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "GIF도 생성 엔드포인트 전용입니다. output_format을 gif로 두고, frame_count는 2~64프레임(기본 9), frame_duration_ms는 프레임당 20~2,000밀리초(기본 200, 10밀리초 단위로 반올림)에서 고릅니다. 프레임 수, 크기, 생성 개수가 요청 전체의 픽셀 예산 안에 들어가야 해서, 최댓값을 큰 크기로 다 쓸 수 있다는 뜻은 아닙니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-05-gpt-image-26/5d786a550b93a24fed3aec36.gif",
+			"width": 512,
+			"height": 512,
+			"alt": "OpenAI가 고른 예시로, Sunburst로 만든 512x512 GIF입니다. 9프레임을 200밀리초씩 보여 줘서 1.8초마다 처음 자세로 돌아와요(OpenAI 프롬프팅 가이드).",
+			"caption": [
+				{
+					"text": "OpenAI가 고른 예시로, Sunburst로 만든 512x512 GIF입니다. 9프레임을 200밀리초씩 보여 줘서 1.8초마다 처음 자세로 돌아와요(OpenAI 프롬프팅 가이드)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "가이드의 예시는 Sunburst로 만든 512x512 원숭이 GIF입니다. high 품질에 9프레임, 프레임당 200밀리초라 1.8초마다 처음 자세로 돌아와요. 내려받은 파일의 프레임 수와 길이도 이 설명과 같았습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "ChatGPT와 API는 구분해서 봐야 합니다. OpenAI는 "
+				},
+				{
+					"text": "X",
+					"href": "https://x.com/OpenAI/status/2118124953832935810"
+				},
+				{
+					"text": "에서 ChatGPT의 GIF는 속도를 조절하고 프레임을 하나씩 고칠 수 있다고 밝혔어요. 반면 API 편집 엔드포인트는 GIF를 출력하지 않고, 스트리밍, 부분 이미지, 압축 설정, prompt_rewriter도 지원하지 않습니다. 발표 글의 OpenArt 예시 프롬프트는 3열 2행 스프라이트 시트를 그리라고 지시하고, API 가이드의 예시는 frame_count로 프레임 수를 정합니다. 문서는 프레임을 만드는 내부 방식을 밝히지 않았으니, 영상 생성 모델로 볼 근거는 없습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "토큰 단가는 2.5와 같습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "가격표",
+					"href": "https://developers.openai.com/api/docs/pricing#image-generation"
+				},
+				{
+					"text": "의 Standard 기준으로 100만 토큰당 텍스트 입력은 5달러(약 6,700원), 이미지 입력은 8달러(약 1만 1천 원), 이미지 출력은 30달러(약 4만 원)입니다. 원화는 11월 4일 ECB 기준 환율인 1달러 1,338.58원으로 계산했어요. Flare와 Sunburst의 단가가 같고, 현재 가격표의 2.5 Flare, 2.5 Sunburst와도 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "단가가 같다고 청구액이 같은 건 아닙니다. 가이드는 같은 quality에서도 모델마다 토큰 수가 다를 수 있다고 적었어요. complexity를 바꾸는 데 별도 요금은 없다고 했지만, 토큰 수까지 같다고 적은 건 아닙니다. 프롬프트와 참조 이미지 입력도 더해야 하고요. 장당 값은 이 글에서 따로 확인하지 못해 적지 않았습니다. 가이드는 옮겨 갈 때 응답 시간, 실패, 재시도와 함께 채택한 이미지 한 장당 비용을 추적하라고 안내합니다. 생성이 빨라져도 다시 뽑는 횟수가 늘면 값은 오르기 때문에, 이 숫자가 더 현실적인 기준 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI가 고른 예시만으로는 아직 판단할 수 없습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-05-gpt-image-26/f8195a282b9e8a811d8f1fab.png",
+			"width": 1100,
+			"height": 3399,
+			"alt": "같은 스트리트웨어 광고 요청에 대한 Flare(위)와 Sunburst(아래) 결과입니다. 요청한 영어 문구가 둘 다 들어갔지만, OpenAI가 고른 영어 예시라 한국어 정확도를 보여 주지는 않아요(OpenAI 프롬프팅 가이드).",
+			"caption": [
+				{
+					"text": "같은 스트리트웨어 광고 요청에 대한 Flare(위)와 Sunburst(아래) 결과입니다. 요청한 영어 문구가 둘 다 들어갔지만, OpenAI가 고른 영어 예시라 한국어 정확도를 보여 주지는 않아요(OpenAI 프롬프팅 가이드)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "가이드의 스트리트웨어 광고 예시에서는 Flare와 Sunburst 모두 요청한 영어 문구 Yours to Create.를 넣었습니다. 보기 좋은 결과이지만, 이 글에 실린 그림과 수치는 모두 OpenAI가 고른 시연이에요. 지금 확인된 한계는 이렇습니다."
+				}
+			]
+		},
+		{
+			"type": "ol",
+			"items": [
+				[
+					{
+						"text": "독립 검증이 없습니다. 확인한 자료에서 2.6을 따로 잰 독립 벤치마크나 경쟁 모델 비교표를 찾지 못했어요. 이 글도 OpenAI가 고른 예시와 문서에 근거한 것이고, 독립적으로 돌려 본 벤치마크가 아닙니다."
+					}
+				],
+				[
+					{
+						"text": "한국어는 알 수 없습니다. 영어 광고와 스페인어 번역 다이어그램 예시는 있지만 한국어 정확도의 근거는 아니에요. 다이어그램을 또렷하게 그렸다고 내용까지 맞다는 뜻도 아닙니다."
+					}
+				],
+				[
+					{
+						"text": "문서에 적힌 한계가 남아 있습니다. 이미지 생성 가이드는 GPT Image 모델의 한계로 글자 위치와 선명도, 반복 캐릭터나 브랜드 요소의 일관성, 구조적인 배치를 꼽고, 복잡한 프롬프트는 최대 2분이 걸릴 수 있다고 적었어요. 모델군 공통 설명이라 2.6의 실패율은 아닙니다."
+					}
+				],
+				[
+					{
+						"text": "연동 범위가 다를 수 있습니다. "
+					},
+					{
+						"text": "Sunburst",
+						"href": "https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst"
+					},
+					{
+						"text": "와 "
+					},
+					{
+						"text": "Flare",
+						"href": "https://developers.openai.com/api/docs/models/gpt-image-2.6-flare"
+					},
+					{
+						"text": " 모델 페이지는 이미지 생성, 편집 엔드포인트만 지원으로 표시하고 Responses와 Batch는 미지원으로 표시합니다. 편집에서 input_fidelity는 빼야 하고 reasoning.summary도 지원하지 않아요. 2.5 코드에서 모델 이름만 바꿔서는 동작하지 않을 수 있습니다. 2.6의 최대 크기는 공통 가이드의 2.5 기준 값을 옮겨 올 수 없어 확인되지 않은 상태입니다. 요금제별 GIF 한도나 지역별 예외도 찾지 못했어요."
+					}
+				]
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI가 이번에 문서로 내놓은 것은 새 화풍보다 계획량, 편집 위치, 출력 파일 형식을 정하는 값들입니다. 이미지 모델을 고르는 기준도 한 장이 얼마나 멋진지보다, 승인한 시안을 덜 흔들면서 바로 쓸 수 있는 파일로 얼마나 싸게 넘겨 주느냐로 옮겨 갈 것 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://openai.com/index/introducing-images-2-6/",
+					"href": "https://openai.com/index/introducing-images-2-6/"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "OpenAI 로고와 모델 이름 옆에 OpenAI 가이드의 Sunburst 예시인 종이 공예 축구 장면을 놓았습니다(OpenAI).",
+			"url": "/blog/2026-11-05-gpt-image-26/65dfd60124947cbcb4031f95.png"
+		},
+		{
+			"kind": "gif",
+			"caption": "럭셔리 여행 광고 한 건을 low 품질로 만드는 시간을 비교한, OpenAI가 고른 시연입니다. GPT-Image-2.5 Flare는 7.08초, GPT-Image-2.6 Flare는 4.84초이고, 영상은 8배속으로 재생돼요(OpenAI).",
+			"url": "/blog/2026-11-05-gpt-image-26/d5a201a6441ae27a6052a14a.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "럭셔리 여행 광고 한 건을 low 품질로 만드는 시간을 비교한, OpenAI가 고른 시연입니다. GPT-Image-2.5 Flare는 7.08초, GPT-Image-2.6 Flare는 4.84초이고, 영상은 8배속으로 재생돼요(OpenAI).",
+			"url": "/blog/2026-11-05-gpt-image-26/d69eec1eb1ea9dc41882d64a.mp4"
+		},
+		{
+			"kind": "image",
+			"caption": "Sunburst에 같은 프롬프트와 medium 품질을 주고 complexity만 바꾼 OpenAI 예시입니다. 위에서부터 low, medium, high이고, 단계마다 한 장씩 고른 결과예요(OpenAI 프롬프팅 가이드).",
+			"url": "/blog/2026-11-05-gpt-image-26/93a833652534dcd539afd4ff.png"
+		},
+		{
+			"kind": "image",
+			"caption": "OpenAI가 고른 마크업 편집 예시입니다. 맨 위는 부엌 사진에 빨간 원 표시 레이어를 겹친 미리보기, 가운데는 Flare, 맨 아래는 Sunburst 결과예요. 꽃병은 둘 다 파랗게 바뀌었지만, 나머지가 그대로라는 뜻은 아니에요(OpenAI 프롬프팅 가이드).",
+			"url": "/blog/2026-11-05-gpt-image-26/347bd6033b6f76d3df92c19c.png"
+		},
+		{
+			"kind": "image",
+			"caption": "OpenAI가 고른 예시로, 같은 프롬프트로 만든 Field & Flour 빵집 로고 SVG입니다. 왼쪽이 Flare, 오른쪽이 Sunburst이고, 본문용으로 PNG로 옮긴 미리보기예요(OpenAI 프롬프팅 가이드).",
+			"url": "/blog/2026-11-05-gpt-image-26/ed7dde4f9ef6ab9e2a8dd524.png"
+		},
+		{
+			"kind": "gif",
+			"caption": "OpenAI가 고른 예시로, Sunburst로 만든 512x512 GIF입니다. 9프레임을 200밀리초씩 보여 줘서 1.8초마다 처음 자세로 돌아와요(OpenAI 프롬프팅 가이드).",
+			"url": "/blog/2026-11-05-gpt-image-26/5d786a550b93a24fed3aec36.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "OpenAI가 고른 예시로, Sunburst로 만든 512x512 GIF입니다. 9프레임을 200밀리초씩 보여 줘서 1.8초마다 처음 자세로 돌아와요(OpenAI 프롬프팅 가이드).",
+			"url": "/blog/2026-11-05-gpt-image-26/e28c1e1e5f44e4716a155d80.mp4"
+		},
+		{
+			"kind": "image",
+			"caption": "같은 스트리트웨어 광고 요청에 대한 Flare(위)와 Sunburst(아래) 결과입니다. 요청한 영어 문구가 둘 다 들어갔지만, OpenAI가 고른 영어 예시라 한국어 정확도를 보여 주지는 않아요(OpenAI 프롬프팅 가이드).",
+			"url": "/blog/2026-11-05-gpt-image-26/f8195a282b9e8a811d8f1fab.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-05-gpt-image-26",
+		"bodySha256": "c54c0ab798c3ac233596b8fc74e81291106bf9d200497c46dd8a464c42b9909a",
+		"source": "dashboard",
+		"savedAt": "2026-11-05T00:50:06.045+00:00"
+	}
+}
