@@ -1,0 +1,339 @@
+{
+	"slug": "2026-11-13-gemini-4-hydrogen",
+	"title": "Gemini 4 Hydrogen이 Gemini 4 Argon보다 높은 점수를 절반도 안 되는 비용에 냈습니다",
+	"description": "구글 Gemini 4 Hydrogen은 Argon보다 1점 높은 AA 지수 51점을 절반도 안 되는 비용과 약 4분의 1 시간에 냈고, Orchestrator로 Carbon과 역할을 나눕니다.",
+	"publishedAt": "2026-11-14T10:03:24.258Z",
+	"updatedAt": "2026-11-13T08:52:55.020103+00:00",
+	"readingMinutes": 5,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-13-gemini-4-hydrogen/80857789b96a863e751fdf0c.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-13-gemini-4-hydrogen/80857789b96a863e751fdf0c.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-13-gemini-4-hydrogen/80857789b96a863e751fdf0c.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "구글이 Gemini 4 Hydrogen 발표에 쓴 공식 대표 이미지입니다(구글).",
+			"caption": [
+				{
+					"text": "구글이 Gemini 4 Hydrogen 발표에 쓴 공식 대표 이미지입니다(구글)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "11월 12일(미국 시간) 구글이 "
+				},
+				{
+					"text": "Gemini 4 Hydrogen",
+					"href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+				},
+				{
+					"text": "을 공개했습니다. 9월 30일 Gemini 4 Argon, 10월 28일 Gemini 4 Carbon에 이은 Gemini 4 시리즈의 세 번째 모델이에요. Argon과 Carbon이 어려운 문제를 오래 붙잡는 모델이라면, Hydrogen은 빠르게 실행하는 쪽으로 만들었다고 구글은 밝혔습니다. Gemini API 무료 등급에서 쓸 수 있는 Gemini 4 모델도 Hydrogen이 처음이고, 같은 날 Gemini 앱과 구글 검색에도 들어갔어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "발표 글은 해커뉴스에서 438점에 댓글 283개를 받았고, "
+				},
+				{
+					"text": "Antigravity 쪽 발표",
+					"href": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/"
+				},
+				{
+					"text": "도 253점을 받았습니다. 지난달 Carbon 때는 1등이라는 숫자가 맞는지를 따져 봤는데, 이번 Hydrogen은 Argon보다 과제당 비용이 적고 시간도 짧습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Argon보다 1점 높고, 비용은 절반이 안 됩니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글은 Hydrogen이 Artificial Analysis Intelligence Index에서 기본값인 high로 51점, 가장 높은 xhigh로 54점을 받았다고 밝혔습니다. Argon(50점)보다 높은 점수예요. "
+				},
+				{
+					"text": "Artificial Analysis",
+					"href": "https://artificialanalysis.ai/models/gemini-4-hydrogen"
+				},
+				{
+					"text": "가 직접 잰 값도 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "차이는 비용과 시간에서 납니다. 지수 과제 하나를 푸는 데 Hydrogen(high)은 평균 1.87달러(약 2,500원)와 8.3분을 썼어요. Argon(high)은 4.97달러(약 6,600원)에 30.1분이 걸렸습니다. 점수는 1점 높은데 비용은 약 38%, 시간은 약 4분의 1입니다. Claude Sonnet 5.5(max)는 55점을 10.02달러(약 1만 3천 원)에 냈으니, xhigh로 54점을 낸 Hydrogen(3.16달러, 약 4,200원)은 약 3분의 1 비용이에요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "다만 가장 싼 쪽은 아닙니다. GPT-6.1 Sol(max)은 55점을 1.27달러(약 1,700원)에, GPT-6.1 Terra(max)는 Hydrogen(high)과 같은 51점을 0.96달러(약 1,300원)에 냈어요. 토큰 단가도 Terra가 입력 100만 토큰당 1달러(약 1,300원), 출력 5달러(약 6,700원)로 더 쌉니다. 그리고 xhigh로 올리면 Hydrogen은 지수를 한 번 돌리는 데 토큰 3억 400만 개를 써서, Artificial Analysis가 아주 말이 많은 모델로 분류했어요. 다른 모델 중앙값은 7,280만 개입니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-13-gemini-4-hydrogen/259187c0718906ac8e98c647.png",
+			"width": 2400,
+			"height": 1010,
+			"alt": "Artificial Analysis가 직접 잰 지수와 과제당 비용, 시간을 정리한 표입니다. 줄마다 가장 좋은 값을 노란색으로 표시했어요(Artificial Analysis 정리).",
+			"caption": [
+				{
+					"text": "Artificial Analysis가 직접 잰 지수와 과제당 비용, 시간을 정리한 표입니다. 줄마다 가장 좋은 값을 노란색으로 표시했어요(Artificial Analysis 정리)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글 벤치마크 3개에서 Sonnet 5.5보다 낮은 점수를 기록했습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글이 공개한 벤치마크 10개에서 Hydrogen은 Claude Sonnet 5.5, GPT-6.1 Terra와 비교해 7개에서 가장 높았습니다. 버그를 찾아 고치되 기존 코드를 깨지 않아야 하는 SWE-sweep에서 13.5%로 Sonnet 5.5(3.1%)의 4배가 넘었고, 가상의 자판기 사업을 운영하는 Vending-Bench 2에서는 14,549달러를 남겨 Sonnet 5.5(11,165달러)보다 많았어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "진 곳은 터미널과 컴퓨터 조작입니다. 부정행위를 걸러 낸 Terminal-Bench 4.1에서 57.0%로 Sonnet 5.5(63.9%)보다 낮았고, 컴퓨터를 직접 조작하는 OSWorld-2.1(77.6% 대 83.9%)과 과학 과제를 푸는 Terminal-Bench-Science 0.1(51.4% 대 59.9%)도 Sonnet 5.5가 앞섰습니다. 표의 숫자는 모두 구글이 밝힌 값이에요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이전 모델과 비교하면 차이가 큽니다. 구글은 Hydrogen이 Gemini 3.8 Flash보다 2.5배 빨리 일을 끝내고, Terminal-Bench 4.1 점수는 18.2%에서 57%로 3배 넘게 올랐다고 했어요. 근거 없이 지어낸 주장은 5분의 1 아래로 줄었다고 합니다. 미리 써 본 Box의 Aaron Levie는 사내 평가에서 3.8 Flash보다 정확도가 5포인트 높았고, 일은 절반도 안 되는 시간에 끝냈다고 X에 적었습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-13-gemini-4-hydrogen/35b137ade17718ff011a21b5.png",
+			"width": 2400,
+			"height": 1518,
+			"alt": "구글이 공개한 벤치마크 10개를 다시 정리한 표입니다. 줄마다 가장 좋은 값을 노란색으로 표시했어요(구글 발표 정리).",
+			"caption": [
+				{
+					"text": "구글이 공개한 벤치마크 10개를 다시 정리한 표입니다. 줄마다 가장 좋은 값을 노란색으로 표시했어요(구글 발표 정리)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Gemini 3.8 Flash는 1월부터 Hydrogen과 같은 값이 됩니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Hydrogen의 값은 입력 100만 토큰당 1.50달러(약 2,000원), 출력 7.50달러(약 1만 원)입니다. 100만 토큰 문맥 전체에 같은 값이 붙어요. 지금 Gemini 3.8 Flash(입력 0.75달러, 약 1,000원/출력 3.75달러, 약 5,000원)의 두 배입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그런데 "
+				},
+				{
+					"text": "가격표",
+					"href": "https://ai.google.dev/gemini-api/docs/pricing"
+				},
+				{
+					"text": "를 보면 3.8 Flash는 2027년 1월 1일부터 입력 1.50달러, 출력 7.50달러로 오릅니다. Hydrogen과 정확히 같은 값이에요. Argon과 Carbon도 12월 1일 도입가가 끝나면 입력 2달러(약 2,700원)에서 4달러(약 5,300원)로, 출력 10달러(약 1만 3천 원)에서 20달러(약 2만 7천 원)로 오릅니다. 그때부터 Hydrogen은 Argon보다 높은 점수를 Argon 토큰 단가의 37.5%에 내는 모델이 됩니다. 해커뉴스에서는 지금 3.8 Flash를 할인가로 쓰는 사람에게는 오히려 비싸다는 댓글이 위에 올라 있었어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "무료 등급도 Hydrogen에만 있습니다. Argon과 Carbon은 Gemini API 무료 등급이 없어요. 다만 무료 등급에서 보낸 내용은 구글 제품 개선에 쓰일 수 있다고 가격표에 적혀 있습니다. Gemini 앱의 무료 사용자는 자동 모델 선택으로, Hydrogen이 맞는 질문에서만 Hydrogen을 쓰게 됩니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "계획은 Carbon이, 실행은 Hydrogen이 맡습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "같은 날 구글은 코딩 에이전트 앱 Antigravity에 Orchestrator라는 모델 선택지를 추가했습니다. 한 작업 안에서 Carbon과 Hydrogen을 오가는 방식이에요. Carbon이 먼저 코드를 읽기만 하면서 의존성을 살피고 계획을 세우면, Hydrogen이 코드를 고치고 패키지를 올리고 테스트를 돌립니다. Hydrogen이 막히면 다시 Carbon에게 넘겨 상태를 보고 계획을 고친 뒤 이어 가요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글은 Terminal-Bench에서 Orchestrator가 Carbon에 가까운 성공률을 내면서 할당량은 평균 24% 덜 쓰고 19% 빨리 끝냈다고 밝혔습니다. 첫 요청만 보고 작업 전체를 싼 모델에 보내는 라우터는 작업이 길어질수록 맞지 않는다는 게 구글의 설명이에요. 어려운 정도는 작업을 하다가 드러나기 때문입니다. 다만 같은 실험을 구글 블로그는 Terminal-Bench 4.0, Antigravity 블로그는 4.1로 적어 두었고, Orchestrator의 정확한 성공률은 밝히지 않았습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-13-gemini-4-hydrogen/f415aceb8a0fde91282901b4.gif",
+			"width": 1000,
+			"height": 440,
+			"alt": "Antigravity 모델 선택 창에서 Orchestrator(Carbon)를 고르고 작업을 맡기는 장면입니다. 일상적인 단계는 Hydrogen에 넘겨 Carbon 수준 품질에 토큰을 덜 쓴다고 설명해요(구글).",
+			"caption": [
+				{
+					"text": "Antigravity 모델 선택 창에서 Orchestrator(Carbon)를 고르고 작업을 맡기는 장면입니다. 일상적인 단계는 Hydrogen에 넘겨 Carbon 수준 품질에 토큰을 덜 쓴다고 설명해요(구글)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난 "
+				},
+				{
+					"text": "‘AXIT에서 Claude와 Codex는 한 작업을 어떻게 나눠 맡을까?’",
+					"href": "https://www.zero0ne.dev/blog/2026-10-29-axit-multi-agent-part-2"
+				},
+				{
+					"text": "에서 소개했던, 계획하는 엔진과 명령을 실행하는 엔진을 나누고 한 번에 한쪽만 코드를 고치게 하는 바로 그 구성입니다. 해커뉴스에서는 어느 모델에 넘길지를 모델에게 맡겨도 되는지 불안하다는 댓글도 있었어요. 모델은 자기 능력을 낙관하는 편이라는 이유였습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Orchestrator는 Google AI Ultra 구독자에게 Orchestrator(Carbon)와 Orchestrator(Argon)로, Pro 구독자에게는 Orchestrator(Argon)로 풀립니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "문제없는 질문을 거절하는 비율은 늘었습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "모델 카드",
+					"href": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf"
+				},
+				{
+					"text": "를 보면 Hydrogen은 Carbon을 바탕으로 만든 모델이고, 지식은 2026년 3월까지입니다. 안전 평가는 대부분 3.8 Flash보다 좋아졌지만, 문제없는 질문을 거절하는 비율은 5.57포인트 늘었어요. 이미지 같은 멀티모달 입력에서 특히 그렇다고 합니다. 생물 위협과 사이버 공격 능력은 구글의 위험 기준에 닿지 않았지만, 그 직전의 경보 기준에는 닿았다고 적었습니다. 전체 안전 보고서는 며칠 안에 낸다고 했어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "해커뉴스에서 가장 많은 댓글이 달린 건 이름이었습니다. 성능 순서로 보면 Hydrogen, Argon, Carbon인데 알파벳 순서도, 원자량 순서도 아니라는 거예요. Gemini 앱에서 3.8 Flash가 갑자기 4 Hydrogen으로 바뀌어 있어서 이게 뭔지 찾아보러 왔다는 댓글이 맨 위에 있었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Gemini 4 시리즈는 약 6주 동안 모델 셋을 내놓았습니다. 맨 위 점수는 Carbon이 맡고, 실제로 가장 많이 불릴 자리는 Hydrogen이 맡는 구성이에요. 앞으로는 모델 하나를 고르는 것보다 어떤 단계를 어느 모델에 맡길지 정하는 쪽이 비용을 더 크게 가를 것 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+					"href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "구글이 Gemini 4 Hydrogen 발표에 쓴 공식 대표 이미지입니다(구글).",
+			"url": "/blog/2026-11-13-gemini-4-hydrogen/80857789b96a863e751fdf0c.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Artificial Analysis가 직접 잰 지수와 과제당 비용, 시간을 정리한 표입니다. 줄마다 가장 좋은 값을 노란색으로 표시했어요(Artificial Analysis 정리).",
+			"url": "/blog/2026-11-13-gemini-4-hydrogen/259187c0718906ac8e98c647.png"
+		},
+		{
+			"kind": "image",
+			"caption": "구글이 공개한 벤치마크 10개를 다시 정리한 표입니다. 줄마다 가장 좋은 값을 노란색으로 표시했어요(구글 발표 정리).",
+			"url": "/blog/2026-11-13-gemini-4-hydrogen/35b137ade17718ff011a21b5.png"
+		},
+		{
+			"kind": "gif",
+			"caption": "Antigravity 모델 선택 창에서 Orchestrator(Carbon)를 고르고 작업을 맡기는 장면입니다. 일상적인 단계는 Hydrogen에 넘겨 Carbon 수준 품질에 토큰을 덜 쓴다고 설명해요(구글).",
+			"url": "/blog/2026-11-13-gemini-4-hydrogen/f415aceb8a0fde91282901b4.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "Antigravity 모델 선택 창에서 Orchestrator(Carbon)를 고르고 작업을 맡기는 장면입니다. 일상적인 단계는 Hydrogen에 넘겨 Carbon 수준 품질에 토큰을 덜 쓴다고 설명해요(구글).",
+			"url": "/blog/2026-11-13-gemini-4-hydrogen/b984454e7ea30b2857ac1b20.mp4"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-13-gemini-4-hydrogen",
+		"bodySha256": "70c803396a99c9866b466f3a2623aaac7be68e38046b0b180aa7266bc63bf485",
+		"source": "dashboard",
+		"savedAt": "2026-11-13T08:52:55.020103+00:00"
+	}
+}
