@@ -1,0 +1,346 @@
+{
+	"slug": "2026-11-14-self-hosted-managed-agents",
+	"title": "Claude Managed Agents, 이제 에이전트 서버와 세션 기록까지 회사 안에 둘 수 있습니다",
+	"description": "Anthropic이 에이전트 서버, 샌드박스, 세션 기록을 회사 클라우드나 사내 데이터센터에 두는 self-hosted Claude Managed Agents를 비공개 베타로 냈고, 모델 호출과 도구 결과는 여전히 밖으로 나간다는 점을 AXIT 구조와 함께 정리했습니다.",
+	"publishedAt": "2026-11-15T13:02:47.177Z",
+	"updatedAt": "2026-11-15T07:02:45.058+00:00",
+	"readingMinutes": 5,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-14-self-hosted-managed-agents/794ec8f5a12486b95f58066c.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-14-self-hosted-managed-agents/794ec8f5a12486b95f58066c.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-14-self-hosted-managed-agents/794ec8f5a12486b95f58066c.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "Anthropic 로고와 Claude 로고, Anthropic이 발표 글에 쓴 그림으로 만든 표지입니다(Anthropic, Wikimedia Commons).",
+			"caption": [
+				{
+					"text": "Anthropic 로고와 Claude 로고, Anthropic이 발표 글에 쓴 그림으로 만든 표지입니다(Anthropic, Wikimedia Commons)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "AXIT도 그렇고, 최근 컨설팅 요청주시는 분들께서 보안에 신경쓰여 이런 부분들을 많이 물어봤는데, 굉장히 좋은 시도로 보입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "11월 12일(미국 시간) Anthropic이 "
+				},
+				{
+					"text": "self-hosted Claude Managed Agents",
+					"href": "https://claude.com/resources/articles/self-hosted-claude-managed-agents"
+				},
+				{
+					"text": "를 비공개 베타로 공개했습니다. Claude로 만든 에이전트를 돌리는 서버와 샌드박스, 세션 기록을 모두 회사의 클라우드나 사내 데이터센터에 두는 방식이에요. Claude 개발자 계정 @ClaudeDevs의 "
+				},
+				{
+					"text": "발표 글",
+					"href": "https://x.com/ClaudeDevs/status/2120938988165091693"
+				},
+				{
+					"text": "은 11월 14일 기준 조회수 106.9만, 좋아요 1.3만, 재게시 1.1천, 북마크 7.7천 개를 기록했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Managed Agents는 Anthropic이 에이전트 실행 환경을 통째로 맡아 주는 API 묶음입니다. 에이전트를 정의하고 세션을 열면 에이전트 루프, 도구를 돌릴 샌드박스, 인증 정보 관리, 세션 기록을 Anthropic이 운영해 줘요. 지금까지는 이 가운데 샌드박스만 회사 쪽으로 옮길 수 있었습니다. 이번에는 나머지 서비스까지 옮길 수 있게 됐어요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-14-self-hosted-managed-agents/0e7161f80938fa0e89b885ea.jpg",
+			"width": 3704,
+			"height": 1608,
+			"alt": "Anthropic이 공개한 구조도입니다. 클라이언트 앱, Managed Agents 서버, 샌드박스, PostgreSQL이 모두 고객 환경 안에 있고 모델 호출만 네트워크 경계를 넘어요(X @ClaudeDevs).",
+			"caption": [
+				{
+					"text": "Anthropic이 공개한 구조도입니다. 클라이언트 앱, Managed Agents 서버, 샌드박스, PostgreSQL이 모두 고객 환경 안에 있고 모델 호출만 네트워크 경계를 넘어요(X "
+				},
+				{
+					"text": "@ClaudeDevs",
+					"href": "http://twitter.com/ClaudeDevs"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "회사가 운영하는 부분이 서비스까지 늘었습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "회사가 돌리는 건 세 가지입니다. API와 에이전트 루프, 세션 기록을 맡는 서버(cma-server), 그 데이터를 담는 PostgreSQL 16 이상의 데이터베이스, 그리고 에이전트의 셸과 파일 도구를 실제로 실행하는 워커예요. 서버는 셸이나 파일 도구를 직접 돌리지 않고, 워커가 서버에 일을 가지러 옵니다. 개발용으로는 Docker Compose 하나로 띄우고, 운영 환경에는 Helm 차트 두 개로 쿠버네티스에 올리는 방식을 권합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-14-self-hosted-managed-agents/716297516b909005e6472d8a.png",
+			"width": 1552,
+			"height": 687,
+			"alt": "Anthropic 문서의 표를 옮긴 것입니다. 이번에 나온 self-hosted Managed Agents에서는 샌드박스와 서비스를 모두 회사가 운영하고, 모델 호출을 보낼 곳도 고를 수 있어요(Anthropic 문서).",
+			"caption": [
+				{
+					"text": "Anthropic 문서의 표를 옮긴 것입니다. 이번에 나온 self-hosted Managed Agents에서는 샌드박스와 서비스를 모두 회사가 운영하고, 모델 호출을 보낼 곳도 고를 수 있어요(Anthropic 문서)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "API는 Anthropic이 운영하는 Managed Agents와 같습니다. 그래서 SDK와 ant CLI가 가리키는 주소만 회사 서버로 바꾸면 기존 코드가 그대로 붙어요. 다만 Anthropic 쪽에 있던 에이전트와 세션 기록은 하나도 옮겨 오지 않아서 새로 만들어야 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "모델 호출은 어디로 보낼지 고를 수 있습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "모델은 여전히 회사 밖에서 돕니다. 서버는 기본으로 Claude API를 부르지만, 설정을 바꾸면 Amazon Bedrock, Google Cloud의 Claude 모델, Microsoft Foundry, 회사가 운영하는 모델 게이트웨이로 보낼 수 있어요. 에이전트 정의에는 claude-opus-5–5 같은 Claude API 모델 이름을 그대로 쓰고, 서버가 각 클라우드의 이름으로 바꿔 부릅니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "어디로 보내든 모델 호출마다 지금까지의 대화가 통째로 갑니다. 프롬프트뿐 아니라 도구에 넣은 값과 도구가 돌려준 결과도 포함돼요. Claude API로 보낼 때는 세션, 에이전트, 환경 ID를 담은 헤더 세 개가 함께 가고, 이건 끌 수 없습니다. 반대로 Bedrock이나 Google Cloud로 보내면 서버는 Anthropic에 아예 연결하지 않는다고 "
+				},
+				{
+					"text": "문서",
+					"href": "https://platform.claude.com/docs/en/managed-agents/self-hosted-data-and-access"
+				},
+				{
+					"text": "에 적혀 있어요. Anthropic은 서버와 로그에 원격으로 접근할 수 없고, 서버가 받는 인증 정보도 Anthropic이 발급하거나 갖고 있지 않습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 차이는 데이터 보관 규정에서도 드러납니다. Anthropic이 운영하는 Managed Agents는 세션 기록을 사용자가 지울 때까지 보관하기 때문에 ZDR(데이터 무보관) 계약 대상에서 빠져 있어요. self-hosted에서는 그 기록이 회사 데이터베이스에 남고, Claude로 가는 요청에는 회사가 맺은 ZDR 계약이 다른 Messages API 호출과 똑같이 적용됩니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "보안은 구조로 막는다고 밝혔습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Anthropic은 사람이 에이전트의 모든 단계를 확인할 수 없으니 한계를 시스템 안에 넣어야 한다며 네 가지 원칙을 밝혔습니다."
+				}
+			]
+		},
+		{
+			"type": "ul",
+			"items": [
+				[
+					{
+						"text": "두뇌와 손을 나눕니다. Claude를 부르는 하네스와 코드가 도는 샌드박스를 분리해, 에이전트 루프와 세션 기록, 비밀값은 샌드박스 밖에 둡니다."
+					}
+				],
+				[
+					{
+						"text": "인증 정보를 샌드박스에 넣지 않습니다. MCP 도구와 지원되는 API 호출은 샌드박스 밖의 프록시가 인증 정보를 붙여요. self-hosted에서는 회사의 비밀 관리 도구에 보관할 수도 있습니다."
+					}
+				],
+				[
+					{
+						"text": "네트워크를 허용 목록으로 묶습니다. 빌드를 고치는 에이전트라면 Git 호스트와 패키지 저장소만 열어 두는 식이에요."
+					}
+				],
+				[
+					{
+						"text": "모든 세션의 기록을 남깁니다. 도구 호출과 그 결과까지 OpenTelemetry로 내보내 기존 모니터링 도구에서 볼 수 있습니다."
+					}
+				]
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그러면서도 문서에는 경고가 하나 붙어 있습니다. 에이전트의 bash 도구는 워커 프로세스의 권한을 그대로 가진 진짜 셸이고, 워커가 이를 따로 격리하지 않는다는 거예요. 격리는 워커를 무엇 안에서 돌리느냐에 달려 있어서, 직접 띄운다면 지킬 것이 없는 일회용 컨테이너나 VM에서 돌려야 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "배포 하나는 한 고객만 맡을 수 있다는 점도 적혀 있어요. 서버 API 키 하나가 모든 환경에 닿기 때문에, 고객사마다 데이터베이스와 키, 워커를 따로 둔 배포를 하나씩 만들어야 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "빠지는 기능도 꽤 있습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Anthropic이 운영하는 쪽에만 있는 기능은 self-hosted에서 쓸 수 없어요. Files API, 웹훅, 예약 실행, dreams가 없고, 기본 제공되던 docx, pdf, pptx, xlsx 스킬도 빠집니다. 예약 실행은 cron 같은 회사 스케줄러로 대신해야 하고, 스킬은 공개 저장소에서 내려받아 직접 올려야 해요. 웹 검색과 웹 페이지 읽기 도구는 기본으로 꺼져 있고, MCP 서버와 Git 저장소는 서버 설정에 적어 둔 호스트에만 연결됩니다. 멀티 에이전트도 미리 지정한 하위 에이전트에게만 일을 넘길 수 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "반대로 self-hosted에만 있는 기능도 있습니다. 회사 계정 시스템(OpenID Connect)으로 로그인하는 SSO, 회사 비밀 관리 도구 연동, 그리고 서버가 짧게 쓰는 토큰을 서명해 MCP 서버로 보내는 에이전트 신원 기능이에요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "AXIT도 같은 자리에서 서버와 워커를 나눴습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난달 "
+				},
+				{
+					"text": "‘멀티 에이전트 시스템은 어떤 식으로 설계되어 있을까?’",
+					"href": "https://www.zero0ne.dev/blog/2026-10-29-axit-multi-agent-part-1"
+				},
+				{
+					"text": "에서 저희가 만드는 AXIT의 구조를 소개했었죠. 요청을 받아 작업을 관리하는 컨트롤플레인과, 실행할 때마다 새로 뜨는 컨테이너인 워커를 나눈 구조였습니다. 실행을 서버 밖으로 뺀 건 격리와 안정 때문이었어요. 9월 중순에는 에이전트 시도 하나가 서버 메모리를 0.56GB에서 13.22GB까지 올린 적이 있습니다. 10월 16일부터 워커가 기본이 됐고, 10월 17일부터 28일까지는 작업의 98%가 워커에서 돌았어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Managed Agents 서버도 셸과 파일 도구를 돌리지 않고 워커에 맡깁니다. 연결 방향은 조금 다릅니다. AXIT의 워커는 컨트롤플레인과 WebSocket 하나로 이어져 실행 계획을 받고, Managed Agents의 워커는 서버에 일을 가지러 와요. 서버는 워커에 먼저 연결하지 않기 때문에, 워커 쪽으로 들어오는 연결을 열어 둘 필요가 없습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "에이전트를 업무에 붙이려면 모델 말고도 정할 것이 많습니다. 어디서 돌리고, 기록을 어디에 남기고, 비밀값을 누가 쥐는지예요. Anthropic도 블로그에서 지금까지는 이걸 원하면 플랫폼을 직접 만들어야 했다고 적었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "값은 아직 공개되지 않았습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Anthropic이 운영하는 Managed Agents는 토큰값에 세션 시간당 0.08달러(약 107원)를 더해 받습니다. 공식 문서의 예시로는 Claude Opus 5.5로 1시간 동안 입력 5만 토큰, 출력 1만 5천 토큰을 쓴 세션이 0.58달러(약 775원)예요. self-hosted의 값은 계정 팀에 문의하라고만 적혀 있습니다. 서버와 데이터베이스, 워커를 돌리는 인프라는 회사가 직접 운영하고 비용도 따로 냅니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지금은 조건을 갖춘 조직만 Anthropic 계정 팀을 통해 신청할 수 있는 비공개 베타입니다. 새 버전이 나오면 설치도 회사가 직접 해야 해요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "self-hosted Managed Agents가 회사 안으로 옮겨 준 건 에이전트 루프와 세션 기록, 인증 정보, 도구 실행입니다. 모델 호출은 여전히 네트워크 밖으로 나가고, 그때 도구 결과까지 함께 갑니다. 그래서 데이터 반출 요건이 엄격한 곳이라면 남은 질문은 Bedrock, Google Cloud, Foundry 가운데 어느 리전에서 어떤 Claude 모델을 쓸 수 있느냐입니다. 그 답은 클라우드마다 따로 확인해야 합니다."
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "Anthropic 로고와 Claude 로고, Anthropic이 발표 글에 쓴 그림으로 만든 표지입니다(Anthropic, Wikimedia Commons).",
+			"url": "/blog/2026-11-14-self-hosted-managed-agents/794ec8f5a12486b95f58066c.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Anthropic이 공개한 구조도입니다. 클라이언트 앱, Managed Agents 서버, 샌드박스, PostgreSQL이 모두 고객 환경 안에 있고 모델 호출만 네트워크 경계를 넘어요(X @ClaudeDevs).",
+			"url": "/blog/2026-11-14-self-hosted-managed-agents/0e7161f80938fa0e89b885ea.jpg"
+		},
+		{
+			"kind": "image",
+			"caption": "Anthropic 문서의 표를 옮긴 것입니다. 이번에 나온 self-hosted Managed Agents에서는 샌드박스와 서비스를 모두 회사가 운영하고, 모델 호출을 보낼 곳도 고를 수 있어요(Anthropic 문서).",
+			"url": "/blog/2026-11-14-self-hosted-managed-agents/716297516b909005e6472d8a.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-14-self-hosted-managed-agents",
+		"bodySha256": "b4e25606449239c11d0ca9fedfeabe0cf3f4dc3c72cbec7a9dc82628267eb81d",
+		"source": "dashboard",
+		"savedAt": "2026-11-15T07:02:45.058+00:00"
+	}
+}
