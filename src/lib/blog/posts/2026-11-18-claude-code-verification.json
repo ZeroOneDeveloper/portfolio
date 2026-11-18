@@ -1,0 +1,260 @@
+{
+	"slug": "2026-11-18-claude-code-verification",
+	"title": "코드 90%를 Claude가 쓰는 Claude Code 팀의 검증 방법",
+	"description": "코드 90%를 Claude가 쓰는 Claude Code 팀이 verify 스킬, 39개 체크리스트, 커밋 관문으로 검증하는 방법을 정리한 글입니다.",
+	"publishedAt": "2026-11-18T04:19:23.973Z",
+	"updatedAt": "2026-11-18T00:26:26.266+00:00",
+	"readingMinutes": 4,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-18-claude-code-verification/deaf97782e74e8dc827d7c9a.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-18-claude-code-verification/deaf97782e74e8dc827d7c9a.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-18-claude-code-verification/deaf97782e74e8dc827d7c9a.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "Claude 로고와 Claude Code의 Clawd 캐릭터로 만든 표지입니다(Anthropic).",
+			"caption": [
+				{
+					"text": "Claude 로고와 Claude Code의 Clawd 캐릭터로 만든 표지입니다(Anthropic)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "11월 16일(미국 시간), Anthropic의 Claude Code 팀이 자기 팀의 검증 방법을 공개했습니다. Addy Osmani가 claude.dev 블로그에 쓴 글입니다. 첫 문장부터 숫자가 셉니다. Claude Code 팀 코드의 약 90%를 Claude가 쓰고 리뷰한다고 해요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그래서 이 팀의 고민은 사람이 모든 변경을 읽을 수 없을 때 무엇을 믿느냐입니다. 글의 답은 검증 루프입니다. 에이전트가 자기 작업을 증거로 입증할 수 있어야 Claude를 한두 개가 아니라 수십, 수백 개씩 동시에 돌릴 수 있다는 거죠. 내부 실험에서는 별도 채점기가 기준표로 Claude의 결과를 확인하게 했더니, 일반 프롬프트 반복보다 과제 성공률이 최대 10점 올랐다고 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 글은 Claude 개발자 공식 X 계정(@ClaudeDevs) 소개 글이 조회 151만 회, 좋아요 1.3만 개를 넘겼고, Hacker News에서도 254점, 댓글 197개가 달렸습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "검증은 테스트보다 앱을 직접 돌려 보는 데서 시작합니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "글에서 가장 먼저 강조하는 건 변경한 앱을 실제로 실행해 보는 일입니다. iOS 변경을 시뮬레이터에서 돌려 보지 않고 내보내지 않듯, Claude도 똑같이 해야 한다는 거예요. 웹은 Claude Chrome 확장, 모바일은 iOS나 Android MCP, 데스크톱은 컴퓨터 사용 기능, 백엔드는 서비스를 로컬에서 띄워 확인합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "방법은 단순합니다. 앱을 띄우고 조작하는 방법을 verify라는 스킬로 저장소의 .claude/skills/ 폴더에 적어 둡니다. 그러면 Claude가 커밋하기 전에 이 스킬을 씁니다. 팀은 이 스킬을 빠르고 믿을 만하게 만드는 데 따로 공을 들인다고 했어요. Anthropic의 거의 모든 변경을 이렇게 시험한다고 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "테스트 종류로는 세 가지를 꼽았습니다. 하나만 고른다면 E2E 테스트입니다. 장바구니에 담고 결제하고 확인 화면까지 가는 실제 사용자 흐름을 따라가기 때문에, 기능이 되든 안 되든 둘 중 하나라 속이기 어렵습니다. 단위 테스트는 통과해도 기능은 깨져 있을 수 있다고 적었어요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-18-claude-code-verification/7e575bc92e3d537a62f3df45.png",
+			"width": 1999,
+			"height": 1093,
+			"alt": "단위 테스트는 시간 초과만 알려 주지만, E2E 테스트는 어느 단계에서 왜 막혔는지 화면과 함께 보여 줍니다(claude.dev).",
+			"caption": [
+				{
+					"text": "단위 테스트는 시간 초과만 알려 주지만, E2E 테스트는 어느 단계에서 왜 막혔는지 화면과 함께 보여 줍니다(claude.dev)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "나머지 둘은 속성 테스트와 차등 테스트입니다. 속성 테스트는 “인코딩했다가 디코딩하면 원래 값이 나온다”, “잔액은 음수가 될 수 없다”처럼 절대 깨지면 안 되는 문장을 정하고, 도구가 수천 개의 입력을 만들어 그 문장을 깨 보려고 합니다. 에이전트가 코드를 쓸 때와 같은 편향으로 만든 테스트가 아니라는 점이 장점이라고 해요. 차등 테스트는 기존 시스템과 새 시스템에 같은 입력을 넣고 결과가 다르면 버그로 봅니다. 큰 마이그레이션에서 특히 쓸모가 있다고 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "세 번 고쳐도 실패하면 Claude가 멈추고 사람을 부릅니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "사람이 모든 변경을 읽을 수는 없으니, 실패한 검사를 사람이 볼 곳을 정하는 기준으로 씁니다. Claude가 검사를 돌리고 실패한 걸 고치다가, 세 번 시도해도 여전히 실패하면 멈추고 사람을 부릅니다. 검사는 그 코드의 담당자가 직접 쓰고, 사람을 부를 때는 왜 불렀는지 함께 적게 해서 리뷰어가 diff를 처음부터 뜯어보지 않아도 되게 했어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "과거 사고는 체크리스트로 남겼습니다. 신뢰성 체크리스트가 39개 있고, 항목마다 diff에서 읽을 수 있는 조건과 확인할 내용, 그 항목이 생기게 된 사고나 PR이 붙어 있습니다. 예를 들어 세션 저장 방식이 바뀌면 “ — resume으로 예전 대화 기록을 불러올 수 있는가”를 확인합니다. Claude는 diff에 해당하는 항목만 골라 보통 3~10개를 확인하기 때문에, 누구도 지난 장애를 다 외우고 있을 필요가 없습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-18-claude-code-verification/547bc8201b480dfa4dc8e2aa.png",
+			"width": 2400,
+			"height": 1236,
+			"alt": "Claude Code 팀이 글에서 소개한 검증 장치를 표로 정리했습니다(claude.dev).",
+			"caption": [
+				{
+					"text": "Claude Code 팀이 글에서 소개한 검증 장치를 표로 정리했습니다(claude.dev)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "변경은 자기를 판정하는 검사를 고칠 수 없습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "글에서 가장 눈여겨볼 원칙은 이겁니다. 어떤 변경이 자기를 판정하는 검사를 고칠 수 있다면 그 검사는 이미 망가진 거라고 적었어요. 그래서 리뷰 기준을 적은 REVIEW.md는 PR에 들어 있는 버전이 아니라 기본 브랜치에서 읽습니다. 에이전트가 테스트를 통과시키려고 테스트 쪽을 고치는 일을 구조로 막은 셈입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "리뷰어를 늘리는 대신 한 리뷰어를 여러 차례 돌린다는 점도 눈에 띕니다. 더 비싼 리뷰어를 하나 더 얹는 것보다 기존 리뷰어를 다듬는 편이 낫고, 각 차례는 앞선 차례와 과거 실패를 이어받아 처음부터 다시 보지 않는다고 해요. 리뷰 중에 누가 새로 푸시하면 그 리뷰 결과는 버립니다. 오래된 커밋에서 통과한 리뷰는 의미가 없다는 이유입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "커밋에도 장치가 있습니다. 모든 커밋에 어떻게 검증했는지 도장을 찍는데, 그 값에 “none”도 있어서 검증 없이 들어간 커밋을 따로 찾을 수 있습니다. 세션에서 /code-review나 /verify를 돌리지 않았으면 커밋을 막는 관문도 만들었어요. 끄기, 관찰, 강제 세 단계가 있고, 새 관문은 관찰 모드로 먼저 켜서 무엇을 막았을지만 기록하며 잘못 막는 경우를 확인합니다. 한 세션에서 두 번 막히면 세 번째는 통과시킵니다. Claude가 거기서 멈춰 버리지 않게 하려는 것이고, Claude Code도 완벽하지 않다고 적었어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "놓친 버그는 규칙이 되고, 규칙도 주기적으로 정리합니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "리뷰어도 채점합니다. 병합 뒤 되돌린 변경, 병합 전에 관리자가 거절한 변경, 크기를 맞춘 문제없는 변경을 모아 리뷰어 성능을 봅니다. 놓친 버그를 규칙으로 바꾸는 방법도 두 가지입니다. 사람 리뷰 댓글과 되돌린 PR에서 패턴을 뽑되, 두 개 이상의 PR에서 나오고 diff에서 알아볼 수 있어야 후보가 됩니다. 그다음 에이전트 셋이 그 규칙을 반박해 보고, 사람이 PR로 승인합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "불안정한 테스트에도 기준이 있습니다. Claude는 이런 테스트를 건너뛰거나, 기다리는 시간을 넣거나, 통과할 때까지 다시 돌리면 안 됩니다. 원인을 못 찾으면 테스트를 지우고 이유를 적습니다. 테스트, 검증 단계, .md 파일은 그냥 두면 늘기만 하니 주기적으로 정리한다고 해요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지난 9월 "
+				},
+				{
+					"text": "‘AI 시대, 코드 리뷰는 어떻게 해야 할까’",
+					"href": "https://zeroone-dev.medium.com/ai-%EC%8B%9C%EB%8C%80-%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C-cc19b677bf1b"
+				},
+				{
+					"text": "에서 Playwright로 결과물을 직접 확인하고 못 속이는 관문을 두자고 정리했었죠. Claude Code 팀이 실제로 돌리는 방식도 그 연장선에 있습니다. 다른 점은 그걸 스킬, 체크리스트, 커밋 관문으로 굳혀서 사람이 기억하지 않아도 돌아가게 만들었다는 겁니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "글은 이렇게 하면 사람의 일이 모든 diff를 읽는 데서 “다 됐다”의 기준을 정하고 증거를 검토하는 쪽으로 옮겨 간다고 끝맺습니다. 테스트와 검증을 에이전트에게 맡기는 비용이 싸진 만큼, 앞으로 팀의 실력은 검증 장치를 얼마나 잘 만들고 관리하느냐에서 갈릴 것 같습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+					"href": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "Claude 로고와 Claude Code의 Clawd 캐릭터로 만든 표지입니다(Anthropic).",
+			"url": "/blog/2026-11-18-claude-code-verification/deaf97782e74e8dc827d7c9a.png"
+		},
+		{
+			"kind": "image",
+			"caption": "단위 테스트는 시간 초과만 알려 주지만, E2E 테스트는 어느 단계에서 왜 막혔는지 화면과 함께 보여 줍니다(claude.dev).",
+			"url": "/blog/2026-11-18-claude-code-verification/7e575bc92e3d537a62f3df45.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Claude Code 팀이 글에서 소개한 검증 장치를 표로 정리했습니다(claude.dev).",
+			"url": "/blog/2026-11-18-claude-code-verification/547bc8201b480dfa4dc8e2aa.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-18-claude-code-verification",
+		"bodySha256": "c9c8c4b4cb41acc44623e034c80d0ae91880fa58d6b56260e1e8ef6ec86c3246",
+		"source": "dashboard",
+		"savedAt": "2026-11-18T00:26:26.266+00:00"
+	}
+}
