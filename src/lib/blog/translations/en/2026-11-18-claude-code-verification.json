@@ -1,0 +1,279 @@
+{
+  "slug": "2026-11-18-claude-code-verification",
+  "title": "How the Claude Code team verifies code when Claude writes 90% of it",
+  "description": "On November 16 (US time), Anthropic's Claude Code team published how it verifies its own work. The post, written by Addy Osmani on the claude.dev blog, opens with a striking number: about 90% of the Claude Code team's code is written and reviewed by Claude.",
+  "publishedAt": "2026-11-18T04:19:23.973Z",
+  "updatedAt": "2026-11-18T00:26:26.266+00:00",
+  "readingMinutes": 4,
+  "tags": [],
+  "cover": {
+    "src": "/blog/2026-11-18-claude-code-verification/deaf97782e74e8dc827d7c9a.png",
+    "width": 1600,
+    "height": 900,
+    "thumb": {
+      "src": "/blog/2026-11-18-claude-code-verification/deaf97782e74e8dc827d7c9a.png",
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/blog/2026-11-18-claude-code-verification/en/2026-11-18-claude-code-verification-cover.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Cover with the Claude logo and Claude Code's Clawd character (Anthropic).",
+      "caption": [
+        {
+          "text": "Cover with the Claude logo and Claude Code's Clawd character (Anthropic)."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "On November 16 (US time), Anthropic's Claude Code team published how it verifies its own work. The post, written by Addy Osmani on the claude.dev blog, opens with a striking number: about 90% of the Claude Code team's code is written and reviewed by Claude."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "So the team's question is what to trust when no person can read every change. The post's answer is verification loops. Only when agents can prove their work with evidence can you run dozens or hundreds of Claudes at once instead of one or two. In internal testing, having a separate grader check Claude's output against a rubric improved task success by up to 10 points over a standard prompting loop."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The post drew more than 1.51 million views and 13,000 likes from the @ClaudeDevs account on X, and 254 points and 197 comments on Hacker News."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Verification starts with running the app, not with tests.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The first thing the post stresses is actually running the changed app. Just as you would not ship an iOS change without trying it in a simulator, Claude should not either. Web changes go through the Claude Chrome extension, mobile through an iOS or Android MCP, desktop through computer use, and backend work by running the service locally."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The method is simple. How to boot and drive the app is written down as a skill called verify in the repository's .claude/skills/ folder, and Claude uses it before committing. The team says it puts real effort into making that skill fast and reliable, and that this is how nearly all changes at Anthropic are tested."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The post names three kinds of tests. If you pick only one, pick end-to-end tests. They follow real user flows such as adding an item to a cart, checking out and reaching a confirmation page, so the feature either works or it does not, which makes them hard to fool. Unit tests can pass while the feature is broken."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-11-18-claude-code-verification/en/figA.png",
+      "width": 1999,
+      "height": 1093,
+      "alt": "A unit test reports only a timeout, while an end-to-end test shows which step failed and why, with a screenshot (claude.dev).",
+      "caption": [
+        {
+          "text": "A unit test reports only a timeout, while an end-to-end test shows which step failed and why, with a screenshot (claude.dev)."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The other two are property tests and differential tests. A property test states something that must never break, such as \"encode then decode returns the original\" or \"a balance can never go negative,\" and a library generates thousands of inputs to try to break it. Its edge cases are not created with the same bias as the agent that wrote the code. A differential test feeds the same inputs to the old and new systems and treats any difference as a bug, which is especially useful for large migrations."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "After three failed fix attempts, Claude stops and calls a human.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Since nobody can read every change, failed checks decide where people look. Claude runs the checks and fixes what fails; if a check is still failing after three rounds, it stops and brings in a human. The code owners write the checks themselves, and a check that pulls in a reviewer has to say why, so the reviewer does not have to work it out from the diff."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Past incidents live on as a checklist. The reliability checklist has 39 items, each with a trigger that can be read from a diff, a check, and the incidents or PRs behind it. For example, when session storage changes, the item asks whether --resume can still load old transcripts. Claude checks only the items whose trigger matches the diff, usually 3 to 10, so nobody has to memorize past outages."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-11-18-claude-code-verification/en/tools-en-blog.png",
+      "width": 2400,
+      "height": 1236,
+      "alt": "The verification tools described in the Claude Code team's post, summarized as a table (claude.dev).",
+      "caption": [
+        {
+          "text": "The verification tools described in the Claude Code team's post, summarized as a table (claude.dev)."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "A change cannot modify the checks that judge it.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "This is the principle worth noting most. If a change can modify the check that judges it, the post says, the check is broken. So REVIEW.md, which holds the review rules, is read from the base branch, never from the version inside the pull request. It blocks, by design, an agent passing a test by editing the test."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The team also prefers running one reviewer for several rounds over stacking more reviewers. Tuning the primary reviewer beats adding a second, more expensive one, and each round builds on earlier rounds and past failures instead of re-checking from scratch. If someone pushes during a review, the result is discarded, since a passing review on an out-of-date commit means nothing."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Commits carry safeguards as well. Each commit is stamped with how it was verified, and \"none\" is one of the values, so unverified commits can be queried. A commit gate can block a commit if the session never ran /code-review or /verify. It has off, observe and enforce modes, and a new gate starts in observe mode, logging what it would have blocked so false positives can be reviewed. If commits are blocked twice in one session, the third is allowed through so Claude does not get stuck; Claude Code isn't perfect, the post notes."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Missed bugs become rules, and rules get pruned.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Reviewers are graded too, using changes reverted after merging, changes a maintainer rejected before merging, and a size-matched set of changes that stayed clean. Missed bugs become rules in two ways. Patterns are extracted from human review comments and reverted PRs, but a candidate must appear in at least two PRs and be identifiable from a diff. Three agents then try to disprove it, and a human approves it in a PR."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Flaky tests have a rule as well. Claude cannot skip them, add sleeps or retry until they pass; if it cannot find the root cause, it deletes the test and writes down why. Test suites, verification steps and .md files only grow if left alone, so the team tidies them up on a routine."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "In September, in "
+        },
+        {
+          "text": "a post on code review in the AI era",
+          "href": "https://zeroone-dev.medium.com/ai-%EC%8B%9C%EB%8C%80-%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C-cc19b677bf1b"
+        },
+        {
+          "text": " (in Korean), I suggested checking results directly with Playwright and adding gates the AI cannot fool. What the Claude Code team actually runs extends that idea. The difference is that it has hardened it into skills, checklists and commit gates that work without anyone having to remember them."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The post closes by saying this shifts the human job from reading every diff to defining what \"done\" looks like and reviewing the evidence. As handing tests and verification to agents gets cheaper, a team's strength will likely come down to how well it builds and maintains its verification tools."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+          "href": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/"
+        }
+      ]
+    }
+  ],
+  "language": "en",
+  "translationOf": "2026-11-18-claude-code-verification",
+  "sourceSha256": "6495b016d6e990b3341e59d1fae2339b665f372d06df209ed4fd84e2bc31ba0a",
+  "sourceUpdatedAt": "2026-11-18T00:26:26.266+00:00",
+  "review": {
+    "status": "approved",
+    "approvedBy": "송찬우 (ZerOne)",
+    "approvedAt": "2026-11-18T03:30:44.8098Z"
+  },
+  "provenance": {
+    "writer": "Claude Opus",
+    "artifact": "drafts/english-blog/2026-11-18/2026-11-18-claude-code-verification.en.v1.md"
+  },
+  "useLocalizedCover": true,
+  "localizedMedia": {
+    "review": {
+      "status": "approved",
+      "approvedBy": "송찬우 (ZerOne)",
+      "approvedAt": "2026-11-18T03:30:44.8098Z"
+    },
+    "images": [
+      {
+        "source": "/blog/2026-11-18-claude-code-verification/deaf97782e74e8dc827d7c9a.png",
+        "translated": "/blog/2026-11-18-claude-code-verification/en/2026-11-18-claude-code-verification-cover.png",
+        "sourceSha256": "deaf97782e74e8dc827d7c9a722f0f59d73bbe895633d2295498f52f448a45e0",
+        "translatedSha256": "6815bbba3f8e55e86bde517af46264765cc24ee7d18800a19581776688b124a1"
+      },
+      {
+        "source": "/blog/2026-11-18-claude-code-verification/7e575bc92e3d537a62f3df45.png",
+        "translated": "/blog/2026-11-18-claude-code-verification/en/figA.png",
+        "sourceSha256": "7e575bc92e3d537a62f3df4503f64025f485e3f41a1816c9ff078ff9970e6515",
+        "translatedSha256": "3c9c60f4b0696a20f33ef62b6ddcb99c322fd19c440c28de234a6c804f7912a4"
+      },
+      {
+        "source": "/blog/2026-11-18-claude-code-verification/547bc8201b480dfa4dc8e2aa.png",
+        "translated": "/blog/2026-11-18-claude-code-verification/en/tools-en-blog.png",
+        "sourceSha256": "547bc8201b480dfa4dc8e2aaa6b14a43e725b6a9b6381ee1db0e2c7c14020d0d",
+        "translatedSha256": "2fada78c7c6b6de29a1447c918b6249efeda152aeaac96b680a8af69fbc1b404"
+      }
+    ]
+  },
+  "translationPublishedAt": "2026-11-18T04:22:00Z"
+}
