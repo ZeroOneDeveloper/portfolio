@@ -1,0 +1,331 @@
+{
+	"slug": "2026-11-19-gemini-4-neon",
+	"title": "Google, Gemini 4 Carbon보다 높은 점수를 낸 Gemini 4 Neon 출시",
+	"description": "구글이 Gemini 4 Neon을 공개했고, Artificial Analysis 지수에서 Gemini 4 Carbon보다 높은 61.4점을 받았지만 과제당 비용과 시간은 GPT-6.2 Astra보다 큽니다.",
+	"publishedAt": "2026-11-20T04:05:02.280Z",
+	"updatedAt": "2026-11-19T02:46:51.426+00:00",
+	"readingMinutes": 5,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-19-gemini-4-neon/16913a15c0739057219cbd68.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-19-gemini-4-neon/16913a15c0739057219cbd68.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-19-gemini-4-neon/16913a15c0739057219cbd68.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "Gemini 4 Neon(구글).",
+			"caption": [
+				{
+					"text": "Gemini 4 Neon(구글)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "미국 현지 시간 11월 18일(한국 시간 11월 19일 오전 6시) 구글이 "
+				},
+				{
+					"text": "Gemini 4 Neon",
+					"href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+				},
+				{
+					"text": "을 공개했습니다. 9월 30일 Gemini 4 Argon, 10월 28일 Gemini 4 Carbon, 11월 12일 Gemini 4 Hydrogen에 이은 Gemini 4 시리즈의 네 번째 모델이에요. 어려운 장기 작업은 Carbon, 빠른 일상 작업은 Hydrogen이 맡고, Neon은 그 사이에서 깊이와 효율을 맞춘 모델이라고 구글은 설명했습니다. "
+				},
+				{
+					"text": "구글이 공개한 기술 문서",
+					"href": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Neon-Model-Card.pdf"
+				},
+				{
+					"text": "에 따르면 Carbon을 바탕으로 만들었고, 문맥은 100만 토큰, 지식은 2026년 3월까지입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "11월 19일 기준으로 발표 글은 "
+				},
+				{
+					"text": "해커뉴스",
+					"href": "https://news.ycombinator.com/item?id=50552424"
+				},
+				{
+					"text": "에서 492점에 댓글 454개를 받았고, Google의 Logan Kilpatrick이 올린 "
+				},
+				{
+					"text": "X 글",
+					"href": "https://x.com/OfficialLoganK/status/2123167791922741362"
+				},
+				{
+					"text": "은 좋아요 9,377개를 기록했습니다. 해커뉴스에는 이름만 봐서는 어느 모델이 위인지 모르겠다는 댓글과, 더 싸고 점수도 높으면 Carbon은 어떻게 되는 거냐는 댓글이 함께 올라왔어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "가장 높은 설정에서는 Gemini 4 Carbon보다 1.4점 높습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Artificial Analysis",
+					"href": "https://artificialanalysis.ai/models/gemini-4-neon"
+				},
+				{
+					"text": "가 직접 잰 Intelligence Index v5.0.1에서 Neon은 가장 높은 설정인 xhigh로 61.4점을 받았습니다. Carbon의 최고 설정인 high는 60.0점이에요. 과제 하나에 걸린 평균 시간도 Neon(xhigh)이 21.5분으로 Carbon(high)의 37.2분보다 짧습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "기본값인 high에서도 차이는 작습니다. Neon(high)은 59.6점으로 Carbon(high)보다 0.4점 낮지만 시간은 14.8분으로 약 40%입니다. 모델별 최고 점수로 줄을 세우면 Claude Fable 5.2(64.6점), GPT-6.2 Astra(62.1점) 다음인 3위예요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글 비교표에는 GPT-6.2 Astra가 없습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글은 Neon을 Claude Opus 5.5, GPT-6.2 Sol과 비교했고, Neon보다 점수가 높은 모델은 더 크고 느린 모델이라고 밝혔습니다. Claude Fable 5.2에는 맞는 말이에요. 최고 설정에서 과제당 26.54달러(약 3만 5천 원)와 41.6분을 썼습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "GPT-6.2 Astra는 다릅니다. xhigh 설정에서 61.6점으로 Neon(xhigh)과 거의 같은데, 과제당 비용은 2.52달러(약 3,400원)로 Neon의 6.44달러(약 8,600원)의 39%이고 시간은 7.4분으로 약 3분의 1입니다. 토큰 값은 Astra가 Neon의 2.7배인데도 과제당 비용이 더 적어요. GPT-6.2 Sol(max)은 57.3점으로 점수는 낮지만 1.01달러(약 1,300원)에 8.5분이면 끝납니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-19-gemini-4-neon/afae3a1d1d9813aacdbf8b41.png",
+			"width": 2400,
+			"height": 1010,
+			"alt": "모델별 지수, 과제당 비용과 소요 시간(Artificial Analysis).",
+			"caption": [
+				{
+					"text": "모델별 지수, 과제당 비용과 소요 시간(Artificial Analysis)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "12월부터는 Gemini 4 Carbon보다 토큰 값이 낮습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Neon의 "
+				},
+				{
+					"text": "API 값",
+					"href": "https://aistudio.google.com/docs/pricing"
+				},
+				{
+					"text": "은 100만 토큰당 입력 3달러(약 4,000원), 출력 15달러(약 2만 원)이고, 캐시된 입력은 0.15달러(약 200원)입니다. 배치 처리는 입력 1.50달러(약 2,000원), 출력 7.50달러(약 1만 원)로 절반이에요. Gemini API 무료 등급에서는 쓸 수 없습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "11월 30일까지는 토큰 값만 보면 Carbon이 더 낮습니다. Carbon은 도입가로 입력 2달러(약 2,700원), 출력 10달러(약 1만 3천 원)이고, 12월 1일부터 입력 4달러(약 5,300원), 출력 20달러(약 2만 7천 원)로 오르기 때문이에요. 그때부터 토큰 값은 Neon이 25% 낮습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글은 Neon(high)의 과제당 비용이 Carbon보다 32% 낮다고 밝혔습니다. Artificial Analysis가 지금 표시하는 Carbon(high)의 7.76달러(약 1만 300원)는 12월 값으로 계산한 것이라, Neon(high)의 3.74달러(약 5,000원)와 비교하면 52% 낮아요. 구글의 32%는 지난 11월 13일에 도입가 기준으로 표시되던 Carbon의 5.48달러(약 7,300원)와 비교한 값과 일치합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-19-gemini-4-neon/9fe118448bbed6b7586e5f92.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "구글이 정리한 Gemini 4 Carbon, Neon, Hydrogen의 용도와 값, 이용 경로입니다(구글).",
+			"caption": [
+				{
+					"text": "구글이 정리한 Gemini 4 Carbon, Neon, Hydrogen의 용도와 값, 이용 경로입니다(구글)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글이 고른 벤치마크 16개 중 13개에서 가장 높았습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "사이버 보안을 뺀 구글 벤치마크 16개에서 Neon은 13개에서 Claude Opus 5.5와 GPT-6.2 Sol보다 높았습니다. Zapier의 AutomationBench는 56.3%로 Opus 5.5(42.5%)보다 13.8포인트 높고, 100만 토큰까지 긴 문맥을 다루는 GraphWalks는 95.2%로 Sol(80.1%)보다 15.1포인트 높아요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "낮은 점수를 기록한 곳은 세 개입니다. Terminal-Bench 4.1(65.2% 대 65.8%)과 FrontierCode 2.0(46.2% 대 47.3%)은 Opus 5.5가, 차트를 읽는 Chartography(73.5% 대 75.1%)는 Sol이 더 높았어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "SWE-sweep은 나눠서 봐야 합니다. 구글 코딩 도구 Antigravity에서 돌린 Neon은 39.0%이지만, 모델이 같은 조건으로 도는 mini-SWE에서는 12.8%로 Sol의 11.6%와 1.2포인트 차이입니다. 39.0%에는 모델뿐 아니라 Antigravity의 효과도 들어 있어요."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-19-gemini-4-neon/7a1791376aa1dbc8e2a923eb.png",
+			"width": 2400,
+			"height": 2130,
+			"alt": "벤치마크 16개에서의 모델별 성적(구글).",
+			"caption": [
+				{
+					"text": "벤치마크 16개에서의 모델별 성적(구글)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Antigravity에서는 Neon이 Hydrogen 에이전트들을 지휘합니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글은 Neon을 혼자 쓰는 것 말고도, Antigravity에서 Gemini 4 Hydrogen 하위 에이전트 여러 개에 일을 나눠 주는 Orchestrator로 쓸 수 있다고 밝혔습니다. 지난 "
+				},
+				{
+					"text": "‘Gemini 4 Hydrogen이 Gemini 4 Argon보다 높은 점수를 절반도 안 되는 비용에 냈습니다’",
+					"href": "https://www.zero0ne.dev/blog/2026-11-13-gemini-4-hydrogen"
+				},
+				{
+					"text": "에서 소개했던, 계획은 큰 모델이 맡고 실행은 빠른 모델이 맡는 구성에 선택지가 하나 늘어난 셈입니다. Antigravity와 Gemini 앱에서 Neon을 쓰려면 유료인 Google AI Pro 또는 Ultra 구독이 필요해요."
+				}
+			]
+		},
+		{
+			"type": "bookmark",
+			"href": "https://www.youtube.com/watch?v=KgLLa4WhMSo",
+			"title": "Gemini 4 Neon으로 재현한 앨런 튜링의 연구실(구글)"
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "전체 안전 보고서는 아직 나오지 않았습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "같은 문서에 따르면 전체 안전 보고서는 며칠 안에 나옵니다. 구글은 Gemini 4 Argon보다 능력이 늘어난 폭이 자체 기준보다 작아서 위험 능력 평가를 전부 다시 하지는 않았고, Argon의 평가 결과를 이어 쓴다고 밝혔어요. 사이버 공격과 생물 위협 항목은 위험 기준에 닿았을 가능성을 배제할 수 없다는 판단을 유지했고, 그에 맞는 보호 조치를 적용합니다. 문제없는 질문을 거절하는 비율은 Hydrogen보다 3포인트 낮습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Neon이 나오면서 Gemini 4는 7주 만에 모델이 넷이 됐습니다. 12월에 Carbon 값이 오르면 Carbon을 고를 이유는 더 좁아질 것 같습니다. 다만 과제당 비용과 시간은 GPT-6.2 Astra와 Sol이 더 적어서, Neon은 이미 구글 도구를 쓰는 팀에게 더 맞는 선택일 듯싶습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+					"href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "Gemini 4 Neon(구글).",
+			"url": "/blog/2026-11-19-gemini-4-neon/16913a15c0739057219cbd68.png"
+		},
+		{
+			"kind": "image",
+			"caption": "모델별 지수, 과제당 비용과 소요 시간(Artificial Analysis).",
+			"url": "/blog/2026-11-19-gemini-4-neon/afae3a1d1d9813aacdbf8b41.png"
+		},
+		{
+			"kind": "image",
+			"caption": "구글이 정리한 Gemini 4 Carbon, Neon, Hydrogen의 용도와 값, 이용 경로입니다(구글).",
+			"url": "/blog/2026-11-19-gemini-4-neon/9fe118448bbed6b7586e5f92.png"
+		},
+		{
+			"kind": "image",
+			"caption": "벤치마크 16개에서의 모델별 성적(구글).",
+			"url": "/blog/2026-11-19-gemini-4-neon/7a1791376aa1dbc8e2a923eb.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-19-gemini-4-neon",
+		"bodySha256": "1b698e54714a2381366286bda4d834b6368119f0c7aea6d8092f8885fdeca7cd",
+		"source": "dashboard",
+		"savedAt": "2026-11-19T02:46:51.426+00:00"
+	}
+}
