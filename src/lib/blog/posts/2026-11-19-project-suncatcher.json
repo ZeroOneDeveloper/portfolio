@@ -1,0 +1,207 @@
+{
+	"slug": "2026-11-19-project-suncatcher",
+	"title": "구글, 2029년 랙 규모 TPU 위성을 쏘아 올릴 계획입니다",
+	"description": "구글의 궤도 TPU 실험은 단일 위성의 추론을 확인했고, 다음에는 두 위성 연결과 랙 규모 위성 발사를 순서대로 시험합니다.",
+	"publishedAt": "2026-11-20T11:03:35.385Z",
+	"updatedAt": "2026-11-19T14:26:14.427+00:00",
+	"readingMinutes": 3,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-19-project-suncatcher/420e9bb6024b320551f076e7.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-19-project-suncatcher/420e9bb6024b320551f076e7.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-19-project-suncatcher/420e9bb6024b320551f076e7.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "구글의 우주 AI 인프라 연구 프로젝트 Suncatcher",
+			"caption": [
+				{
+					"text": "구글의 궤도 AI 인프라 연구, Project Suncatcher (블루오리진 공식 발표)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글이 데이터센터 랙 한 대에 해당하는 연산 용량을 위성 한 기에 싣는 실험을 준비하고 있습니다. 블루오리진은 11월 19일(미국 현지, 한국 11월 19일 오후 10시 공식 X 공지) "
+				},
+				{
+					"text": "구글과 New Glenn 발사 계약을 맺었다고 발표했습니다",
+					"href": "https://www.blueorigin.com/news/google-selects-new-glenn-for-project-suncatcher"
+				},
+				{
+					"text": ". 발사 목표는 2029년 1분기입니다. Project Suncatcher의 첫 전용 중량급 발사로, 여러 위성을 태양동기궤도에 올리는 임무입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "여기서 랙 한 대는 위성 한 기의 연산 용량을 설명하는 단위입니다. 지상의 데이터센터 한 동을 우주에 올린다는 뜻도, 위성 여러 기가 이미 하나의 컴퓨터처럼 작동한다는 뜻도 아닙니다. 발표에는 탑재할 위성 수나 사용자가 요청을 보낼 수 있는 시점, 지상 데이터센터와 비교한 운영 비용이 나오지 않았습니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "10월에 확인한 건 위성 한 기가 답을 보내올 수 있다는 겁니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글은 Planet과 만든 시제 위성을 10월 1일(미국 현지, 한국 10월 2일 오전 8시 30분 공식 발표) "
+				},
+				{
+					"text": "SpaceX의 Transporter-18에 실어 발사했습니다",
+					"href": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/"
+				},
+				{
+					"text": ". 이후 전원을 켜고 초기 시험을 거쳤습니다. 10월 30일(미국 현지, 한국 10월 31일 오전 2시)에는 "
+				},
+				{
+					"text": "궤도에서 첫 AI 응답을 받았다고 밝혔습니다",
+					"href": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/"
+				},
+				{
+					"text": ". 지상국에서 우주에 관한 하이쿠를 써 달라고 보냈고, 위성의 TPU에서 생성한 답이 노르웨이 스발바르 인근을 지날 때 지상으로 돌아왔습니다. "
+				},
+				{
+					"text": "구글이 공개한 시연 영상",
+					"href": "https://www.youtube.com/watch?v=epqzfAi16us"
+				},
+				{
+					"text": "에서 이 과정을 볼 수 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "실험은 지상에서 보낸 요청을 위성이 받아 모델을 실행하고, 그 결과를 다시 보낼 수 있다는 걸 확인했습니다. 위성이 한 번 지상국을 지날 때 응답을 받는 것과 여러 사용자의 요청을 꾸준히 처리하는 건 다릅니다. 장시간 연속 가동 결과나 반복 시험에서 요청이 얼마나 안정적으로 처리됐는지는 이 발표에 없습니다. 구글은 궤도에서 열과 방사선이 TPU에 미치는 영향을 계속 시험하겠다고 밝혔습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-19-project-suncatcher/cde56d0d26ce82417ffc3af3.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "2026년 위성 한 기의 첫 응답, 2027년 위성 두 기 연결 목표, 2029년 1분기 전용 발사 목표를 나란히 놓은 일정",
+			"caption": [
+				{
+					"text": "2026년에는 단일 위성의 응답을 받았습니다. 2027년의 위성 간 연결과 2029년 1분기의 전용 발사는 아직 목표입니다 (구글, 블루오리진 발표)."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "위성 수를 늘려도 계산이 그만큼 빨라지지는 않습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글이 2027년에 하려는 건 위성 두 기를 연결하는 일입니다. 모델 학습처럼 칩 여러 개가 계산 중간에 데이터를 주고받는 작업에서는 칩 성능만큼이나 통신이 중요합니다. 데이터가 오기를 기다리는 동안에는 계산을 진행하지 못하기 때문입니다. 위성 여러 기에 독립적인 요청을 나눠 보내는 것과, 같은 학습 작업을 위성 여러 기에 걸쳐 돌리는 것은 그래서 다른 문제입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "구글 연구진의 논문",
+					"href": "https://arxiv.org/abs/2511.19468v2"
+				},
+				{
+					"text": "은 위성 81기를 반경 1km 안에서 운용하는 배치를 예로 들었습니다. 짧은 거리에서 상용 부품을 쓴 지상 광통신 실험은 한 방향 800Gbps, 양방향 합계 1.6Tbps를 기록했습니다. 81기는 배치 연구에 쓰인 숫자이지 New Glenn이 싣고 갈 위성 수가 아닙니다. 1.6Tbps 역시 실제 위성 두 기가 궤도에서 유지한 속도가 아닙니다. 움직이는 두 위성이 서로를 정확히 조준하며 얼마나 오래 통신할 수 있는지, 연결이 끊겼을 때 작업을 어떻게 이어 가는지는 따로 확인해야 합니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "햇빛을 더 오래 받아도 열은 밖으로 내보내야 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "특정 태양동기궤도에서는 태양광 패널이 햇빛을 거의 계속 받을 수 있습니다. 논문이 이 궤도를 검토한 이유입니다. 하지만 진공에서는 공기를 흘려보내 열을 식힐 수 없습니다. "
+				},
+				{
+					"text": "구글은 칩의 열을 히트파이프로 옮겨 방열판을 통해 복사로 내보내는 방식을 검토하고 있습니다",
+					"href": "https://blog.google/innovation-and-ai/models-and-research/google-research/google-project-suncatcher-facts/"
+				},
+				{
+					"text": ". 처리량을 높이는 데 필요한 전력뿐 아니라 그만큼의 열을 버릴 수 있는지도 맞아야 합니다. 방열판과 전력 설비를 키우면 발사할 무게도 늘어납니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "지상에선 랙에서 고장 난 부품을 바꿀 수 있지만 궤도에서는 같은 방식으로 대응할 수 없습니다. 한 기가 멈췄을 때 나머지 위성이 작업을 이어 가는지, 결과를 지상으로 보낼 통신이 얼마나 자주 열리는지도 실제로 제공할 수 있는 연산량을 바꿉니다. 결국 비용도 발사비나 태양광 발전량 하나로 판단하기는 어렵습니다. 위성이 가동되는 동안 얼마나 많은 작업을 완료하는지까지 같이 봐야 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "2029년 발사 계약은 더 큰 위성을 시험할 기회를 마련했다는 데 의미가 있습니다. 그 전에 2027년의 두 위성이 얼마나 안정적으로 데이터를 주고받는지가 더 직접적인 단서가 될 듯싶습니다. 위성 한 기가 답을 보낸 다음에는, 연결된 위성들이 얼마나 오랫동안 함께 계산할 수 있는지가 남습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "블루오리진 원문",
+					"href": "https://www.blueorigin.com/news/google-selects-new-glenn-for-project-suncatcher"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "구글의 궤도 AI 인프라 연구, Project Suncatcher (블루오리진 공식 발표).",
+			"url": "/blog/2026-11-19-project-suncatcher/420e9bb6024b320551f076e7.png"
+		},
+		{
+			"kind": "image",
+			"caption": "2026년에는 단일 위성의 응답을 받았습니다. 2027년의 위성 간 연결과 2029년 1분기의 전용 발사는 아직 목표입니다 (구글, 블루오리진 발표).",
+			"url": "/blog/2026-11-19-project-suncatcher/cde56d0d26ce82417ffc3af3.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-19-project-suncatcher",
+		"bodySha256": "b0e6a32e249e6751449c293869a46c42e7282cecf466c1ef6d0d79e740d32922",
+		"source": "dashboard",
+		"savedAt": "2026-11-19T14:26:14.427+00:00"
+	}
+}
