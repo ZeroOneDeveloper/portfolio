@@ -1,0 +1,201 @@
+{
+	"slug": "2026-11-20-performance-factory",
+	"title": "OpenAI는 ChatGPT 모델이 느려지면 Codex가 고칩니다",
+	"description": "OpenAI의 Performance Factory는 Codex의 성능 저하 진단과 엔지니어의 배포 결정을 분리하고, 배포 뒤 영향을 받은 지표를 다시 확인합니다.",
+	"publishedAt": "2026-11-23T05:35:10.033+00:00",
+	"updatedAt": "2026-11-23T05:20:17.137149+00:00",
+	"readingMinutes": 3,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-20-performance-factory/1d1096bcf2622b036ab4832d.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-20-performance-factory/1d1096bcf2622b036ab4832d.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-20-performance-factory/1d1096bcf2622b036ab4832d.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "경보에서 조사와 검증으로 이어지는 Performance Factory 흐름도",
+			"caption": [
+				{
+					"text": "OpenAI Performance Factory"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "ChatGPT에서 답변이 평소보다 느리게 나온다면, 어디부터 봐야 할까요? 모델이 느려졌을 수도 있지만, 원래 오래 걸리는 요청이 평소보다 많이 들어왔을 수도 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI는 ChatGPT가 느려지면 Codex에 원인 조사를 맡깁니다. 이때 쓰는 내부 시스템을 ‘Performance Factory’라고 부릅니다. OpenAI는 11월 19일 이 시스템을 공개했고, Codex는 원인을 찾은 뒤 수정안을 제안해요. 그 수정안을 실제 ChatGPT에 적용할지는 엔지니어가 결정합니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "같은 종류의 요청끼리 비교합니다"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "먼저 언제부터 어떤 요청이 느려졌는지 확인합니다. 예를 들어 전체 평균이 나빠졌다면, Codex는 비슷한 요청끼리 모아서 봐요. 같은 종류의 요청이 전보다 오래 걸린 건지, 시간이 오래 걸리는 요청의 비중만 높아진 건지 구분하기 위해서입니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "첫 번째 Codex가 찾은 원인을 두 번째 Codex가 확인합니다"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "처음에는 Codex가 그럴듯한 설명 하나를 찾고 조사를 끝내기도 했습니다. 그래서 OpenAI는 별도의 Codex 세션을 열어 첫 설명이 틀렸을 가능성을 살펴보게 했어요. 새로 적용했던 코드가 원인이라면, 그 코드가 적용되지 않은 비슷한 요청은 여전히 빨랐는지 확인하는 식입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "실제로 이미지 요청이 실패한 사례에서 첫 번째 조사는 파일 위치를 찾는 내부 서비스를 원인으로 봤습니다. 그런데 그 서비스가 복구된 뒤에도 이미지 요청은 계속 실패했어요. 두 번째 검토에서 이 사실을 발견해 조사를 다시 시작했습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-20-performance-factory/4f3599c0592194a4d27d51fa.png",
+			"width": 1400,
+			"height": 525,
+			"alt": "성능 경보 뒤 Codex가 원인을 조사하고 별도 검토를 거쳐 수정안을 제안합니다. 엔지니어가 검토 및 배포하면 Codex가 지표의 회복 여부를 확인합니다.",
+			"caption": [
+				{
+					"text": "성능 저하 조사와 수정안 작성은 Codex, 검토와 배포 결정은 엔지니어, 배포 뒤 회복 검증은 다시 Codex가 맡습니다. (출처)"
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "고친 뒤에는 느려졌던 요청을 다시 봅니다"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "엔지니어가 수정안을 검토해 배포하면, Codex는 문제가 있던 요청이 다시 빨라졌는지 확인합니다. 개선이 없으면 같은 문제를 다시 조사해요. 코드가 배포됐다는 것만으로는 문제가 해결됐다고 보지 않습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI는 3개월 남짓 동안 조사 1,700건 이상을 추적했고, 600건 넘는 사례에서 원인을 찾았다고 밝혔습니다. 사람이 따로 살펴본 원인 제안 100건 가운데 정확하다고 평가한 건 70건이었어요. Codex가 문제를 600건 고쳤거나 70%를 자동으로 해결했다는 뜻은 아닙니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "배포 후 문제가 사라졌는지까지 확인해야 합니다"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "저희가 만들어가는 AXIT 플랫폼에서도 Sentry라는 모니터링 및 오류 추적 서비스를 쓰는데요. Sentry에서 오류가 잡히면 곧바로 수정에 착수합니다. AI가 원인을 조사하고 수정안을 만들면 엔지니어가 변경 내용을 확인한 뒤 배포합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-20-performance-factory/0529e15ff4fb5872c777c0ad.png",
+			"width": 1600,
+			"height": 790,
+			"alt": "오류를 감지하면 AI가 원인을 조사해 수정안을 제안하고, 엔지니어가 검토하여 배포합니다. 배포 후 같은 요청을 다시 실행하고, 문제가 남으면 재조사합니다.",
+			"caption": [
+				{
+					"text": "AI가 돕는 장애 대응 루프"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이런 절차를 만들려면 알림이 올 때 오류가 난 요청과 배포 버전을 작업에 함께 남겨 두는 것부터 시작하면 됩니다. AI는 그 기록을 바탕으로 원인을 찾고 수정안과 테스트를 제안합니다. 오류 알림과 별개로, 주요 화면이나 API가 잘 열리는지 주기적으로 확인하려면 AWS CloudWatch Synthetics 같은 도구를 쓸 수 있습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "배포 뒤에는 문제가 났던 요청을 다시 실행합니다. 오류가 재현되는지, 응답 시간은 평소 수준으로 돌아왔는지 확인해요. 문제가 남아 있으면 작업을 닫지 않고 다시 조사합니다. AI에게 수정안을 만드는 일만 맡기는 것보다, 배포가 끝난 뒤 실제로 문제가 사라졌는지까지 확인하는 절차를 만드는 게 중요합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI 기술 블로그",
+					"href": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "OpenAI Performance Factory",
+			"url": "/blog/2026-11-20-performance-factory/1d1096bcf2622b036ab4832d.png"
+		},
+		{
+			"kind": "image",
+			"caption": "성능 저하 조사와 수정안 작성은 Codex, 검토와 배포 결정은 엔지니어, 배포 뒤 회복 검증은 다시 Codex가 맡습니다. (출처)",
+			"url": "/blog/2026-11-20-performance-factory/4f3599c0592194a4d27d51fa.png"
+		},
+		{
+			"kind": "image",
+			"caption": "AI가 돕는 장애 대응 루프",
+			"url": "/blog/2026-11-20-performance-factory/0529e15ff4fb5872c777c0ad.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-20-performance-factory",
+		"bodySha256": "b3443f679cdc215e2f7846ee0b0f40733cd7a2c1bf2ac3eb9659f46e65e219a5",
+		"source": "dashboard",
+		"savedAt": "2026-11-23T05:20:17.137149+00:00"
+	}
+}
