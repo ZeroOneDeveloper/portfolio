@@ -1,0 +1,351 @@
+{
+  "slug": "2026-11-18-code-review-bottleneck",
+  "title": "Pull requests took 56% longer to merge at companies that adopted coding agents",
+  "description": "Harvard PhD candidates Fiona Chen and James Stratton posted a revised version of their paper on AI in software companies, dated November 14. It draws on 445 million work events from 720,542 workers at 655 firms between January 2021 and August 2026. The data comes from Jellyfish, an engineering analytics platform, and covers GitHub activity, Jira issues and Google Calendar.",
+  "publishedAt": "2026-11-24T01:48:01.416Z",
+  "updatedAt": "2026-11-19T02:12:55.521+00:00",
+  "readingMinutes": 4,
+  "tags": [],
+  "cover": {
+    "src": "/blog/2026-11-18-code-review-bottleneck/94ce76d2f75be89553449c35.png",
+    "width": 1600,
+    "height": 900,
+    "thumb": {
+      "src": "/blog/2026-11-18-code-review-bottleneck/94ce76d2f75be89553449c35.png",
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/blog/2026-11-18-code-review-bottleneck/94ce76d2f75be89553449c35.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Cover photo: Kenneth C. Zirkel, Wikimedia Commons (CC BY 4.0). Cropped and darkened, with logos of tools covered by the paper added.",
+      "caption": [
+        {
+          "text": "Cover photo: Kenneth C. Zirkel, "
+        },
+        {
+          "text": "Wikimedia Commons",
+          "href": "https://commons.wikimedia.org/wiki/File:Widener_Library,_Harvard_University.jpg"
+        },
+        {
+          "text": " ("
+        },
+        {
+          "text": "CC BY 4.0",
+          "href": "https://creativecommons.org/licenses/by/4.0"
+        },
+        {
+          "text": "). Cropped and darkened, with logos of tools covered by the paper added."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Harvard PhD candidates Fiona Chen and James Stratton posted a revised version of their paper on AI in software companies, dated November 14. It draws on 445 million work events from 720,542 workers at 655 firms between January 2021 and August 2026. The data comes from Jellyfish, an engineering analytics platform, and covers GitHub activity, Jira issues and Google Calendar."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Twelve months after firms adopted coding agents, pull requests per worker were up 35.7%. Jira issues resolved through deployment rose only 13.7%, and that estimate was not statistically significant. The time from submitting a pull request to merging it grew by 1.99 days over a 3.56-day baseline, or 56.1%. The authors conclude that code review has become the bottleneck."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "I wrote about "
+        },
+        {
+          "text": "code review in the AI era",
+          "href": "https://zeroone-dev.medium.com/ai-%EC%8B%9C%EB%8C%80-%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C-cc19b677bf1b"
+        },
+        {
+          "text": " in September. This paper puts numbers on that problem across 655 companies. An article about the research drew 171 points and 232 comments on Hacker News on November 17."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Code went up. Finished work did not keep pace.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The paper separates coding assistants such as GitHub Copilot and Cursor from coding agents such as Claude Code. It uses differences in when firms adopted each tool, comparing earlier adopters with firms that had not adopted yet. The agent estimates are the added effect on top of assistants."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-11-18-code-review-bottleneck/en/output-en.png",
+      "width": 1600,
+      "height": 758,
+      "alt": "Change per worker 12 months after adopting coding agents, from code writing to finished work (built from data in the Chen and Stratton paper).",
+      "caption": [
+        {
+          "text": "Change per worker 12 months after adopting coding agents, from code writing to finished work (built from data in the Chen and Stratton paper)."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Commits rose 36.0% and pull requests opened rose 35.7%. Lines of code added rose 44.0%, though that estimate was marginally insignificant. Pull requests merged rose only 26.0%. About 62.7% of the additional pull requests were merged, compared with 86.1% of pull requests at baseline."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The gains shrink further at the level of finished work. Jira issues rose 13.7% and larger epics rose 18.0%, both marginally insignificant. The estimates rule out an increase in issues above 30.7%. The authors checked whether tasks had simply become larger and found no change in average issue size. Bug reports did not rise significantly either."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The extra pull requests wait longer for review.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/blog/2026-11-18-code-review-bottleneck/en/review-en.png",
+      "width": 1600,
+      "height": 694,
+      "alt": "Pre-adoption means and estimates after adopting coding agents. Waiting and review times are computed on pull requests with at least one comment, so they do not add up to time to merge (built from data in the Chen and Stratton paper).",
+      "caption": [
+        {
+          "text": "Pre-adoption means and estimates after adopting coding agents. Waiting and review times are computed on pull requests with at least one comment, so they do not add up to time to merge (built from data in the Chen and Stratton paper)."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Time waiting before review started went from 2.78 to 4.45 days, up 59.9%. Time in active review went from 3.98 to 6.31 days, up 58.5%. Review comments per pull request went from 1.63 to 2.26, up 38.6%."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The authors read these as two separate signals. Longer waits point to limited review capacity. Longer reviews and more comments point to lower quality in the code arriving for review. Pull request size did not change significantly, so bigger changes do not explain the result."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Review work could not simply be handed to anyone.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "In 82.8% of reviews, the reviewer had previously committed code or opened a pull request in that codebase. If reviews had been assigned at random within the same firm and month, the figure would have been 17.2%. Senior engineers did 75.7% of the reviewing on code written by senior engineers and 32.8% on code written by junior engineers."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Complex codebases were hit harder. Among firms in the top third by number of repositories, time to merge rose 69.7%, against 25.4% in the bottom third. Pull requests per worker moved the other way, up 30.0% in the top third and 64.3% in the bottom third."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "79.1% of firms had tried AI code review.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "AI review sounds like the obvious fix, but it is not yet carrying the load. By July 2026, 79.1% of firms had used AI code review tools. AI wrote 23.3% of all review comments, and only 10.8% of pull requests received at least one AI comment."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "For a forward deployed engineer putting agents into customer systems, this changes how adoption should be measured. Commit and pull request counts make the gain look large. Review wait time, time to merge and work that actually shipped need to sit next to them. The paper makes the same point: intermediate metrics such as lines of code and commits overstate the gains."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Employment has not changed significantly so far.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The estimated change in engineering headcount after agent adoption is -2.6%, which is not significant, and the range is wide at -15.6% to 10.5%. Total firm employment measured through LinkedIn falls between -2.5% and 10.3%."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The authors then built a model from these results. It estimates that agents raise coding productivity by 73.7% and lower review productivity by 7.0%, while firms move labor toward review: coding labor changes by -22.7% and review labor by 43.4%. If review productivity stays fixed, output rises 57.8% by 2031 and employment falls 10.3%. If review productivity keeps pace with coding, output rises 341.4% and employment falls 76.2%. These are simulations built on assumptions, not observed results."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "Another large study points the same way.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "An "
+        },
+        {
+          "text": "NBER working paper",
+          "href": "https://www.nber.org/papers/w35275"
+        },
+        {
+          "text": " by Mert Demirer, Leon Musolff and Liyuan Yang studies more than 500,000 GitHub developers. The cumulative effect through autonomous coding agents is 240% on commits, but it falls to 80% on projects and 30% on releases. The data and methods differ, yet the effect shrinks the same way as work moves closer to shipping."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The paper has limits.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "This is a job market paper with no indication of completed peer review. The sample is Jellyfish clients that consented to research use, mostly medium and large firms, so startups may look different. The post-adoption window is 12 to 16 months. The numbers have also moved between versions. Figures reported in October, including 718 firms, 30% more code and 49% longer review, come from an earlier version. This article follows the November 14 version."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "The cost of writing code is falling quickly, but the time of the people who read it and answer for it is not growing at the same rate. The returns from coding agents may depend less on how much they write than on how teams redesign review."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "text": "https://fion.ac/jellyfish.pdf",
+          "href": "https://fion.ac/jellyfish.pdf"
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "kind": "image",
+      "caption": "표지 사진: Kenneth C. Zirkel, Wikimedia Commons (CC BY 4.0). 사진을 잘라 내고 어둡게 한 뒤 논문이 분석한 도구의 로고를 얹었습니다.",
+      "url": "/blog/2026-11-18-code-review-bottleneck/94ce76d2f75be89553449c35.png"
+    },
+    {
+      "kind": "image",
+      "caption": "코딩 에이전트 도입 12개월 뒤 직원 1인당 코드 작업과 끝낸 일의 변화입니다(Chen, Stratton 논문 데이터로 작성).",
+      "url": "/blog/2026-11-18-code-review-bottleneck/32e308d87b88307b81c1a88e.png"
+    },
+    {
+      "kind": "image",
+      "caption": "코딩 에이전트 도입 전 평균과 도입 뒤 추정치입니다. 대기 시간과 리뷰 시간은 댓글이 하나 이상 달린 PR로 계산해서 합해도 병합까지의 시간과 같지 않습니다(Chen, Stratton 논문 데이터로 작성).",
+      "url": "/blog/2026-11-18-code-review-bottleneck/78f107085774c829b1c16260.png"
+    }
+  ],
+  "provenance": {
+    "writer": "Claude Opus",
+    "artifact": "drafts/english-blog/2026-11-19/2026-11-18-code-review-bottleneck.en.v1.md"
+  },
+  "language": "en",
+  "translationOf": "2026-11-18-code-review-bottleneck",
+  "sourceSha256": "b9acf96c48c89e7e9695ea63cb5e9217227d0b19314ea9e4902ac6c04cd64829",
+  "sourceUpdatedAt": "2026-11-19T02:12:55.521+00:00",
+  "translationPublishedAt": "2026-11-24T07:51:56.472Z",
+  "review": {
+    "status": "approved",
+    "approvedBy": "송찬우 (ZerOne)",
+    "approvedAt": "2026-11-24T07:50:25Z"
+  },
+  "localizedMedia": {
+    "review": {
+      "status": "approved",
+      "approvedBy": "송찬우 (ZerOne)",
+      "approvedAt": "2026-11-24T07:50:25Z"
+    },
+    "images": [
+      {
+        "source": "/blog/2026-11-18-code-review-bottleneck/94ce76d2f75be89553449c35.png",
+        "translated": "/blog/2026-11-18-code-review-bottleneck/94ce76d2f75be89553449c35.png",
+        "sourceSha256": "94ce76d2f75be89553449c357dbbf7a3a9426f1a2391a4a9720b657c4e8a637c",
+        "translatedSha256": "94ce76d2f75be89553449c357dbbf7a3a9426f1a2391a4a9720b657c4e8a637c"
+      },
+      {
+        "source": "/blog/2026-11-18-code-review-bottleneck/32e308d87b88307b81c1a88e.png",
+        "translated": "/blog/2026-11-18-code-review-bottleneck/en/output-en.png",
+        "sourceSha256": "32e308d87b88307b81c1a88efaff1bd86d214cefd1f692f31eb85447ed4d4f0e",
+        "translatedSha256": "45382ee01f99073dbb021bb0f49a221632c001de710f57eeea180bb53e973004"
+      },
+      {
+        "source": "/blog/2026-11-18-code-review-bottleneck/78f107085774c829b1c16260.png",
+        "translated": "/blog/2026-11-18-code-review-bottleneck/en/review-en.png",
+        "sourceSha256": "78f107085774c829b1c16260f5a079d5c036e35dfe249897f50d55da84a01e7b",
+        "translatedSha256": "d6a0b8fd5fe0f176ac330b5f8b484fc83e0de523752d8e5028039e156a585007"
+      }
+    ]
+  }
+}
