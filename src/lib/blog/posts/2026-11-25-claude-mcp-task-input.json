@@ -1,0 +1,212 @@
+{
+	"slug": "2026-11-25-claude-mcp-task-input",
+	"title": "Claude MCP 업데이트: 오래 걸리는 작업 중에도 다른 일을 이어갑니다",
+	"description": "Shopify와 Railway 사례로 Claude의 MCP 업데이트를 설명합니다. 도구 사용법을 받고, 오래 걸리는 작업을 기다리는 동안 다른 일을 하거나, 필요할 때 사용자에게 확인할 수 있습니다.",
+	"publishedAt": "2026-11-25T03:04:54.846Z",
+	"updatedAt": "2026-11-25T03:02:39.183+00:00",
+	"readingMinutes": 3,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-25-claude-mcp-task-input/168d938e84e58a915c49c838.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-25-claude-mcp-task-input/168d938e84e58a915c49c838.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-25-claude-mcp-task-input/168d938e84e58a915c49c838.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "Claude의 11월 MCP 업데이트입니다(Anthropic).",
+			"caption": [
+				{
+					"text": "Claude의 11월 MCP 업데이트입니다(Anthropic)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Anthropic은 미국 현지 11월 24일 "
+				},
+				{
+					"text": "제품 업데이트",
+					"href": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+				},
+				{
+					"text": "를 공개했습니다. 공식 개발자 계정의 공지는 "
+				},
+				{
+					"text": "한국 시간 11월 25일 오전 3시",
+					"href": "https://x.com/ClaudeDevs/status/2125289794871963935"
+				},
+				{
+					"text": "에 올라왔어요. Claude와 Claude Code에서 서버가 작업 지침을 제공하는 Skills over MCP는 공개 베타입니다. 오래 걸리는 작업을 맡기는 Tasks와 도중에 사용자에게 묻는 Elicitation은 Pro, Max, Ultra에 일반 제공되고 Team/Enterprise에는 순차 배포됩니다. 파일을 넘기는 File Uploads는 이번 발표에서 출시 예정으로 남았습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-25-claude-mcp-task-input/5369ece1e62f104a4f2a58cd.png",
+			"width": 1600,
+			"height": 815,
+			"alt": "Skills는 공개 베타, Tasks와 Elicitation은 일부 요금제에 일반 제공되며 파일 전달은 출시 예정입니다(Anthropic).",
+			"caption": [
+				{
+					"text": "Skills는 공개 베타, Tasks와 Elicitation은 일부 요금제에 일반 제공되며 파일 전달은 출시 예정입니다(Anthropic)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "외부 서비스가 도구와 함께 사용법도 알려 줍니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "예를 들어 Shopify에서 상품 목록을 볼 수 있다고 해서, 온라인 상점의 디자인을 바꾸는 절차까지 Claude가 아는 건 아니에요. "
+				},
+				{
+					"text": "Skills over MCP",
+					"href": "https://modelcontextprotocol.io/extensions/skills/overview"
+				},
+				{
+					"text": "를 쓰면 Shopify가 상점을 편집하는 도구와 함께 그 도구를 쓰는 방법도 알려 줄 수 있습니다. Claude는 필요한 지침만 불러와요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "서비스 운영자는 도구가 바뀌면 사용법도 함께 수정할 수 있습니다. "
+				},
+				{
+					"text": "Claude Code 문서",
+					"href": "https://code.claude.com/docs/en/mcp#use-skills-from-mcp-servers"
+				},
+				{
+					"text": "는 스킬에 공개 베타와 v2.1.331 이상을 명시합니다. Team은 관리자가 켜야 하며 Enterprise는 아직 예정입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "조사가 끝날 때까지 Claude가 멈춰 있을 필요는 없습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Tasks",
+					"href": "https://modelcontextprotocol.io/extensions/tasks/overview"
+				},
+				{
+					"text": "를 지원하는 서비스는 오래 걸리는 요청을 받으면 결과 대신 작업 번호를 먼저 보냅니다. Claude는 그 번호로 진행 상황을 확인하면서 다른 일을 할 수 있어요. Anthropic은 ZoomInfo가 이 기능으로 기업과 담당자 정보를 조사하는 사례를 소개했습니다. 속도나 정확도가 얼마나 달라졌는지는 공개하지 않았어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "외부 서비스에서 보고서를 뽑는 경우라면 작업 ID, 검색이 끝났는지, 내려받을 결과가 생겼는지를 따로 볼 수 있어야 합니다. 요청을 받았다는 메시지만 결과처럼 보이면 사용자는 없는 보고서를 기다리게 됩니다. 그리고 "
+				},
+				{
+					"text": "Claude Code 문서",
+					"href": "https://code.claude.com/docs/en/mcp#mcp-tasks-that-run-on-the-server"
+				},
+				{
+					"text": "가 설명하는 서버 작업은 일반 호출이 오래 걸려 Claude Code 안에서 백그라운드로 넘어가는 것과 다릅니다. 원격 서버가 맡은 작업은 세션을 나가도 계속될 수 있지만, 일반 호출이 백그라운드로 전환됐다고 해서 같은 성질을 갖는 건 아닙니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "사람이 답할 수 없는 예약 실행에서는 작업이 취소될 수 있습니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Elicitation",
+					"href": "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation"
+				},
+				{
+					"text": "은 외부 서비스가 작업 도중 사용자에게 질문하는 기능입니다. Anthropic이 소개한 Railway는 서비스 삭제처럼 되돌리기 어려운 작업을 하기 전에 사용자의 확인을 받습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "예약 실행에 넣을 때는 이 차이를 봐야 합니다. "
+				},
+				{
+					"text": "Claude Code 문서",
+					"href": "https://code.claude.com/docs/en/mcp#answer-a-question-from-an-mcp-task"
+				},
+				{
+					"text": "에 따르면 사람이 터미널에서 실행할 때는 질문에 답할 수 있습니다. 하지만 사용자와 대화하지 않는 일회성 실행이나 Agent SDK로 돌리는 작업에서는, MCP Tasks로 맡긴 일이 도중에 질문을 보내면 Claude Code가 해당 작업의 취소를 요청합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "저희가 만들어가는 AXIT에 이런 연동을 붙인다면, 보고서 초안을 만드는 일은 예약으로 돌리되 외부로 보내기 전에는 받는 사람과 자료 범위를 확인하겠습니다. 질문에 답할 사람이 없다면 발송하지 않고 초안과 확인할 항목을 남기는 방식입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "예를 들어 보고서에 개인정보가 들어 있다면, 폼에 답을 받았다는 이유만으로 외부에 보내면 안 됩니다. 누가 어떤 자료를 받아도 되는지와 누가 발송을 승인했는지는 별도로 확인할 일입니다."
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "Claude의 11월 MCP 업데이트입니다(Anthropic).",
+			"url": "/blog/2026-11-25-claude-mcp-task-input/168d938e84e58a915c49c838.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Skills는 공개 베타, Tasks와 Elicitation은 일부 요금제에 일반 제공되며 파일 전달은 출시 예정입니다(Anthropic).",
+			"url": "/blog/2026-11-25-claude-mcp-task-input/5369ece1e62f104a4f2a58cd.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-25-claude-mcp-task-input",
+		"bodySha256": "0299dc8c1f1c777a6433f1552ed81c7f78cc110825dab9c5d7770799325885d3",
+		"source": "dashboard",
+		"savedAt": "2026-11-25T03:02:39.183+00:00"
+	}
+}
