@@ -43,7 +43,19 @@ export async function importDashboard(p, root=ROOT, publishedAt=p.published_at) 
     const src=await asset(b.src);blocks.push({type:b.t==='video'?'video':'image',src,width:b.w||1600,height:b.h||900,alt:b.alt||plain(b.caption),caption:spans(b.caption),...(b.poster?{poster:await asset(b.poster)}:{})});break;
    }
    case 'table':blocks.push({type:'table',rows:b.rows.map(row=>row.map(spans)),header:!!b.header});break;
-   case 'embed':blocks.push({type:'bookmark',href:href(b.href),title:b.text||b.href});break;
+   case 'embed': {
+    const url=href(b.href);
+    const videoId=b.videoId;
+    const thumbnail=b.thumbnail;
+    if(/^[A-Za-z0-9_-]{11}$/.test(videoId||'')&&url===`https://www.youtube.com/watch?v=${videoId}`&&thumbnail?.src){
+     blocks.push({type:'youtube',id:videoId,title:b.text||url,thumbnail:{
+      src:await asset(thumbnail.src),width:thumbnail.w||1280,height:thumbnail.h||720
+     }});
+    }else{
+     blocks.push({type:'bookmark',href:url,title:b.text||b.href});
+    }
+    break;
+   }
    case 'hr':blocks.push({type:'hr'});break;
    default:throw new Error('Unsupported block '+b.t);
   }
