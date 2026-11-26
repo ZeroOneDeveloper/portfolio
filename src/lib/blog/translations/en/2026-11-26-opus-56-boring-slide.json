@@ -1,0 +1,193 @@
+{
+	"slug": "2026-11-26-opus-56-boring-slide",
+	"title": "Opus 5.6 leak: Is this really a PowerPoint?",
+	"description": "A presentation made from a single HTML file. The chart rises above Earth, a paper boat takes on a wave, and the browser draws every scene.",
+	"publishedAt": "2026-11-26T07:43:30.844Z",
+	"updatedAt": "2026-11-26T08:02:03.773Z",
+	"readingMinutes": 2,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png",
+		"width": 1920,
+		"height": 1080,
+		"thumb": {
+			"src": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png",
+			"width": 1920,
+			"height": 1080
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png",
+			"width": 1920,
+			"height": 1080,
+			"alt": "A white chart traced in red hangs above the curve of Earth",
+			"caption": [
+				{
+					"text": "The graph above Earth. "
+				},
+				{
+					"text": "The Last Boring Slide",
+					"href": "https://claude.ai/artifact/Cy2d8Vn63CnzCtonA1LSah"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "The first slide is a plain white page titled “The Future of AI.” The next has an agenda. A few clicks later, a chart looms like a wall and the camera climbs it. Then a paper boat gets hit by a wave. What I opened was a single HTML file, not a video."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "The public test page",
+					"href": "https://tests.jazii.dev/"
+				},
+				{
+					"text": " listed the demo on November 25 under “Opus Next (Opus 5.6).” When I checked "
+				},
+				{
+					"text": "Anthropic’s model list",
+					"href": "https://platform.claude.com/docs/en/models/overview"
+				},
+				{
+					"text": " on November 26, it listed Claude Opus 5.5 but not 5.6. The demo is public; the model used to make it and the amount of human editing are unverified."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "A 3D slide deck that runs in the browser",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Open the file in a browser and press the right arrow. Rather than playing a prerecorded clip, the browser draws the scene. At sea, the camera starts beside the paper boat, then dips below the surface to show what’s holding it in place. The next beat waits until you advance it."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Later, a 2027 calendar fills the screen. The days start out the same size. Advance it and some boxes expand while others are squeezed nearly out of sight. The calendar makes an idea in the talk visible: what if years of change could fit into a single day?"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-opus-56-boring-slide/ce4b6e434ef4340afb1a42ac.gif",
+			"width": 640,
+			"height": 360,
+			"alt": "A printed 2027 calendar bends as its days stretch to different sizes",
+			"caption": [
+				{
+					"text": "The days of 2027 no longer take up the same amount of space."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "It ends on another white slide.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "“Any questions?” appears, followed by “What do you want?” Keep an eye on the lower right, too. The counter starts at 1, 2, 3, jumps through 21, 34, 55 and 89, and eventually shows ∞. The deck doesn’t have that many slides. The counter is another way the presentation makes acceleration visible."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-opus-56-boring-slide/3ab6b842de802c5abf91190a.png",
+			"width": 1920,
+			"height": 1080,
+			"alt": "The words Any questions? on a white slide, with What do you want? inside a blue selection outline",
+			"caption": [
+				{
+					"text": "The closing scene returns to a familiar Q&A slide."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "The calendar is the shot I’d try first in a motion design pitch. Bring a version the team can click through and you can discuss when the boxes should stretch and whether the change reads on screen. That’s a more useful conversation than describing the effect in a brief."
+				}
+			]
+		},
+		{
+			"type": "youtube",
+			"id": "L1NzNEiLTMk",
+			"title": "The Last Boring Slide — full recording (6:02)",
+			"thumbnail": {
+				"src": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png",
+				"width": 1920,
+				"height": 1080
+			}
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Open The Last Boring Slide",
+					"href": "https://claude.ai/artifact/Cy2d8Vn63CnzCtonA1LSah"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "The graph above Earth. The Last Boring Slide",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png"
+		},
+		{
+			"kind": "gif",
+			"caption": "The days of 2027 no longer take up the same amount of space.",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/ce4b6e434ef4340afb1a42ac.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "The days of 2027 no longer take up the same amount of space.",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/be277c5e0a1fdc3621eb0021.mp4"
+		},
+		{
+			"kind": "image",
+			"caption": "The closing scene returns to a familiar Q&A slide.",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/3ab6b842de802c5abf91190a.png"
+		}
+	],
+	"provenance": {
+		"writer": "Codex",
+		"artifact": "English edition of 2026-11-26-opus-56-boring-slide"
+	},
+	"language": "en",
+	"translationOf": "2026-11-26-opus-56-boring-slide",
+	"sourceSha256": "b21a33496ca139ec2e16d548287e056300f7857ae1b66841f8d72229d318850f",
+	"sourceUpdatedAt": "2026-11-26T08:02:03.773Z",
+	"translationPublishedAt": "2026-11-26T08:08:48.855Z",
+	"review": {
+		"status": "approved",
+		"approvedBy": "Chanwoo Song",
+		"approvedAt": "2026-11-26T08:04:12Z"
+	}
+}
