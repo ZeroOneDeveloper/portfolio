@@ -3,15 +3,15 @@
 	"title": "Opus 5.6 유출, 이게 PPT라고요?",
 	"description": "Opus 5.6으로 소개된 3D 발표 데모를 직접 열어 보고, 확인된 화면과 미확인 모델 주장을 나눴습니다.",
 	"publishedAt": "2026-11-26T07:43:30.844Z",
-	"updatedAt": "2026-11-26T07:35:47.902+00:00",
+	"updatedAt": "2026-11-26T08:02:03.773Z",
 	"readingMinutes": 2,
 	"tags": [],
 	"cover": {
-		"src": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png",
+		"src": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png",
 		"width": 1920,
 		"height": 1080,
 		"thumb": {
-			"src": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png",
+			"src": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png",
 			"width": 1920,
 			"height": 1080
 		}
@@ -19,13 +19,13 @@
 	"blocks": [
 		{
 			"type": "image",
-			"src": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png",
+			"src": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png",
 			"width": 1920,
 			"height": 1080,
-			"alt": "바다에서 물보라를 일으키는 종이배. The Last Boring Slide",
+			"alt": "우주에서 내려다본 지구 앞에 붉은 선이 그어진 흰색 그래프",
 			"caption": [
 				{
-					"text": "바다에서 물보라를 일으키는 종이배. "
+					"text": "우주까지 솟은 그래프와 그 아래 보이는 지구. "
 				},
 				{
 					"text": "The Last Boring Slide",
@@ -139,7 +139,7 @@
 			"id": "L1NzNEiLTMk",
 			"title": "The Last Boring Slide 풀버전 (6분 2초)",
 			"thumbnail": {
-				"src": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png",
+				"src": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png",
 				"width": 1920,
 				"height": 1080
 			}
@@ -157,8 +157,8 @@
 	"media": [
 		{
 			"kind": "image",
-			"caption": "바다에서 물보라를 일으키는 종이배. The Last Boring Slide",
-			"url": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png"
+			"caption": "우주까지 솟은 그래프와 그 아래 보이는 지구. The Last Boring Slide",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/5e79f1f3b356c6f8956cf61a.png"
 		},
 		{
 			"kind": "gif",
@@ -178,8 +178,8 @@
 	],
 	"provenance": {
 		"dashboardId": "2026-11-26-opus-56-boring-slide",
-		"bodySha256": "4adc343e05e136c9e53052fb2d70bc5d78df48ee052e97313783051be0553f24",
+		"bodySha256": "c94d4760ab762f79f93a2141774cf686c60e17602720e38a66c001bba699b61f",
 		"source": "dashboard",
-		"savedAt": "2026-11-26T07:35:47.902+00:00"
+		"savedAt": "2026-11-26T08:02:03.773Z"
 	}
 }
