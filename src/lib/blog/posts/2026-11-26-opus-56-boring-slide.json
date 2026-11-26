@@ -1,0 +1,185 @@
+{
+	"slug": "2026-11-26-opus-56-boring-slide",
+	"title": "Opus 5.6 유출, 이게 PPT라고요?",
+	"description": "Opus 5.6으로 소개된 3D 발표 데모를 직접 열어 보고, 확인된 화면과 미확인 모델 주장을 나눴습니다.",
+	"publishedAt": "2026-11-26T07:43:30.844Z",
+	"updatedAt": "2026-11-26T07:35:47.902+00:00",
+	"readingMinutes": 2,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png",
+		"width": 1920,
+		"height": 1080,
+		"thumb": {
+			"src": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png",
+			"width": 1920,
+			"height": 1080
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png",
+			"width": 1920,
+			"height": 1080,
+			"alt": "바다에서 물보라를 일으키는 종이배. The Last Boring Slide",
+			"caption": [
+				{
+					"text": "바다에서 물보라를 일으키는 종이배. "
+				},
+				{
+					"text": "The Last Boring Slide",
+					"href": "https://claude.ai/artifact/Cy2d8Vn63CnzCtonA1LSah"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "첫 화면은 흰 바탕에 ‘The Future of AI’라고 적힌 발표 자료입니다. 다음 장에는 목차가 나오고요. 그런데 몇 번 더 넘기니 그래프가 벽만큼 커지고, 카메라는 그 벽을 타고 올라갑니다. 다음 장면에선 종이배가 파도를 맞습니다. 처음 받은 건 영상이 아니라 HTML 파일 하나였습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "공개 테스트 페이지",
+					"href": "https://tests.jazii.dev/"
+				},
+				{
+					"text": "는 11월 25일 이 데모를 소개하면서 사용 모델을 ‘Opus Next (Opus 5.6)’라고 적었습니다. 11월 26일에 확인한 "
+				},
+				{
+					"text": "Anthropic 공식 모델 목록",
+					"href": "https://platform.claude.com/docs/en/models/overview"
+				},
+				{
+					"text": "에는 Claude Opus 5.5가 있고 5.6은 없습니다. 데모는 직접 볼 수 있지만, 실제로 5.6으로 만들었는지나 사람이 얼마나 손봤는지는 확인되지 않았습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "브라우저에서 움직이는 3D 슬라이드",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "파일을 브라우저에서 열고 오른쪽 화살표를 누르면 발표가 이어집니다. 영상 한 편을 틀어 두는 방식이 아니라, 브라우저가 화면을 그립니다. 바다 장면에서는 종이배 옆을 보던 카메라가 물속으로 내려가 배에 달린 닻을 보여 줍니다. 잠시 화면을 보다가 준비됐을 때 다음 장면으로 넘어갈 수 있어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "뒤쪽에서는 2027년 달력이 나옵니다. 처음엔 날짜 칸이 전부 같은 크기인데, 다음으로 넘기면 어떤 날은 칸이 확 커지고 다른 날은 눌려서 거의 안 보입니다. ‘어떤 날엔 몇 년 치 변화가 한꺼번에 일어날 수 있다’는 발표의 가정을, 달력 칸 크기로 보여 준 장면입니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-opus-56-boring-slide/ce4b6e434ef4340afb1a42ac.gif",
+			"width": 640,
+			"height": 360,
+			"alt": "같은 크기였던 날짜 칸이 제각각 늘어난 2027년 달력.",
+			"caption": [
+				{
+					"text": "같은 크기였던 날짜 칸이 제각각 늘어난 2027년 달력."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "마지막 장은 다시 흰 화면입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "‘Any questions?’ 아래에 ‘What do you want?’가 뜹니다. 우측 하단 숫자도 마지막까지 보면 재밌어요. 처음엔 1, 2, 3으로 올라가다가 21, 34, 55, 89처럼 건너뛰고, 나중엔 ∞까지 갑니다. 슬라이드가 실제로 그렇게 많은 게 아니라, 발표가 다루는 가속을 화면 한구석에서도 보여 주는 연출입니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-opus-56-boring-slide/3ab6b842de802c5abf91190a.png",
+			"width": 1920,
+			"height": 1080,
+			"alt": "평범한 질의응답 화면으로 돌아온 마지막 장면.",
+			"caption": [
+				{
+					"text": "평범한 질의응답 화면으로 돌아온 마지막 장면."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "영상팀에서 시안을 만든다면 저 달력 장면부터 써먹어 볼 만합니다. ‘날짜마다 칸 크기가 달라져요’라고 설명하는 대신, 회의에서 직접 눌러 보고 어느 순간에 칸이 커져야 이해가 되는지 얘기할 수 있으니까요."
+				}
+			]
+		},
+		{
+			"type": "youtube",
+			"id": "L1NzNEiLTMk",
+			"title": "The Last Boring Slide 풀버전 (6분 2초)",
+			"thumbnail": {
+				"src": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png",
+				"width": 1920,
+				"height": 1080
+			}
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "The Last Boring Slide 직접 넘겨 보기",
+					"href": "https://claude.ai/artifact/Cy2d8Vn63CnzCtonA1LSah"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "바다에서 물보라를 일으키는 종이배. The Last Boring Slide",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/609a04739392401eee937664.png"
+		},
+		{
+			"kind": "gif",
+			"caption": "같은 크기였던 날짜 칸이 제각각 늘어난 2027년 달력.",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/ce4b6e434ef4340afb1a42ac.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "같은 크기였던 날짜 칸이 제각각 늘어난 2027년 달력.",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/be277c5e0a1fdc3621eb0021.mp4"
+		},
+		{
+			"kind": "image",
+			"caption": "평범한 질의응답 화면으로 돌아온 마지막 장면.",
+			"url": "/blog/2026-11-26-opus-56-boring-slide/3ab6b842de802c5abf91190a.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-26-opus-56-boring-slide",
+		"bodySha256": "4adc343e05e136c9e53052fb2d70bc5d78df48ee052e97313783051be0553f24",
+		"source": "dashboard",
+		"savedAt": "2026-11-26T07:35:47.902+00:00"
+	}
+}
