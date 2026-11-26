@@ -1,0 +1,234 @@
+{
+	"slug": "2026-11-26-gpt-62-usage-correction",
+	"title": "OpenAI, GPT-6.2 Astra와 GPT-6.2 Sol의 구독 사용량 차감 오류를 고쳤습니다",
+	"description": "OpenAI가 GPT-6.2 Astra와 GPT-6.2 Sol의 사용량 차감 오류를 바로잡으면서 전주보다 같은 작업이 더 많은 구독 한도를 씁니다.",
+	"publishedAt": "2026-11-26T07:02:51.876Z",
+	"updatedAt": "2026-11-26T05:52:34.872+00:00",
+	"readingMinutes": 3,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-26-gpt-62-usage-correction/377817adfb059e02e6915572.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-26-gpt-62-usage-correction/377817adfb059e02e6915572.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-gpt-62-usage-correction/377817adfb059e02e6915572.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "GPT-6.2 Astra와 GPT-6.2 Sol (OpenAI 출시 발표)",
+			"caption": [
+				{
+					"text": "GPT-6.2 Astra와 GPT-6.2 Sol ("
+				},
+				{
+					"text": "OpenAI 출시 발표",
+					"href": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+				},
+				{
+					"text": ")"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI가 GPT-6.2 Astra와 GPT-6.2 Sol 출시 때 대부분의 사용자에게 구독 사용량이 실제보다 적게 차감되던 오류를 고쳤습니다. OpenAI의 티보 소티오가 "
+				},
+				{
+					"text": "11월 25일 오후 6시 50분(미국 태평양 시간), 한국 시간 11월 26일 오전 11시 50분에 밝힌 내용",
+					"href": "https://x.com/thsottiaux/status/2125784147889393806"
+				},
+				{
+					"text": "입니다. 같은 일을 맡겨도 전주보다 한도에 더 빨리 닿습니다. OpenAI가 제시한 수치는 GPT-6.2 Astra 40%, GPT-6.2 Sol 25%입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI는 과거 이용분의 차액을 나중에 청구하지 않겠다고 했습니다. 다른 모델은 이 오류 수정의 영향을 받지 않았고, Go, Plus, Pro, Business에는 나중에 쓸 수 있는 한도 초기화 기회를 한 번씩 추가하겠다고 했어요. 공지에 담긴 건 추가하겠다는 약속입니다. 각 계정에서 언제 쓸 수 있는지는 이 발표만으로 알 수 없습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 40%와 25%는 전주 사용량과 비교한 수치입니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "GPT-6.2 Astra가 GPT-6 Astra보다 구독 한도를 40% 더 빨리 쓴다는 뜻은 아닙니다. 같은 모델을 전주에 썼을 때와 비교한 숫자예요. OpenAI는 수정 후에도 GPT-6.2 Astra와 GPT-6.2 Sol이 각각 GPT-6 Astra와 GPT-6.1 Sol보다 같은 한도 안에서 더 많은 일을 할 수 있다고 설명했습니다. 다만 모든 작업에 적용되는 고정 비율이나, 사용자가 볼 수 있는 차감 산식을 이번 공지에 공개하진 않았습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI의 "
+				},
+				{
+					"text": "Codex 사용량 안내",
+					"href": "https://developers.openai.com/codex/pricing/"
+				},
+				{
+					"text": "에는 Plus와 Standard Business의 5시간당 로컬 메시지 추정 범위가 나옵니다. GPT-6.2 Astra는 6~50개, GPT-6.2 Sol은 17~180개입니다. 문서는 이 표가 고정 메시지 한도가 아니라고 설명합니다. 모델, 대화에 쌓인 내용, 추론, 도구 호출, 검색, 앞서 처리한 입력의 재사용 여부에 따라 차감량이 달라집니다. 클라우드 작업과 로컬 메시지는 구독 사용량을 함께 쓰고, 주간 한도도 적용될 수 있습니다. Pro에는 이 5시간 한도가 적용되지 않는다고 안내합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-gpt-62-usage-correction/c911b4e8c612e853d476de51.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "전주 대비 한도 도달 속도와 5시간당 로컬 메시지 추정은 기준이 다릅니다. 메시지 범위는 Plus와 Standard Business의 로컬 작업 기준입니다 (수정 공지, Codex 사용량 안내).",
+			"caption": [
+				{
+					"text": "전주 대비 한도 도달 속도와 5시간당 로컬 메시지 추정은 기준이 다릅니다. 메시지 범위는 Plus와 Standard Business의 로컬 작업 기준입니다 ("
+				},
+				{
+					"text": "수정 공지",
+					"href": "https://x.com/thsottiaux/status/2125784147889393806"
+				},
+				{
+					"text": ", "
+				},
+				{
+					"text": "Codex 사용량 안내",
+					"href": "https://developers.openai.com/codex/pricing/"
+				},
+				{
+					"text": ")."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "같은 “테스트 고쳐 줘”라도 한 파일을 읽고 끝나는 요청과, 실패 원인을 찾느라 저장소 여러 곳을 읽고 시험을 다시 돌리는 요청은 다릅니다. 채팅 화면에서는 둘 다 메시지 한 개지만 에이전트가 한 일은 같지 않습니다. 그래서 40%를 기존 메시지 수에서 그대로 빼거나, 공개 범위에서 자기 계정의 남은 작업 개수를 계산할 수는 없습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "벤치마크의 과제당 비용은 구독 차감과 다릅니다.",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "11월 17일 출시 발표",
+					"href": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+				},
+				{
+					"text": "에서 OpenAI는 여러 단계의 실무 과제를 평가하는 Agents’ Last Exam에서 GPT-6.2 Astra가 GPT-6 Astra보다 5.2%포인트 높았고 과제당 비용은 3분의 1 미만이었다고 밝혔습니다. 평가에서 수행한 과제의 비용 비교입니다. 코딩 팀의 실제 구독에서 같은 숫자만큼 더 많은 일을 한다는 약속은 아닙니다. 이번 오류 수정 공지에도 API 단가 변경은 담기지 않았습니다. API로 평가하는 팀은 토큰 비용을, 구독으로 일하는 팀은 자기 플랜의 실제 차감과 초기화 시각을 봐야 합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "두 숫자가 서로 반대 방향으로 움직일 수도 있습니다. 모델이 파일을 적게 읽고 한 번에 테스트를 통과하는 덕분에 이전 세대보다 효율적이어도, 할인 오류가 있었던 전주보다 같은 요청의 구독 차감은 커질 수 있어요. 출시 시험은 세대가 바뀐 효과를 보고, 이번 공지는 같은 세대의 차감 기준이 바뀐 일을 설명합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-26-gpt-62-usage-correction/d101d47861c78dea00c00cfa.png",
+			"width": 1600,
+			"height": 780,
+			"alt": "Agents’ Last Exam의 과제당 비용은 구독 한도에서 차감되는 사용량과 다른 수치입니다. (OpenAI 출시 발표)",
+			"caption": [
+				{
+					"text": "Agents’ Last Exam의 과제당 비용은 구독 한도에서 차감되는 사용량과 다른 수치입니다. (OpenAI 출시 발표)"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "같은 한도로 일을 몇 건 끝낼 수 있을까?",
+					"bold": true
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "예를 들어 팀에서 실패한 테스트 수정, 화면 한 곳 변경, 배포 문서 갱신을 에이전트에 맡긴다면 같은 저장소 상태에서 반복할 수 있는 과제부터 비교할 수 있습니다. 모델과 추론 설정, 작업 전후의 사용량 표시, 통과한 검사, 사람이 수정하거나 재검토한 시간을 같이 기록하는 식입니다. 동시에 다른 세션이 같은 한도를 쓰거나 중간에 한도가 초기화됐다면 그 차감을 한 작업의 몫으로 보긴 어렵습니다. 차감 표시가 거칠면 여러 건을 묶어 보고, 모델을 바꿀 때는 같은 완료 기준을 적용해야 비교가 됩니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "작업을 넘긴 횟수나 변경 파일 수보다, 검사까지 통과한 작업 수가 팀의 다음 주 업무량을 가늠하는 데 더 가까운 단위입니다. 앞서 "
+				},
+				{
+					"text": "OpenAI 연구팀이 에이전트에 맡긴 작업 중 사람이 개입하지 않고 끝난 비율을 다룬 글",
+					"href": "https://medium.com/p/1ef169b6663a"
+				},
+				{
+					"text": "에서도 작업을 시작한 것과 사람 손을 거치지 않고 마무리한 것을 나눠 봤습니다. 여기서도 시작한 메시지 수보다, 같은 한도 안에서 끝내고 확인한 일이 얼마나 되는지가 중요합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI 사용량 차감 수정 공지",
+					"href": "https://x.com/thsottiaux/status/2125784147889393806"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "GPT-6.2 Astra와 GPT-6.2 Sol (OpenAI 출시 발표)",
+			"url": "/blog/2026-11-26-gpt-62-usage-correction/377817adfb059e02e6915572.png"
+		},
+		{
+			"kind": "image",
+			"caption": "전주 대비 한도 도달 속도와 5시간당 로컬 메시지 추정은 기준이 다릅니다. 메시지 범위는 Plus와 Standard Business의 로컬 작업 기준입니다 (수정 공지, Codex 사용량 안내).",
+			"url": "/blog/2026-11-26-gpt-62-usage-correction/c911b4e8c612e853d476de51.png"
+		},
+		{
+			"kind": "image",
+			"caption": "Agents’ Last Exam의 과제당 비용은 구독 한도에서 차감되는 사용량과 다른 수치입니다. (OpenAI 출시 발표)",
+			"url": "/blog/2026-11-26-gpt-62-usage-correction/d101d47861c78dea00c00cfa.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-26-gpt-62-usage-correction",
+		"bodySha256": "2de688c3bf9c4ae0d975baaddd124d331bd45e429e9da91acb3a4f9bfc837edd",
+		"source": "dashboard",
+		"savedAt": "2026-11-26T05:52:34.872+00:00"
+	}
+}
