@@ -1,0 +1,174 @@
+{
+	"slug": "2026-11-27-magi-2-five-styles",
+	"title": "MAGI-2와 Seedance 2.5, 영상 선호도 5점 차이에 API 요금은 7배 차이",
+	"description": "MAGI-2와 Seedance 2.5의 이미지→영상 선호도 점수와 1080p API 요금을 비교합니다.",
+	"publishedAt": "2026-11-27T02:36:31.245Z",
+	"updatedAt": "2026-11-27T01:50:28.208+00:00",
+	"readingMinutes": 2,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-27-magi-2-five-styles/c6a4cb948d9e2b0431b4ea7b.webp",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-27-magi-2-five-styles/c6a4cb948d9e2b0431b4ea7b.webp",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "MAGI-2와 Seedance 2.5, 영상 선호도 5점 차이에 API 요금은 7배 차이"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-magi-2-five-styles/c6a4cb948d9e2b0431b4ea7b.webp",
+			"width": 1600,
+			"height": 900,
+			"alt": "푸른 밤하늘 아래 이어지는 강변 산책로",
+			"caption": [
+				{
+					"text": "Sand AI가 공개한 공식 시연의 첫 장면. (Sand AI)"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Artificial Analysis의 이미지→영상 비교표",
+					"href": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+				},
+				{
+					"text": " 기준 1080p API 분당 요금은 MAGI-2가 4.80달러(약 6,450원), Seedance 2.5가 34.12달러(약 4만 5,800원)입니다. 분당 단가를 절반으로 환산하면 30초 기준 약 3,200원과 약 2만 2,900원으로, MAGI-2가 약 7분의 1 수준입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 금액은 비교표의 1080p API 분당 값을 단순 환산한 수치일 뿐, 모든 플랫폼의 실제 결제 가격을 뜻하지 않습니다. "
+				},
+				{
+					"text": "Sand AI 요금표",
+					"href": "https://platform.sand.ai/docs/model-pricing/"
+				},
+				{
+					"text": "에도 초당 0.08달러로 안내되어 있지만, 현재 Sand AI는 API 크레딧 충전을 지원하지 않습니다. Seedance 2.5 역시 이용하는 플랫폼에 따라 요금이 달라집니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "같은 비교표의 소리 포함 이미지→영상 Elo 점수는 MAGI-2가 1163점, Seedance 2.5가 1158점입니다. 5점 차이지만 두 모델의 95% 신뢰구간이 겹쳐 어느 쪽이 앞선다거나 동급이라고 단정할 수 없습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Sand AI가 공개한 30초 공식 시연 영상은 밤의 강변 산책로에서 시작합니다. 길을 따라 걷는 사이 해가 뜨며 밤에서 낮으로 바뀌고, 그 과정에서도 난간과 나무의 위치가 그대로 유지됩니다. 시선이 물 쪽으로 내려가면 수련 연못이 나타나고, 잠시 뒤 파도가 화면을 덮습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "화풍이 바뀌는 구간에서도 컷을 끊지 않고 하나의 카메라 움직임으로 이어집니다. Sand AI는 그림 다섯 점을 참고 자료로 넣어 이 영상을 만들었다고 밝혔습니다. 다만 제작사가 선별해 공개한 시연 한 편이며, 같은 그림과 지시로 직접 생성해 재현 여부를 확인한 결과는 아닙니다."
+				}
+			]
+		},
+		{
+			"type": "video",
+			"src": "/blog/2026-11-27-magi-2-five-styles/01f847c8f459fa2b2831796d.mp4",
+			"width": 1920,
+			"height": 1080,
+			"alt": "MAGI-2 공식 시연: 밤의 강변에서 수련 연못과 파도로 이어지는 영상",
+			"caption": [
+				{
+					"text": "그림 다섯 점을 참고해 만든 MAGI-2 공식 시연. (Sand AI)"
+				}
+			],
+			"poster": "/blog/2026-11-27-magi-2-five-styles/c6a4cb948d9e2b0431b4ea7b.webp"
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Sand AI 공식 영상 원본",
+					"href": "https://static.magi.world/media/website/01f847c8f459fa2b2831796dade7fa9b72acdfe5f77538044d455973f07c6362.mp4"
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-magi-2-five-styles/6e11be63c003da55695f59af.webp",
+			"width": 1600,
+			"height": 900,
+			"alt": "Sand AI 타임라인 제어 시연의 화면",
+			"caption": [
+				{
+					"text": "같은 발표에 실린 별도의 타임라인 제어 시연 화면. (Sand AI)"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Sand AI는 별도 시연에서 원하는 시점에 장면을 끊어 전환하는 타임라인 제어 기능도 함께 보여 주었습니다. 발표에 따르면 MAGI-2는 이미지뿐 아니라 영상과 소리도 참고 자료로 입력할 수 있습니다. 1080p·초당 25프레임으로 최대 30초 분량의 영상과 소리를 함께 생성합니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이번 MAGI-2는 8월에 공개된 Preview와는 다른 모델입니다. Sand AI는 이번 모델의 가중치도 추후 공개하겠다고 밝혔습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Sand AI 발표와 전체 시연",
+					"href": "https://sand.ai/blog/magi-2/"
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "첫 장면은 밤의 강변입니다. (Sand AI)",
+			"url": "/blog/2026-11-27-magi-2-five-styles/c6a4cb948d9e2b0431b4ea7b.webp"
+		},
+		{
+			"kind": "mp4",
+			"caption": "그림 다섯 점을 참고해 만든 MAGI-2 공식 시연. (Sand AI)",
+			"url": "/blog/2026-11-27-magi-2-five-styles/01f847c8f459fa2b2831796d.mp4"
+		},
+		{
+			"kind": "image",
+			"caption": "타임라인 제어 시연. (Sand AI)",
+			"url": "/blog/2026-11-27-magi-2-five-styles/6e11be63c003da55695f59af.webp"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-27-magi-2-five-styles",
+		"bodySha256": "418184a30ac2ad2daf9192f51f48bc39a82878477b46e7e5a45006b9c91ee0ae",
+		"source": "dashboard",
+		"savedAt": "2026-11-27T01:50:28.208+00:00"
+	}
+}
