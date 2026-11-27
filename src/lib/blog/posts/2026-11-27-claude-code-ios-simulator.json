@@ -1,0 +1,103 @@
+{
+	"slug": "2026-11-27-claude-code-ios-simulator",
+	"title": "Claude Code 데스크톱에서 아이폰 앱을 바로 테스트할 수 있네요",
+	"description": "Claude Code 데스크톱 앱에서 아이폰 시뮬레이터를 띄우고, iPhone Duo에서는 접은 상태와 펼친 상태의 화면도 확인할 수 있습니다.",
+	"publishedAt": "2026-11-27T06:06:45.239Z",
+	"updatedAt": "2026-11-27T06:03:01.503+00:00",
+	"readingMinutes": 1,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-27-claude-code-ios-simulator/6ffa71eeb786fbb6f98fc761.png",
+		"width": 2672,
+		"height": 1435,
+		"thumb": {
+			"src": "/blog/2026-11-27-claude-code-ios-simulator/6ffa71eeb786fbb6f98fc761.png",
+			"width": 2672,
+			"height": 1435
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-claude-code-ios-simulator/6ffa71eeb786fbb6f98fc761.png",
+			"width": 2672,
+			"height": 1435,
+			"alt": "Claude Code 대화창 옆에서 실행 중인 iPhone 17 시뮬레이터.",
+			"caption": [
+				{
+					"text": "Claude Code 대화창 옆에서 실행 중인 iPhone 17 시뮬레이터."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Claude Code에서 작업하다 보니 대화창 옆에 아이폰 화면이 떴습니다. 찾아보니 "
+				},
+				{
+					"text": "한국 시간 7월 22일에 공개 베타로 나온 기능",
+					"href": "https://x.com/ClaudeDevs/status/2079674432038248611"
+				},
+				{
+					"text": "이더라고요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "맥에 Xcode와 iOS 시뮬레이터가 설치돼 있으면 Claude한테 앱을 빌드해서 실행해 달라고 할 수 있습니다. 대화창 옆에 시뮬레이터가 열리면 Claude가 앱의 버튼을 눌러 보며 테스트하는 걸 지켜보거나, 직접 눌러 볼 수도 있어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "처음 뜬 파란 안내에는 "
+				},
+				{
+					"text": "폴더블 iPhone Duo에서도 테스트할 수 있다",
+					"href": "https://code.claude.com/docs/en/desktop-ios-simulator#test-your-app-on-an-iphone-duo"
+				},
+				{
+					"text": "고 나왔습니다. Duo 지원은 "
+				},
+				{
+					"text": "한국 시간 11월 17일",
+					"href": "https://x.com/ClaudeDevs/status/2122439098740674839"
+				},
+				{
+					"text": "에 추가됐어요. Xcode 27.1 이상과 Claude Desktop 4.29.0 이상이 있으면 접었을 때, 반쯤 펼쳤을 때, 완전히 펼쳤을 때 앱 화면을 각각 확인할 수 있습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-claude-code-ios-simulator/00adcc76893a8b2b5b941aa0.png",
+			"width": 334,
+			"height": 190,
+			"alt": "Claude Code의 iPhone Duo 테스트 안내.",
+			"caption": [
+				{
+					"text": "Claude Code의 iPhone Duo 테스트 안내."
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "Claude Code 대화창 옆에서 실행 중인 iPhone 17 시뮬레이터.",
+			"url": "/blog/2026-11-27-claude-code-ios-simulator/6ffa71eeb786fbb6f98fc761.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-27-claude-code-ios-simulator",
+		"bodySha256": "a991eda67b2e09888a7ecc02f1f92c9d530478aba5b3d9375cfb2199bb7903f0",
+		"source": "dashboard",
+		"savedAt": "2026-11-27T06:03:01.503+00:00"
+	}
+}
