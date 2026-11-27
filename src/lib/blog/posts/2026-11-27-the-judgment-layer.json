@@ -3,7 +3,7 @@
 	"title": "Anthropic 마케터와 디자이너가 Claude에게 맡기지 않는 일",
 	"description": "오스틴 라우는 검색광고를 준비하는 시간을 30분에서 30초로 줄였지만, 내보낼 문구는 여전히 직접 골랐습니다. Anthropic의 디자이너와 마케터 사례를 바탕으로 쓴 칼럼입니다.",
 	"publishedAt": "2026-11-27",
-	"updatedAt": "2026-11-27T08:02:56.053Z",
+	"updatedAt": "2026-11-27T08:10:41.444Z",
 	"readingMinutes": 3,
 	"tags": [],
 	"cover": {
@@ -56,6 +56,22 @@
 				},
 				{
 					"text": "에 정리했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "한국어 PDF 원본",
+					"href": "https://www.zero0ne.dev/blog/2026-11-27-the-judgment-layer/the-judgment-layer-ko.pdf"
+				},
+				{
+					"text": " / "
+				},
+				{
+					"text": "영어 PDF 원본",
+					"href": "https://www.zero0ne.dev/blog/2026-11-27-the-judgment-layer/the-judgment-layer-en.pdf"
 				}
 			]
 		},
@@ -224,9 +240,9 @@
 	],
 	"provenance": {
 		"dashboardId": "2026-11-27-the-judgment-layer",
-		"bodySha256": "0da4c018b53175cb9b8f9dc9697dca773381f005f174fb52d917dd18d2aa049f",
+		"bodySha256": "028f6b421d29340e448cb9aefc9424698b21a1fecb1a90cd7a8fb53b9406f965",
 		"source": "dashboard",
-		"savedAt": "2026-11-27T08:02:56.053Z"
+		"savedAt": "2026-11-27T08:10:41.444Z"
 	},
 	"reportPdfs": [
 		{
