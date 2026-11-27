@@ -1,0 +1,223 @@
+{
+	"slug": "2026-11-27-openai-matrix-nine-fourths",
+	"title": "행렬 곱셈은 어떻게 세제곱에서 2.25제곱까지 내려갔나",
+	"description": "기본 방식은 왜 n³번을 곱하는지, 슈트라센과 코퍼스미스·위노그라드를 거쳐 지수 상한이 어떻게 2.25까지 내려갔는지 설명합니다.",
+	"publishedAt": "2026-11-27T03:55:53.592Z",
+	"updatedAt": "2026-11-27T03:52:34.313+00:00",
+	"readingMinutes": 2,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-27-openai-matrix-nine-fourths/05f06647eccde96a93a729f3.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-27-openai-matrix-nine-fourths/05f06647eccde96a93a729f3.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-openai-matrix-nine-fourths/05f06647eccde96a93a729f3.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "행렬 곱셈의 지수는 3에서 2.25까지 낮아졌습니다.",
+			"caption": [
+				{
+					"text": "행렬 곱셈의 지수는 3에서 2.25까지 낮아졌습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "100×100 행렬 두 개를 곱하면 결과도 100×100입니다. 결과의 첫 칸은 첫 번째 행렬의 맨 윗줄과 두 번째 행렬의 맨 왼쪽 줄을 맞춰 계산합니다. 숫자 100쌍을 하나씩 곱한 뒤 더하는 거죠. 이렇게 1만 칸을 채우면 곱셈만 100만 번입니다. 한 변이 n칸이면 결과 n²칸에 각각 곱셈 n번이라 n³입니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-openai-matrix-nine-fourths/a89b19d21ea7a08328114618.gif",
+			"width": 1080,
+			"height": 674,
+			"alt": "A의 행과 B의 열을 짝지어 곱한 뒤 더하면 결과의 한 칸이 됩니다.",
+			"caption": [
+				{
+					"text": "A의 행과 B의 열을 짝지어 곱한 뒤 더하면 결과의 한 칸이 됩니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "슈트라센은 곱셈 한 번을 덜 했습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "1969년 "
+				},
+				{
+					"text": "폴커 슈트라센",
+					"href": "https://doi.org/10.1007/BF02165411"
+				},
+				{
+					"text": "은 2×2 행렬 두 개를 곱할 때 곱셈 8번 대신 7번이면 된다는 걸 보였습니다. 덧셈과 뺄셈을 더 쓰는 대신 곱셈 하나를 아끼는 방법입니다. 큰 행렬도 네 덩어리로 쪼개서 같은 방법을 반복하면 지수가 3에서 약 2.807로 내려갑니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-openai-matrix-nine-fourths/f911be44af0e1f203065f577.gif",
+			"width": 1080,
+			"height": 674,
+			"alt": "4×4 행렬의 곱셈만 세면 기본 방식은 64번, 슈트라센은 49번입니다.",
+			"caption": [
+				{
+					"text": "4×4 행렬의 곱셈만 세면 기본 방식은 64번, 슈트라센은 49번입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "코퍼스미스와 위노그라드",
+					"href": "https://doi.org/10.1137/0211038"
+				},
+				{
+					"text": "는 1982년 논문에서 지수를 약 2.496까지 낮췄습니다. 두 사람은 "
+				},
+				{
+					"text": "1990년 논문",
+					"href": "https://doi.org/10.1016/S0747-7171(08)80013-2"
+				},
+				{
+					"text": "에서 약 2.376까지 줄였어요. 그 뒤 "
+				},
+				{
+					"text": "조시 앨먼 연구팀",
+					"href": "https://arxiv.org/abs/2404.16349v1"
+				},
+				{
+					"text": "은 2024년에 2.371339 미만, "
+				},
+				{
+					"text": "에밀리앵 뒤퐁 연구팀",
+					"href": "https://arxiv.org/abs/2608.16884"
+				},
+				{
+					"text": "은 2026년 8월에 2.371177 미만을 보였습니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "OpenAI는 이론상 지수를 2.25까지 낮췄습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "OpenAI의 10월 2일자 논문",
+					"href": "https://github.com/openai/math/blob/main/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026/paper.pdf"
+				},
+				{
+					"text": "은 복소수로 된 정사각 행렬의 곱셈을 다룹니다. 다항식 곱셈과의 관계를 이용해, 행렬이 커질 때 필요한 연산 횟수를 n의 2.25제곱에 얼마든지 가깝게 맞출 수 있다고 보였습니다. 예를 들어 2.26제곱은 가능하다는 뜻이지, 정확히 2.25제곱으로 계산하는 방법까지 제시한 건 아닙니다. 10월 27일에는 "
+				},
+				{
+					"text": "아미르 슈필카",
+					"href": "https://eccc.weizmann.ac.il/report/2026/281/"
+				},
+				{
+					"text": "가 같은 결과를 다른 방식으로 증명하고 구체적인 알고리즘도 제시했습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-openai-matrix-nine-fourths/9827f649f256c530dc4d8e93.gif",
+			"width": 1080,
+			"height": 674,
+			"alt": "다항식의 계수에 가중치를 주면 묶음을 잇는 두 항에만 ε가 붙습니다. ε를 0으로 보내면 세 묶음이 남습니다(OpenAI, 10월 2일 논문 그림 1).",
+			"caption": [
+				{
+					"text": "다항식의 계수에 가중치를 주면 묶음을 잇는 두 항에만 ε가 붙습니다. ε를 0으로 보내면 세 묶음이 남습니다(OpenAI, 10월 2일 논문 그림 1)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "11월 24일자 후속 논문",
+					"href": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf"
+				},
+				{
+					"text": "에서 OpenAI는 덧셈이나 곱셈 같은 연산을 조합하는 ‘산술 회로’에서는 지수를 2.25보다 더 낮출 수 없다고 주장했습니다. 10월 논문은 2.25까지 내려갈 수 있다는 쪽, 11월 논문은 그 아래로는 못 내려간다는 쪽입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "이 논문은 행렬이 커질 때 연산 횟수가 얼마나 늘어나는지를 다룹니다. 실제 GPU에서 얼마나 빨라지는지, 어느 크기부터 기존 방식보다 빠른지는 확인하지 않았습니다."
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "행렬 곱셈의 지수는 3에서 2.25까지 낮아졌습니다.",
+			"url": "/blog/2026-11-27-openai-matrix-nine-fourths/05f06647eccde96a93a729f3.png"
+		},
+		{
+			"kind": "gif",
+			"caption": "A의 행과 B의 열을 짝지어 곱한 뒤 더하면 결과의 한 칸이 됩니다.",
+			"url": "/blog/2026-11-27-openai-matrix-nine-fourths/a89b19d21ea7a08328114618.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "A의 행과 B의 열을 짝지어 곱한 뒤 더하면 결과의 한 칸이 됩니다.",
+			"url": "/blog/2026-11-27-openai-matrix-nine-fourths/b56c311316246000f7039cc5.mp4"
+		},
+		{
+			"kind": "gif",
+			"caption": "4×4 행렬의 곱셈만 세면 기본 방식은 64번, 슈트라센은 49번입니다.",
+			"url": "/blog/2026-11-27-openai-matrix-nine-fourths/f911be44af0e1f203065f577.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "4×4 행렬의 곱셈만 세면 기본 방식은 64번, 슈트라센은 49번입니다.",
+			"url": "/blog/2026-11-27-openai-matrix-nine-fourths/8f06036b6df580e09b15c50d.mp4"
+		},
+		{
+			"kind": "gif",
+			"caption": "다항식의 계수에 가중치를 주면 묶음을 잇는 두 항에만 ε가 붙습니다. ε를 0으로 보내면 세 묶음이 남습니다(OpenAI, 10월 2일 논문 그림 1).",
+			"url": "/blog/2026-11-27-openai-matrix-nine-fourths/9827f649f256c530dc4d8e93.gif"
+		},
+		{
+			"kind": "mp4",
+			"caption": "다항식의 계수에 가중치를 주면 묶음을 잇는 두 항에만 ε가 붙습니다. ε를 0으로 보내면 세 묶음이 남습니다(OpenAI, 10월 2일 논문 그림 1).",
+			"url": "/blog/2026-11-27-openai-matrix-nine-fourths/d1fa30f3916b95a5cb92e6ae.mp4"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-27-openai-matrix-nine-fourths",
+		"bodySha256": "292579198c0df48a20bc8821d2c079d8078fc2fc53fa69e1eaded29381753225",
+		"source": "dashboard",
+		"savedAt": "2026-11-27T03:52:34.313+00:00"
+	}
+}
