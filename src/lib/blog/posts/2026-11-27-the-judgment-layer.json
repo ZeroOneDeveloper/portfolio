@@ -1,0 +1,249 @@
+{
+	"slug": "2026-11-27-the-judgment-layer",
+	"title": "Anthropic 마케터와 디자이너가 Claude에게 맡기지 않는 일",
+	"description": "오스틴 라우는 검색광고를 준비하는 시간을 30분에서 30초로 줄였지만, 내보낼 문구는 여전히 직접 골랐습니다. Anthropic의 디자이너와 마케터 사례를 바탕으로 쓴 칼럼입니다.",
+	"publishedAt": "2026-11-27T07:45:31.467Z",
+	"updatedAt": "2026-11-27T07:52:09.418+00:00",
+	"readingMinutes": 3,
+	"tags": [],
+	"cover": {
+		"src": "/blog/2026-11-27-the-judgment-layer/95108f746d4f8f169bcfbb85.png",
+		"width": 1600,
+		"height": 900,
+		"thumb": {
+			"src": "/blog/2026-11-27-the-judgment-layer/95108f746d4f8f169bcfbb85.png",
+			"width": 1600,
+			"height": 900
+		}
+	},
+	"blocks": [
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-the-judgment-layer/95108f746d4f8f169bcfbb85.png",
+			"width": 1600,
+			"height": 900,
+			"alt": "송찬우가 Anthropic의 공개 인터뷰와 캠페인 사례를 바탕으로 쓴 독립 리포트 The Judgment Layer.",
+			"caption": [
+				{
+					"text": "송찬우가 Anthropic의 공개 인터뷰와 캠페인 사례를 바탕으로 쓴 독립 리포트 The Judgment Layer."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Anthropic의 그로스 마케터 오스틴 라우는 Claude Code를 처음 쓸 때 터미널을 여는 법부터 검색했습니다. 코드를 써 본 적이 없었던 그가 일주일 뒤에는 피그마에서 광고 시안을 한 번에 여러 개 만드는 플러그인과 구글 검색광고 문구를 준비하는 도구를 만들었었습니다. "
+				},
+				{
+					"text": "Anthropic이 공개한 사례",
+					"href": "https://claude.com/resources/articles/how-anthropic-uses-claude-marketing"
+				},
+				{
+					"text": "에서 광고 한 건을 준비하는 시간은 30분에서 30초로 줄었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "제가 궁금했던 건 이 팀이 어디까지 맡겼느냐였습니다. 광고 문구를 뽑아내는 시간은 줄었는데, 어떤 문구를 실제로 집행할지는 누가 정할까요. Anthropic의 디자이너와 마케터가 공개 인터뷰와 캠페인에서 보여 준 작업 방식을 모아 독립 리포트 "
+				},
+				{
+					"text": "The Judgment Layer",
+					"bold": true
+				},
+				{
+					"text": "를 썼습니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "광고를 준비하는 시간은 줄었지만, 검토는 남았습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "라우가 Claude Code에 캠페인 데이터, 기존 문구, 키워드를 주면 Claude는 브랜드 말투와 제품 설명에 관한 기준을 참고해 초안을 만듭니다. 이 기준에 들어간 예시는 제품 마케팅 팀과 카피라이팅 팀이 함께 썼어요. 어떤 제목이 고객에게 와닿고 경쟁사와도 구분되는지는 라우가 봅니다. 문구가 정해지면 Claude가 구글 광고에 올릴 파일을 만들고, 집행 전에는 사람이 한 번 더 확인합니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-the-judgment-layer/2011904526d191cd07e2e7c5.png",
+			"width": 746,
+			"height": 348,
+			"alt": "오스틴 라우의 검색광고 작업. 마젠타는 사람이 맡은 단계, 파란색은 Claude가 맡은 단계입니다 (The Judgment Layer, 9쪽).",
+			"caption": [
+				{
+					"text": "오스틴 라우의 검색광고 작업. 마젠타는 사람이 맡은 단계, 파란색은 Claude가 맡은 단계입니다 (The Judgment Layer, 9쪽)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "슈퍼볼 광고에서는 무엇을 말할지 정하는 일이 먼저였습니다. "
+				},
+				{
+					"text": "클리오 어워즈 출품 자료",
+					"href": "https://clios.com/winners-gallery/details/225072"
+				},
+				{
+					"text": "에 따르면, 캠페인 전 Claude의 인지도는 17%, 업계 1위는 95%였습니다. 이때 Anthropic이 내건 건 모델 성능이 아니라 "
+				},
+				{
+					"text": "Claude 대화에 광고를 넣지 않겠다는 약속",
+					"href": "https://www.anthropic.com/news/claude-is-a-space-to-think"
+				},
+				{
+					"text": "이었어요. 광고에서는 AI가 진지하게 답변하다가 갑자기 상품을 권하는 장면으로 그 차이를 보여 줬습니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "제니 웬은 엔지니어와 함께 구현하는 데 시간을 더 씁니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Claude의 디자인을 맡은 제니 웬은 "
+				},
+				{
+					"text": "3월 Lenny’s Podcast 인터뷰",
+					"href": "https://www.lennysnewsletter.com/p/the-design-process-is-dead"
+				},
+				{
+					"text": "에서 몇 년 전에는 화면 시안과 프로토타입을 만드는 데 시간의 60~70%를 썼지만, 지금은 30~40% 정도라고 말했습니다. 팀 전체를 잰 수치는 아닙니다. 웬은 그만큼 엔지니어와 함께 코드를 보거나, 일부 기능은 직접 만들어 배포하는 데 시간을 쓴다고 했어요."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "피그마에서 멀쩡해 보인 버튼도 실제 앱의 작은 화면에서는 글자가 두 줄로 밀릴 수 있습니다. 시안을 한 장 더 그리기보다, 이미 돌아가는 화면에서 개발자와 함께 문제를 보고 고치는 편이 더 빠를 때가 있어요."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "결과물이 나온 대화에서는 사실 확인이 더 드물었습니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "Anthropic의 AI 유창성 연구",
+					"href": "https://academy.claude.com/tutorials/the-ai-fluency-index"
+				},
+				{
+					"text": "는 2026년 1월 Claude.ai 대화 9,830건을 분석했습니다. 코드나 문서 같은 결과물이 만들어진 대화에서는 빠진 맥락을 짚는 행동이 5.2%p, 사실 확인은 3.7%p, Claude의 추론을 따져 묻는 행동은 3.1%p 덜 나타났습니다."
+				}
+			]
+		},
+		{
+			"type": "image",
+			"src": "/blog/2026-11-27-the-judgment-layer/312aaeb26766baf7a10abb13.png",
+			"width": 809,
+			"height": 496,
+			"alt": "결과물이 만들어진 대화에서 빠진 맥락 지적은 5.2%p, 사실 확인은 3.7%p, 추론을 따져 묻는 행동은 3.1%p 더 드물었습니다 (The Judgment Layer, 14쪽; Anthropic AI Fluency Index).",
+			"caption": [
+				{
+					"text": "결과물이 만들어진 대화에서 빠진 맥락 지적은 5.2%p, 사실 확인은 3.7%p, 추론을 따져 묻는 행동은 3.1%p 더 드물었습니다 (The Judgment Layer, 14쪽; Anthropic AI Fluency Index)."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "그럴듯한 화면이 검증을 줄였다고 단정할 수는 없습니다. 연구진은 누군가 대화창을 닫고 코드를 직접 돌려 봤는지, 동료에게 검토를 부탁했는지까지는 알 수 없었어요. 그래도 파일을 받았다는 것과 그 파일을 내보내도 된다는 건 구분할 필요가 있습니다."
+				}
+			]
+		},
+		{
+			"type": "h2",
+			"spans": [
+				{
+					"text": "다음 작업에서 한 가지를 바꾼다면"
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "광고 시안을 열 개 뽑아 달라고 하기 전에 누구에게 보여 줄지, 무엇을 알리고 싶은지, 어떤 문구는 그대로 내보내면 안 되는지부터 적어 볼 수 있습니다. 팀이 이미 잘 쓴 문구 한두 개가 있으면 예시로 주고요. 그다음 세 개를 남겨 왜 골랐는지 적어 보면, 막연했던 기준 중 다음 작업에도 쓸 만한 것이 보입니다."
+				}
+			]
+		},
+		{
+			"type": "p",
+			"spans": [
+				{
+					"text": "리포트에서는 이 일을 다섯 가지로 나눴습니다. 무엇을 만들지 정하고, 취향을 예시와 기준으로 남기고, 나온 것 중에 고를 줄 아는 일. 반복 작업에는 도구를 만들고, 판단에 필요한 맥락은 인터뷰나 현장에서 가져오는 일입니다. Claude가 시안을 더 빨리 만들수록, 우리 팀이 무엇을 보고 통과시켰는지도 같이 기록해 두면 좋겠습니다."
+				}
+			]
+		}
+	],
+	"media": [
+		{
+			"kind": "image",
+			"caption": "송찬우가 Anthropic의 공개 인터뷰와 캠페인 사례를 바탕으로 쓴 독립 리포트 The Judgment Layer.",
+			"url": "/blog/2026-11-27-the-judgment-layer/95108f746d4f8f169bcfbb85.png"
+		},
+		{
+			"kind": "image",
+			"caption": "오스틴 라우의 검색광고 작업. 마젠타는 사람이 맡은 단계, 파란색은 Claude가 맡은 단계입니다 (The Judgment Layer, 9쪽).",
+			"url": "/blog/2026-11-27-the-judgment-layer/2011904526d191cd07e2e7c5.png"
+		},
+		{
+			"kind": "image",
+			"caption": "결과물이 만들어진 대화에서 빠진 맥락 지적은 5.2%p, 사실 확인은 3.7%p, 추론을 따져 묻는 행동은 3.1%p 더 드물었습니다 (The Judgment Layer, 14쪽; Anthropic AI Fluency Index).",
+			"url": "/blog/2026-11-27-the-judgment-layer/312aaeb26766baf7a10abb13.png"
+		}
+	],
+	"provenance": {
+		"dashboardId": "2026-11-27-the-judgment-layer",
+		"bodySha256": "cdb302bfb6dcc839dafe9005798e5d5c225bc17728d5e1ec45bae2c71c88796f",
+		"source": "dashboard",
+		"savedAt": "2026-11-27T07:52:09.418+00:00"
+	},
+	"reportPdfs": [
+		{
+			"language": "ko",
+			"src": "/blog/2026-11-27-the-judgment-layer/the-judgment-layer-ko.pdf",
+			"pagePrefix": "/blog/2026-11-27-the-judgment-layer/report/ko-",
+			"pages": 18,
+			"width": 1600,
+			"height": 900
+		},
+		{
+			"language": "en",
+			"src": "/blog/2026-11-27-the-judgment-layer/the-judgment-layer-en.pdf",
+			"pagePrefix": "/blog/2026-11-27-the-judgment-layer/report/en-",
+			"pages": 18,
+			"width": 1600,
+			"height": 900
+		}
+	]
+}

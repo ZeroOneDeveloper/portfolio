@@ -63,8 +63,13 @@ export async function importDashboard(p, root=ROOT, publishedAt=p.published_at) 
  const media=[];for(const m of p.media||[])media.push({kind:m.kind,caption:m.caption,url:await asset(m.url||m.path)});
  const first=blocks.find(b=>b.type==='image');const coverSrc=p.cover_url?await asset(p.cover_url):first?.src;
  const cover=coverSrc?{src:coverSrc,width:first?.width||1600,height:first?.height||900,thumb:{src:coverSrc,width:first?.width||1600,height:first?.height||900}}:undefined;
+ const target=path.join(root,'src/lib/blog/posts',p.id+'.json');
+ // Reports and their page previews are added on the blog, not stored as dashboard figures.
+ const reportPdfs=fs.existsSync(target)?JSON.parse(fs.readFileSync(target,'utf8')).reportPdfs:undefined;
  const data={slug:p.id,title:p.title,description:p.summary||plain(p.body.find(b=>b.t==='p')?.runs).slice(0,200),publishedAt,updatedAt:p.body_synced_at||publishedAt,readingMinutes:Math.max(1,Math.ceil(JSON.stringify(p.body).length/1500)),tags:[],cover,blocks,media,provenance:{dashboardId:p.id,bodySha256:hash(JSON.stringify(p.body)),source:'dashboard',savedAt:p.body_synced_at}};
- fs.mkdirSync(path.join(root,'src/lib/blog/posts'),{recursive:true});fs.writeFileSync(path.join(root,'src/lib/blog/posts',p.id+'.json'),JSON.stringify(data,null,'\t')+'\n');
+ if(reportPdfs?.length)data.reportPdfs=reportPdfs;
+ fs.mkdirSync(path.dirname(target),{recursive:true});
+ fs.writeFileSync(target,JSON.stringify(data,null,'\t')+'\n');
  return {id:p.id,title:p.title,blocks:blocks.length,assets,bodySha256:data.provenance.bodySha256};
 }
 if(process.argv[1]===fileURLToPath(import.meta.url)){

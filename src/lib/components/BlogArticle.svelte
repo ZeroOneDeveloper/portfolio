@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BlogNotice from './BlogNotice.svelte';
+	import BlogPdfReader from './BlogPdfReader.svelte';
 	import type { articleData } from '$lib/server/blog-pages';
 	import Icon from '$lib/components/Icon.svelte';
 
@@ -134,6 +135,14 @@
 				<span aria-hidden="true">·</span>
 				<span>{post.readingMinutes}{language === 'ko' ? '분 분량' : ' min read'}</span>
 			</p>
+			{#if data.reportPdfs.length}
+				<a
+					href="#report-pdf"
+					class="link mt-3 inline-flex min-h-11 items-center text-small font-semibold text-ink"
+				>
+					{language === 'en' ? 'View the original PDF ↓' : 'PDF 원본 보기 ↓'}
+				</a>
+			{/if}
 			<BlogNotice
 				unavailable={language === 'ko' && !data.sibling}
 				noindex={data.noindex}
@@ -147,6 +156,11 @@
 		>
 			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html data.html}
+			{#if data.reportPdfs.length}
+				{#key url}
+					<BlogPdfReader reports={data.reportPdfs} {language} />
+				{/key}
+			{/if}
 		</div>
 	</div>
 

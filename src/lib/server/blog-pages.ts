@@ -29,6 +29,7 @@ export function articleData(slug: string, language: Language) {
 		language,
 		post: summarize(post),
 		html: renderBlocks(post.blocks, { language }),
+		reportPdfs: post.reportPdfs ?? [],
 		newer: link(selected[index - 1]),
 		older: link(selected[index + 1]),
 		noindex: !!post.draft,

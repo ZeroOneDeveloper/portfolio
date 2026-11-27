@@ -64,6 +64,16 @@ export interface Picture {
 	height: number;
 }
 
+/** A downloadable original and its same-origin page previews. */
+export interface ReportPdf {
+	language: 'ko' | 'en';
+	src: string;
+	pagePrefix: string;
+	pages: number;
+	width: number;
+	height: number;
+}
+
 export interface Post {
 	language?: 'ko' | 'en';
 	draft?: boolean;
@@ -81,7 +91,8 @@ export interface Post {
 	/** The post's preview image on Medium, with a smaller copy for the list. */
 	cover?: Picture & { thumb: Picture };
 	blocks: Block[];
+	reportPdfs?: ReportPdf[];
 }
 
 /** What the pages show of a post besides its text. */
-export type PostSummary = Omit<Post, 'blocks' | 'mediumId' | 'mediumUrl'>;
+export type PostSummary = Omit<Post, 'blocks' | 'mediumId' | 'mediumUrl' | 'reportPdfs'>;
