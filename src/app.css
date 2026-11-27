@@ -167,6 +167,14 @@
 		@apply mt-3 text-small text-muted;
 	}
 
+	.article .figure-intrinsic img {
+		@apply mx-auto w-auto max-w-full;
+	}
+
+	.article .figure-intrinsic figcaption {
+		@apply text-center;
+	}
+
 	.article blockquote {
 		@apply border-l-2 border-ink pl-5 sm:pl-6;
 	}

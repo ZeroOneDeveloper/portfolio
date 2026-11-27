@@ -40,7 +40,7 @@ export async function importDashboard(p, root=ROOT, publishedAt=p.published_at) 
    case 'pre':blocks.push({type:'code',text:plain(b.runs),lang:b.lang});break;
    case 'ol':case 'ul':blocks.push({type:b.t,items:b.items.map(spans)});break;
    case 'figure':case 'video':{
-    const src=await asset(b.src);blocks.push({type:b.t==='video'?'video':'image',src,width:b.w||1600,height:b.h||900,alt:b.alt||plain(b.caption),caption:spans(b.caption),...(b.poster?{poster:await asset(b.poster)}:{})});break;
+    const src=await asset(b.src);blocks.push({type:b.t==='video'?'video':'image',src,width:b.w||1600,height:b.h||900,alt:b.alt||plain(b.caption),caption:spans(b.caption),...(b.t==='figure'&&b.intrinsic===true?{intrinsic:true}:{}),...(b.poster?{poster:await asset(b.poster)}:{})});break;
    }
    case 'table':blocks.push({type:'table',rows:b.rows.map(row=>row.map(spans)),header:!!b.header});break;
    case 'embed': {

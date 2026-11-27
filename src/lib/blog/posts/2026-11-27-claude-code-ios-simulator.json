@@ -84,7 +84,8 @@
 				{
 					"text": "Claude Code의 iPhone Duo 테스트 안내."
 				}
-			]
+			],
+			"intrinsic": true
 		}
 	],
 	"media": [
@@ -96,7 +97,7 @@
 	],
 	"provenance": {
 		"dashboardId": "2026-11-27-claude-code-ios-simulator",
-		"bodySha256": "a991eda67b2e09888a7ecc02f1f92c9d530478aba5b3d9375cfb2199bb7903f0",
+		"bodySha256": "2c93b70e3061c70b4c451f8059dc0f7655776e6af33fef667680881da66e53e3",
 		"source": "dashboard",
 		"savedAt": "2026-11-27T06:03:01.503+00:00"
 	}

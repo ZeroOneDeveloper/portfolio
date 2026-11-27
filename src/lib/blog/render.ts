@@ -72,7 +72,8 @@ function block(entry: Block, options: Options, index: number): string {
 		case 'image': {
 			// The first picture may be in the first view: it loads at once, the rest as they near.
 			const loading = index < 3 ? '' : ' loading="lazy"';
-			return `<figure><img src="${escape(address(entry.src, options) ?? '')}" width="${entry.width}" height="${entry.height}" alt="${escape(entry.alt)}"${loading} decoding="async">${caption(entry.caption, options)}</figure>`;
+			const sizing = entry.intrinsic ? ' class="figure-intrinsic"' : '';
+			return `<figure${sizing}><img src="${escape(address(entry.src, options) ?? '')}" width="${entry.width}" height="${entry.height}" alt="${escape(entry.alt)}"${loading} decoding="async">${caption(entry.caption, options)}</figure>`;
 		}
 		case 'video': {
 			const src = escape(address(entry.src, options) ?? '');

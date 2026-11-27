@@ -25,6 +25,8 @@ export type Block =
 			height: number;
 			alt: string;
 			caption?: Span[];
+			/** Keep a small screenshot at its natural size instead of filling the column. */
+			intrinsic?: true;
 	  }
 	| {
 			/** An animated GIF on Medium, here a muted, looping MP4. */
